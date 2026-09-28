@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>01 封面：随机变量、期望与不等式 · 第2讲 · 高等概率论逐页精讲</title>
+<meta name="description" content="高等概率论课件逐页中文精讲：课件原页对照、零基础补课、公式推导、老师板书解读、例子与自测。">
+<link rel="stylesheet" href="../assets/katex/katex.min.css">
+<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="prefetch" href="p02.html">
+<link rel="prefetch" href="../assets/slides/topic2/p02.webp" as="image">
+<script>try{var s=localStorage.getItem("apt-font-scale");if(s)document.documentElement.style.setProperty("--font-scale",s);if(localStorage.getItem("apt-layout")==="focus")document.documentElement.classList.add("focus-mode");}catch(e){}</script>
+</head>
+<body class="page-reader">
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <button class="tool-btn" id="toc-toggle" type="button" aria-label="打开本讲目录"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg><span>目录</span></button>
+    <a class="brand" href="../index.html">高等概率论<span>逐页精讲</span></a>
+    <nav class="topnav" aria-label="讲次"><a href="../topic1/index.html">第 1 讲</a><a href="../topic2/index.html" aria-current="page">第 2 讲</a><a href="../topic3/index.html">第 3 讲</a><a href="../basics.html">基础补课</a><a href="../glossary.html">术语表</a></nav>
+    <div class="tools">
+      <button class="tool-btn" id="search-open" type="button" aria-label="搜索"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><span>搜索</span></button>
+      <button class="tool-btn" id="layout-toggle" type="button" aria-pressed="false" title="隐藏 / 显示左侧课件原页"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4z"/><path d="M12 5v14"/></svg><span class="layout-label">专注阅读</span></button>
+      <div class="font-tools" role="group" aria-label="字号"><button class="tool-btn" id="font-down" type="button" aria-label="缩小字号">A−</button><button class="tool-btn" id="font-up" type="button" aria-label="放大字号">A+</button></div>
+    </div>
+  </div>
+  <div class="read-progress" aria-hidden="true"><span></span></div>
+</header>
+<div class="reader">
+<aside class="toc" id="toc" aria-label="本讲目录">
+  <div class="toc-head"><a href="index.html">第 2 讲 · 随机变量、期望与不等式</a><p class="toc-progress" data-topic="topic2" data-total="32">已看懂 <b>0</b> / 32 页</p></div>
+  <section class="toc-section"><h2>开篇</h2><ol><li class="current" data-page="1"><a href="p01.html" aria-current="page"><span class="toc-num">01</span><span class="toc-title">封面：随机变量、期望与不等式</span></a></li><li data-page="2"><a href="p02.html"><span class="toc-num">02</span><span class="toc-title">本讲目标：学完要会什么</span></a></li><li data-page="3"><a href="p03.html"><span class="toc-num">03</span><span class="toc-title">目录：五个部分如何一环扣一环</span></a></li></ol></section>
+<section class="toc-section"><h2>第 1 部分　随机变量、分布与期望</h2><ol><li class="pending" data-page="4"><a href="p04.html"><span class="toc-num">04</span><span class="toc-title">随机变量是可测映射</span></a></li><li class="pending" data-page="5"><a href="p05.html"><span class="toc-num">05</span><span class="toc-title">期望就是对 P 的勒贝格积分</span></a></li><li class="pending" data-page="6"><a href="p06.html"><span class="toc-num">06</span><span class="toc-title">分布是推前概率测度</span></a></li><li class="pending" data-page="7"><a href="p07.html"><span class="toc-num">07</span><span class="toc-title">期望可以对分布积分（无意识统计学家定律）</span></a></li></ol></section>
+<section class="toc-section"><h2>第 2 部分　用 CDF 计算期望</h2><ol><li class="pending" data-page="8"><a href="p08.html"><span class="toc-num">08</span><span class="toc-title">CDF 记录了整个分布</span></a></li><li class="pending" data-page="9"><a href="p09.html"><span class="toc-num">09</span><span class="toc-title">CDF 的增量给出勒贝格积分</span></a></li><li class="pending" data-page="10"><a href="p10.html"><span class="toc-num">10</span><span class="toc-title">用分部积分从 CDF 直接计算</span></a></li><li class="pending" data-page="11"><a href="p11.html"><span class="toc-num">11</span><span class="toc-title">截断随机变量的期望</span></a></li><li class="pending" data-page="12"><a href="p12.html"><span class="toc-num">12</span><span class="toc-title">正负两侧的尾部决定均值</span></a></li><li class="pending" data-page="13"><a href="p13.html"><span class="toc-num">13</span><span class="toc-title">混合型 CDF：跳跃与区间积分各贡献一部分</span></a></li><li class="pending" data-page="14"><a href="p14.html"><span class="toc-num">14</span><span class="toc-title">逆变换法可以构造任何实值分布</span></a></li><li class="pending" data-page="15"><a href="p15.html"><span class="toc-num">15</span><span class="toc-title">由均匀分布生成指数分布</span></a></li><li class="pending" data-page="16"><a href="p16.html"><span class="toc-num">16</span><span class="toc-title">分位数能准确看出哪些矩存在（Pareto）</span></a></li><li class="pending" data-page="17"><a href="p17.html"><span class="toc-num">17</span><span class="toc-title">绝对连续正是存在密度的条件</span></a></li><li class="pending" data-page="18"><a href="p18.html"><span class="toc-num">18</span><span class="toc-title">康托尔集及其二进编码</span></a></li><li class="pending" data-page="19"><a href="p19.html"><span class="toc-num">19</span><span class="toc-title">连续的 CDF 不一定有密度（康托尔分布）</span></a></li><li class="pending" data-page="20"><a href="p20.html"><span class="toc-num">20</span><span class="toc-title">实值分布的三种质量</span></a></li></ol></section>
+<section class="toc-section"><h2>第 3 部分　尾部、有限矩与 Lp 空间</h2><ol><li class="pending" data-page="21"><a href="p21.html"><span class="toc-num">21</span><span class="toc-title">每个正阶矩都是尾概率的积分</span></a></li><li class="pending" data-page="22"><a href="p22.html"><span class="toc-num">22</span><span class="toc-title">Lp 空间</span></a></li></ol></section>
+<section class="toc-section"><h2>第 4 部分　变换、乘积与和的界</h2><ol><li class="pending" data-page="23"><a href="p23.html"><span class="toc-num">23</span><span class="toc-title">凸函数处处有支撑线</span></a></li><li class="pending" data-page="24"><a href="p24.html"><span class="toc-num">24</span><span class="toc-title">对支撑线取期望得到 Jensen 不等式</span></a></li><li class="pending" data-page="25"><a href="p25.html"><span class="toc-num">25</span><span class="toc-title">Lp 空间的单调性</span></a></li><li class="pending" data-page="26"><a href="p26.html"><span class="toc-num">26</span><span class="toc-title">Hölder 不等式是归一化的 Young 不等式</span></a></li><li class="pending" data-page="27"><a href="p27.html"><span class="toc-num">27</span><span class="toc-title">Minkowski 不等式（p &gt; 1）</span></a></li></ol></section>
+<section class="toc-section"><h2>第 5 部分　用矩控制概率</h2><ol><li class="pending" data-page="28"><a href="p28.html"><span class="toc-num">28</span><span class="toc-title">用矩控制事件的概率</span></a></li><li class="pending" data-page="29"><a href="p29.html"><span class="toc-num">29</span><span class="toc-title">广义 Markov 不等式</span></a></li><li class="pending" data-page="30"><a href="p30.html"><span class="toc-num">30</span><span class="toc-title">有限矩与尾部衰减</span></a></li><li class="pending" data-page="31"><a href="p31.html"><span class="toc-num">31</span><span class="toc-title">尾部衰减更快也不一定有有限矩</span></a></li><li class="pending" data-page="32"><a href="p32.html"><span class="toc-num">32</span><span class="toc-title">Cantelli 单侧不等式</span></a></li></ol></section>
+</aside>
+<div class="toc-scrim" id="toc-scrim" hidden></div>
+<main id="main" class="reader-main" data-topic="topic2" data-page="1" data-prev="" data-next="p02.html">
+  <header class="page-head">
+    <p class="crumbs"><a href="index.html">第 2 讲 随机变量、期望与不等式</a><span>›</span>开篇</p>
+    <div class="badges"><span class="badge">PDF 第 1 / 32 页</span><span class="badge">幻灯片 1/33</span><span class="badge badge-kind">封面</span></div>
+    <h1>封面：随机变量、期望与不等式</h1>
+    <p class="title-en" lang="en">Random Variables, Expectation, and Inequalities</p>
+    <nav class="chips" aria-label="本页小标题"><span class="chips-label">本页小标题</span><a href="#s1">这一页在讲什么</a><a href="#s2">先补基础</a><a href="#s3">课件原文逐句精读</a><a href="#s7">关于这一讲的课件</a><a href="#s8">小结</a></nav>
+  </header>
+  <div class="split">
+    <figure class="slide-pane">
+      <button class="slide-zoom" type="button" data-full="../assets/slides/topic2/p01.webp" aria-label="放大查看课件原页">
+        <img src="../assets/slides/topic2/p01.webp" width="1600" height="1280" alt="课件第 1 页：Random Variables, Expectation, and Inequalities" decoding="async" fetchpriority="high">
+      </button>
+      <figcaption>课件原页 · 点击放大 · ← → 键翻页</figcaption>
+    </figure>
+    <article class="notes prose" id="notes">
+<h2 id="s1">这一页在讲什么</h2>
+<section class="box box-idea"><header class="box-head"><span class="box-kind">人话版</span><span class="box-title">一句话版</span></header><div class="box-body">
+<p>第 1 讲造好了两件工具：给集合「称重量」的<strong>测度</strong>，和把函数「加权求和」的<strong>勒贝格积分</strong>。第 2 讲把它们用到概率上：<strong>随机变量就是可测函数，期望就是对概率测度的积分</strong>。然后学会两件本领：用分布函数把期望<strong>算出来</strong>，用各种不等式把期望和概率<strong>估出来</strong>。</p>
+</div></section>
+<p>这是第 2 讲的封面。蓝条上的英文标题 <em>Random Variables, Expectation, and Inequalities</em> 直译是「随机变量、期望与不等式」，正好是本讲的三个关键词；下面的 <em>Topic 2</em> 表示「第 2 讲」。右下角的 <code>1/33</code> 是幻灯片编号（共 33 张）；本站收录的 PDF 一共 32 页，逐页对应编号 1–32。</p>
+<h2 id="s2">先补基础</h2>
+<section class="box box-basics"><header class="box-head"><span class="box-kind">基础补课</span><span class="box-title">第 1 讲留下了哪些东西（本讲会反复用到）</span></header><div class="box-body">
+<ul>
+<li><strong>概率空间</strong> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">Ω</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathcal" style="margin-right:0.09931em;">F</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathbb">P</span><span class="mclose">)</span><span class="cjk-punct">：</span></span></span></span><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">Ω</span></span></span></span> 是所有可能结局组成的集合（样本空间），<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathcal" style="margin-right:0.09931em;">F</span></span></span></span> 是「允许谈论概率的事件」的清单（σ-代数，见 <a class="page-link" href="../topic1/p09.html">σ-代数</a>），<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6889em;"></span><span class="mord mathbb">P</span></span></span></span> 给清单里的每个事件指定一个 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span> 到 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> 之间的概率（见 <a class="page-link" href="../topic1/p12.html">测度空间</a>）。</li>
+<li><strong>可测函数</strong>：函数 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span></span></span></span> 满足「对每个实数 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span><span class="cjk-punct">，</span></span></span></span>集合 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">a</span><span class="mclose">}</span></span></span></span> 都在清单里」（见 <a class="page-link" href="../topic1/p29.html">可测函数</a>）。本讲第一页就会说：随机变量正是这种函数。</li>
+<li><strong>勒贝格积分</strong> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1111em;vertical-align:-0.3061em;"></span><span class="mop op-symbol small-op" style="margin-right:0.19445em;position:relative;top:-0.0006em;">∫</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathrm">d</span><span class="mord mathnormal">μ</span><span class="cjk-punct">：</span></span></span></span>先对「台阶函数」（简单函数）定义积分，再从下方逼近推广到一般的非负函数（见 <a class="page-link" href="../topic1/p33.html">非负函数的积分</a>）。本讲会说：期望正是这种积分。</li>
+<li><strong>三大收敛定理</strong>：单调收敛定理 MCT（<a class="page-link" href="../topic1/p36.html">MCT</a>）、Fatou 引理（<a class="page-link" href="../topic1/p41.html">Fatou</a>）、控制收敛定理 DCT（<a class="page-link" href="../topic1/p44.html">DCT</a>）。它们告诉我们「极限」和「积分」什么时候可以交换顺序。本讲几乎每个证明都要用它们。</li>
+</ul>
+</div></section>
+<h2 id="s3">课件原文逐句精读</h2>
+<section class="box box-original"><header class="box-head"><span class="box-kind">课件原文</span><span class="box-title">封面</span></header><div class="box-body">
+<p>Random Variables, Expectation, and Inequalities</p>
+<p>Topic 2</p>
+</div></section>
+<section class="box box-zh"><header class="box-head"><span class="box-kind">中文翻译</span></header><div class="box-body">
+<p>随机变量、期望与不等式</p>
+<p>第 2 讲</p>
+</div></section>
+<h3 id="s4">Random Variables｜随机变量</h3>
+<p>中学里说「随机变量是取值随机的量」。这一讲要把这句话说准确：随机变量是一个<strong>函数</strong> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">Ω</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6889em;"></span><span class="mord mathbb">R</span><span class="cjk-punct">，</span></span></span></span>它把每个结局 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">ω</span></span></span></span> 翻译成一个数 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">ω</span><span class="mclose">)</span><span class="cjk-punct">；</span></span></span></span>函数本身是确定的，随机性只来自「哪个 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">ω</span></span></span></span> 被实现」。为了能谈 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathbb">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">3</span><span class="mclose">)</span></span></span></span> 这类概率，还要求它<strong>可测</strong>（第 <a class="page-link" href="p04.html" title="随机变量是可测映射">第 4 页</a> 页）。</p>
+<h3 id="s5">Expectation｜期望</h3>
+<p>中学里期望是「取值 × 概率，再求和」，或者「<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1111em;vertical-align:-0.3061em;"></span><span class="mop op-symbol small-op" style="margin-right:0.19445em;position:relative;top:-0.0006em;">∫</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">x</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathrm">d</span><span class="mord mathnormal">x</span><span class="cjk-punct">」。</span></span></span></span>这两个公式各管一种情形（离散、有密度），遇到「既有跳跃又有连续部分」的随机变量就不够用了。这一讲把期望统一定义成<strong>对 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6889em;"></span><span class="mord mathbb">P</span></span></span></span> 的勒贝格积分</strong>（第 <a class="page-link" href="p05.html" title="期望就是对 P 的勒贝格积分">第 5 页</a> 页），再推出一整套<strong>只用分布函数（CDF）就能算期望</strong>的公式（第 8–13 页）。</p>
+<h3 id="s6">Inequalities｜不等式</h3>
+<p>很多时候我们算不出精确的期望或概率，只能<strong>估计</strong>它们的大小。例如「平均值是 50，那么超过 100 的概率最多是多少？」。本讲后半部分给出一系列不等式：Jensen、Hölder、Minkowski（估计期望），Markov、Chebyshev、Cantelli（用期望估计概率）。</p>
+<h2 id="s7">关于这一讲的课件</h2>
+<section class="box box-note"><header class="box-head"><span class="box-kind">补充</span><span class="box-title">课件是「课堂空白版」</span></header><div class="box-body">
+<p>第 2 讲的 PDF 每页只印了标题、「Definition 4」「Theorem 9」这样的标签和少量设定文字，定义、定理、证明的正文都留白，由老师上课现场手写。我们没有手写版，所以本站在每页的「<strong>补全课件留白</strong>」一节里，按标准教材（Durrett、Billingsley、Williams）把留白处完整补写出来，记号与课件保持一致。如与老师课堂写法不同，以老师为准。</p>
+</div></section>
+<h2 id="s8">小结</h2>
+<section class="box box-sum"><header class="box-head"><span class="box-kind">小结</span><span class="box-title">本页小结</span></header><div class="box-body">
+<ul>
+<li>本讲三个关键词：随机变量（可测函数）、期望（对 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6889em;"></span><span class="mord mathbb">P</span></span></span></span> 的积分）、不等式（估计期望与概率）。</li>
+<li>本讲大量使用第 1 讲的工具：σ-代数、可测函数、勒贝格积分、MCT / Fatou / DCT。</li>
+<li>课件是空白版，每页的「补全课件留白」一节是本站补写的完整内容。</li>
+</ul>
+</div></section>
+
+    </article>
+  </div>
+  <footer class="page-foot">
+    <label class="done-toggle"><input type="checkbox" id="done-box" data-topic="topic2" data-page="1"><span>这一页我看懂了</span></label>
+    <nav class="pager" aria-label="翻页">
+    <span></span>
+    <a class="pager-next" rel="next" href="p02.html"><small>下一页 · 02 →</small><span>本讲目标：学完要会什么</span></a>
+  </nav>
+  </footer>
+</main>
+</div>
+<div class="lightbox" id="lightbox" hidden><button class="lightbox-close" type="button" aria-label="关闭">关闭 ✕</button><div class="lightbox-stage"><img alt=""></div><p class="lightbox-hint">点击图片放大 / 缩小 · Esc 关闭</p></div>
+<div class="term-pop" id="term-pop" role="tooltip" hidden></div>
+<div class="search-panel" id="search-panel" hidden>
+  <div class="search-box" role="dialog" aria-label="搜索讲义">
+    <input id="search-input" type="search" placeholder="搜索：σ-代数、外测度、Fatou、单调收敛……" autocomplete="off">
+    <ol id="search-results" class="search-results"></ol>
+    <p class="search-hint">↑↓ 选择 · Enter 打开 · Esc 关闭</p>
+  </div>
+</div>
+<script type="application/json" id="page-data">{"terms":{},"topic":"topic2","page":1}</script>
+<script src="../assets/js/site.js" defer></script>
+<script src="../assets/js/demos.js" defer></script>
+</body>
+</html>

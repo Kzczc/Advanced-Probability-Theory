@@ -1,0 +1,12 @@
+node_modules/
+.work/
+__pycache__/
+*.pyc
+.DS_Store
+.npm-cache/
+*.log
+.idea/
+.vscode/
+
+# 本地旧副本（课件 PDF 以 概率论/ 目录为准）
+slides/

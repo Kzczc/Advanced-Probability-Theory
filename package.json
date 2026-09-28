@@ -1,0 +1,12 @@
+{
+  "name": "advanced-probability-theory-notes",
+  "version": "1.0.0",
+  "private": true,
+  "description": "高等概率论课件逐页中文精讲——静态网站源码（依赖已内置于 site-src/vendor，无需 npm install）",
+  "scripts": {
+    "build": "node site-src/build.mjs",
+    "check": "node site-src/build.mjs --check",
+    "serve": "python3 -m http.server 8791 --directory docs"
+  },
+  "license": "UNLICENSED"
+}

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第3讲 Borel–Cantelli、收敛与 Radon–Nikodym · 高等概率论逐页精讲</title>
+<meta name="description" content="高等概率论课件逐页中文精讲：课件原页对照、零基础补课、公式推导、老师板书解读、例子与自测。">
+<link rel="stylesheet" href="../assets/katex/katex.min.css">
+<link rel="stylesheet" href="../assets/css/site.css">
+
+<script>try{var s=localStorage.getItem("apt-font-scale");if(s)document.documentElement.style.setProperty("--font-scale",s);if(localStorage.getItem("apt-layout")==="focus")document.documentElement.classList.add("focus-mode");}catch(e){}</script>
+</head>
+<body class="page-index">
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    
+    <a class="brand" href="../index.html">高等概率论<span>逐页精讲</span></a>
+    <nav class="topnav" aria-label="讲次"><a href="../topic1/index.html">第 1 讲</a><a href="../topic2/index.html">第 2 讲</a><a href="../topic3/index.html" aria-current="page">第 3 讲</a><a href="../basics.html">基础补课</a><a href="../glossary.html">术语表</a></nav>
+    <div class="tools">
+      <button class="tool-btn" id="search-open" type="button" aria-label="搜索"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><span>搜索</span></button>
+      
+      <div class="font-tools" role="group" aria-label="字号"><button class="tool-btn" id="font-down" type="button" aria-label="缩小字号">A−</button><button class="tool-btn" id="font-up" type="button" aria-label="放大字号">A+</button></div>
+    </div>
+  </div>
+  <div class="read-progress" aria-hidden="true"><span></span></div>
+</header>
+<main id="main" class="index-main">
+  <header class="index-head">
+    <p class="eyebrow">第 3 讲 · 47 页课件</p>
+    <h1>Borel–Cantelli、收敛与 Radon–Nikodym</h1>
+    <p class="title-en" lang="en">Borel–Cantelli, Sequence Convergence, and Radon–Nikodym</p>
+    <p class="lede">事件会不会发生无穷多次、随机变量的几种收敛方式、什么条件下期望可以取极限，以及换测度（重要性抽样）怎么做。</p>
+    <div class="index-actions">
+      <a class="button primary" href="p01.html">从第 1 页开始</a>
+      <a class="button" id="resume-link" href="p01.html" data-topic="topic3" hidden>继续上次的进度</a>
+    </div>
+    <p class="index-stats">精讲已完成 <b>3</b> / 47 页 · <span class="toc-progress" data-topic="topic3" data-total="47">已看懂 <b>0</b> / 47 页</span></p>
+  </header>
+  <section class="index-section"><h2>开篇</h2><ol class="page-rows"><li class="page-row" data-page="1">
+        <a href="p01.html">
+          <span class="row-num">01</span>
+          <span class="row-main"><span class="row-title">封面：Borel–Cantelli、收敛与 Radon–Nikodym</span><span class="row-en" lang="en">Borel–Cantelli, Sequence Convergence, and Radon–Nikodym</span></span>
+          <span class="row-meta">幻灯片 1/49 · 封面</span>
+        </a></li><li class="page-row" data-page="2">
+        <a href="p02.html">
+          <span class="row-num">02</span>
+          <span class="row-main"><span class="row-title">目录与每部分要回答的问题</span><span class="row-en" lang="en">Contents and the questions they answer</span></span>
+          <span class="row-meta">幻灯片 2/49 · 目录</span>
+        </a></li></ol></section>
+<section class="index-section"><h2>第 1 部分　Borel–Cantelli：事件的重复发生<small lang="en">Borel–Cantelli: recurrence of events</small></h2><ol class="page-rows"><li class="page-row pending" data-page="3">
+        <a href="p03.html">
+          <span class="row-num">03</span>
+          <span class="row-main"><span class="row-title">「无穷多次」与「最终总是」</span><span class="row-en" lang="en">Infinitely often and eventually always</span></span>
+          <span class="row-meta">幻灯片 3/49 · 定义 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="4">
+        <a href="p04.html">
+          <span class="row-num">04</span>
+          <span class="row-main"><span class="row-title">第一 Borel–Cantelli 引理</span><span class="row-en" lang="en">Borel–Cantelli I</span></span>
+          <span class="row-meta">幻灯片 4/49 · 定理 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="5">
+        <a href="p05.html">
+          <span class="row-num">05</span>
+          <span class="row-main"><span class="row-title">每条路径上次数有限，期望却可以无穷</span><span class="row-en" lang="en">A finite count on every path can have infinite expectation</span></span>
+          <span class="row-meta">幻灯片 5/49 · 例子 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="6">
+        <a href="p06.html">
+          <span class="row-num">06</span>
+          <span class="row-main"><span class="row-title">独立性</span><span class="row-en" lang="en">Independence</span></span>
+          <span class="row-meta">幻灯片 6/49 · 定义 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="7">
+        <a href="p07.html">
+          <span class="row-num">07</span>
+          <span class="row-main"><span class="row-title">第二 Borel–Cantelli 引理</span><span class="row-en" lang="en">Borel–Cantelli II</span></span>
+          <span class="row-meta">幻灯片 7/49 · 定理 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="8">
+        <a href="p08.html">
+          <span class="row-num">08</span>
+          <span class="row-main"><span class="row-title">抛硬币中某个固定字串会无穷次出现</span><span class="row-en" lang="en">Recurrence of a fixed word in coin tosses</span></span>
+          <span class="row-meta">幻灯片 8/49 · 例子 · 写作中</span>
+        </a></li></ol></section>
+<section class="index-section"><h2>第 2 部分　随机变量的收敛：误差与子列<small lang="en">Random-variable convergence: errors and subsequences</small></h2><ol class="page-rows"><li class="page-row pending" data-page="9">
+        <a href="p09.html">
+          <span class="row-num">09</span>
+          <span class="row-main"><span class="row-title">几乎必然收敛与误差事件</span><span class="row-en" lang="en">Almost-sure convergence and error events</span></span>
+          <span class="row-meta">幻灯片 9/49 · 定义 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="10">
+        <a href="p10.html">
+          <span class="row-num">10</span>
+          <span class="row-main"><span class="row-title">偏差概率可求和</span><span class="row-en" lang="en">Summable deviation probabilities</span></span>
+          <span class="row-meta">幻灯片 10/49 · 定理 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="11">
+        <a href="p11.html">
+          <span class="row-num">11</span>
+          <span class="row-main"><span class="row-title">一阶矩有限时 Xn/n → 0 几乎必然</span><span class="row-en" lang="en">Finite first moment: Xn/n → 0 almost surely</span></span>
+          <span class="row-meta">幻灯片 11/49 · 定理 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="12">
+        <a href="p12.html">
+          <span class="row-num">12</span>
+          <span class="row-main"><span class="row-title">尾积分给出可求和判别</span><span class="row-en" lang="en">Tail integrals give a summability criterion</span></span>
+          <span class="row-meta">幻灯片 12/49 · 定理 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="13">
+        <a href="p13.html">
+          <span class="row-num">13</span>
+          <span class="row-main"><span class="row-title">一阶矩无穷时 lim sup |Xn|/n = ∞</span><span class="row-en" lang="en">Infinite first moment: lim sup |Xn|/n = ∞</span></span>
+          <span class="row-meta">幻灯片 13/49 · 定理 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="14">
+        <a href="p14.html">
+          <span class="row-num">14</span>
+          <span class="row-main"><span class="row-title">几乎必然收敛蕴含依概率收敛</span><span class="row-en" lang="en">Almost-sure convergence implies convergence in probability</span></span>
+          <span class="row-meta">幻灯片 14/49 · 定理 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="15">
+        <a href="p15.html">
+          <span class="row-num">15</span>
+          <span class="row-main"><span class="row-title">打字机序列</span><span class="row-en" lang="en">The typewriter sequence</span></span>
+          <span class="row-meta">幻灯片 15/49 · 例子 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="16">
+        <a href="p16.html">
+          <span class="row-num">16</span>
+          <span class="row-main"><span class="row-title">子列判别法</span><span class="row-en" lang="en">The subsequence criterion</span></span>
+          <span class="row-meta">幻灯片 16/49 · 定理 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="17">
+        <a href="p17.html">
+          <span class="row-num">17</span>
+          <span class="row-main"><span class="row-title">连续映射定理</span><span class="row-en" lang="en">Continuous mappings</span></span>
+          <span class="row-meta">幻灯片 17/49 · 定理 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="18">
+        <a href="p18.html">
+          <span class="row-num">18</span>
+          <span class="row-main"><span class="row-title">阈值概率与间断点</span><span class="row-en" lang="en">Threshold probabilities and discontinuities</span></span>
+          <span class="row-meta">幻灯片 18/49 · 例子 · 写作中</span>
+        </a></li></ol></section>
+<section class="index-section"><h2>第 3 部分　期望与密度的收敛<small lang="en">Convergence of expectations and densities</small></h2><ol class="page-rows"><li class="page-row pending" data-page="19">
+        <a href="p19.html">
+          <span class="row-num">19</span>
+          <span class="row-main"><span class="row-title">期望的收敛：缺少可积上界（尖峰反例）</span><span class="row-en" lang="en">Convergence of expectations: the missing integrable bound</span></span>
+          <span class="row-meta">幻灯片 19/49 · 例子 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="20">
+        <a href="p20.html">
+          <span class="row-num">20</span>
+          <span class="row-main"><span class="row-title">依概率收敛下的控制收敛定理</span><span class="row-en" lang="en">Dominated convergence in probability</span></span>
+          <span class="row-meta">幻灯片 20/49 · 定理 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="21">
+        <a href="p21.html">
+          <span class="row-num">21</span>
+          <span class="row-main"><span class="row-title">依概率控制收敛：证明</span><span class="row-en" lang="en">Dominated convergence in probability: proof</span></span>
+          <span class="row-meta">幻灯片 21/49 · 证明 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="22">
+        <a href="p22.html">
+          <span class="row-num">22</span>
+          <span class="row-main"><span class="row-title">Scheffé 引理</span><span class="row-en" lang="en">Scheffé's lemma</span></span>
+          <span class="row-meta">幻灯片 22/49 · 定理 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="23">
+        <a href="p23.html">
+          <span class="row-num">23</span>
+          <span class="row-main"><span class="row-title">Scheffé 引理：证明</span><span class="row-en" lang="en">Scheffé's lemma: proof</span></span>
+          <span class="row-meta">幻灯片 23/49 · 证明 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="24">
+        <a href="p24.html">
+          <span class="row-num">24</span>
+          <span class="row-main"><span class="row-title">密度收敛与事件概率</span><span class="row-en" lang="en">Density convergence and event probabilities</span></span>
+          <span class="row-meta">幻灯片 24/49 · 定理 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="25">
+        <a href="p25.html">
+          <span class="row-num">25</span>
+          <span class="row-main"><span class="row-title">概率误差的精确计算</span><span class="row-en" lang="en">An exact calculation of the probability error</span></span>
+          <span class="row-meta">幻灯片 25/49 · 例子 · 写作中</span>
+        </a></li></ol></section>
+<section class="index-section"><h2>第 4 部分　Radon–Nikodym 与换测度<small lang="en">Radon–Nikodym and change of measure</small></h2><ol class="page-rows"><li class="page-row" data-page="26">
+        <a href="p26.html">
+          <span class="row-num">26</span>
+          <span class="row-main"><span class="row-title">绝对连续与概率密度：用一个「权重函数」把 ℙ 变成 ℚ</span><span class="row-en" lang="en">Absolute continuity and a probability density</span></span>
+          <span class="row-meta">幻灯片 26/49 · 定义</span>
+        </a></li><li class="page-row pending" data-page="27">
+        <a href="p27.html">
+          <span class="row-num">27</span>
+          <span class="row-main"><span class="row-title">概率测度的 Radon–Nikodym 定理</span><span class="row-en" lang="en">Radon–Nikodym for probability measures</span></span>
+          <span class="row-meta">幻灯片 27/49 · 定理 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="28">
+        <a href="p28.html">
+          <span class="row-num">28</span>
+          <span class="row-main"><span class="row-title">Radon–Nikodym 导数的唯一性</span><span class="row-en" lang="en">Uniqueness of the Radon–Nikodym derivative</span></span>
+          <span class="row-meta">幻灯片 28/49 · 证明 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="29">
+        <a href="p29.html">
+          <span class="row-num">29</span>
+          <span class="row-main"><span class="row-title">绝对连续控制小事件的概率</span><span class="row-en" lang="en">Absolute continuity controls small-event probabilities</span></span>
+          <span class="row-meta">幻灯片 29/49 · 定理 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="30">
+        <a href="p30.html">
+          <span class="row-num">30</span>
+          <span class="row-main"><span class="row-title">固定换测度下的收敛</span><span class="row-en" lang="en">Convergence under a fixed change of measure</span></span>
+          <span class="row-meta">幻灯片 30/49 · 定理 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="31">
+        <a href="p31.html">
+          <span class="row-num">31</span>
+          <span class="row-main"><span class="row-title">两点空间上的换测度</span><span class="row-en" lang="en">A change of probability on two outcomes</span></span>
+          <span class="row-meta">幻灯片 31/49 · 例子 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="32">
+        <a href="p32.html">
+          <span class="row-num">32</span>
+          <span class="row-main"><span class="row-title">换测度下的期望换算</span><span class="row-en" lang="en">Change of measure in expectations</span></span>
+          <span class="row-meta">幻灯片 32/49 · 定理 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="33">
+        <a href="p33.html">
+          <span class="row-num">33</span>
+          <span class="row-main"><span class="row-title">期望换算：证明</span><span class="row-en" lang="en">Change of measure in expectations: proof</span></span>
+          <span class="row-meta">幻灯片 33/49 · 证明 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="34">
+        <a href="p34.html">
+          <span class="row-num">34</span>
+          <span class="row-main"><span class="row-title">Radon–Nikodym 导数的链式法则</span><span class="row-en" lang="en">Chain rule for Radon–Nikodym derivatives</span></span>
+          <span class="row-meta">幻灯片 34/49 · 定理 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="35">
+        <a href="p35.html">
+          <span class="row-num">35</span>
+          <span class="row-main"><span class="row-title">倒数密度与反向期望公式</span><span class="row-en" lang="en">The reciprocal density and reverse expectation formula</span></span>
+          <span class="row-meta">幻灯片 35/49 · 定理 · 写作中</span>
+        </a></li></ol></section>
+<section class="index-section"><h2>第 5 部分　抽样中的应用<small lang="en">Sampling applications</small></h2><ol class="page-rows"><li class="page-row pending" data-page="36">
+        <a href="p36.html">
+          <span class="row-num">36</span>
+          <span class="row-main"><span class="row-title">无偏估计量的方差可以无穷</span><span class="row-en" lang="en">An unbiased estimator can have infinite variance</span></span>
+          <span class="row-meta">幻灯片 36/49 · 例子 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="37">
+        <a href="p37.html">
+          <span class="row-num">37</span>
+          <span class="row-main"><span class="row-title">方差与样本均值的误差</span><span class="row-en" lang="en">Variance and the error of a sample average</span></span>
+          <span class="row-meta">幻灯片 37/49 · 定理 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="38">
+        <a href="p38.html">
+          <span class="row-num">38</span>
+          <span class="row-main"><span class="row-title">重要性抽样：怎样选密度</span><span class="row-en" lang="en">Importance sampling: choice of the density</span></span>
+          <span class="row-meta">幻灯片 38/49 · 例子 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="39">
+        <a href="p39.html">
+          <span class="row-num">39</span>
+          <span class="row-main"><span class="row-title">重要性抽样：抵消奇点</span><span class="row-en" lang="en">Importance sampling: cancellation of the singularity</span></span>
+          <span class="row-meta">幻灯片 39/49 · 例子 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="40">
+        <a href="p40.html">
+          <span class="row-num">40</span>
+          <span class="row-main"><span class="row-title">用均匀变量抽取所选密度</span><span class="row-en" lang="en">Sampling the chosen density with a uniform variable</span></span>
+          <span class="row-meta">幻灯片 40/49 · 例子 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="41">
+        <a href="p41.html">
+          <span class="row-num">41</span>
+          <span class="row-main"><span class="row-title">高斯分布的换测度</span><span class="row-en" lang="en">Gaussian change of measure</span></span>
+          <span class="row-meta">幻灯片 41/49 · 定理 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="42">
+        <a href="p42.html">
+          <span class="row-num">42</span>
+          <span class="row-main"><span class="row-title">高斯平移的复合</span><span class="row-en" lang="en">Composition of Gaussian shifts</span></span>
+          <span class="row-meta">幻灯片 42/49 · 定理 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="43">
+        <a href="p43.html">
+          <span class="row-num">43</span>
+          <span class="row-main"><span class="row-title">高斯稀有事件抽样</span><span class="row-en" lang="en">Gaussian rare-event sampling</span></span>
+          <span class="row-meta">幻灯片 43/49 · 例子 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="44">
+        <a href="p44.html">
+          <span class="row-num">44</span>
+          <span class="row-main"><span class="row-title">稀有事件抽样：精确二阶矩</span><span class="row-en" lang="en">Gaussian rare-event sampling: exact second moment</span></span>
+          <span class="row-meta">幻灯片 44/49 · 证明 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="45">
+        <a href="p45.html">
+          <span class="row-num">45</span>
+          <span class="row-main"><span class="row-title">稀有事件抽样：方差的改进</span><span class="row-en" lang="en">Gaussian rare-event sampling: variance improvement</span></span>
+          <span class="row-meta">幻灯片 45/49 · 定理 · 写作中</span>
+        </a></li></ol></section>
+<section class="index-section"><h2>补充<small lang="en">Supplement</small></h2><ol class="page-rows"><li class="page-row pending" data-page="46">
+        <a href="p46.html">
+          <span class="row-num">46</span>
+          <span class="row-main"><span class="row-title">补充：Fatou 引理与单调函数的导数</span><span class="row-en" lang="en">Supplement: Fatou and a monotone derivative</span></span>
+          <span class="row-meta">幻灯片 46/49 · 例子 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="47">
+        <a href="p47.html">
+          <span class="row-num">47</span>
+          <span class="row-main"><span class="row-title">补充：积分上界与严格不等式</span><span class="row-en" lang="en">Supplement: the integral bound and strict inequality</span></span>
+          <span class="row-meta">幻灯片 47/49 · 证明 · 写作中</span>
+        </a></li></ol></section>
+</main>
+<div class="lightbox" id="lightbox" hidden><button class="lightbox-close" type="button" aria-label="关闭">关闭 ✕</button><div class="lightbox-stage"><img alt=""></div><p class="lightbox-hint">点击图片放大 / 缩小 · Esc 关闭</p></div>
+<div class="term-pop" id="term-pop" role="tooltip" hidden></div>
+<div class="search-panel" id="search-panel" hidden>
+  <div class="search-box" role="dialog" aria-label="搜索讲义">
+    <input id="search-input" type="search" placeholder="搜索：σ-代数、外测度、Fatou、单调收敛……" autocomplete="off">
+    <ol id="search-results" class="search-results"></ol>
+    <p class="search-hint">↑↓ 选择 · Enter 打开 · Esc 关闭</p>
+  </div>
+</div>
+
+<script src="../assets/js/site.js" defer></script>
+<script src="../assets/js/demos.js" defer></script>
+</body>
+</html>

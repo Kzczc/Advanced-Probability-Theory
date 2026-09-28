@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第2讲 随机变量、期望与不等式 · 高等概率论逐页精讲</title>
+<meta name="description" content="高等概率论课件逐页中文精讲：课件原页对照、零基础补课、公式推导、老师板书解读、例子与自测。">
+<link rel="stylesheet" href="../assets/katex/katex.min.css">
+<link rel="stylesheet" href="../assets/css/site.css">
+
+<script>try{var s=localStorage.getItem("apt-font-scale");if(s)document.documentElement.style.setProperty("--font-scale",s);if(localStorage.getItem("apt-layout")==="focus")document.documentElement.classList.add("focus-mode");}catch(e){}</script>
+</head>
+<body class="page-index">
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    
+    <a class="brand" href="../index.html">高等概率论<span>逐页精讲</span></a>
+    <nav class="topnav" aria-label="讲次"><a href="../topic1/index.html">第 1 讲</a><a href="../topic2/index.html" aria-current="page">第 2 讲</a><a href="../topic3/index.html">第 3 讲</a><a href="../basics.html">基础补课</a><a href="../glossary.html">术语表</a></nav>
+    <div class="tools">
+      <button class="tool-btn" id="search-open" type="button" aria-label="搜索"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><span>搜索</span></button>
+      
+      <div class="font-tools" role="group" aria-label="字号"><button class="tool-btn" id="font-down" type="button" aria-label="缩小字号">A−</button><button class="tool-btn" id="font-up" type="button" aria-label="放大字号">A+</button></div>
+    </div>
+  </div>
+  <div class="read-progress" aria-hidden="true"><span></span></div>
+</header>
+<main id="main" class="index-main">
+  <header class="index-head">
+    <p class="eyebrow">第 2 讲 · 32 页课件</p>
+    <h1>随机变量、期望与不等式</h1>
+    <p class="title-en" lang="en">Random Variables, Expectation, and Inequalities</p>
+    <p class="lede">随机变量是可测映射，期望就是对概率测度的积分；再用 CDF、分位数、矩和各种不等式把期望与尾概率算出来、估出来。</p>
+    <div class="index-actions">
+      <a class="button primary" href="p01.html">从第 1 页开始</a>
+      <a class="button" id="resume-link" href="p01.html" data-topic="topic2" hidden>继续上次的进度</a>
+    </div>
+    <p class="index-stats">精讲已完成 <b>3</b> / 32 页 · <span class="toc-progress" data-topic="topic2" data-total="32">已看懂 <b>0</b> / 32 页</span></p>
+  </header>
+  <section class="index-section"><h2>开篇</h2><ol class="page-rows"><li class="page-row" data-page="1">
+        <a href="p01.html">
+          <span class="row-num">01</span>
+          <span class="row-main"><span class="row-title">封面：随机变量、期望与不等式</span><span class="row-en" lang="en">Random Variables, Expectation, and Inequalities</span></span>
+          <span class="row-meta">幻灯片 1/33 · 封面</span>
+        </a></li><li class="page-row" data-page="2">
+        <a href="p02.html">
+          <span class="row-num">02</span>
+          <span class="row-main"><span class="row-title">本讲目标：学完要会什么</span><span class="row-en" lang="en">Through this topic, you should...</span></span>
+          <span class="row-meta">幻灯片 2/33 · 学习目标</span>
+        </a></li><li class="page-row" data-page="3">
+        <a href="p03.html">
+          <span class="row-num">03</span>
+          <span class="row-main"><span class="row-title">目录：五个部分如何一环扣一环</span><span class="row-en" lang="en">Contents</span></span>
+          <span class="row-meta">幻灯片 3/33 · 目录</span>
+        </a></li></ol></section>
+<section class="index-section"><h2>第 1 部分　随机变量、分布与期望<small lang="en">Random variables, laws, and expectation</small></h2><ol class="page-rows"><li class="page-row pending" data-page="4">
+        <a href="p04.html">
+          <span class="row-num">04</span>
+          <span class="row-main"><span class="row-title">随机变量是可测映射</span><span class="row-en" lang="en">A random variable is a measurable map</span></span>
+          <span class="row-meta">幻灯片 4/33 · 定义 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="5">
+        <a href="p05.html">
+          <span class="row-num">05</span>
+          <span class="row-main"><span class="row-title">期望就是对 P 的勒贝格积分</span><span class="row-en" lang="en">Expectation is the Lebesgue integral with respect to P</span></span>
+          <span class="row-meta">幻灯片 5/33 · 定义 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="6">
+        <a href="p06.html">
+          <span class="row-num">06</span>
+          <span class="row-main"><span class="row-title">分布是推前概率测度</span><span class="row-en" lang="en">A law is a pushforward probability measure</span></span>
+          <span class="row-meta">幻灯片 6/33 · 定义 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="7">
+        <a href="p07.html">
+          <span class="row-num">07</span>
+          <span class="row-main"><span class="row-title">期望可以对分布积分（无意识统计学家定律）</span><span class="row-en" lang="en">Expectation is integration against the pushforward law</span></span>
+          <span class="row-meta">幻灯片 7/33 · 定理 · 写作中</span>
+        </a></li></ol></section>
+<section class="index-section"><h2>第 2 部分　用 CDF 计算期望<small lang="en">Computing expectations from a CDF</small></h2><ol class="page-rows"><li class="page-row pending" data-page="8">
+        <a href="p08.html">
+          <span class="row-num">08</span>
+          <span class="row-main"><span class="row-title">CDF 记录了整个分布</span><span class="row-en" lang="en">A CDF records the entire law</span></span>
+          <span class="row-meta">幻灯片 8/33 · 定义 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="9">
+        <a href="p09.html">
+          <span class="row-num">09</span>
+          <span class="row-main"><span class="row-title">CDF 的增量给出勒贝格积分</span><span class="row-en" lang="en">CDF increments give the Lebesgue integral</span></span>
+          <span class="row-meta">幻灯片 9/33 · 定义 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="10">
+        <a href="p10.html">
+          <span class="row-num">10</span>
+          <span class="row-main"><span class="row-title">用分部积分从 CDF 直接计算</span><span class="row-en" lang="en">Integration by parts computes from the CDF itself</span></span>
+          <span class="row-meta">幻灯片 10/33 · 定理 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="11">
+        <a href="p11.html">
+          <span class="row-num">11</span>
+          <span class="row-main"><span class="row-title">截断随机变量的期望</span><span class="row-en" lang="en">Expectation of a truncated random variable</span></span>
+          <span class="row-meta">幻灯片 11/33 · 定理 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="12">
+        <a href="p12.html">
+          <span class="row-num">12</span>
+          <span class="row-main"><span class="row-title">正负两侧的尾部决定均值</span><span class="row-en" lang="en">Positive and negative CDF tails determine the mean</span></span>
+          <span class="row-meta">幻灯片 12/33 · 定理 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="13">
+        <a href="p13.html">
+          <span class="row-num">13</span>
+          <span class="row-main"><span class="row-title">混合型 CDF：跳跃与区间积分各贡献一部分</span><span class="row-en" lang="en">A mixed CDF contributes both a jump and an interval integral</span></span>
+          <span class="row-meta">幻灯片 13/33 · 例子 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="14">
+        <a href="p14.html">
+          <span class="row-num">14</span>
+          <span class="row-main"><span class="row-title">逆变换法可以构造任何实值分布</span><span class="row-en" lang="en">Inverse transform constructs every real law</span></span>
+          <span class="row-meta">幻灯片 14/33 · 定义 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="15">
+        <a href="p15.html">
+          <span class="row-num">15</span>
+          <span class="row-main"><span class="row-title">由均匀分布生成指数分布</span><span class="row-en" lang="en">A uniform variable generates an exponential law</span></span>
+          <span class="row-meta">幻灯片 15/33 · 例子 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="16">
+        <a href="p16.html">
+          <span class="row-num">16</span>
+          <span class="row-main"><span class="row-title">分位数能准确看出哪些矩存在（Pareto）</span><span class="row-en" lang="en">A quantile can reveal exactly which moments exist</span></span>
+          <span class="row-meta">幻灯片 16/33 · 例子 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="17">
+        <a href="p17.html">
+          <span class="row-num">17</span>
+          <span class="row-main"><span class="row-title">绝对连续正是存在密度的条件</span><span class="row-en" lang="en">Absolute continuity is exactly the condition behind a density</span></span>
+          <span class="row-meta">幻灯片 17/33 · 定理 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="18">
+        <a href="p18.html">
+          <span class="row-num">18</span>
+          <span class="row-main"><span class="row-title">康托尔集及其二进编码</span><span class="row-en" lang="en">The Cantor set and its binary encoding</span></span>
+          <span class="row-meta">幻灯片 18/33 · 定义 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="19">
+        <a href="p19.html">
+          <span class="row-num">19</span>
+          <span class="row-main"><span class="row-title">连续的 CDF 不一定有密度（康托尔分布）</span><span class="row-en" lang="en">A continuous CDF need not have a density</span></span>
+          <span class="row-meta">幻灯片 19/33 · 例子 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="20">
+        <a href="p20.html">
+          <span class="row-num">20</span>
+          <span class="row-main"><span class="row-title">实值分布的三种质量</span><span class="row-en" lang="en">Three kinds of mass in a real probability law</span></span>
+          <span class="row-meta">幻灯片 20/33 · 定理 · 写作中</span>
+        </a></li></ol></section>
+<section class="index-section"><h2>第 3 部分　尾部、有限矩与 Lp 空间<small lang="en">Tails, finite moments, and Lp</small></h2><ol class="page-rows"><li class="page-row pending" data-page="21">
+        <a href="p21.html">
+          <span class="row-num">21</span>
+          <span class="row-main"><span class="row-title">每个正阶矩都是尾概率的积分</span><span class="row-en" lang="en">Every positive moment is an integrated tail</span></span>
+          <span class="row-meta">幻灯片 21/33 · 定理 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="22">
+        <a href="p22.html">
+          <span class="row-num">22</span>
+          <span class="row-main"><span class="row-title">Lp 空间</span><span class="row-en" lang="en">Lp space</span></span>
+          <span class="row-meta">幻灯片 22/33 · 定义 · 写作中</span>
+        </a></li></ol></section>
+<section class="index-section"><h2>第 4 部分　变换、乘积与和的界<small lang="en">Bounds for transforms, products, and sums</small></h2><ol class="page-rows"><li class="page-row pending" data-page="23">
+        <a href="p23.html">
+          <span class="row-num">23</span>
+          <span class="row-main"><span class="row-title">凸函数处处有支撑线</span><span class="row-en" lang="en">Every finite convex function has a supporting line</span></span>
+          <span class="row-meta">幻灯片 23/33 · 定理 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="24">
+        <a href="p24.html">
+          <span class="row-num">24</span>
+          <span class="row-main"><span class="row-title">对支撑线取期望得到 Jensen 不等式</span><span class="row-en" lang="en">Jensen follows by integrating the supporting line</span></span>
+          <span class="row-meta">幻灯片 24/33 · 定理 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="25">
+        <a href="p25.html">
+          <span class="row-num">25</span>
+          <span class="row-main"><span class="row-title">Lp 空间的单调性</span><span class="row-en" lang="en">Monotonicity of Lp space</span></span>
+          <span class="row-meta">幻灯片 25/33 · 定理 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="26">
+        <a href="p26.html">
+          <span class="row-num">26</span>
+          <span class="row-main"><span class="row-title">Hölder 不等式是归一化的 Young 不等式</span><span class="row-en" lang="en">Hölder is the normalized form of scalar Young</span></span>
+          <span class="row-meta">幻灯片 26/33 · 定理 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="27">
+        <a href="p27.html">
+          <span class="row-num">27</span>
+          <span class="row-main"><span class="row-title">Minkowski 不等式（p &gt; 1）</span><span class="row-en" lang="en">Minkowski for p &gt; 1 is one Hölder calculation</span></span>
+          <span class="row-meta">幻灯片 27/33 · 定理 · 写作中</span>
+        </a></li></ol></section>
+<section class="index-section"><h2>第 5 部分　用矩控制概率<small lang="en">Probability bounds from moments</small></h2><ol class="page-rows"><li class="page-row pending" data-page="28">
+        <a href="p28.html">
+          <span class="row-num">28</span>
+          <span class="row-main"><span class="row-title">用矩控制事件的概率</span><span class="row-en" lang="en">A moment estimate can control an event</span></span>
+          <span class="row-meta">幻灯片 28/33 · 讨论 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="29">
+        <a href="p29.html">
+          <span class="row-num">29</span>
+          <span class="row-main"><span class="row-title">广义 Markov 不等式</span><span class="row-en" lang="en">Generalized Markov inequality</span></span>
+          <span class="row-meta">幻灯片 29/33 · 定理 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="30">
+        <a href="p30.html">
+          <span class="row-num">30</span>
+          <span class="row-main"><span class="row-title">有限矩与尾部衰减</span><span class="row-en" lang="en">Finite moments</span></span>
+          <span class="row-meta">幻灯片 30/33 · 定理 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="31">
+        <a href="p31.html">
+          <span class="row-num">31</span>
+          <span class="row-main"><span class="row-title">尾部衰减更快也不一定有有限矩</span><span class="row-en" lang="en">Faster tail decay alone need not give a finite moment</span></span>
+          <span class="row-meta">幻灯片 31/33 · 例子 · 写作中</span>
+        </a></li><li class="page-row pending" data-page="32">
+        <a href="p32.html">
+          <span class="row-num">32</span>
+          <span class="row-main"><span class="row-title">Cantelli 单侧不等式</span><span class="row-en" lang="en">Cantelli's one-sided bound</span></span>
+          <span class="row-meta">幻灯片 32/33 · 定理 · 写作中</span>
+        </a></li></ol></section>
+</main>
+<div class="lightbox" id="lightbox" hidden><button class="lightbox-close" type="button" aria-label="关闭">关闭 ✕</button><div class="lightbox-stage"><img alt=""></div><p class="lightbox-hint">点击图片放大 / 缩小 · Esc 关闭</p></div>
+<div class="term-pop" id="term-pop" role="tooltip" hidden></div>
+<div class="search-panel" id="search-panel" hidden>
+  <div class="search-box" role="dialog" aria-label="搜索讲义">
+    <input id="search-input" type="search" placeholder="搜索：σ-代数、外测度、Fatou、单调收敛……" autocomplete="off">
+    <ol id="search-results" class="search-results"></ol>
+    <p class="search-hint">↑↓ 选择 · Enter 打开 · Esc 关闭</p>
+  </div>
+</div>
+
+<script src="../assets/js/site.js" defer></script>
+<script src="../assets/js/demos.js" defer></script>
+</body>
+</html>

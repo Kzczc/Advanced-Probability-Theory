@@ -1,0 +1,78 @@
+# 第 3 讲逐页大纲。课件是「课堂空白版」：只有标题和定理编号，内容由我们补写。
+sections:
+  - id: intro
+    title: 开篇
+    pages: [1, 2]
+  - id: s1
+    title: 第 1 部分　Borel–Cantelli：事件的重复发生
+    title_en: "Borel–Cantelli: recurrence of events"
+    pages: [3, 8]
+  - id: s2
+    title: 第 2 部分　随机变量的收敛：误差与子列
+    title_en: "Random-variable convergence: errors and subsequences"
+    pages: [9, 18]
+  - id: s3
+    title: 第 3 部分　期望与密度的收敛
+    title_en: Convergence of expectations and densities
+    pages: [19, 25]
+  - id: s4
+    title: 第 4 部分　Radon–Nikodym 与换测度
+    title_en: Radon–Nikodym and change of measure
+    pages: [26, 35]
+  - id: s5
+    title: 第 5 部分　抽样中的应用
+    title_en: Sampling applications
+    pages: [36, 45]
+  - id: s6
+    title: 补充
+    title_en: Supplement
+    pages: [46, 47]
+
+pages:
+  - { page: 1, slide: "1/49", kind: cover, title: 封面：Borel–Cantelli、收敛与 Radon–Nikodym, title_en: "Borel–Cantelli, Sequence Convergence, and Radon–Nikodym" }
+  - { page: 2, slide: "2/49", kind: contents, title: 目录与每部分要回答的问题, title_en: "Contents and the questions they answer" }
+  - { page: 3, slide: "3/49", kind: definition, title: 「无穷多次」与「最终总是」, title_en: "Infinitely often and eventually always" }
+  - { page: 4, slide: "4/49", kind: theorem, title: 第一 Borel–Cantelli 引理, title_en: "Borel–Cantelli I" }
+  - { page: 5, slide: "5/49", kind: example, title: 每条路径上次数有限，期望却可以无穷, title_en: "A finite count on every path can have infinite expectation" }
+  - { page: 6, slide: "6/49", kind: definition, title: 独立性, title_en: "Independence" }
+  - { page: 7, slide: "7/49", kind: theorem, title: 第二 Borel–Cantelli 引理, title_en: "Borel–Cantelli II" }
+  - { page: 8, slide: "8/49", kind: example, title: 抛硬币中某个固定字串会无穷次出现, title_en: "Recurrence of a fixed word in coin tosses" }
+  - { page: 9, slide: "9/49", kind: definition, title: 几乎必然收敛与误差事件, title_en: "Almost-sure convergence and error events" }
+  - { page: 10, slide: "10/49", kind: theorem, title: 偏差概率可求和, title_en: "Summable deviation probabilities" }
+  - { page: 11, slide: "11/49", kind: theorem, title: 一阶矩有限时 Xn/n → 0 几乎必然, title_en: "Finite first moment: Xn/n → 0 almost surely" }
+  - { page: 12, slide: "12/49", kind: theorem, title: 尾积分给出可求和判别, title_en: "Tail integrals give a summability criterion" }
+  - { page: 13, slide: "13/49", kind: theorem, title: 一阶矩无穷时 lim sup |Xn|/n = ∞, title_en: "Infinite first moment: lim sup |Xn|/n = ∞" }
+  - { page: 14, slide: "14/49", kind: theorem, title: 几乎必然收敛蕴含依概率收敛, title_en: "Almost-sure convergence implies convergence in probability" }
+  - { page: 15, slide: "15/49", kind: example, title: 打字机序列, title_en: "The typewriter sequence" }
+  - { page: 16, slide: "16/49", kind: theorem, title: 子列判别法, title_en: "The subsequence criterion" }
+  - { page: 17, slide: "17/49", kind: theorem, title: 连续映射定理, title_en: "Continuous mappings" }
+  - { page: 18, slide: "18/49", kind: example, title: 阈值概率与间断点, title_en: "Threshold probabilities and discontinuities" }
+  - { page: 19, slide: "19/49", kind: example, title: 期望的收敛：缺少可积上界（尖峰反例）, title_en: "Convergence of expectations: the missing integrable bound" }
+  - { page: 20, slide: "20/49", kind: theorem, title: 依概率收敛下的控制收敛定理, title_en: "Dominated convergence in probability" }
+  - { page: 21, slide: "21/49", kind: proof, title: 依概率控制收敛：证明, title_en: "Dominated convergence in probability: proof" }
+  - { page: 22, slide: "22/49", kind: theorem, title: Scheffé 引理, title_en: "Scheffé's lemma" }
+  - { page: 23, slide: "23/49", kind: proof, title: Scheffé 引理：证明, title_en: "Scheffé's lemma: proof" }
+  - { page: 24, slide: "24/49", kind: theorem, title: 密度收敛与事件概率, title_en: "Density convergence and event probabilities" }
+  - { page: 25, slide: "25/49", kind: example, title: 概率误差的精确计算, title_en: "An exact calculation of the probability error" }
+  - { page: 26, slide: "26/49", kind: definition, title: 绝对连续与概率密度, title_en: "Absolute continuity and a probability density" }
+  - { page: 27, slide: "27/49", kind: theorem, title: 概率测度的 Radon–Nikodym 定理, title_en: "Radon–Nikodym for probability measures" }
+  - { page: 28, slide: "28/49", kind: proof, title: Radon–Nikodym 导数的唯一性, title_en: "Uniqueness of the Radon–Nikodym derivative" }
+  - { page: 29, slide: "29/49", kind: theorem, title: 绝对连续控制小事件的概率, title_en: "Absolute continuity controls small-event probabilities" }
+  - { page: 30, slide: "30/49", kind: theorem, title: 固定换测度下的收敛, title_en: "Convergence under a fixed change of measure" }
+  - { page: 31, slide: "31/49", kind: example, title: 两点空间上的换测度, title_en: "A change of probability on two outcomes" }
+  - { page: 32, slide: "32/49", kind: theorem, title: 换测度下的期望换算, title_en: "Change of measure in expectations" }
+  - { page: 33, slide: "33/49", kind: proof, title: 期望换算：证明, title_en: "Change of measure in expectations: proof" }
+  - { page: 34, slide: "34/49", kind: theorem, title: Radon–Nikodym 导数的链式法则, title_en: "Chain rule for Radon–Nikodym derivatives" }
+  - { page: 35, slide: "35/49", kind: theorem, title: 倒数密度与反向期望公式, title_en: "The reciprocal density and reverse expectation formula" }
+  - { page: 36, slide: "36/49", kind: example, title: 无偏估计量的方差可以无穷, title_en: "An unbiased estimator can have infinite variance" }
+  - { page: 37, slide: "37/49", kind: theorem, title: 方差与样本均值的误差, title_en: "Variance and the error of a sample average" }
+  - { page: 38, slide: "38/49", kind: example, title: 重要性抽样：怎样选密度, title_en: "Importance sampling: choice of the density" }
+  - { page: 39, slide: "39/49", kind: example, title: 重要性抽样：抵消奇点, title_en: "Importance sampling: cancellation of the singularity" }
+  - { page: 40, slide: "40/49", kind: example, title: 用均匀变量抽取所选密度, title_en: "Sampling the chosen density with a uniform variable" }
+  - { page: 41, slide: "41/49", kind: theorem, title: 高斯分布的换测度, title_en: "Gaussian change of measure" }
+  - { page: 42, slide: "42/49", kind: theorem, title: 高斯平移的复合, title_en: "Composition of Gaussian shifts" }
+  - { page: 43, slide: "43/49", kind: example, title: 高斯稀有事件抽样, title_en: "Gaussian rare-event sampling" }
+  - { page: 44, slide: "44/49", kind: proof, title: 稀有事件抽样：精确二阶矩, title_en: "Gaussian rare-event sampling: exact second moment" }
+  - { page: 45, slide: "45/49", kind: theorem, title: 稀有事件抽样：方差的改进, title_en: "Gaussian rare-event sampling: variance improvement" }
+  - { page: 46, slide: "46/49", kind: example, title: 补充：Fatou 引理与单调函数的导数, title_en: "Supplement: Fatou and a monotone derivative" }
+  - { page: 47, slide: "47/49", kind: proof, title: 补充：积分上界与严格不等式, title_en: "Supplement: the integral bound and strict inequality" }

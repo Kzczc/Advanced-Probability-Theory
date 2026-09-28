@@ -1,0 +1,27 @@
+# 全站目录：三讲课件。每讲的逐页大纲（小节划分、每页标题）在 content/<topic>/_outline.yaml。
+site:
+  title: 高等概率论 · 逐页精讲
+  subtitle: 写给数学基础薄弱的同学：课件原页对照、零基础补课、公式推导、老师板书逐条解读、例子与自测
+  english: Advanced Probability Theory
+topics:
+  - id: topic1
+    number: 1
+    title: 测度与积分
+    english: Measure and Integration for Probability
+    pdf: Topic1_measure_and_integration_full_noted.pdf
+    pages: 47
+    summary: 先弄清「哪些集合可以谈概率」（σ-代数），再把「长度」推广成测度，最后建立勒贝格积分，并学会用 MCT、Fatou 引理、DCT 判断极限和积分能不能交换。
+  - id: topic2
+    number: 2
+    title: 随机变量、期望与不等式
+    english: Random Variables, Expectation, and Inequalities
+    pdf: Topic2_random_variables_expectation_inequalities.pdf
+    pages: 32
+    summary: 随机变量是可测映射，期望就是对概率测度的积分；再用 CDF、分位数、矩和各种不等式把期望与尾概率算出来、估出来。
+  - id: topic3
+    number: 3
+    title: Borel–Cantelli、收敛与 Radon–Nikodym
+    english: Borel–Cantelli, Sequence Convergence, and Radon–Nikodym
+    pdf: Topic3_borel_cantelli_convergence_radon_nikodym_class_flow.pdf
+    pages: 47
+    summary: 事件会不会发生无穷多次、随机变量的几种收敛方式、什么条件下期望可以取极限，以及换测度（重要性抽样）怎么做。

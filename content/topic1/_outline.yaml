@@ -1,0 +1,76 @@
+# 第 1 讲逐页大纲（PDF 页码 → 幻灯片编号 / 类型 / 标题）
+# PDF 共 47 页；老师的幻灯片编号到 42，多出的 5 页（7、37、42、45、47）是课堂手写续页，slide 记为 "—"。
+# 讲义页 content/topic1/pNN.md 写好后，以讲义页眉为准；这里的标题用于目录和尚未写好的页面。
+sections:
+  - id: intro
+    title: 开篇
+    pages: [1, 3]
+  - id: s1
+    title: 第 1 部分　概率空间与可测事件
+    title_en: Probability spaces and measurable events
+    pages: [4, 14]
+  - id: s2
+    title: 第 2 部分　从乔丹容量到外测度
+    title_en: From Jordan content to outer measure
+    pages: [15, 18]
+  - id: s3
+    title: 第 3 部分　勒贝格可测集与勒贝格测度
+    title_en: Lebesgue measurable sets and measure
+    pages: [19, 23]
+  - id: s4
+    title: 第 4 部分　勒贝格积分
+    title_en: Lebesgue integration
+    pages: [24, 34]
+  - id: s5
+    title: 第 5 部分　MCT、Fatou 引理、DCT、BCT
+    title_en: MCT, Fatou's Lemma, DCT, BCT
+    pages: [35, 47]
+
+pages:
+  - { page: 1, slide: "1/42", kind: cover, title: 封面：为概率打地基的测度与积分, title_en: "Measure and Integration for Probability" }
+  - { page: 2, slide: "2/42", kind: goals, title: 本讲目标：学完要会什么, title_en: "What this topic builds" }
+  - { page: 3, slide: "3/42", kind: contents, title: 目录：本讲五个部分与「概率空间三件套」, title_en: "Contents" }
+  - { page: 4, slide: "4/42", kind: roadmap, title: 路线图：进入第 1 部分, title_en: "Where we are" }
+  - { page: 5, slide: "5/42", kind: definition, title: 概率模型从「所有可能的世界」开始, title_en: "A probabilistic model starts with complete possible worlds" }
+  - { page: 6, slide: "6/42", kind: definition, title: 事件：把满足某个性质的结果收集起来, title_en: "Events collect outcomes for which a property holds" }
+  - { page: 7, slide: "—", kind: notes, title: 板书续页：无穷次抛硬币、上极限与下极限, title_en: "Handwritten page: infinite coin tosses, limsup and liminf" }
+  - { page: 8, slide: "7/42", kind: definition, title: 概率的分配必须尊重可数拆分（可数可加性）, title_en: "Probability weights must respect countable decompositions" }
+  - { page: 9, slide: "8/42", kind: definition, title: σ-代数：对可数次「或、且、非」封闭的事件族, title_en: "A sigma-algebra is closed under countable event logic" }
+  - { page: 10, slide: "9/42", kind: remark, title: 为什么不总是取全部子集 2^Ω？, title_en: "Why not always choose 2^Ω?" }
+  - { page: 11, slide: "10/42", kind: definition, title: 生成的 σ-代数：只添加「被迫加入」的集合, title_en: "The generated sigma-algebra adds exactly what is forced" }
+  - { page: 12, slide: "11/42", kind: definition, title: 测度空间：把「事件范围」和「重量」分开, title_en: "Measure spaces separate the event domain from the weights" }
+  - { page: 13, slide: "12/42", kind: theorem, title: 测度的从下连续性, title_en: "Continuity from below" }
+  - { page: 14, slide: "13/42", kind: theorem, title: 从上连续性，以及它必需的有限条件, title_en: "Continuity from above and its necessary hypothesis" }
+  - { page: 15, slide: "14/42", kind: roadmap, title: 路线图：进入第 2 部分（从乔丹测度到勒贝格测度）, title_en: "Where we are" }
+  - { page: 16, slide: "15/42", kind: definition, title: 乔丹容量：用有限个区间从里、从外逼近, title_en: "Jordan content uses finite inner and outer approximation" }
+  - { page: 17, slide: "16/42", kind: example, title: 有限覆盖只看见「稠密」，可数覆盖能跟住每个点, title_en: "Finite covers see density; countable covers follow points" }
+  - { page: 18, slide: "17/42", kind: definition, title: 外测度：可数覆盖总长度的下确界, title_en: "Outer measure is the infimum of countable covering costs" }
+  - { page: 19, slide: "18/42", kind: roadmap, title: 路线图：进入第 3 部分, title_en: "Where we are" }
+  - { page: 20, slide: "19/42", kind: definition, title: 卡拉泰奥多里判别：任意切一刀，总成本不变, title_en: "The Carathéodory test asks whether every cut preserves cost" }
+  - { page: 21, slide: "20/42", kind: theorem, title: 维塔利定理：长度无法定义在所有子集上, title_en: "Vitali theorem: length cannot live on every subset" }
+  - { page: 22, slide: "21/42", kind: proof, title: 可数可加性导出矛盾（维塔利定理的证明）, title_en: "Countable additivity forces the contradiction" }
+  - { page: 23, slide: "22/42", kind: theorem, title: 构造完成：勒贝格测度正好满足概率的需要, title_en: "The construction delivers exactly what probability needs" }
+  - { page: 24, slide: "23/42", kind: roadmap, title: 路线图：进入第 4 部分, title_en: "Where we are" }
+  - { page: 25, slide: "24/42", kind: definition, title: 达布和：把黎曼可积的判别写清楚, title_en: "Darboux sums make the Riemann criterion explicit" }
+  - { page: 26, slide: "25/42", kind: figure, title: 勒贝格保留「台阶」，但换了台阶的底, title_en: "Lebesgue keeps the staircases but changes their base sets" }
+  - { page: 27, slide: "26/42", kind: theorem, title: 有界且黎曼可积 ⇒ 勒贝格可积，积分值相同, title_en: "Bounded Riemann integrability implies Lebesgue integrability" }
+  - { page: 28, slide: "27/42", kind: example, title: 反过来不成立：狄利克雷函数, title_en: "Lebesgue integrability does not imply Riemann integrability" }
+  - { page: 29, slide: "28/42", kind: definition, title: 可测函数：积分的「合法输入」, title_en: "Measurable functions are the inputs to the integral" }
+  - { page: 30, slide: "29/42", kind: definition, title: 示性函数与简单函数：积分的「原子」, title_en: "Indicators are the atomic measurable functions" }
+  - { page: 31, slide: "30/42", kind: theorem, title: 简单函数的积分与写法无关, title_en: "The simple integral is representation independent" }
+  - { page: 32, slide: "31/42", kind: theorem, title: 简单函数积分的线性与单调性, title_en: "Linearity and monotonicity for simple functions" }
+  - { page: 33, slide: "32/42", kind: definition, title: 从下方逼近：把积分推广到非负可测函数, title_en: "Extend the simple integral by lower approximation" }
+  - { page: 34, slide: "33/42", kind: theorem, title: 只要可测，就能用递增的简单函数逼近, title_en: "Measurability alone gives an increasing simple approximation" }
+  - { page: 35, slide: "34/42", kind: roadmap, title: 路线图：进入第 5 部分, title_en: "Where we are" }
+  - { page: 36, slide: "35/42", kind: theorem, title: 单调收敛定理（MCT）, title_en: "Monotone convergence theorem" }
+  - { page: 37, slide: "—", kind: notes, title: 板书续页：单调收敛定理的证明（续）, title_en: "Handwritten page: proof of MCT, continued" }
+  - { page: 38, slide: "36/42", kind: theorem, title: 用 MCT 把可加性推广到所有非负可测函数, title_en: "MCT extends simple-function additivity to all f, g ≥ 0" }
+  - { page: 39, slide: "37/42", kind: example, title: 只有逐点收敛时，「质量」会丢失, title_en: "Pointwise convergence alone does not preserve mass" }
+  - { page: 40, slide: "38/42", kind: definition, title: 尾部下确界找回单调性：liminf 与 limsup, title_en: "Tail infima recover the monotonicity needed by MCT" }
+  - { page: 41, slide: "39/42", kind: theorem, title: Fatou 引理, title_en: "Fatou's lemma" }
+  - { page: 42, slide: "—", kind: notes, title: 板书续页：Fatou 引理的应用（单调函数的导数）, title_en: "Handwritten page: an application of Fatou's lemma" }
+  - { page: 43, slide: "40/42", kind: theorem, title: 在 L¹ 里：零测集上改值、线性组合都无害, title_en: "On L¹, null changes and linear combinations are harmless" }
+  - { page: 44, slide: "41/42", kind: theorem, title: 控制收敛定理（DCT）, title_en: "Dominated convergence theorem" }
+  - { page: 45, slide: "—", kind: notes, title: 板书续页：控制收敛定理的证明（续）, title_en: "Handwritten page: proof of DCT, continued" }
+  - { page: 46, slide: "42/42", kind: theorem, title: 有界收敛定理（BCT）：有限测度下的推论, title_en: "Bounded convergence is a finite measure corollary" }
+  - { page: 47, slide: "—", kind: summary, title: 板书总结：一页看懂整讲, title_en: "Handwritten page: the whole topic on one page" }

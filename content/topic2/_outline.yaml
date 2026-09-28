@@ -1,0 +1,59 @@
+# 第 2 讲逐页大纲。课件是「课堂空白版」：只有标题和定理编号，内容由我们补写。
+sections:
+  - id: intro
+    title: 开篇
+    pages: [1, 3]
+  - id: s1
+    title: 第 1 部分　随机变量、分布与期望
+    title_en: Random variables, laws, and expectation
+    pages: [4, 7]
+  - id: s2
+    title: 第 2 部分　用 CDF 计算期望
+    title_en: Computing expectations from a CDF
+    pages: [8, 20]
+  - id: s3
+    title: 第 3 部分　尾部、有限矩与 Lp 空间
+    title_en: Tails, finite moments, and Lp
+    pages: [21, 22]
+  - id: s4
+    title: 第 4 部分　变换、乘积与和的界
+    title_en: Bounds for transforms, products, and sums
+    pages: [23, 27]
+  - id: s5
+    title: 第 5 部分　用矩控制概率
+    title_en: Probability bounds from moments
+    pages: [28, 32]
+
+pages:
+  - { page: 1, slide: "1/33", kind: cover, title: 封面：随机变量、期望与不等式, title_en: "Random Variables, Expectation, and Inequalities" }
+  - { page: 2, slide: "2/33", kind: goals, title: 本讲目标, title_en: "Through this topic, you should..." }
+  - { page: 3, slide: "3/33", kind: contents, title: 目录, title_en: "Contents" }
+  - { page: 4, slide: "4/33", kind: definition, title: 随机变量是可测映射, title_en: "A random variable is a measurable map" }
+  - { page: 5, slide: "5/33", kind: definition, title: 期望就是对 P 的勒贝格积分, title_en: "Expectation is the Lebesgue integral with respect to P" }
+  - { page: 6, slide: "6/33", kind: definition, title: 分布是推前概率测度, title_en: "A law is a pushforward probability measure" }
+  - { page: 7, slide: "7/33", kind: theorem, title: 期望可以对分布积分（无意识统计学家定律）, title_en: "Expectation is integration against the pushforward law" }
+  - { page: 8, slide: "8/33", kind: definition, title: CDF 记录了整个分布, title_en: "A CDF records the entire law" }
+  - { page: 9, slide: "9/33", kind: definition, title: CDF 的增量给出勒贝格积分, title_en: "CDF increments give the Lebesgue integral" }
+  - { page: 10, slide: "10/33", kind: theorem, title: 用分部积分从 CDF 直接计算, title_en: "Integration by parts computes from the CDF itself" }
+  - { page: 11, slide: "11/33", kind: theorem, title: 截断随机变量的期望, title_en: "Expectation of a truncated random variable" }
+  - { page: 12, slide: "12/33", kind: theorem, title: 正负两侧的尾部决定均值, title_en: "Positive and negative CDF tails determine the mean" }
+  - { page: 13, slide: "13/33", kind: example, title: 混合型 CDF：跳跃与区间积分各贡献一部分, title_en: "A mixed CDF contributes both a jump and an interval integral" }
+  - { page: 14, slide: "14/33", kind: definition, title: 逆变换法可以构造任何实值分布, title_en: "Inverse transform constructs every real law" }
+  - { page: 15, slide: "15/33", kind: example, title: 由均匀分布生成指数分布, title_en: "A uniform variable generates an exponential law" }
+  - { page: 16, slide: "16/33", kind: example, title: 分位数能准确看出哪些矩存在（Pareto）, title_en: "A quantile can reveal exactly which moments exist" }
+  - { page: 17, slide: "17/33", kind: theorem, title: 绝对连续正是存在密度的条件, title_en: "Absolute continuity is exactly the condition behind a density" }
+  - { page: 18, slide: "18/33", kind: definition, title: 康托尔集及其二进编码, title_en: "The Cantor set and its binary encoding" }
+  - { page: 19, slide: "19/33", kind: example, title: 连续的 CDF 不一定有密度（康托尔分布）, title_en: "A continuous CDF need not have a density" }
+  - { page: 20, slide: "20/33", kind: theorem, title: 实值分布的三种质量, title_en: "Three kinds of mass in a real probability law" }
+  - { page: 21, slide: "21/33", kind: theorem, title: 每个正阶矩都是尾概率的积分, title_en: "Every positive moment is an integrated tail" }
+  - { page: 22, slide: "22/33", kind: definition, title: Lp 空间, title_en: "Lp space" }
+  - { page: 23, slide: "23/33", kind: theorem, title: 凸函数处处有支撑线, title_en: "Every finite convex function has a supporting line" }
+  - { page: 24, slide: "24/33", kind: theorem, title: 对支撑线取期望得到 Jensen 不等式, title_en: "Jensen follows by integrating the supporting line" }
+  - { page: 25, slide: "25/33", kind: theorem, title: Lp 空间的单调性, title_en: "Monotonicity of Lp space" }
+  - { page: 26, slide: "26/33", kind: theorem, title: Hölder 不等式是归一化的 Young 不等式, title_en: "Hölder is the normalized form of scalar Young" }
+  - { page: 27, slide: "27/33", kind: theorem, title: Minkowski 不等式（p > 1）, title_en: "Minkowski for p > 1 is one Hölder calculation" }
+  - { page: 28, slide: "28/33", kind: remark, title: 用矩控制事件的概率, title_en: "A moment estimate can control an event" }
+  - { page: 29, slide: "29/33", kind: theorem, title: 广义 Markov 不等式, title_en: "Generalized Markov inequality" }
+  - { page: 30, slide: "30/33", kind: theorem, title: 有限矩与尾部衰减, title_en: "Finite moments" }
+  - { page: 31, slide: "31/33", kind: example, title: 尾部衰减更快也不一定有有限矩, title_en: "Faster tail decay alone need not give a finite moment" }
+  - { page: 32, slide: "32/33", kind: theorem, title: Cantelli 单侧不等式, title_en: "Cantelli's one-sided bound" }

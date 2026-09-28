@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>15 路线图：进入第 2 部分（从乔丹测度到勒贝格测度） · 第1讲 · 高等概率论逐页精讲</title>
+<meta name="description" content="高等概率论课件逐页中文精讲：课件原页对照、零基础补课、公式推导、老师板书解读、例子与自测。">
+<link rel="stylesheet" href="../assets/katex/katex.min.css">
+<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="prefetch" href="p16.html">
+<link rel="prefetch" href="../assets/slides/topic1/p16.webp" as="image">
+<script>try{var s=localStorage.getItem("apt-font-scale");if(s)document.documentElement.style.setProperty("--font-scale",s);if(localStorage.getItem("apt-layout")==="focus")document.documentElement.classList.add("focus-mode");}catch(e){}</script>
+</head>
+<body class="page-reader">
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <button class="tool-btn" id="toc-toggle" type="button" aria-label="打开本讲目录"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg><span>目录</span></button>
+    <a class="brand" href="../index.html">高等概率论<span>逐页精讲</span></a>
+    <nav class="topnav" aria-label="讲次"><a href="../topic1/index.html" aria-current="page">第 1 讲</a><a href="../topic2/index.html">第 2 讲</a><a href="../topic3/index.html">第 3 讲</a><a href="../basics.html">基础补课</a><a href="../glossary.html">术语表</a></nav>
+    <div class="tools">
+      <button class="tool-btn" id="search-open" type="button" aria-label="搜索"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><span>搜索</span></button>
+      <button class="tool-btn" id="layout-toggle" type="button" aria-pressed="false" title="隐藏 / 显示左侧课件原页"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4z"/><path d="M12 5v14"/></svg><span class="layout-label">专注阅读</span></button>
+      <div class="font-tools" role="group" aria-label="字号"><button class="tool-btn" id="font-down" type="button" aria-label="缩小字号">A−</button><button class="tool-btn" id="font-up" type="button" aria-label="放大字号">A+</button></div>
+    </div>
+  </div>
+  <div class="read-progress" aria-hidden="true"><span></span></div>
+</header>
+<div class="reader">
+<aside class="toc" id="toc" aria-label="本讲目录">
+  <div class="toc-head"><a href="index.html">第 1 讲 · 测度与积分</a><p class="toc-progress" data-topic="topic1" data-total="47">已看懂 <b>0</b> / 47 页</p></div>
+  <section class="toc-section"><h2>开篇</h2><ol><li data-page="1"><a href="p01.html"><span class="toc-num">01</span><span class="toc-title">封面：为概率打地基的测度与积分</span></a></li><li data-page="2"><a href="p02.html"><span class="toc-num">02</span><span class="toc-title">本讲目标：学完要会什么</span></a></li><li data-page="3"><a href="p03.html"><span class="toc-num">03</span><span class="toc-title">目录：本讲五个部分与「概率空间三件套」</span></a></li></ol></section>
+<section class="toc-section"><h2>第 1 部分　概率空间与可测事件</h2><ol><li data-page="4"><a href="p04.html"><span class="toc-num">04</span><span class="toc-title">路线图：进入第 1 部分</span></a></li><li data-page="5"><a href="p05.html"><span class="toc-num">05</span><span class="toc-title">概率模型从「所有可能的世界」开始</span></a></li><li data-page="6"><a href="p06.html"><span class="toc-num">06</span><span class="toc-title">事件：把满足某个性质的结果收集起来</span></a></li><li data-page="7"><a href="p07.html"><span class="toc-num">07</span><span class="toc-title">板书续页：无穷次抛硬币、上极限与下极限</span></a></li><li data-page="8"><a href="p08.html"><span class="toc-num">08</span><span class="toc-title">概率的分配必须尊重可数拆分（可数可加性）</span></a></li><li data-page="9"><a href="p09.html"><span class="toc-num">09</span><span class="toc-title">σ-代数：对可数次「或、且、非」封闭的事件族</span></a></li><li data-page="10"><a href="p10.html"><span class="toc-num">10</span><span class="toc-title">为什么不总是取全部子集 2^Ω？</span></a></li><li data-page="11"><a href="p11.html"><span class="toc-num">11</span><span class="toc-title">生成的 σ-代数：只添加「被迫加入」的集合</span></a></li><li class="pending" data-page="12"><a href="p12.html"><span class="toc-num">12</span><span class="toc-title">测度空间：把「事件范围」和「重量」分开</span></a></li><li class="pending" data-page="13"><a href="p13.html"><span class="toc-num">13</span><span class="toc-title">测度的从下连续性</span></a></li><li class="pending" data-page="14"><a href="p14.html"><span class="toc-num">14</span><span class="toc-title">从上连续性，以及它必需的有限条件</span></a></li></ol></section>
+<section class="toc-section"><h2>第 2 部分　从乔丹容量到外测度</h2><ol><li class="current" data-page="15"><a href="p15.html" aria-current="page"><span class="toc-num">15</span><span class="toc-title">路线图：进入第 2 部分（从乔丹测度到勒贝格测度）</span></a></li><li class="pending" data-page="16"><a href="p16.html"><span class="toc-num">16</span><span class="toc-title">乔丹容量：用有限个区间从里、从外逼近</span></a></li><li class="pending" data-page="17"><a href="p17.html"><span class="toc-num">17</span><span class="toc-title">有限覆盖只看见「稠密」，可数覆盖能跟住每个点</span></a></li><li class="pending" data-page="18"><a href="p18.html"><span class="toc-num">18</span><span class="toc-title">外测度：可数覆盖总长度的下确界</span></a></li></ol></section>
+<section class="toc-section"><h2>第 3 部分　勒贝格可测集与勒贝格测度</h2><ol><li data-page="19"><a href="p19.html"><span class="toc-num">19</span><span class="toc-title">路线图：进入第 3 部分</span></a></li><li class="pending" data-page="20"><a href="p20.html"><span class="toc-num">20</span><span class="toc-title">卡拉泰奥多里判别：任意切一刀，总成本不变</span></a></li><li class="pending" data-page="21"><a href="p21.html"><span class="toc-num">21</span><span class="toc-title">维塔利定理：长度无法定义在所有子集上</span></a></li><li class="pending" data-page="22"><a href="p22.html"><span class="toc-num">22</span><span class="toc-title">可数可加性导出矛盾（维塔利定理的证明）</span></a></li><li class="pending" data-page="23"><a href="p23.html"><span class="toc-num">23</span><span class="toc-title">构造完成：勒贝格测度正好满足概率的需要</span></a></li></ol></section>
+<section class="toc-section"><h2>第 4 部分　勒贝格积分</h2><ol><li data-page="24"><a href="p24.html"><span class="toc-num">24</span><span class="toc-title">路线图：进入第 4 部分</span></a></li><li class="pending" data-page="25"><a href="p25.html"><span class="toc-num">25</span><span class="toc-title">达布和：把黎曼可积的判别写清楚</span></a></li><li class="pending" data-page="26"><a href="p26.html"><span class="toc-num">26</span><span class="toc-title">勒贝格保留「台阶」，但换了台阶的底</span></a></li><li class="pending" data-page="27"><a href="p27.html"><span class="toc-num">27</span><span class="toc-title">有界且黎曼可积 ⇒ 勒贝格可积，积分值相同</span></a></li><li class="pending" data-page="28"><a href="p28.html"><span class="toc-num">28</span><span class="toc-title">反过来不成立：狄利克雷函数</span></a></li><li data-page="29"><a href="p29.html"><span class="toc-num">29</span><span class="toc-title">可测函数：积分的「合法输入」</span></a></li><li data-page="30"><a href="p30.html"><span class="toc-num">30</span><span class="toc-title">示性函数与简单函数：积分的「原子」</span></a></li><li data-page="31"><a href="p31.html"><span class="toc-num">31</span><span class="toc-title">简单函数的积分与写法无关</span></a></li><li data-page="32"><a href="p32.html"><span class="toc-num">32</span><span class="toc-title">简单函数积分的线性与单调性</span></a></li><li data-page="33"><a href="p33.html"><span class="toc-num">33</span><span class="toc-title">从下方逼近：把积分推广到非负可测函数</span></a></li><li class="pending" data-page="34"><a href="p34.html"><span class="toc-num">34</span><span class="toc-title">只要可测，就能用递增的简单函数逼近</span></a></li></ol></section>
+<section class="toc-section"><h2>第 5 部分　MCT、Fatou 引理、DCT、BCT</h2><ol><li data-page="35"><a href="p35.html"><span class="toc-num">35</span><span class="toc-title">路线图：进入第 5 部分</span></a></li><li class="pending" data-page="36"><a href="p36.html"><span class="toc-num">36</span><span class="toc-title">单调收敛定理（MCT）</span></a></li><li class="pending" data-page="37"><a href="p37.html"><span class="toc-num">37</span><span class="toc-title">板书续页：单调收敛定理的证明（续）</span></a></li><li class="pending" data-page="38"><a href="p38.html"><span class="toc-num">38</span><span class="toc-title">用 MCT 把可加性推广到所有非负可测函数</span></a></li><li class="pending" data-page="39"><a href="p39.html"><span class="toc-num">39</span><span class="toc-title">只有逐点收敛时，「质量」会丢失</span></a></li><li class="pending" data-page="40"><a href="p40.html"><span class="toc-num">40</span><span class="toc-title">尾部下确界找回单调性：liminf 与 limsup</span></a></li><li class="pending" data-page="41"><a href="p41.html"><span class="toc-num">41</span><span class="toc-title">Fatou 引理</span></a></li><li class="pending" data-page="42"><a href="p42.html"><span class="toc-num">42</span><span class="toc-title">板书续页：Fatou 引理的应用（单调函数的导数）</span></a></li><li class="pending" data-page="43"><a href="p43.html"><span class="toc-num">43</span><span class="toc-title">在 L¹ 里：零测集上改值、线性组合都无害</span></a></li><li class="pending" data-page="44"><a href="p44.html"><span class="toc-num">44</span><span class="toc-title">控制收敛定理（DCT）</span></a></li><li class="pending" data-page="45"><a href="p45.html"><span class="toc-num">45</span><span class="toc-title">板书续页：控制收敛定理的证明（续）</span></a></li><li class="pending" data-page="46"><a href="p46.html"><span class="toc-num">46</span><span class="toc-title">有界收敛定理（BCT）：有限测度下的推论</span></a></li><li data-page="47"><a href="p47.html"><span class="toc-num">47</span><span class="toc-title">板书总结：一页看懂整讲</span></a></li></ol></section>
+</aside>
+<div class="toc-scrim" id="toc-scrim" hidden></div>
+<main id="main" class="reader-main" data-topic="topic1" data-page="15" data-prev="p14.html" data-next="p16.html">
+  <header class="page-head">
+    <p class="crumbs"><a href="index.html">第 1 讲 测度与积分</a><span>›</span>第 2 部分　从乔丹容量到外测度</p>
+    <div class="badges"><span class="badge">PDF 第 15 / 47 页</span><span class="badge">幻灯片 14/42</span><span class="badge badge-kind">路线图</span></div>
+    <h1>路线图：进入第 2 部分（从乔丹测度到勒贝格测度）</h1>
+    <p class="title-en" lang="en">Where we are</p>
+    <nav class="chips" aria-label="本页小标题"><span class="chips-label">本页小标题</span><a href="#s1">这一页在讲什么</a><a href="#s2">课件原文逐句精读</a><a href="#s3">老师板书在说什么</a><a href="#s6">第 2 部分会讲什么</a><a href="#s7">小结与自测</a></nav>
+  </header>
+  <div class="split">
+    <figure class="slide-pane">
+      <button class="slide-zoom" type="button" data-full="../assets/slides/topic1/p15.webp" aria-label="放大查看课件原页">
+        <img src="../assets/slides/topic1/p15.webp" width="1600" height="1281" alt="课件第 15 页：Where we are" decoding="async" fetchpriority="high">
+      </button>
+      <figcaption>课件原页 · 点击放大 · ← → 键翻页</figcaption>
+    </figure>
+    <article class="notes prose" id="notes">
+<h2 id="s1">这一页在讲什么</h2>
+<section class="box box-idea"><header class="box-head"><span class="box-kind">人话版</span><span class="box-title">一句话版</span></header><div class="box-body">
+<p>第 1 部分只<strong>规定</strong>了测度要满足的规矩，还没有<strong>造出</strong>任何一个像样的测度。第 2、3 部分要亲手造出最重要的那一个：实数轴上的「长度」，也就是<strong>勒贝格测度</strong>。老师在这页写下了两条构造路线。</p>
+</div></section>
+<h2 id="s2">课件原文逐句精读</h2>
+<section class="box box-original"><header class="box-head"><span class="box-kind">课件原文</span><span class="box-title">Where we are</span></header><div class="box-body">
+<ol>
+<li>Probability spaces and measurable events</li>
+<li><strong>From Jordan content to outer measure</strong>（高亮）</li>
+<li>Lebesgue measurable sets and measure</li>
+<li>Lebesgue integration</li>
+<li>MCT, Fatou's Lemma, DCT, BCT</li>
+</ol>
+</div></section>
+<section class="box box-zh"><header class="box-head"><span class="box-kind">中文翻译</span></header><div class="box-body">
+<p>我们现在在哪里：第 2 部分「从乔丹容量到外测度」。</p>
+</div></section>
+<h2 id="s3">老师板书在说什么</h2>
+<section class="box box-board"><header class="box-head"><span class="box-kind">老师板书</span><span class="box-title">板书转写</span></header><div class="box-body">
+<ul>
+<li>第 1 部分旁边：<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">Ω</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathcal" style="margin-right:0.09931em;">F</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathbb">P</span><span class="mclose">)</span><span class="cjk-punct">，</span></span></span></span><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathcal">M</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">μ</span><span class="mclose">)</span></span></span></span></li>
+<li>页面下方两行：
+<ol>
+<li>Algebra <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span> pre-measure <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span> outer-measure <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span> extension Thm <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span> Lebesgue measure.</li>
+<li>Jordan measure <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span> outer-measure <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span> extension <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span> Lebesgue measure,</li>
+</ol>
+</li>
+</ul>
+</div></section>
+<h3 id="s4">第 1 部分的成果：两个三元组</h3>
+<ul>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">Ω</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathcal" style="margin-right:0.09931em;">F</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathbb">P</span><span class="mclose">)</span><span class="cjk-punct">：</span></span></span></span><strong>概率空间</strong>（样本空间、σ-代数、概率测度），见 <a class="page-link" href="p12.html" title="测度空间：把「事件范围」和「重量」分开">第 12 页</a>。</li>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathcal">M</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">μ</span><span class="mclose">)</span><span class="cjk-punct">：</span></span></span></span>一般的<strong>测度空间</strong>（空间、σ-代数、测度），总质量可以不是 1，甚至可以是 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord">∞</span><span class="cjk-punct">。</span></span></span></span></li>
+<li>老师把两者并列，意思是：<strong>概率空间只是测度空间的特例</strong>（总质量为 1 的那种）。接下来造「长度」，造的是一般测度空间 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathbb">R</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathcal">L</span><span class="mopen">(</span><span class="mord mathbb">R</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">m</span><span class="mclose">)</span><span class="cjk-punct">。</span></span></span></span></li>
+</ul>
+<h3 id="s5">两条路线：它们在说什么</h3>
+<p>两行板书讲的是同一件事的两种走法——<strong>怎样从「区间的长度」出发，最后得到定义在很多集合上的勒贝格测度</strong>。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>步骤</th>
+<th>第 1 行（教科书标准路线）</th>
+<th>第 2 行（本课走的路线）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>起点</td>
+<td><strong>代数（algebra）</strong>：对有限次并、补封闭的集合族，例如「有限个区间的并」</td>
+<td><strong>乔丹测度 / 容量（Jordan content）</strong>：用有限个区间从里、从外逼近（<a class="page-link" href="p16.html" title="乔丹容量：用有限个区间从里、从外逼近">第 16 页</a>）</td>
+</tr>
+<tr>
+<td>中间</td>
+<td><strong>预测度（pre-measure）</strong>：在代数上定义的「长度」，已满足可数可加</td>
+<td>——</td>
+</tr>
+<tr>
+<td>推广到所有子集</td>
+<td><strong>外测度（outer measure）</strong> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6887em;"></span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6887em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span><span class="cjk-punct">：</span></span></span></span>用可数个区间去覆盖（<a class="page-link" href="p18.html" title="外测度：可数覆盖总长度的下确界">第 18 页</a>）</td>
+<td>同左</td>
+</tr>
+<tr>
+<td>收缩到好集合</td>
+<td><strong>扩张定理（extension theorem）</strong>：只保留满足卡拉泰奥多里条件的集合（<a class="page-link" href="p20.html" title="卡拉泰奥多里判别：任意切一刀，总成本不变">第 20 页</a>）</td>
+<td>同左</td>
+</tr>
+<tr>
+<td>终点</td>
+<td><strong>勒贝格测度</strong></td>
+<td><strong>勒贝格测度</strong></td>
+</tr>
+</tbody>
+</table></div>
+<section class="box box-idea"><header class="box-head"><span class="box-kind">人话版</span><span class="box-title">用「称重」来理解这条路</span></header><div class="box-body">
+<ol>
+<li>先会称最简单的东西：区间 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathnormal">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">b</span><span class="mclose">]</span></span></span></span> 的长度是 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7778em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span><span class="cjk-punct">。</span></span></span></span></li>
+<li>再称有限个区间拼成的形状（乔丹容量）。</li>
+<li>形状太碎（比如全体有理数）时，有限个区间不够用 → 允许<strong>可数</strong>个区间去覆盖，取最省的总长度（外测度）。</li>
+<li>外测度对<strong>所有</strong>集合都有定义，但并不总是「可加」的 → 只保留那些切开之后重量不会凭空多出来的集合（卡拉泰奥多里可测集）。</li>
+<li>在这些集合上，外测度就是一个真正的测度：勒贝格测度。</li>
+</ol>
+</div></section>
+<h2 id="s6">第 2 部分会讲什么</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>页</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="page-link" href="p16.html" title="乔丹容量：用有限个区间从里、从外逼近">第 16 页</a></td>
+<td>乔丹容量：有限个区间从里、从外逼近</td>
+</tr>
+<tr>
+<td><a class="page-link" href="p17.html" title="有限覆盖只看见「稠密」，可数覆盖能跟住每个点">第 17 页</a></td>
+<td>有理数的例子：有限覆盖为什么不够，可数覆盖为什么够</td>
+</tr>
+<tr>
+<td><a class="page-link" href="p18.html" title="外测度：可数覆盖总长度的下确界">第 18 页</a></td>
+<td>外测度：可数覆盖总长度的下确界</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="s7">小结与自测</h2>
+<section class="box box-sum"><header class="box-head"><span class="box-kind">小结</span><span class="box-title">本页小结</span></header><div class="box-body">
+<ul>
+<li>第 1 部分给出了规矩：概率空间 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">Ω</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathcal" style="margin-right:0.09931em;">F</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathbb">P</span><span class="mclose">)</span></span></span></span> 是测度空间 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathcal">M</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">μ</span><span class="mclose">)</span></span></span></span> 的特例。</li>
+<li>第 2、3 部分要<strong>造出</strong>勒贝格测度：区间长度 → 乔丹容量 → 外测度 → 限制到可测集 → 勒贝格测度。</li>
+<li>老师写的两条路线终点相同，本课走的是「乔丹容量 → 外测度 → 扩张」这一条。</li>
+</ul>
+</div></section>
+
+    </article>
+  </div>
+  <footer class="page-foot">
+    <label class="done-toggle"><input type="checkbox" id="done-box" data-topic="topic1" data-page="15"><span>这一页我看懂了</span></label>
+    <nav class="pager" aria-label="翻页">
+    <a class="pager-prev" rel="prev" href="p14.html"><small>← 上一页 · 14</small><span>从上连续性，以及它必需的有限条件</span></a>
+    <a class="pager-next" rel="next" href="p16.html"><small>下一页 · 16 →</small><span>乔丹容量：用有限个区间从里、从外逼近</span></a>
+  </nav>
+  </footer>
+</main>
+</div>
+<div class="lightbox" id="lightbox" hidden><button class="lightbox-close" type="button" aria-label="关闭">关闭 ✕</button><div class="lightbox-stage"><img alt=""></div><p class="lightbox-hint">点击图片放大 / 缩小 · Esc 关闭</p></div>
+<div class="term-pop" id="term-pop" role="tooltip" hidden></div>
+<div class="search-panel" id="search-panel" hidden>
+  <div class="search-box" role="dialog" aria-label="搜索讲义">
+    <input id="search-input" type="search" placeholder="搜索：σ-代数、外测度、Fatou、单调收敛……" autocomplete="off">
+    <ol id="search-results" class="search-results"></ol>
+    <p class="search-hint">↑↓ 选择 · Enter 打开 · Esc 关闭</p>
+  </div>
+</div>
+<script type="application/json" id="page-data">{"terms":{},"topic":"topic1","page":15}</script>
+<script src="../assets/js/site.js" defer></script>
+<script src="../assets/js/demos.js" defer></script>
+</body>
+</html>
