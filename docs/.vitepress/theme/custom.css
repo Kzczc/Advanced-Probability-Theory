@@ -1,0 +1,333 @@
+/* ============ 全局变量 ============ */
+:root {
+  --serif: 'Times New Roman', Times, 'Nimbus Roman', 'Liberation Serif', 'SimSun', '宋体', 'Songti SC',
+    'STSong', 'Noto Serif CJK SC', 'Source Han Serif SC', 'Noto Serif SC', serif;
+  --vp-c-brand-1: #3730a3;
+  --vp-c-brand-2: #4338ca;
+  --vp-c-brand-3: #4f46e5;
+  --vp-c-brand-soft: rgba(79, 70, 229, 0.12);
+  --vp-layout-max-width: 1600px;
+}
+.dark {
+  --vp-c-brand-1: #a5b4fc;
+  --vp-c-brand-2: #818cf8;
+  --vp-c-brand-3: #6366f1;
+  --vp-c-brand-soft: rgba(129, 140, 248, 0.16);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* 正文区更宽一些，公式和课件图更舒展 */
+@media (min-width: 960px) {
+  .VPDoc:not(.has-sidebar) .content-container,
+  .VPDoc.has-aside .content-container {
+    max-width: 860px !important;
+  }
+}
+
+/* ============ 正文排版：Times New Roman + 宋体 ============ */
+.vp-doc {
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.9;
+  text-rendering: optimizeLegibility;
+}
+.vp-doc h1,
+.vp-doc h2,
+.vp-doc h3,
+.vp-doc h4 {
+  font-family: var(--serif);
+  letter-spacing: 0.01em;
+}
+.vp-doc h1 {
+  font-size: 30px;
+  line-height: 1.35;
+}
+.vp-doc h2 {
+  font-size: 23px;
+  margin-top: 44px;
+  padding-top: 20px;
+}
+.vp-doc h3 {
+  font-size: 19px;
+  margin-top: 30px;
+}
+.vp-doc p,
+.vp-doc li {
+  line-height: 1.9;
+}
+.vp-doc strong {
+  color: var(--vp-c-text-1);
+}
+.vp-doc blockquote {
+  font-family: var(--serif);
+}
+.vp-doc table {
+  font-family: var(--serif);
+  font-size: 15.5px;
+}
+.vp-doc th {
+  white-space: nowrap;
+}
+
+/* 页首的英文原标题 */
+.vp-doc .en-title {
+  margin-top: -6px;
+  color: var(--vp-c-text-2);
+  font-style: italic;
+  font-size: 16px;
+}
+
+/* ============ 公式 ============ */
+.vp-doc .katex {
+  font-size: 1.07em;
+}
+.vp-doc .katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 6px 2px;
+  margin: 14px 0;
+  -webkit-overflow-scrolling: touch;
+}
+.vp-doc .katex-display > .katex {
+  font-size: 1.12em;
+}
+.vp-doc .katex-error {
+  color: #dc2626;
+  border-bottom: 1px dashed #dc2626;
+}
+
+/* ============ 彩色知识框 ============ */
+.vp-doc .box {
+  --acc: 71 85 105;
+  margin: 22px 0;
+  border: 1px solid rgb(var(--acc) / 0.28);
+  border-left: 4px solid rgb(var(--acc) / 0.9);
+  border-radius: 10px;
+  background: rgb(var(--acc) / 0.045);
+  font-family: var(--serif);
+}
+.vp-doc .box-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
+  padding: 9px 16px 7px;
+  border-bottom: 1px solid rgb(var(--acc) / 0.16);
+  font-weight: 700;
+  line-height: 1.6;
+}
+.vp-doc .box-label {
+  flex: none;
+  padding: 1px 9px;
+  border-radius: 999px;
+  background: rgb(var(--acc) / 0.92);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+.vp-doc .box-name {
+  font-family: var(--serif);
+  font-size: 16.5px;
+  color: var(--vp-c-text-1);
+}
+.vp-doc .box-body {
+  padding: 4px 18px 6px;
+  font-family: var(--serif);
+}
+.vp-doc .box-body > :first-child {
+  margin-top: 10px;
+}
+.vp-doc .box-body > :last-child {
+  margin-bottom: 12px;
+}
+.vp-doc .box .box {
+  margin: 14px 0;
+}
+
+.vp-doc .box-slide { --acc: 30 58 138; }
+.vp-doc .box-trans { --acc: 51 65 85; }
+.vp-doc .box-handnote { --acc: 29 78 216; background-color: rgb(29 78 216 / 0.04); }
+.vp-doc .box-fill { --acc: 180 83 9; }
+.vp-doc .box-def { --acc: 37 99 235; }
+.vp-doc .box-thm { --acc: 124 58 237; }
+.vp-doc .box-proof { --acc: 71 85 105; }
+.vp-doc .box-example { --acc: 5 150 105; }
+.vp-doc .box-intuition { --acc: 217 119 6; }
+.vp-doc .box-prereq { --acc: 8 145 178; }
+.vp-doc .box-figure { --acc: 13 148 136; }
+.vp-doc .box-pitfall { --acc: 220 38 38; }
+.vp-doc .box-remark { --acc: 100 116 139; }
+.vp-doc .box-summary { --acc: 67 56 202; }
+.vp-doc .box-quiz { --acc: 192 38 211; }
+.vp-doc .box-vocab { --acc: 120 113 108; }
+.vp-doc .box-roadmap { --acc: 79 70 229; }
+
+.vp-doc .box-proof .box-body::after {
+  content: '∎';
+  display: block;
+  text-align: right;
+  margin: -6px 0 8px;
+  color: var(--vp-c-text-2);
+}
+
+/* 手写批注框：左侧像"便签" */
+.vp-doc .box-handnote .box-label::before {
+  content: '✎ ';
+}
+
+/* 自测答案（details） */
+.vp-doc .box details.custom-block,
+.vp-doc details.custom-block {
+  font-family: var(--serif);
+}
+.vp-doc details.custom-block summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+/* 词汇表：两列表格更紧凑 */
+.vp-doc .box-vocab table {
+  font-size: 15px;
+  margin: 8px 0;
+}
+
+/* ============ 课件图片 ============ */
+.vp-doc .slide-frame {
+  margin: 18px 0 30px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+}
+.vp-doc .slide-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  cursor: zoom-in;
+}
+.vp-doc .slide-frame figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6px 12px;
+  padding: 8px 12px;
+  border-top: 1px solid var(--vp-c-divider);
+  background: var(--vp-c-bg-soft);
+  font-family: var(--vp-font-family-base);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--vp-c-text-2);
+}
+.vp-doc .slide-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.vp-doc .slide-hint {
+  color: var(--vp-c-text-3);
+}
+.slide-btn {
+  display: inline-block;
+  padding: 2px 10px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 999px;
+  background: var(--vp-c-bg);
+  color: var(--vp-c-text-1) !important;
+  font-size: 13px;
+  text-decoration: none !important;
+  cursor: pointer;
+}
+.slide-btn:hover {
+  border-color: var(--vp-c-brand-1);
+  color: var(--vp-c-brand-1) !important;
+}
+
+.slide-float {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 70;
+  width: min(440px, 46vw);
+  max-height: 80vh;
+  overflow: auto;
+  resize: both;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.22);
+}
+.slide-float img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.slide-float-bar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 10px;
+  background: #312e81;
+  color: #fff;
+  font-size: 12px;
+}
+.slide-float-bar button {
+  color: #fff;
+  font-size: 12px;
+  text-decoration: underline;
+}
+@media (max-width: 640px) {
+  .slide-float {
+    width: 70vw;
+  }
+}
+
+.medium-zoom-overlay,
+.medium-zoom-image--opened {
+  z-index: 100;
+}
+
+/* ============ 侧边栏编号 ============ */
+.sb-num {
+  display: inline-block;
+  min-width: 2em;
+  margin-right: 2px;
+  color: var(--vp-c-text-3);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ============ 首页 ============ */
+.VPHome .VPHero .name,
+.VPHome .VPHero .text {
+  font-family: var(--serif);
+}
+.VPHome .VPFeature .title {
+  font-family: var(--serif);
+}
+
+/* 交互组件的公共外框（widgets 可复用） */
+.vp-doc .widget {
+  margin: 22px 0;
+  padding: 14px 16px 12px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  background: var(--vp-c-bg-soft);
+  font-family: var(--serif);
+}
+.vp-doc .widget-title {
+  margin: 0 0 8px;
+  font-weight: 700;
+  font-size: 16px;
+}
+.vp-doc .widget input[type='range'] {
+  width: 100%;
+  accent-color: var(--vp-c-brand-1);
+}
