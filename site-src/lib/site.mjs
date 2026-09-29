@@ -57,6 +57,7 @@ function cleanOutput(outputDir) {
 /** 从 HTML 中提取纯文本（用于搜索索引） */
 function htmlToText(html) {
   return html
+    .replace(/<span class="box-kind">[^<]*<\/span>/g, " ")
     .replace(/<span class="katex-html"[\s\S]*?<\/span>(?=<\/span>)/g, " ")
     .replace(/<[^>]+>/g, " ")
     .replace(/&[a-z]+;/g, " ")
