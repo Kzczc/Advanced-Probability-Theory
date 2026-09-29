@@ -263,7 +263,7 @@
     const f = (x) => 0.55 + 0.35 * Math.sin(2 * Math.PI * 1.5 * x) * Math.cos(2 * Math.PI * 0.4 * x);
     let mode = "lebesgue";
     let levels = 5;
-    const plot = makePlot(root, { xRange: [0, 1], yRange: [0, 1], height: 320, pad: { l: 44, r: 16, t: 14, b: 60 } });
+    const plot = makePlot(root, { xRange: [0, 1], yRange: [0, 1], height: 360, pad: { l: 44, r: 16, t: 14, b: 92 } });
     const ctl = controls(root);
     const out = readout(root);
     function render() {
@@ -279,7 +279,9 @@
         out.innerHTML = `黎曼：把 <b>x 轴</b>切成 ${levels} 个等长小区间，每个区间取一个高度。台阶的「底」永远是<b>区间</b>。`;
       } else {
         const colors = ["#fde68a", "#fdba74", "#fca5a5", "#c4b5fd", "#93c5fd", "#86efac", "#f9a8d4", "#a5b4fc", "#fcd34d", "#6ee7b7"];
-        const baseY = plot.height - 34;
+        // 坐标刻度下方留出一块区域画「每一层的底」：每层一行彩条
+        const baseY = plot.height - plot.pad.b + 30;
+        const rowHeight = Math.min(5, 34 / levels);
         for (let k = 1; k <= levels; k += 1) {
           const level = k / (levels + 1);
           const color = colors[(k - 1) % colors.length];
@@ -294,13 +296,13 @@
             if (!on && inside) {
               inside = false;
               el("rect", { x: plot.sx(start), y: plot.sy(level), width: plot.sx(x) - plot.sx(start), height: plot.sy(level - 1 / (levels + 1)) - plot.sy(level), fill: color, opacity: 0.85 }, plot.svg);
-              el("rect", { x: plot.sx(start), y: baseY + (k - 1) * (22 / levels), width: plot.sx(x) - plot.sx(start), height: Math.max(2, 20 / levels), fill: color }, plot.svg);
+              el("rect", { x: plot.sx(start), y: baseY + (k - 1) * rowHeight, width: plot.sx(x) - plot.sx(start), height: Math.max(2, rowHeight - 1), fill: color }, plot.svg);
             }
           }
           el("line", { x1: plot.sx(0), x2: plot.sx(1), y1: plot.sy(level), y2: plot.sy(level), stroke: COLORS.muted, "stroke-dasharray": "3 4" }, plot.svg);
         }
-        const note = el("text", { x: plot.sx(0), y: plot.height - 38, "font-size": 11, fill: COLORS.axis }, plot.svg);
-        note.textContent = "下方彩条：每一层对应的水平集 {x : f(x) ≥ yₖ}（可以是好几段）";
+        const note = el("text", { x: plot.sx(0), y: plot.height - 8, "font-size": 11, fill: COLORS.axis }, plot.svg);
+        note.textContent = "坐标轴下方的彩条（第 k 行对应第 k 层）：这一层的底 {x : f(x) ≥ yₖ}，可以是好几段";
         out.innerHTML = `勒贝格：把 <b>y 轴</b>切成 ${levels} 层。每一层的「底」是集合 {x : f(x) ≥ yₖ}——它不一定是一个区间，可以是好几段，甚至很碎。这就是勒贝格要用「可测集」做台阶底的原因。`;
       }
       el("path", { d: pathFromFunction(plot, f, 0, 1, 400), fill: "none", stroke: "#111827", "stroke-width": 2 }, plot.svg);

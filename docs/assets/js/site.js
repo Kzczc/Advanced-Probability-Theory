@@ -14,8 +14,8 @@
   };
 
   const siteRoot = (() => {
-    const script = document.querySelector('script[src$="assets/js/site.js"]');
-    return script ? script.getAttribute("src").replace(/assets\/js\/site\.js$/, "") : "";
+    const script = document.querySelector('script[src*="assets/js/site.js"]');
+    return script ? script.getAttribute("src").replace(/assets\/js\/site\.js(\?.*)?$/, "") : "";
   })();
 
   const pageData = (() => {

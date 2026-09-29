@@ -2,9 +2,20 @@
  * 生成 docs/ 下的全部网页：首页、每讲目录页、逐页精讲页、基础补课页、术语表、搜索索引。
  * 由 site-src/build.mjs 调用（build.mjs 负责读取内容与校验）。
  */
+import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { escapeHtml } from "./markdown.mjs";
+
+/** 样式与脚本的版本号（按文件内容计算）：内容变了链接就变，浏览器不会继续用缓存里的旧文件 */
+let assetVersion = "dev";
+function computeAssetVersion(siteSrc) {
+  const hash = crypto.createHash("sha1");
+  for (const relative of ["assets/css/site.css", "assets/js/site.js", "assets/js/demos.js"]) {
+    hash.update(fs.readFileSync(path.join(siteSrc, relative)));
+  }
+  return hash.digest("hex").slice(0, 10);
+}
 
 const pad2 = (number) => String(number).padStart(2, "0");
 
@@ -72,7 +83,7 @@ function layout({ root, title, bodyClass, main, topbar, extraHead = "", pageData
 <title>${escapeHtml(title)}</title>
 <meta name="description" content="高等概率论课件逐页中文精讲：课件原页对照、零基础补课、公式推导、老师板书解读、例子与自测。">
 <link rel="stylesheet" href="${root}assets/katex/katex.min.css">
-<link rel="stylesheet" href="${root}assets/css/site.css">
+<link rel="stylesheet" href="${root}assets/css/site.css?v=${assetVersion}">
 ${extraHead}
 <script>try{var s=localStorage.getItem("apt-font-scale");if(s)document.documentElement.style.setProperty("--font-scale",s);if(localStorage.getItem("apt-layout")==="focus")document.documentElement.classList.add("focus-mode");}catch(e){}</script>
 </head>
@@ -90,8 +101,8 @@ ${main}
   </div>
 </div>
 ${pageData ? `<script type="application/json" id="page-data">${JSON.stringify(pageData).replace(/</g, "\\u003c")}</script>` : ""}
-<script src="${root}assets/js/site.js" defer></script>
-<script src="${root}assets/js/demos.js" defer></script>
+<script src="${root}assets/js/site.js?v=${assetVersion}" defer></script>
+<script src="${root}assets/js/demos.js?v=${assetVersion}" defer></script>
 </body>
 </html>
 `;
@@ -390,6 +401,7 @@ ${rendered ? rendered.html : "<p>基础补课正在写作中。</p>"}
 
 export function buildSite({ catalog, topics, glossary, renderPage, pageTitleMap, checks, paths, kinds, markdown, report }) {
   const { SITE_SRC, CONTENT_DIR, OUTPUT_DIR } = paths;
+  assetVersion = computeAssetVersion(SITE_SRC);
   cleanOutput(OUTPUT_DIR);
   writeFile(path.join(OUTPUT_DIR, ".nojekyll"), "");
 
