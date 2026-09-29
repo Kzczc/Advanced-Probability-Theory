@@ -32,7 +32,403 @@
     <p class="lede">每个术语：中文 · 英文原词 · 一句白话解释 · 第一次出现的页面。讲义正文里带虚线的词，就是这里的术语。</p>
     <input class="glossary-filter" id="glossary-filter" type="search" placeholder="筛选术语：输入中文或英文">
   </header>
-  <ol class="glossary-list" id="glossary-list"><li>术语表正在整理中。</li></ol>
+  <ol class="glossary-list" id="glossary-list"><li class="glossary-row" id="term-set" data-search="集合 set 把一些对象放在一起当成一个整体，例如 {1,2,3}。">
+      <div class="g-term"><strong>集合</strong><span lang="en">set</span></div>
+      <p class="g-plain">把一些对象放在一起当成一个整体，例如 {1,2,3}。</p>
+      <p class="g-page"><a href="topic1/p05.html">第 1 讲 p05</a></p>
+    </li><li class="glossary-row" id="term-element" data-search="元素 element 集合里的对象。ω ∈ ω 读作「ω 属于 ω」。">
+      <div class="g-term"><strong>元素</strong><span lang="en">element</span></div>
+      <p class="g-plain">集合里的对象。ω ∈ Ω 读作「ω 属于 Ω」。</p>
+      <p class="g-page"><a href="topic1/p05.html">第 1 讲 p05</a></p>
+    </li><li class="glossary-row" id="term-subset" data-search="子集 subset a 的每个元素都在 b 里，就说 a 是 b 的子集，记作 a ⊆ b。">
+      <div class="g-term"><strong>子集</strong><span lang="en">subset</span></div>
+      <p class="g-plain">A 的每个元素都在 B 里，就说 A 是 B 的子集，记作 A ⊆ B。</p>
+      <p class="g-page"><a href="topic1/p06.html">第 1 讲 p06</a></p>
+    </li><li class="glossary-row" id="term-empty-set" data-search="空集 empty set 一个元素也没有的集合，记作 ∅。作为事件，它永远不会发生。">
+      <div class="g-term"><strong>空集</strong><span lang="en">empty set</span></div>
+      <p class="g-plain">一个元素也没有的集合，记作 ∅。作为事件，它永远不会发生。</p>
+      <p class="g-page"><a href="topic1/p06.html">第 1 讲 p06</a></p>
+    </li><li class="glossary-row" id="term-union" data-search="并集 union 至少属于其中一个集合的元素全体，a ∪ b 对应「a 或 b」。">
+      <div class="g-term"><strong>并集</strong><span lang="en">union</span></div>
+      <p class="g-plain">至少属于其中一个集合的元素全体，A ∪ B 对应「A 或 B」。</p>
+      <p class="g-page"><a href="topic1/p06.html">第 1 讲 p06</a></p>
+    </li><li class="glossary-row" id="term-intersection" data-search="交集 intersection 同时属于两个集合的元素全体，a ∩ b 对应「a 且 b」。">
+      <div class="g-term"><strong>交集</strong><span lang="en">intersection</span></div>
+      <p class="g-plain">同时属于两个集合的元素全体，A ∩ B 对应「A 且 B」。</p>
+      <p class="g-page"><a href="topic1/p06.html">第 1 讲 p06</a></p>
+    </li><li class="glossary-row" id="term-complement" data-search="补集 complement 样本空间里不属于 a 的元素全体，记作 aᶜ，对应「a 不发生」。">
+      <div class="g-term"><strong>补集</strong><span lang="en">complement</span></div>
+      <p class="g-plain">样本空间里不属于 A 的元素全体，记作 Aᶜ，对应「A 不发生」。</p>
+      <p class="g-page"><a href="topic1/p06.html">第 1 讲 p06</a></p>
+    </li><li class="glossary-row" id="term-set-difference" data-search="差集 set difference 在 a 里但不在 b 里的元素，记作 a \ b，等于 a ∩ bᶜ。">
+      <div class="g-term"><strong>差集</strong><span lang="en">set difference</span></div>
+      <p class="g-plain">在 A 里但不在 B 里的元素，记作 A \ B，等于 A ∩ Bᶜ。</p>
+      <p class="g-page"><a href="topic1/p06.html">第 1 讲 p06</a></p>
+    </li><li class="glossary-row" id="term-power-set" data-search="幂集 power set 一个集合的所有子集组成的集合族，记作 2^ω；n 个元素的集合有 2ⁿ 个子集。">
+      <div class="g-term"><strong>幂集</strong><span lang="en">power set</span></div>
+      <p class="g-plain">一个集合的所有子集组成的集合族，记作 2^Ω；n 个元素的集合有 2ⁿ 个子集。</p>
+      <p class="g-page"><a href="topic1/p06.html">第 1 讲 p06</a></p>
+    </li><li class="glossary-row" id="term-family-of-sets" data-search="集合族 family of sets 元素本身都是集合的集合，例如事件族 𝓕。">
+      <div class="g-term"><strong>集合族</strong><span lang="en">family of sets</span></div>
+      <p class="g-plain">元素本身都是集合的集合，例如事件族 𝓕。</p>
+      <p class="g-page"><a href="topic1/p06.html">第 1 讲 p06</a></p>
+    </li><li class="glossary-row" id="term-de-morgan" data-search="德摩根律 de morgan's laws 「并的补 = 补的交」「交的补 = 补的并」，把「非（a 或 b）」变成「非 a 且非 b」。">
+      <div class="g-term"><strong>德摩根律</strong><span lang="en">De Morgan's laws</span></div>
+      <p class="g-plain">「并的补 = 补的交」「交的补 = 补的并」，把「非（A 或 B）」变成「非 A 且非 B」。</p>
+      <p class="g-page"><a href="topic1/p06.html">第 1 讲 p06</a></p>
+    </li><li class="glossary-row" id="term-pairwise-disjoint" data-search="两两不交 两两不相交 互不相交 pairwise disjoint 一列集合中任意两个都没有公共元素，对应「任意两件事不会同时发生」。">
+      <div class="g-term"><strong>两两不交</strong><span lang="en">pairwise disjoint</span></div>
+      <p class="g-plain">一列集合中任意两个都没有公共元素，对应「任意两件事不会同时发生」。</p>
+      <p class="g-page"><a href="topic1/p08.html">第 1 讲 p08</a></p>
+    </li><li class="glossary-row" id="term-cartesian-product" data-search="笛卡尔积 cartesian product a × b 是所有有序对 (a, b) 组成的集合；aⁿ 是所有长度为 n 的数组。">
+      <div class="g-term"><strong>笛卡尔积</strong><span lang="en">Cartesian product</span></div>
+      <p class="g-plain">A × B 是所有有序对 (a, b) 组成的集合；Aⁿ 是所有长度为 n 的数组。</p>
+      <p class="g-page"><a href="topic1/p05.html">第 1 讲 p05</a></p>
+    </li><li class="glossary-row" id="term-countable" data-search="可数 countable 元素能排成第 1 个、第 2 个、第 3 个……的一列（有限也算），例如自然数、有理数。">
+      <div class="g-term"><strong>可数</strong><span lang="en">countable</span></div>
+      <p class="g-plain">元素能排成第 1 个、第 2 个、第 3 个……的一列（有限也算），例如自然数、有理数。</p>
+      <p class="g-page"><a href="topic1/p07.html">第 1 讲 p07</a></p>
+    </li><li class="glossary-row" id="term-uncountable" data-search="不可数 uncountable 无论怎么排都排不成一列，例如区间 [0,1] 里的全体实数。">
+      <div class="g-term"><strong>不可数</strong><span lang="en">uncountable</span></div>
+      <p class="g-plain">无论怎么排都排不成一列，例如区间 [0,1] 里的全体实数。</p>
+      <p class="g-page"><a href="topic1/p07.html">第 1 讲 p07</a></p>
+    </li><li class="glossary-row" id="term-rational" data-search="有理数 rational number 能写成分数 p/q 的数，全体有理数记作 ℚ；它们可数，却在数轴上处处稠密。">
+      <div class="g-term"><strong>有理数</strong><span lang="en">rational number</span></div>
+      <p class="g-plain">能写成分数 p/q 的数，全体有理数记作 ℚ；它们可数，却在数轴上处处稠密。</p>
+      <p class="g-page"><a href="topic1/p17.html">第 1 讲 p17</a></p>
+    </li><li class="glossary-row" id="term-dense" data-search="稠密 dense 任何一小段区间里都能找到它的点，例如有理数在实数轴上稠密。">
+      <div class="g-term"><strong>稠密</strong><span lang="en">dense</span></div>
+      <p class="g-plain">任何一小段区间里都能找到它的点，例如有理数在实数轴上稠密。</p>
+      <p class="g-page"><a href="topic1/p17.html">第 1 讲 p17</a></p>
+    </li><li class="glossary-row" id="term-interval" data-search="区间 interval 数轴上的一段，[a,b] 包含端点，(a,b) 不包含端点。">
+      <div class="g-term"><strong>区间</strong><span lang="en">interval</span></div>
+      <p class="g-plain">数轴上的一段，[a,b] 包含端点，(a,b) 不包含端点。</p>
+      <p class="g-page"><a href="topic1/p05.html">第 1 讲 p05</a></p>
+    </li><li class="glossary-row" id="term-equivalence-relation" data-search="等价关系 equivalence relation 满足自反、对称、传递的「相似」关系，能把集合分成互不重叠的等价类。">
+      <div class="g-term"><strong>等价关系</strong><span lang="en">equivalence relation</span></div>
+      <p class="g-plain">满足自反、对称、传递的「相似」关系，能把集合分成互不重叠的等价类。</p>
+      <p class="g-page"><a href="topic1/p21.html">第 1 讲 p21</a></p>
+    </li><li class="glossary-row" id="term-equivalence-class" data-search="等价类 equivalence class 在等价关系下彼此「相似」的元素组成的一组。">
+      <div class="g-term"><strong>等价类</strong><span lang="en">equivalence class</span></div>
+      <p class="g-plain">在等价关系下彼此「相似」的元素组成的一组。</p>
+      <p class="g-page"><a href="topic1/p21.html">第 1 讲 p21</a></p>
+    </li><li class="glossary-row" id="term-axiom-of-choice" data-search="选择公理 axiom of choice 允许从无穷多个非空集合里各挑一个元素，组成一个新集合；维塔利集就是这样造的。">
+      <div class="g-term"><strong>选择公理</strong><span lang="en">axiom of choice</span></div>
+      <p class="g-plain">允许从无穷多个非空集合里各挑一个元素，组成一个新集合；维塔利集就是这样造的。</p>
+      <p class="g-page"><a href="topic1/p21.html">第 1 讲 p21</a></p>
+    </li><li class="glossary-row" id="term-function" data-search="函数 映射 function / map f: a → b 给 a 中每个元素指定 b 中唯一一个元素。">
+      <div class="g-term"><strong>函数</strong><span lang="en">function / map</span></div>
+      <p class="g-plain">f: A → B 给 A 中每个元素指定 B 中唯一一个元素。</p>
+      <p class="g-page"><a href="topic1/p05.html">第 1 讲 p05</a></p>
+    </li><li class="glossary-row" id="term-preimage" data-search="原像 preimage f⁻¹(b) 是「所有被 f 送进 b 的输入」组成的集合，可测性就是用原像定义的。">
+      <div class="g-term"><strong>原像</strong><span lang="en">preimage</span></div>
+      <p class="g-plain">f⁻¹(B) 是「所有被 f 送进 B 的输入」组成的集合，可测性就是用原像定义的。</p>
+      <p class="g-page"><a href="topic1/p29.html">第 1 讲 p29</a></p>
+    </li><li class="glossary-row" id="term-indicator" data-search="示性函数 indicator function 𝟏_a(x) 在 x ∈ a 时取 1，否则取 0；它的积分就是 a 的测度。">
+      <div class="g-term"><strong>示性函数</strong><span lang="en">indicator function</span></div>
+      <p class="g-plain">𝟏_A(x) 在 x ∈ A 时取 1，否则取 0；它的积分就是 A 的测度。</p>
+      <p class="g-page"><a href="topic1/p30.html">第 1 讲 p30</a></p>
+    </li><li class="glossary-row" id="term-supremum" data-search="上确界 supremum (sup) 最小的上界。最大值不一定存在，但有上界的实数集一定有上确界。">
+      <div class="g-term"><strong>上确界</strong><span lang="en">supremum (sup)</span></div>
+      <p class="g-plain">最小的上界。最大值不一定存在，但有上界的实数集一定有上确界。</p>
+      <p class="g-page"><a href="topic1/p16.html">第 1 讲 p16</a></p>
+    </li><li class="glossary-row" id="term-infimum" data-search="下确界 infimum (inf) 最大的下界。例如 (0,1] 没有最小值，但下确界是 0。">
+      <div class="g-term"><strong>下确界</strong><span lang="en">infimum (inf)</span></div>
+      <p class="g-plain">最大的下界。例如 (0,1] 没有最小值，但下确界是 0。</p>
+      <p class="g-page"><a href="topic1/p16.html">第 1 讲 p16</a></p>
+    </li><li class="glossary-row" id="term-limsup" data-search="上极限 limit superior (lim sup) 数列「尾部的最大可能值」的极限；对集合则表示「发生无穷多次」。">
+      <div class="g-term"><strong>上极限</strong><span lang="en">limit superior (lim sup)</span></div>
+      <p class="g-plain">数列「尾部的最大可能值」的极限；对集合则表示「发生无穷多次」。</p>
+      <p class="g-page"><a href="topic1/p07.html">第 1 讲 p07</a></p>
+    </li><li class="glossary-row" id="term-liminf" data-search="下极限 limit inferior (lim inf) 数列「尾部的最小可能值」的极限；对集合则表示「从某一项起一直发生」。">
+      <div class="g-term"><strong>下极限</strong><span lang="en">limit inferior (lim inf)</span></div>
+      <p class="g-plain">数列「尾部的最小可能值」的极限；对集合则表示「从某一项起一直发生」。</p>
+      <p class="g-page"><a href="topic1/p07.html">第 1 讲 p07</a></p>
+    </li><li class="glossary-row" id="term-series" data-search="级数 series 无穷多项相加 a₁ + a₂ + …，它的值是前 n 项和在 n → ∞ 时的极限。">
+      <div class="g-term"><strong>级数</strong><span lang="en">series</span></div>
+      <p class="g-plain">无穷多项相加 a₁ + a₂ + …，它的值是前 n 项和在 n → ∞ 时的极限。</p>
+      <p class="g-page"><a href="topic1/p08.html">第 1 讲 p08</a></p>
+    </li><li class="glossary-row" id="term-monotone-sequence" data-search="单调递增 单调不减 nondecreasing 后一项不小于前一项；单调有界的数列一定有极限。">
+      <div class="g-term"><strong>单调递增</strong><span lang="en">nondecreasing</span></div>
+      <p class="g-plain">后一项不小于前一项；单调有界的数列一定有极限。</p>
+      <p class="g-page"><a href="topic1/p13.html">第 1 讲 p13</a></p>
+    </li><li class="glossary-row" id="term-pointwise" data-search="逐点收敛 pointwise convergence 对定义域里的每一个点 x，数列 fₙ(x) 都收敛到 f(x)。">
+      <div class="g-term"><strong>逐点收敛</strong><span lang="en">pointwise convergence</span></div>
+      <p class="g-plain">对定义域里的每一个点 x，数列 fₙ(x) 都收敛到 f(x)。</p>
+      <p class="g-page"><a href="topic1/p36.html">第 1 讲 p36</a></p>
+    </li><li class="glossary-row" id="term-sample-space" data-search="样本空间 sample space 一次试验所有可能的完整结局组成的集合，记作 ω。">
+      <div class="g-term"><strong>样本空间</strong><span lang="en">sample space</span></div>
+      <p class="g-plain">一次试验所有可能的完整结局组成的集合，记作 Ω。</p>
+      <p class="g-page"><a href="topic1/p05.html">第 1 讲 p05</a></p>
+    </li><li class="glossary-row" id="term-sample-point" data-search="样本点 sample point 一个完整的结局 ω；每次试验恰好实现一个样本点。">
+      <div class="g-term"><strong>样本点</strong><span lang="en">sample point</span></div>
+      <p class="g-plain">一个完整的结局 ω；每次试验恰好实现一个样本点。</p>
+      <p class="g-page"><a href="topic1/p05.html">第 1 讲 p05</a></p>
+    </li><li class="glossary-row" id="term-event" data-search="事件 event 样本空间的（允许谈概率的）子集；实现的 ω 落在里面，就说事件发生。">
+      <div class="g-term"><strong>事件</strong><span lang="en">event</span></div>
+      <p class="g-plain">样本空间的（允许谈概率的）子集；实现的 ω 落在里面，就说事件发生。</p>
+      <p class="g-page"><a href="topic1/p06.html">第 1 讲 p06</a></p>
+    </li><li class="glossary-row" id="term-random-variable" data-search="随机变量 random variable 从样本空间到实数的（可测）函数，把结局翻译成数字；随机性来自「实现了哪个 ω」。">
+      <div class="g-term"><strong>随机变量</strong><span lang="en">random variable</span></div>
+      <p class="g-plain">从样本空间到实数的（可测）函数，把结局翻译成数字；随机性来自「实现了哪个 ω」。</p>
+      <p class="g-page"><a href="topic1/p05.html">第 1 讲 p05</a></p>
+    </li><li class="glossary-row" id="term-stochastic-process" data-search="随机过程 stochastic process 一族随时间变化的随机变量 {sₜ}；固定 ω 得到一条路径。">
+      <div class="g-term"><strong>随机过程</strong><span lang="en">stochastic process</span></div>
+      <p class="g-plain">一族随时间变化的随机变量 {Sₜ}；固定 ω 得到一条路径。</p>
+      <p class="g-page"><a href="topic1/p05.html">第 1 讲 p05</a></p>
+    </li><li class="glossary-row" id="term-sigma-algebra" data-search="σ-代数 σ代数 sigma-代数 sigma-algebra 允许谈概率的「事件清单」：含 ω，对补集和可数并封闭。">
+      <div class="g-term"><strong>σ-代数</strong><span lang="en">sigma-algebra</span></div>
+      <p class="g-plain">允许谈概率的「事件清单」：含 Ω，对补集和可数并封闭。</p>
+      <p class="g-page"><a href="topic1/p09.html">第 1 讲 p09</a></p>
+    </li><li class="glossary-row" id="term-generated-sigma-algebra" data-search="生成的 σ-代数 生成的σ-代数 generated sigma-algebra 包含给定集合族的最小 σ-代数 σ(𝒞)：只加入「被逼着加入」的集合。">
+      <div class="g-term"><strong>生成的 σ-代数</strong><span lang="en">generated sigma-algebra</span></div>
+      <p class="g-plain">包含给定集合族的最小 σ-代数 σ(𝒞)：只加入「被逼着加入」的集合。</p>
+      <p class="g-page"><a href="topic1/p11.html">第 1 讲 p11</a></p>
+    </li><li class="glossary-row" id="term-borel" data-search="博雷尔 σ-代数 borel σ-代数 博雷尔集 borel sigma-algebra 由实数轴上所有开区间生成的 σ-代数 𝓑(ℝ)，包含所有常见的集合。">
+      <div class="g-term"><strong>博雷尔 σ-代数</strong><span lang="en">Borel sigma-algebra</span></div>
+      <p class="g-plain">由实数轴上所有开区间生成的 σ-代数 𝓑(ℝ)，包含所有常见的集合。</p>
+      <p class="g-page"><a href="topic1/p11.html">第 1 讲 p11</a></p>
+    </li><li class="glossary-row" id="term-measurable-space" data-search="可测空间 measurable space 一个集合加上它上面的一个 σ-代数，例如 (ω, 𝓕)；还没有给出测度。">
+      <div class="g-term"><strong>可测空间</strong><span lang="en">measurable space</span></div>
+      <p class="g-plain">一个集合加上它上面的一个 σ-代数，例如 (Ω, 𝓕)；还没有给出测度。</p>
+      <p class="g-page"><a href="topic1/p12.html">第 1 讲 p12</a></p>
+    </li><li class="glossary-row" id="term-measure" data-search="测度 measure 给 σ-代数里的每个集合一个 [0, ∞] 中的「大小」，空集为 0，并且可数可加。">
+      <div class="g-term"><strong>测度</strong><span lang="en">measure</span></div>
+      <p class="g-plain">给 σ-代数里的每个集合一个 [0, ∞] 中的「大小」，空集为 0，并且可数可加。</p>
+      <p class="g-page"><a href="topic1/p12.html">第 1 讲 p12</a></p>
+    </li><li class="glossary-row" id="term-measure-space" data-search="测度空间 measure space 三元组 (s, 𝓜, μ)：空间、σ-代数、测度。">
+      <div class="g-term"><strong>测度空间</strong><span lang="en">measure space</span></div>
+      <p class="g-plain">三元组 (S, 𝓜, μ)：空间、σ-代数、测度。</p>
+      <p class="g-page"><a href="topic1/p12.html">第 1 讲 p12</a></p>
+    </li><li class="glossary-row" id="term-probability-measure" data-search="概率测度 probability measure 总质量 p(ω) = 1 的测度。">
+      <div class="g-term"><strong>概率测度</strong><span lang="en">probability measure</span></div>
+      <p class="g-plain">总质量 P(Ω) = 1 的测度。</p>
+      <p class="g-page"><a href="topic1/p03.html">第 1 讲 p03</a></p>
+    </li><li class="glossary-row" id="term-probability-space" data-search="概率空间 probability space 三元组 (ω, 𝓕, p)：样本空间、事件的 σ-代数、概率测度。">
+      <div class="g-term"><strong>概率空间</strong><span lang="en">probability space</span></div>
+      <p class="g-plain">三元组 (Ω, 𝓕, P)：样本空间、事件的 σ-代数、概率测度。</p>
+      <p class="g-page"><a href="topic1/p03.html">第 1 讲 p03</a></p>
+    </li><li class="glossary-row" id="term-countable-additivity" data-search="可数可加性 可数可加 countable additivity 两两不交的可数个集合，并集的测度等于各自测度之和。">
+      <div class="g-term"><strong>可数可加性</strong><span lang="en">countable additivity</span></div>
+      <p class="g-plain">两两不交的可数个集合，并集的测度等于各自测度之和。</p>
+      <p class="g-page"><a href="topic1/p08.html">第 1 讲 p08</a></p>
+    </li><li class="glossary-row" id="term-subadditivity" data-search="次可加性 subadditivity 并集的测度不超过各部分测度之和：μ(a ∪ b) ≤ μ(a) + μ(b)。">
+      <div class="g-term"><strong>次可加性</strong><span lang="en">subadditivity</span></div>
+      <p class="g-plain">并集的测度不超过各部分测度之和：μ(A ∪ B) ≤ μ(A) + μ(B)。</p>
+      <p class="g-page"><a href="topic1/p18.html">第 1 讲 p18</a></p>
+    </li><li class="glossary-row" id="term-continuity-below" data-search="从下连续 continuity from below 集合一层层变大（eₙ ↑ e）时，测度也跟着收敛：μ(eₙ) → μ(e)。">
+      <div class="g-term"><strong>从下连续</strong><span lang="en">continuity from below</span></div>
+      <p class="g-plain">集合一层层变大（Eₙ ↑ E）时，测度也跟着收敛：μ(Eₙ) → μ(E)。</p>
+      <p class="g-page"><a href="topic1/p13.html">第 1 讲 p13</a></p>
+    </li><li class="glossary-row" id="term-continuity-above" data-search="从上连续 continuity from above 集合一层层变小（eₙ ↓ e）且 μ(e₁) &lt; ∞ 时，μ(eₙ) → μ(e)。">
+      <div class="g-term"><strong>从上连续</strong><span lang="en">continuity from above</span></div>
+      <p class="g-plain">集合一层层变小（Eₙ ↓ E）且 μ(E₁) &lt; ∞ 时，μ(Eₙ) → μ(E)。</p>
+      <p class="g-page"><a href="topic1/p14.html">第 1 讲 p14</a></p>
+    </li><li class="glossary-row" id="term-point-mass" data-search="点质量 狄拉克测度 point mass (dirac measure) 把全部质量 1 放在一个点上：δ₀(e) = 1 当且仅当 0 ∈ e。">
+      <div class="g-term"><strong>点质量</strong><span lang="en">point mass (Dirac measure)</span></div>
+      <p class="g-plain">把全部质量 1 放在一个点上：δ₀(E) = 1 当且仅当 0 ∈ E。</p>
+      <p class="g-page"><a href="topic1/p10.html">第 1 讲 p10</a></p>
+    </li><li class="glossary-row" id="term-elementary-set" data-search="初等集 elementary set 有限个有界区间的不交并；它的「长度」就是各区间长度之和。">
+      <div class="g-term"><strong>初等集</strong><span lang="en">elementary set</span></div>
+      <p class="g-plain">有限个有界区间的不交并；它的「长度」就是各区间长度之和。</p>
+      <p class="g-page"><a href="topic1/p16.html">第 1 讲 p16</a></p>
+    </li><li class="glossary-row" id="term-jordan-content" data-search="乔丹容量 若尔当容量 乔丹测度 若尔当测度 jordan content 用有限个区间从里、从外逼近一个集合；两边逼近值相等时才有定义。">
+      <div class="g-term"><strong>乔丹容量</strong><span lang="en">Jordan content</span></div>
+      <p class="g-plain">用有限个区间从里、从外逼近一个集合；两边逼近值相等时才有定义。</p>
+      <p class="g-page"><a href="topic1/p16.html">第 1 讲 p16</a></p>
+    </li><li class="glossary-row" id="term-outer-measure" data-search="外测度 outer measure 用可数个区间覆盖集合，所有覆盖总长度的下确界 m*(e)；对每个子集都有定义。">
+      <div class="g-term"><strong>外测度</strong><span lang="en">outer measure</span></div>
+      <p class="g-plain">用可数个区间覆盖集合，所有覆盖总长度的下确界 m*(E)；对每个子集都有定义。</p>
+      <p class="g-page"><a href="topic1/p18.html">第 1 讲 p18</a></p>
+    </li><li class="glossary-row" id="term-caratheodory" data-search="卡拉泰奥多里 卡拉泰奥多里可测 carathéodory 卡拉泰奥多里判别：用 e 去切任何集合 a，两块外测度之和都等于 m*(a)。">
+      <div class="g-term"><strong>卡拉泰奥多里</strong><span lang="en">Carathéodory</span></div>
+      <p class="g-plain">卡拉泰奥多里判别：用 E 去切任何集合 A，两块外测度之和都等于 m*(A)。</p>
+      <p class="g-page"><a href="topic1/p20.html">第 1 讲 p20</a></p>
+    </li><li class="glossary-row" id="term-vitali" data-search="维塔利集 vitali set 用选择公理造出的「坏」集合，证明了不可能给 ℝ 的所有子集定义长度。">
+      <div class="g-term"><strong>维塔利集</strong><span lang="en">Vitali set</span></div>
+      <p class="g-plain">用选择公理造出的「坏」集合，证明了不可能给 ℝ 的所有子集定义长度。</p>
+      <p class="g-page"><a href="topic1/p21.html">第 1 讲 p21</a></p>
+    </li><li class="glossary-row" id="term-translation-invariance" data-search="平移不变性 平移不变 translation invariance 把集合整体平移，测度不变：μ(e + t) = μ(e)。长度就有这个性质。">
+      <div class="g-term"><strong>平移不变性</strong><span lang="en">translation invariance</span></div>
+      <p class="g-plain">把集合整体平移，测度不变：μ(E + t) = μ(E)。长度就有这个性质。</p>
+      <p class="g-page"><a href="topic1/p21.html">第 1 讲 p21</a></p>
+    </li><li class="glossary-row" id="term-lebesgue-measure" data-search="勒贝格测度 lebesgue measure 实数轴上「长度」的严格版本，定义在勒贝格可测集上，m([a,b]) = b − a。">
+      <div class="g-term"><strong>勒贝格测度</strong><span lang="en">Lebesgue measure</span></div>
+      <p class="g-plain">实数轴上「长度」的严格版本，定义在勒贝格可测集上，m([a,b]) = b − a。</p>
+      <p class="g-page"><a href="topic1/p23.html">第 1 讲 p23</a></p>
+    </li><li class="glossary-row" id="term-lebesgue-measurable" data-search="勒贝格可测 lebesgue measurable 能被勒贝格测度称重量的集合（通过卡拉泰奥多里判别）。">
+      <div class="g-term"><strong>勒贝格可测</strong><span lang="en">Lebesgue measurable</span></div>
+      <p class="g-plain">能被勒贝格测度称重量的集合（通过卡拉泰奥多里判别）。</p>
+      <p class="g-page"><a href="topic1/p23.html">第 1 讲 p23</a></p>
+    </li><li class="glossary-row" id="term-null-set" data-search="零测集 null set 测度为 0 的集合，例如单点、有理数全体、康托尔集。">
+      <div class="g-term"><strong>零测集</strong><span lang="en">null set</span></div>
+      <p class="g-plain">测度为 0 的集合，例如单点、有理数全体、康托尔集。</p>
+      <p class="g-page"><a href="topic1/p23.html">第 1 讲 p23</a></p>
+    </li><li class="glossary-row" id="term-complete-measure" data-search="完备测度 完备的测度 complete measure 零测集的任何子集也都可测（并且测度为 0）。">
+      <div class="g-term"><strong>完备测度</strong><span lang="en">complete measure</span></div>
+      <p class="g-plain">零测集的任何子集也都可测（并且测度为 0）。</p>
+      <p class="g-page"><a href="topic1/p23.html">第 1 讲 p23</a></p>
+    </li><li class="glossary-row" id="term-partition" data-search="分割 partition 把区间 [a,b] 用分点 a = x₀ &lt; x₁ &lt; … &lt; xₙ = b 切成小段。">
+      <div class="g-term"><strong>分割</strong><span lang="en">partition</span></div>
+      <p class="g-plain">把区间 [a,b] 用分点 a = x₀ &lt; x₁ &lt; … &lt; xₙ = b 切成小段。</p>
+      <p class="g-page"><a href="topic1/p25.html">第 1 讲 p25</a></p>
+    </li><li class="glossary-row" id="term-darboux" data-search="达布和 达布上和 达布下和 darboux sums 每小段取函数的下确界（或上确界）乘以长度再求和；上下和夹住黎曼积分。">
+      <div class="g-term"><strong>达布和</strong><span lang="en">Darboux sums</span></div>
+      <p class="g-plain">每小段取函数的下确界（或上确界）乘以长度再求和；上下和夹住黎曼积分。</p>
+      <p class="g-page"><a href="topic1/p25.html">第 1 讲 p25</a></p>
+    </li><li class="glossary-row" id="term-oscillation" data-search="振幅 oscillation 函数在一小段上的「最高值减最低值」m − m，衡量函数在那里抖动得多厉害。">
+      <div class="g-term"><strong>振幅</strong><span lang="en">oscillation</span></div>
+      <p class="g-plain">函数在一小段上的「最高值减最低值」M − m，衡量函数在那里抖动得多厉害。</p>
+      <p class="g-page"><a href="topic1/p25.html">第 1 讲 p25</a></p>
+    </li><li class="glossary-row" id="term-riemann-integral" data-search="黎曼积分 黎曼可积 riemann integral 大一学的定积分：按 x 轴切竖条求和取极限。">
+      <div class="g-term"><strong>黎曼积分</strong><span lang="en">Riemann integral</span></div>
+      <p class="g-plain">大一学的定积分：按 x 轴切竖条求和取极限。</p>
+      <p class="g-page"><a href="topic1/p25.html">第 1 讲 p25</a></p>
+    </li><li class="glossary-row" id="term-dirichlet" data-search="狄利克雷函数 dirichlet function 在有理点取 1、无理点取 0 的函数；黎曼不可积，勒贝格积分为 0。">
+      <div class="g-term"><strong>狄利克雷函数</strong><span lang="en">Dirichlet function</span></div>
+      <p class="g-plain">在有理点取 1、无理点取 0 的函数；黎曼不可积，勒贝格积分为 0。</p>
+      <p class="g-page"><a href="topic1/p28.html">第 1 讲 p28</a></p>
+    </li><li class="glossary-row" id="term-measurable-function" data-search="可测函数 measurable function 对每个 a，集合 {f &gt; a} 都可测；这样的函数才能积分。">
+      <div class="g-term"><strong>可测函数</strong><span lang="en">measurable function</span></div>
+      <p class="g-plain">对每个 a，集合 {f &gt; a} 都可测；这样的函数才能积分。</p>
+      <p class="g-page"><a href="topic1/p29.html">第 1 讲 p29</a></p>
+    </li><li class="glossary-row" id="term-simple-function" data-search="简单函数 simple function 只取有限个值的可测函数，是若干示性函数的线性组合，图像像台阶。">
+      <div class="g-term"><strong>简单函数</strong><span lang="en">simple function</span></div>
+      <p class="g-plain">只取有限个值的可测函数，是若干示性函数的线性组合，图像像台阶。</p>
+      <p class="g-page"><a href="topic1/p30.html">第 1 讲 p30</a></p>
+    </li><li class="glossary-row" id="term-canonical-representation" data-search="标准表示 canonical representation 把简单函数写成 σ aₖ 𝟏_{aₖ}，其中 aₖ 各不相同、aₖ = {s = aₖ}。">
+      <div class="g-term"><strong>标准表示</strong><span lang="en">canonical representation</span></div>
+      <p class="g-plain">把简单函数写成 Σ aₖ 𝟏_{Aₖ}，其中 aₖ 各不相同、Aₖ = {s = aₖ}。</p>
+      <p class="g-page"><a href="topic1/p30.html">第 1 讲 p30</a></p>
+    </li><li class="glossary-row" id="term-lebesgue-integral" data-search="勒贝格积分 lebesgue integral 按函数值分块的积分：先定义简单函数的积分，再用下方的简单函数逼近取上确界。">
+      <div class="g-term"><strong>勒贝格积分</strong><span lang="en">Lebesgue integral</span></div>
+      <p class="g-plain">按函数值分块的积分：先定义简单函数的积分，再用下方的简单函数逼近取上确界。</p>
+      <p class="g-page"><a href="topic1/p33.html">第 1 讲 p33</a></p>
+    </li><li class="glossary-row" id="term-positive-part" data-search="正部 负部 positive / negative part f⁺ = max(f, 0)，f⁻ = max(−f, 0)，f = f⁺ − f⁻，|f| = f⁺ + f⁻。">
+      <div class="g-term"><strong>正部</strong><span lang="en">positive / negative part</span></div>
+      <p class="g-plain">f⁺ = max(f, 0)，f⁻ = max(−f, 0)，f = f⁺ − f⁻，|f| = f⁺ + f⁻。</p>
+      <p class="g-page"><a href="topic1/p33.html">第 1 讲 p33</a></p>
+    </li><li class="glossary-row" id="term-almost-everywhere" data-search="几乎处处 almost everywhere (a.e.) 除了一个测度为 0 的集合之外都成立；零测集上的值不影响积分。">
+      <div class="g-term"><strong>几乎处处</strong><span lang="en">almost everywhere (a.e.)</span></div>
+      <p class="g-plain">除了一个测度为 0 的集合之外都成立；零测集上的值不影响积分。</p>
+      <p class="g-page"><a href="topic1/p43.html">第 1 讲 p43</a></p>
+    </li><li class="glossary-row" id="term-integrable" data-search="可积 integrable (l¹) ∫|f| dμ &lt; ∞。全体可积函数记作 l¹(μ)。">
+      <div class="g-term"><strong>可积</strong><span lang="en">integrable (L¹)</span></div>
+      <p class="g-plain">∫|f| dμ &lt; ∞。全体可积函数记作 L¹(μ)。</p>
+      <p class="g-page"><a href="topic1/p29.html">第 1 讲 p29</a></p>
+    </li><li class="glossary-row" id="term-mct" data-search="单调收敛定理 monotone convergence theorem (mct) 非负可测函数单调递增地收敛时，积分也收敛：∫fₙ ↑ ∫f。">
+      <div class="g-term"><strong>单调收敛定理</strong><span lang="en">monotone convergence theorem (MCT)</span></div>
+      <p class="g-plain">非负可测函数单调递增地收敛时，积分也收敛：∫fₙ ↑ ∫f。</p>
+      <p class="g-page"><a href="topic1/p36.html">第 1 讲 p36</a></p>
+    </li><li class="glossary-row" id="term-fatou" data-search="fatou 引理 法图引理 fatou's lemma 非负可测函数列满足 ∫ liminf fₙ ≤ liminf ∫ fₙ（只保证这个方向）。">
+      <div class="g-term"><strong>Fatou 引理</strong><span lang="en">Fatou's lemma</span></div>
+      <p class="g-plain">非负可测函数列满足 ∫ liminf fₙ ≤ liminf ∫ fₙ（只保证这个方向）。</p>
+      <p class="g-page"><a href="topic1/p41.html">第 1 讲 p41</a></p>
+    </li><li class="glossary-row" id="term-dct" data-search="控制收敛定理 dominated convergence theorem (dct) fₙ → f 几乎处处且 |fₙ| ≤ g、g 可积时，∫fₙ → ∫f。">
+      <div class="g-term"><strong>控制收敛定理</strong><span lang="en">dominated convergence theorem (DCT)</span></div>
+      <p class="g-plain">fₙ → f 几乎处处且 |fₙ| ≤ g、g 可积时，∫fₙ → ∫f。</p>
+      <p class="g-page"><a href="topic1/p44.html">第 1 讲 p44</a></p>
+    </li><li class="glossary-row" id="term-bct" data-search="有界收敛定理 bounded convergence theorem (bct) 有限测度上一致有界、几乎处处收敛的函数列，积分收敛；是 dct 的特例。">
+      <div class="g-term"><strong>有界收敛定理</strong><span lang="en">bounded convergence theorem (BCT)</span></div>
+      <p class="g-plain">有限测度上一致有界、几乎处处收敛的函数列，积分收敛；是 DCT 的特例。</p>
+      <p class="g-page"><a href="topic1/p46.html">第 1 讲 p46</a></p>
+    </li><li class="glossary-row" id="term-expectation" data-search="期望 数学期望 expectation 随机变量对概率测度的积分 e[x] = ∫ x dp，也就是「加权平均」。">
+      <div class="g-term"><strong>期望</strong><span lang="en">expectation</span></div>
+      <p class="g-plain">随机变量对概率测度的积分 E[X] = ∫ X dP，也就是「加权平均」。</p>
+      <p class="g-page"><a href="topic2/p05.html">第 2 讲 p05</a></p>
+    </li><li class="glossary-row" id="term-law" data-search="分布 law / distribution x 把概率「推」到取值空间上得到的测度：l(x)(b) = p(x ∈ b)。">
+      <div class="g-term"><strong>分布</strong><span lang="en">law / distribution</span></div>
+      <p class="g-plain">X 把概率「推」到取值空间上得到的测度：L(X)(B) = P(X ∈ B)。</p>
+      <p class="g-page"><a href="topic2/p06.html">第 2 讲 p06</a></p>
+    </li><li class="glossary-row" id="term-cdf" data-search="累积分布函数 分布函数 cumulative distribution function (cdf) f(x) = p(x ≤ x)，单调不减、右连续，完全决定分布。">
+      <div class="g-term"><strong>累积分布函数</strong><span lang="en">cumulative distribution function (CDF)</span></div>
+      <p class="g-plain">F(x) = P(X ≤ x)，单调不减、右连续，完全决定分布。</p>
+      <p class="g-page"><a href="topic2/p08.html">第 2 讲 p08</a></p>
+    </li><li class="glossary-row" id="term-quantile" data-search="分位数 广义分位数 quantile q(u) = inf{x : f(x) ≥ u}，是 cdf 的「广义反函数」。">
+      <div class="g-term"><strong>分位数</strong><span lang="en">quantile</span></div>
+      <p class="g-plain">Q(u) = inf{x : F(x) ≥ u}，是 CDF 的「广义反函数」。</p>
+      <p class="g-page"><a href="topic2/p14.html">第 2 讲 p14</a></p>
+    </li><li class="glossary-row" id="term-inverse-transform" data-search="逆变换法 inverse transform method u 服从 (0,1) 上的均匀分布时，q(u) 的分布函数恰好是 f，用来生成任意分布。">
+      <div class="g-term"><strong>逆变换法</strong><span lang="en">inverse transform method</span></div>
+      <p class="g-plain">U 服从 (0,1) 上的均匀分布时，Q(U) 的分布函数恰好是 F，用来生成任意分布。</p>
+      <p class="g-page"><a href="topic2/p14.html">第 2 讲 p14</a></p>
+    </li><li class="glossary-row" id="term-density" data-search="概率密度 密度函数 density 满足 p(x ∈ b) = ∫_b f(x) dx 的函数 f；有密度等价于 cdf 绝对连续。">
+      <div class="g-term"><strong>概率密度</strong><span lang="en">density</span></div>
+      <p class="g-plain">满足 P(X ∈ B) = ∫_B f(x) dx 的函数 f；有密度等价于 CDF 绝对连续。</p>
+      <p class="g-page"><a href="topic2/p17.html">第 2 讲 p17</a></p>
+    </li><li class="glossary-row" id="term-absolute-continuity" data-search="绝对连续 absolute continuity 函数版：小区间总长很小时增量总和也很小；测度版：q ≪ p，p 为零的事件 q 也为零。">
+      <div class="g-term"><strong>绝对连续</strong><span lang="en">absolute continuity</span></div>
+      <p class="g-plain">函数版：小区间总长很小时增量总和也很小；测度版：Q ≪ P，P 为零的事件 Q 也为零。</p>
+      <p class="g-page"><a href="topic2/p17.html">第 2 讲 p17</a></p>
+    </li><li class="glossary-row" id="term-cantor-set" data-search="康托尔集 cantor set 反复挖掉中间三分之一得到的集合：不可数，但长度为 0。">
+      <div class="g-term"><strong>康托尔集</strong><span lang="en">Cantor set</span></div>
+      <p class="g-plain">反复挖掉中间三分之一得到的集合：不可数，但长度为 0。</p>
+      <p class="g-page"><a href="topic2/p18.html">第 2 讲 p18</a></p>
+    </li><li class="glossary-row" id="term-moment" data-search="阶矩 p 阶矩 moment e[|x|ᵖ] 叫 p 阶（绝对）矩；它有限与否反映尾部有多「重」。">
+      <div class="g-term"><strong>阶矩</strong><span lang="en">moment</span></div>
+      <p class="g-plain">E[|X|ᵖ] 叫 p 阶（绝对）矩；它有限与否反映尾部有多「重」。</p>
+      <p class="g-page"><a href="topic2/p21.html">第 2 讲 p21</a></p>
+    </li><li class="glossary-row" id="term-convex" data-search="凸函数 convex function 图像上任意两点连线都在图像上方的函数，例如 x²、eˣ。">
+      <div class="g-term"><strong>凸函数</strong><span lang="en">convex function</span></div>
+      <p class="g-plain">图像上任意两点连线都在图像上方的函数，例如 x²、eˣ。</p>
+      <p class="g-page"><a href="topic2/p23.html">第 2 讲 p23</a></p>
+    </li><li class="glossary-row" id="term-jensen" data-search="jensen 不等式 jensen's inequality φ 凸时 φ(e x) ≤ e φ(x)，例如 (e x)² ≤ e x²。">
+      <div class="g-term"><strong>Jensen 不等式</strong><span lang="en">Jensen's inequality</span></div>
+      <p class="g-plain">φ 凸时 φ(E X) ≤ E φ(X)，例如 (E X)² ≤ E X²。</p>
+      <p class="g-page"><a href="topic2/p24.html">第 2 讲 p24</a></p>
+    </li><li class="glossary-row" id="term-holder" data-search="hölder 不等式 hölder's inequality e|xy| ≤ ‖x‖_p ‖y‖_q（1/p + 1/q = 1）；p = q = 2 就是柯西–施瓦茨不等式。">
+      <div class="g-term"><strong>Hölder 不等式</strong><span lang="en">Hölder's inequality</span></div>
+      <p class="g-plain">E|XY| ≤ ‖X‖_p ‖Y‖_q（1/p + 1/q = 1）；p = q = 2 就是柯西–施瓦茨不等式。</p>
+      <p class="g-page"><a href="topic2/p26.html">第 2 讲 p26</a></p>
+    </li><li class="glossary-row" id="term-markov" data-search="markov 不等式 马尔可夫不等式 markov's inequality x ≥ 0 时 p(x ≥ t) ≤ e x / t：期望小，取大值的概率就小。">
+      <div class="g-term"><strong>Markov 不等式</strong><span lang="en">Markov's inequality</span></div>
+      <p class="g-plain">X ≥ 0 时 P(X ≥ t) ≤ E X / t：期望小，取大值的概率就小。</p>
+      <p class="g-page"><a href="topic2/p29.html">第 2 讲 p29</a></p>
+    </li><li class="glossary-row" id="term-chebyshev" data-search="chebyshev 不等式 切比雪夫不等式 chebyshev's inequality p(|x − μ| ≥ t) ≤ σ² / t²：方差控制偏离均值的概率。">
+      <div class="g-term"><strong>Chebyshev 不等式</strong><span lang="en">Chebyshev's inequality</span></div>
+      <p class="g-plain">P(|X − μ| ≥ t) ≤ σ² / t²：方差控制偏离均值的概率。</p>
+      <p class="g-page"><a href="topic2/p29.html">第 2 讲 p29</a></p>
+    </li><li class="glossary-row" id="term-variance" data-search="方差 variance var x = e[(x − e x)²]，衡量随机变量围绕均值的波动大小。">
+      <div class="g-term"><strong>方差</strong><span lang="en">variance</span></div>
+      <p class="g-plain">Var X = E[(X − E X)²]，衡量随机变量围绕均值的波动大小。</p>
+      <p class="g-page"><a href="topic2/p32.html">第 2 讲 p32</a></p>
+    </li><li class="glossary-row" id="term-infinitely-often" data-search="无穷多次 无穷次发生 infinitely often (i.o.) 「aₙ 发生无穷多次」就是集合 lim sup aₙ。">
+      <div class="g-term"><strong>无穷多次</strong><span lang="en">infinitely often (i.o.)</span></div>
+      <p class="g-plain">「Aₙ 发生无穷多次」就是集合 lim sup Aₙ。</p>
+      <p class="g-page"><a href="topic3/p03.html">第 3 讲 p03</a></p>
+    </li><li class="glossary-row" id="term-borel-cantelli" data-search="borel–cantelli 引理 borel–cantelli lemma 概率之和有限 ⇒ 只发生有限次；独立且概率之和无穷 ⇒ 发生无穷多次。">
+      <div class="g-term"><strong>Borel–Cantelli 引理</strong><span lang="en">Borel–Cantelli lemma</span></div>
+      <p class="g-plain">概率之和有限 ⇒ 只发生有限次；独立且概率之和无穷 ⇒ 发生无穷多次。</p>
+      <p class="g-page"><a href="topic3/p04.html">第 3 讲 p04</a></p>
+    </li><li class="glossary-row" id="term-independence" data-search="独立 相互独立 independence 任意有限个事件同时发生的概率等于各自概率的乘积。">
+      <div class="g-term"><strong>独立</strong><span lang="en">independence</span></div>
+      <p class="g-plain">任意有限个事件同时发生的概率等于各自概率的乘积。</p>
+      <p class="g-page"><a href="topic3/p06.html">第 3 讲 p06</a></p>
+    </li><li class="glossary-row" id="term-almost-sure" data-search="几乎必然收敛 几乎必然 almost sure convergence 除了概率为 0 的结局以外，xₙ(ω) 都收敛到 x(ω)。">
+      <div class="g-term"><strong>几乎必然收敛</strong><span lang="en">almost sure convergence</span></div>
+      <p class="g-plain">除了概率为 0 的结局以外，Xₙ(ω) 都收敛到 X(ω)。</p>
+      <p class="g-page"><a href="topic3/p09.html">第 3 讲 p09</a></p>
+    </li><li class="glossary-row" id="term-in-probability" data-search="依概率收敛 convergence in probability 对每个 ε &gt; 0，p(|xₙ − x| &gt; ε) → 0；比几乎必然收敛弱。">
+      <div class="g-term"><strong>依概率收敛</strong><span lang="en">convergence in probability</span></div>
+      <p class="g-plain">对每个 ε &gt; 0，P(|Xₙ − X| &gt; ε) → 0；比几乎必然收敛弱。</p>
+      <p class="g-page"><a href="topic3/p14.html">第 3 讲 p14</a></p>
+    </li><li class="glossary-row" id="term-subsequence" data-search="子列 subsequence 从一个数列里按顺序挑出无穷多项组成的新数列。">
+      <div class="g-term"><strong>子列</strong><span lang="en">subsequence</span></div>
+      <p class="g-plain">从一个数列里按顺序挑出无穷多项组成的新数列。</p>
+      <p class="g-page"><a href="topic3/p16.html">第 3 讲 p16</a></p>
+    </li><li class="glossary-row" id="term-radon-nikodym" data-search="radon–nikodym 导数 radon–nikodym 定理 radon–nikodym derivative q ≪ p 时存在 l = dq/dp ≥ 0，使 q(a) = ∫_a l dp；它是「换测度的密度」。">
+      <div class="g-term"><strong>Radon–Nikodym 导数</strong><span lang="en">Radon–Nikodym derivative</span></div>
+      <p class="g-plain">Q ≪ P 时存在 L = dQ/dP ≥ 0，使 Q(A) = ∫_A L dP；它是「换测度的密度」。</p>
+      <p class="g-page"><a href="topic3/p27.html">第 3 讲 p27</a></p>
+    </li><li class="glossary-row" id="term-change-of-measure" data-search="换测度 change of measure 用 e_q[x] = e_p[x · dq/dp] 在两个概率之间换算期望。">
+      <div class="g-term"><strong>换测度</strong><span lang="en">change of measure</span></div>
+      <p class="g-plain">用 E_Q[X] = E_P[X · dQ/dP] 在两个概率之间换算期望。</p>
+      <p class="g-page"><a href="topic3/p32.html">第 3 讲 p32</a></p>
+    </li><li class="glossary-row" id="term-importance-sampling" data-search="重要性抽样 importance sampling 从另一个更合适的分布抽样，再乘以权重纠正，从而减小估计的方差。">
+      <div class="g-term"><strong>重要性抽样</strong><span lang="en">importance sampling</span></div>
+      <p class="g-plain">从另一个更合适的分布抽样，再乘以权重纠正，从而减小估计的方差。</p>
+      <p class="g-page"><a href="topic3/p38.html">第 3 讲 p38</a></p>
+    </li></ol>
 </main>
 <div class="lightbox" id="lightbox" hidden><button class="lightbox-close" type="button" aria-label="关闭">关闭 ✕</button><div class="lightbox-stage"><img alt=""></div><p class="lightbox-hint">点击图片放大 / 缩小 · Esc 关闭</p></div>
 <div class="term-pop" id="term-pop" role="tooltip" hidden></div>

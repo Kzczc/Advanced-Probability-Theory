@@ -119,6 +119,20 @@ function topbar({ root, topics, currentTopicId, showReaderTools }) {
 </header>`;
 }
 
+/** 术语第一次出现的页面链接（相对站点根目录） */
+function glossaryEntryHref(entry) {
+  if (!entry.page) return "";
+  return `topic${entry.topic || 1}/p${pad2(entry.page)}.html`;
+}
+
+/** 每页末尾的「本页术语」中英对照卡片（按正文中出现的先后排列） */
+function vocabularyBoxHtml(usedTerms, glossary, root) {
+  const entries = usedTerms.map((id) => glossary.byId.get(id)).filter(Boolean);
+  if (entries.length === 0) return "";
+  const rows = entries.map((entry) => `<tr><td><a href="${root}glossary.html#term-${escapeHtml(entry.id)}">${escapeHtml(entry.term)}</a></td><td lang="en"><em>${escapeHtml(entry.en || "")}</em></td><td>${escapeHtml(entry.plain || "")}</td></tr>`).join("");
+  return `\n<section class="box box-vocab"><header class="box-head"><span class="box-kind">本页术语</span><span class="box-title">中英对照（按出现顺序）</span></header><div class="box-body"><div class="table-wrap"><table><thead><tr><th>中文</th><th>English</th><th>白话解释</th></tr></thead><tbody>${rows}</tbody></table></div></div></section>\n`;
+}
+
 function sectionOf(topic, pageNumber) {
   return (topic.sections || []).find((section) => pageNumber >= section.pages[0] && pageNumber <= section.pages[1]) || null;
 }
@@ -170,16 +184,16 @@ function readerPageHtml({ topic, topics, pageNumber, rendered, kinds, glossary }
     ? `<nav class="chips" aria-label="本页小标题"><span class="chips-label">本页小标题</span>${rendered.headings.map((h) => `<a href="#${h.id}">${escapeHtml(h.text)}</a>`).join("")}</nav>`
     : "";
 
-  const notes = rendered
-    ? rendered.html
-    : `<div class="pending-note"><p class="pending-title">这一页的精讲正在写作中</p><p>先对照左边的课件原页。课件标题：<em>${escapeHtml(info.titleEn)}</em></p></div>`;
-
   const usedTerms = rendered ? rendered.usedTerms : [];
   const termData = {};
   for (const id of usedTerms) {
     const entry = glossary.byId.get(id);
-    if (entry) termData[id] = { term: entry.term, en: entry.en || "", plain: entry.plain || "", page: entry.page || null };
+    if (entry) termData[id] = { term: entry.term, en: entry.en || "", plain: entry.plain || "" };
   }
+
+  const notes = rendered
+    ? rendered.html + vocabularyBoxHtml(usedTerms, glossary, "../")
+    : `<div class="pending-note"><p class="pending-title">这一页的精讲正在写作中</p><p>先对照左边的课件原页。课件标题：<em>${escapeHtml(info.titleEn)}</em></p></div>`;
 
   const pager = `<nav class="pager" aria-label="翻页">
     ${previous ? `<a class="pager-prev" rel="prev" href="p${pad2(previous.number)}.html"><small>← 上一页 · ${pad2(previous.number)}</small><span>${escapeHtml(previous.title)}</span></a>` : "<span></span>"}
@@ -320,7 +334,7 @@ function homeHtml({ catalog, topics }) {
 
 function glossaryHtml({ topics, glossary }) {
   const rows = glossary.entries.map((entry) => {
-    const pageLink = entry.page ? `<a href="topic1/p${pad2(entry.page)}.html">第 1 讲 p${pad2(entry.page)}</a>` : "";
+    const pageLink = entry.page ? `<a href="${glossaryEntryHref(entry)}">第 ${entry.topic || 1} 讲 p${pad2(entry.page)}</a>` : "";
     return `<li class="glossary-row" id="term-${escapeHtml(entry.id)}" data-search="${escapeHtml([entry.term, ...(entry.aliases || []), entry.en, entry.plain].join(" ").toLowerCase())}">
       <div class="g-term"><strong>${escapeHtml(entry.term)}</strong><span lang="en">${escapeHtml(entry.en || "")}</span></div>
       <p class="g-plain">${escapeHtml(entry.plain || "")}</p>
@@ -435,7 +449,7 @@ export function buildSite({ catalog, topics, glossary, renderPage, pageTitleMap,
     const termData = {};
     for (const id of env.usedTerms) {
       const entry = glossary.byId.get(id);
-      if (entry) termData[id] = { term: entry.term, en: entry.en || "", plain: entry.plain || "", page: entry.page || null };
+      if (entry) termData[id] = { term: entry.term, en: entry.en || "", plain: entry.plain || "" };
     }
     basicsRendered = { html: html.replace(/href="p(\d\d)\.html"/g, 'href="topic1/p$1.html"'), headings: env.headings, termData };
     searchIndex.push({ u: "basics.html", t: "基础补课", e: "Prerequisites", k: "基础补课", h: env.headings.map((h) => h.text).join(" / "), x: htmlToText(html).slice(0, 12000) });

@@ -255,6 +255,19 @@ function linkTermsInChildren(children, matchers, used, state) {
   return result;
 }
 
+/** 找术语在文本里的位置；前一个字在 notAfter 里时跳过（例如「不相交集合」里的「交集」） */
+function findTermIndex(text, matcher) {
+  let from = 0;
+  while (from <= text.length) {
+    const index = text.indexOf(matcher.text, from);
+    if (index < 0) return -1;
+    const previous = index > 0 ? text[index - 1] : "";
+    if (!matcher.notAfter || !matcher.notAfter.includes(previous)) return index;
+    from = index + 1;
+  }
+  return -1;
+}
+
 function splitTextByTerms(textToken, matchers, used, state) {
   let pieces = [textToken];
   for (const matcher of matchers) {
@@ -262,7 +275,7 @@ function splitTextByTerms(textToken, matchers, used, state) {
     for (let i = 0; i < pieces.length; i += 1) {
       const piece = pieces[i];
       if (piece.type !== "text") continue;
-      const index = piece.content.indexOf(matcher.text);
+      const index = findTermIndex(piece.content, matcher);
       if (index < 0) continue;
       const before = new state.Token("text", "", 0);
       before.content = piece.content.slice(0, index);
@@ -356,8 +369,40 @@ function containerCloseHtml(kind) {
 /* 组装渲染器                                                          */
 /* ------------------------------------------------------------------ */
 
+/**
+ * 让粗体 / 斜体在中文里正常工作。
+ * CommonMark 规定：「**」紧挨着标点、另一侧又是文字时不能开合，所以
+ * 「**在那里。**试着」这种中文常见写法不会加粗。这里把汉字和全角标点视为标点，
+ * 使标点另一侧的汉字满足开合条件；纯英文文本的行为不变。
+ */
+function enableCjkFriendlyEmphasis(md) {
+  const { isWhiteSpace, isPunctChar, isMdAsciiPunct } = md.utils;
+  const isPunctuationLike = (code) =>
+    isMdAsciiPunct(code) || isPunctChar(String.fromCharCode(code)) || CJK_CHARACTER.test(String.fromCharCode(code));
+  md.inline.State.prototype.scanDelims = function scanDelims(start, canSplitWord) {
+    const max = this.posMax;
+    const marker = this.src.charCodeAt(start);
+    const lastChar = start > 0 ? this.src.charCodeAt(start - 1) : 0x20;
+    let pos = start;
+    while (pos < max && this.src.charCodeAt(pos) === marker) pos += 1;
+    const nextChar = pos < max ? this.src.charCodeAt(pos) : 0x20;
+    const isLastPunct = isPunctuationLike(lastChar);
+    const isNextPunct = isPunctuationLike(nextChar);
+    const isLastSpace = isWhiteSpace(lastChar);
+    const isNextSpace = isWhiteSpace(nextChar);
+    const leftFlanking = !isNextSpace && (!isNextPunct || isLastSpace || isLastPunct);
+    const rightFlanking = !isLastSpace && (!isLastPunct || isNextSpace || isNextPunct);
+    return {
+      can_open: leftFlanking && (canSplitWord || !rightFlanking || isLastPunct),
+      can_close: rightFlanking && (canSplitWord || !leftFlanking || isNextPunct),
+      length: pos - start,
+    };
+  };
+}
+
 export function createMarkdownRenderer() {
   const md = new MarkdownIt({ html: true, linkify: false, typographer: false, breaks: false });
+  enableCjkFriendlyEmphasis(md);
 
   md.inline.ruler.after("escape", "math_inline", mathInlineRule);
   md.block.ruler.after("blockquote", "math_block", mathBlockRule, {

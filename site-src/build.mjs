@@ -110,7 +110,7 @@ function loadGlossary() {
   const matchers = [];
   for (const entry of entries) {
     for (const text of [entry.term, ...(entry.aliases || [])]) {
-      if (text && /[\u4e00-\u9fff]/.test(text)) matchers.push({ id: entry.id, text });
+      if (text && /[\u4e00-\u9fff]/.test(text)) matchers.push({ id: entry.id, text, notAfter: entry.not_after || "" });
     }
   }
   matchers.sort((a, b) => b.text.length - a.text.length);
@@ -188,7 +188,8 @@ function countChinese(text) {
 function checkQuality(page, renderedHtml) {
   const meta = page.meta;
   const body = page.body;
-  if (/\\\(|\\\[/.test(body)) report("warn", page.file, lineOf(page, "\\("), "请用 $…$ / $$…$$，不要用 \\( \\) 或 \\[ \\]");
+  // 「\\[6pt]」是公式里的换行，不算禁用的 \[ 定界符
+  if (/(?<!\\)\\\(|(?<!\\)\\\[/.test(body)) report("warn", page.file, lineOf(page, "\\("), "请用 $…$ / $$…$$，不要用 \\( \\) 或 \\[ \\]");
   for (const phrase of ["TODO", "待补充", "此处省略", "（略）", "见左图", "详见课件"]) {
     if (body.includes(phrase)) report("warn", page.file, lineOf(page, phrase), `出现了「${phrase}」——讲义必须把内容写出来`);
   }

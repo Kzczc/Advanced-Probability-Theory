@@ -335,6 +335,10 @@ kbd {
 .box-quiz { --box-accent: #8b3fd9; --box-bg: #faf5ff; --box-line: #eadcfb; }
 .box-note { --box-accent: #7c6f64; --box-bg: #faf9f7; --box-line: #e7e1da; }
 .box-demo { --box-accent: #c2410c; --box-bg: #fffaf5; --box-line: #f5dcc8; }
+.box-vocab { --box-accent: #4b5563; --box-bg: #fbfbfa; --box-line: #e5e3de; margin-top: 2.2em; }
+.box-vocab table { font-size: 0.9em; }
+.box-vocab td:first-child { white-space: nowrap; font-weight: 700; }
+.box-vocab td:first-child a { text-decoration: none; }
 
 details.box { padding: 0; }
 details.box > summary {
@@ -372,6 +376,15 @@ details.box > .box-body { padding: 0 1.15em 0.95em; }
 .demo-controls button:hover { border-color: #c2410c; color: #c2410c; }
 .demo-readout { font-family: var(--font-serif); font-size: 0.98rem; margin: 6px 0 0; color: var(--ink-soft); }
 .demo-readout b { color: #9a3412; }
+.demo-controls select { font-family: var(--font-ui); font-size: 0.82rem; padding: 4px 6px; border: 1px solid var(--line-strong); border-radius: 7px; background: #fff; max-width: 100%; }
+.demo-ui + * { margin-top: 0.8em; }
+.sigma-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 6px 0; }
+.sigma-label { font-family: var(--font-serif); min-width: 7.5em; }
+.sigma-chip { width: 2.2em; height: 2.2em; border-radius: 50%; border: 1px solid var(--line-strong); background: #fff; cursor: pointer; font-family: var(--font-serif); font-size: 1rem; }
+.sigma-chip.on { background: #c2410c; border-color: #c2410c; color: #fff; }
+.sigma-set { font-family: var(--font-serif); color: var(--ink-soft); margin-left: 6px; }
+.sigma-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.sigma-member { font-family: var(--font-serif); background: #fff; border: 1px solid var(--line); border-radius: 6px; padding: 2px 8px; }
 
 /* ------------------------------------------------------------------ */
 /* 浮层：术语提示、放大图、搜索                                         */
