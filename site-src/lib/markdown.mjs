@@ -295,15 +295,20 @@ function splitTextByTerms(textToken, matchers, used, state) {
 /* 卡片容器                                                            */
 /* ------------------------------------------------------------------ */
 
-/** 解析容器标题行：「标题 | crop=0.1,0.2,0.9,0.8 | page=26」 */
+/**
+ * 解析容器标题行：「标题 | crop=0.1,0.2,0.9,0.8 | page=26」。
+ * 只有「| 键=值」才算参数；其余的 | 属于标题本身（例如公式里的绝对值 $|f|$）。
+ */
 function parseContainerInfo(info) {
-  const [titlePart, ...optionParts] = info.split("|");
+  const [firstPart, ...rest] = info.split("|");
+  const titleParts = [firstPart];
   const options = {};
-  for (const part of optionParts) {
-    const [key, value] = part.split("=").map((s) => (s || "").trim());
-    if (key) options[key] = value;
+  for (const part of rest) {
+    const option = part.match(/^\s*([A-Za-z]+)\s*=\s*(.*?)\s*$/);
+    if (option) options[option[1]] = option[2];
+    else titleParts.push(part);
   }
-  return { title: titlePart.trim(), options };
+  return { title: titleParts.join("|").trim(), options };
 }
 
 function renderCropFigure(options, env) {
