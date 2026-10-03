@@ -193,8 +193,13 @@ function checkQuality(page, renderedHtml) {
   for (const phrase of ["TODO", "待补充", "此处省略", "（略）", "见左图", "详见课件"]) {
     if (body.includes(phrase)) report("warn", page.file, lineOf(page, phrase), `出现了「${phrase}」——讲义必须把内容写出来`);
   }
-  const strayDollar = renderedHtml.replace(/<[^>]+>/g, "").match(/[^\\]\$/);
+  const renderedText = renderedHtml.replace(/<[^>]+>/g, "");
+  const strayDollar = renderedText.match(/[^\\]\$/);
   if (strayDollar) report("warn", page.file, 0, "渲染后仍有单独的 $，可能有公式没闭合或 $ 内侧有空格");
+  const unresolvedLink = renderedText.match(/\[\[[^\]]*\]\]/);
+  if (unresolvedLink) {
+    report("error", page.file, lineOf(page, unresolvedLink[0]), `页面链接 ${unresolvedLink[0]} 没有生效：链接不能写在公式（含 \\text{}）里，请移到公式外`);
+  }
   if (NAVIGATION_KINDS.has(meta.kind)) return;
 
   const chineseCount = countChinese(body);
