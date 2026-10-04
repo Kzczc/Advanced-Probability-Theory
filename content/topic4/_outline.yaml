@@ -1,0 +1,41 @@
+# 第 4 讲逐页大纲。课件是「课堂空白版」：印了标题、部分文字和定理名称，定义、定理内容与证明多处留白，由我们补写。
+# PDF 共 21 页，幻灯片页码印作「x / 22」。
+sections:
+  - id: intro
+    title: 开篇
+    pages: [1, 3]
+  - id: s1
+    title: 第 1 部分　乘积测度
+    title_en: Product measure
+    pages: [4, 8]
+  - id: s2
+    title: 第 2 部分　Fubini–Tonelli 定理
+    title_en: "Fubini–Tonelli's theorem"
+    pages: [9, 15]
+  - id: s3
+    title: 第 3 部分　独立性
+    title_en: Independence
+    pages: [16, 21]
+
+pages:
+  - { page: 1, slide: "1/22", kind: cover, title: 封面：乘积测度与独立性, title_en: "Product measure and independence" }
+  - { page: 2, slide: "2/22", kind: contents, title: 目录, title_en: "Outline" }
+  - { page: 3, slide: "3/22", kind: goals, title: 本讲目标, title_en: "Through this topic, you should..." }
+  - { page: 4, slide: "4/22", kind: example, title: 边缘分布相同，联合分布可以完全不同, title_en: "Joint information and marginal laws" }
+  - { page: 5, slide: "5/22", kind: remark, title: 为什么要构造乘积空间, title_en: "Introduction" }
+  - { page: 6, slide: "6/22", kind: definition, title: 乘积 σ-代数, title_en: "Product measure: the product σ-algebra" }
+  - { page: 7, slide: "7/22", kind: theorem, title: 乘积测度定理与截口, title_en: "Sets and slices" }
+  - { page: 8, slide: "8/22", kind: theorem, title: 截口的测度：Fubini 定理的雏形, title_en: "Introduction to Fubini's theorem" }
+  - { page: 9, slide: "9/22", kind: remark, title: 可测与可积：Fubini 只需检查可积性, title_en: "Fubini–Tonelli's theorem: measurable and integrable" }
+  - { page: 10, slide: "10/22", kind: theorem, title: Fubini 定理, title_en: "Fubini's theorem" }
+  - { page: 11, slide: "11/22", kind: proof, title: Fubini 定理的证明思路, title_en: "Main idea behind the proof" }
+  - { page: 12, slide: "12/22", kind: theorem, title: Tonelli 定理与累次积分公式, title_en: "Tonelli's theorem and the iterated integrals" }
+  - { page: 13, slide: "13/22", kind: example, title: 反例一：计数测度不是 σ-有限的, title_en: "Counter examples for Fubini's theorem: counting measure" }
+  - { page: 14, slide: "14/22", kind: example, title: 反例二：不绝对收敛的二重级数, title_en: "Counter examples for Fubini's theorem: a non-integrable double series" }
+  - { page: 15, slide: "15/22", kind: example, title: Fubini 的应用：一个反例和矩公式, title_en: "An application of Fubini's theorem" }
+  - { page: 16, slide: "16/22", kind: definition, title: 两个事件、随机变量、σ-代数的独立性；柱集, title_en: "Independence of two events" }
+  - { page: 17, slide: "17/22", kind: theorem, title: 多个事件的独立性：乘积测度与无穷序列空间, title_en: "Independence of multiple events" }
+  - { page: 18, slide: "18/22", kind: definition, title: 随机变量族的独立性：两两独立不等于相互独立, title_en: "Independence" }
+  - { page: 19, slide: "19/22", kind: definition, title: 多元正态分布, title_en: "Example: multivariate normal distribution" }
+  - { page: 20, slide: "20/22", kind: proof, title: 二元情形：协方差为 0 等价于独立, title_en: "Example: Bivariate case" }
+  - { page: 21, slide: "21/22", kind: proof, title: 多元情形：协方差全为 0 等价于相互独立, title_en: "Example: Multivariate case" }

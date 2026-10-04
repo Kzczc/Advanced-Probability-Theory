@@ -1,4 +1,4 @@
-# 全站目录：三讲课件。每讲的逐页大纲（小节划分、每页标题）在 content/<topic>/_outline.yaml。
+# 全站目录：各讲课件。每讲的逐页大纲（小节划分、每页标题）在 content/<topic>/_outline.yaml。
 site:
   title: 高等概率论 · 逐页精讲
   subtitle: 写给数学基础薄弱的同学：课件原页对照、零基础补课、公式推导、老师板书逐条解读、例子与自测
@@ -25,3 +25,10 @@ topics:
     pdf: Topic3_borel_cantelli_convergence_radon_nikodym_class_flow.pdf
     pages: 47
     summary: 事件会不会发生无穷多次、随机变量的几种收敛方式、什么条件下期望可以取极限，以及换测度（重要性抽样）怎么做。
+  - id: topic4
+    number: 4
+    title: 乘积测度与独立性
+    english: Product Measure and Independence
+    pdf: Topic4_product_measure_and_independence.pdf
+    pages: 21
+    summary: 两个概率空间怎样拼成一个联合空间（乘积 σ-代数与乘积测度），二重积分什么时候能拆成两次单重积分（Fubini–Tonelli），以及独立性的精确定义：联合分布等于边缘分布的乘积；最后看多元正态分布里「协方差为 0」为什么等价于独立。

@@ -636,3 +636,140 @@
   plain: "从另一个更合适的分布抽样，再乘以权重纠正，从而减小估计的方差。"
   topic: 3
   page: 38
+
+# ---------- 乘积测度与独立性（第 4 讲） ----------
+- id: "joint-law"
+  term: "联合分布"
+  en: "joint law (joint distribution)"
+  plain: "随机向量 (X, Y) 在平面上的分布：对每个平面博雷尔集 B 给出 P((X, Y) ∈ B)。只知道边缘分布不能确定它。"
+  topic: 4
+  page: 4
+- id: "marginal-law"
+  term: "边缘分布"
+  en: "marginal law"
+  plain: "随机向量中单个坐标的分布，例如 P(X ∈ A) = P((X, Y) ∈ A × ℝ)。"
+  topic: 4
+  page: 4
+- id: "covariance"
+  term: "协方差"
+  en: "covariance"
+  plain: "Cov(X, Y) = E[(X − EX)(Y − EY)]，衡量两个变量一起变大或变小的倾向。独立 ⇒ 协方差为 0，反之一般不成立。"
+  topic: 4
+  page: 4
+- id: "iid"
+  term: "独立同分布"
+  en: "independent and identically distributed (i.i.d.)"
+  plain: "一列随机变量相互独立，并且分布都相同，例如反复独立地掷同一颗骰子。"
+  topic: 4
+  page: 5
+- id: "product-space"
+  term: "乘积空间"
+  en: "product space"
+  plain: "笛卡尔积 Ω₁ × Ω₂，配上乘积 σ-代数（以及乘积测度）。"
+  topic: 4
+  page: 5
+- id: "sigma-finite"
+  term: "σ-有限"
+  en: "σ-finite"
+  plain: "整个空间能切成可数多块测度有限的部分。概率测度、长度都满足；不可数集上的计数测度不满足。"
+  topic: 4
+  page: 2
+- id: "measurable-rectangle"
+  term: "可测矩形"
+  en: "measurable rectangle"
+  plain: "形如 A₁ × A₂ 的集合，A₁、A₂ 分别是两个空间里的可测集。"
+  topic: 4
+  page: 6
+- id: "product-sigma-algebra"
+  term: "乘积 σ-代数"
+  en: "product σ-algebra"
+  plain: "由所有可测矩形生成的 σ-代数，记作 F₁ ⊗ F₂；它也是让两个坐标映射都可测的最小 σ-代数。"
+  topic: 4
+  page: 6
+- id: "product-measure"
+  term: "乘积测度"
+  aliases: ["乘积概率测度"]
+  en: "product measure"
+  plain: "在每个可测矩形上取 μ₁(A₁)μ₂(A₂) 的唯一测度（σ-有限时）。平面面积就是长度 × 长度的乘积测度。"
+  topic: 4
+  page: 7
+- id: "pi-lambda"
+  term: "π-λ 定理"
+  en: "Dynkin's π-λ theorem"
+  plain: "π-系（对有限交封闭）包含于 λ-系时，它生成的 σ-代数也包含于该 λ-系。常用来证明「两个测度在生成元上相等就处处相等」。"
+  topic: 4
+  page: 7
+- id: "slice"
+  term: "截口"
+  en: "slice (section)"
+  plain: "固定一个坐标、把二维集合或函数「切一刀」：A_ω₁ = {ω₂ : (ω₁, ω₂) ∈ A}，f_ω₁(ω₂) = f(ω₁, ω₂)。"
+  topic: 4
+  page: 7
+- id: "iterated-integral"
+  term: "累次积分"
+  en: "iterated integral"
+  plain: "一层一层地积分：先固定一个变量、对另一个变量积分，再对剩下的变量积分。"
+  topic: 4
+  page: 10
+- id: "fubini"
+  term: "Fubini 定理"
+  en: "Fubini's theorem"
+  plain: "f 关于乘积测度绝对可积（∬|f| < ∞）时，二重积分等于两种顺序的累次积分。"
+  topic: 4
+  page: 10
+- id: "tonelli"
+  term: "Tonelli 定理"
+  en: "Tonelli's theorem"
+  plain: "f 非负可测、两个测度 σ-有限时，二重积分等于两种顺序的累次积分，三者可以同时为 ∞。"
+  topic: 4
+  page: 12
+- id: "counting-measure"
+  term: "计数测度"
+  en: "counting measure"
+  plain: "μ(A) = A 中元素的个数（无限集记为 ∞）。在 ℕ 上对它积分就是求和。"
+  topic: 4
+  page: 13
+- id: "cylinder-set"
+  term: "柱集"
+  aliases: ["乘积柱集"]
+  en: "cylinder set"
+  plain: "只对有限个坐标提条件的集合，如 {ω₁ ∈ B₁, …, ωₙ ∈ Bₙ}，其余坐标任取。"
+  topic: 4
+  page: 16
+- id: "tail-event"
+  term: "尾事件"
+  en: "tail event"
+  plain: "改动任意有限个坐标都不影响是否发生的事件，例如「序列 ω₁, ω₂, … 收敛」。"
+  topic: 4
+  page: 17
+- id: "pairwise-independence"
+  term: "两两独立"
+  en: "pairwise independence"
+  plain: "任意两个都独立。比相互独立弱：三个事件可以两两独立却不相互独立。"
+  topic: 4
+  page: 18
+- id: "multivariate-normal"
+  term: "多元正态分布"
+  aliases: ["多元正态", "二元正态"]
+  en: "multivariate normal distribution"
+  plain: "由均值向量 μ 和正定协方差矩阵 Σ 决定的高维钟形分布。对它而言，不相关等价于独立。"
+  topic: 4
+  page: 19
+- id: "covariance-matrix"
+  term: "协方差矩阵"
+  en: "covariance matrix"
+  plain: "第 (i, j) 个元素是 Cov(Xᵢ, Xⱼ) 的矩阵，对角线上是各分量的方差。"
+  topic: 4
+  page: 19
+- id: "correlation"
+  term: "相关系数"
+  en: "correlation coefficient"
+  plain: "ρ = Cov(X, Y) / √(Var X · Var Y)，在 −1 到 1 之间，衡量线性相关的强弱。"
+  topic: 4
+  page: 19
+- id: "positive-definite"
+  term: "正定"
+  en: "positive definite"
+  plain: "对称矩阵 Σ 满足：对所有非零向量 x，xᵀΣx > 0。多元正态要求协方差矩阵正定。"
+  topic: 4
+  page: 19

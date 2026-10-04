@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第4讲 乘积测度与独立性 · 高等概率论逐页精讲</title>
+<meta name="description" content="高等概率论课件逐页中文精讲：课件原页对照、零基础补课、公式推导、老师板书解读、例子与自测。">
+<link rel="stylesheet" href="../assets/katex/katex.min.css">
+<link rel="stylesheet" href="../assets/css/site.css?v=f4c0be581a">
+
+<script>try{var s=localStorage.getItem("apt-font-scale");if(s)document.documentElement.style.setProperty("--font-scale",s);if(localStorage.getItem("apt-layout")==="focus")document.documentElement.classList.add("focus-mode");}catch(e){}</script>
+</head>
+<body class="page-index">
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    
+    <a class="brand" href="../index.html">高等概率论<span>逐页精讲</span></a>
+    <nav class="topnav" aria-label="讲次"><a href="../topic1/index.html">第 1 讲</a><a href="../topic2/index.html">第 2 讲</a><a href="../topic3/index.html">第 3 讲</a><a href="../topic4/index.html" aria-current="page">第 4 讲</a><a href="../basics.html">基础补课</a><a href="../glossary.html">术语表</a></nav>
+    <div class="tools">
+      <button class="tool-btn" id="search-open" type="button" aria-label="搜索"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><span>搜索</span></button>
+      
+      <div class="font-tools" role="group" aria-label="字号"><button class="tool-btn" id="font-down" type="button" aria-label="缩小字号">A−</button><button class="tool-btn" id="font-up" type="button" aria-label="放大字号">A+</button></div>
+    </div>
+  </div>
+  <div class="read-progress" aria-hidden="true"><span></span></div>
+</header>
+<main id="main" class="index-main">
+  <header class="index-head">
+    <p class="eyebrow">第 4 讲 · 21 页课件</p>
+    <h1>乘积测度与独立性</h1>
+    <p class="title-en" lang="en">Product Measure and Independence</p>
+    <p class="lede">两个概率空间怎样拼成一个联合空间（乘积 σ-代数与乘积测度），二重积分什么时候能拆成两次单重积分（Fubini–Tonelli），以及独立性的精确定义：联合分布等于边缘分布的乘积；最后看多元正态分布里「协方差为 0」为什么等价于独立。</p>
+    <div class="index-actions">
+      <a class="button primary" href="p01.html">从第 1 页开始</a>
+      <a class="button" id="resume-link" href="p01.html" data-topic="topic4" hidden>继续上次的进度</a>
+    </div>
+    <p class="index-stats">精讲已完成 <b>21</b> / 21 页 · <span class="toc-progress" data-topic="topic4" data-total="21">已看懂 <b>0</b> / 21 页</span></p>
+  </header>
+  <section class="index-section"><h2>开篇</h2><ol class="page-rows"><li class="page-row" data-page="1">
+        <a href="p01.html">
+          <span class="row-num">01</span>
+          <span class="row-main"><span class="row-title">封面：乘积测度与独立性</span><span class="row-en" lang="en">Product measure and independence</span></span>
+          <span class="row-meta">幻灯片 1/22 · 封面</span>
+        </a></li><li class="page-row" data-page="2">
+        <a href="p02.html">
+          <span class="row-num">02</span>
+          <span class="row-main"><span class="row-title">目录：三个部分各回答什么问题</span><span class="row-en" lang="en">Outline</span></span>
+          <span class="row-meta">幻灯片 2/22 · 目录</span>
+        </a></li><li class="page-row" data-page="3">
+        <a href="p03.html">
+          <span class="row-num">03</span>
+          <span class="row-main"><span class="row-title">本讲目标：学完要会什么</span><span class="row-en" lang="en">Through this topic, you should...</span></span>
+          <span class="row-meta">幻灯片 3/22 · 学习目标</span>
+        </a></li></ol></section>
+<section class="index-section"><h2>第 1 部分　乘积测度<small lang="en">Product measure</small></h2><ol class="page-rows"><li class="page-row" data-page="4">
+        <a href="p04.html">
+          <span class="row-num">04</span>
+          <span class="row-main"><span class="row-title">边缘分布相同，联合分布可以完全不同：(U,U) 与 (U,1−U)</span><span class="row-en" lang="en">Joint information and marginal laws</span></span>
+          <span class="row-meta">幻灯片 4/22 · 例子</span>
+        </a></li><li class="page-row" data-page="5">
+        <a href="p05.html">
+          <span class="row-num">05</span>
+          <span class="row-main"><span class="row-title">为什么要构造乘积空间：独立同分布从哪里来</span><span class="row-en" lang="en">Introduction</span></span>
+          <span class="row-meta">幻灯片 5/22 · 讨论</span>
+        </a></li><li class="page-row" data-page="6">
+        <a href="p06.html">
+          <span class="row-num">06</span>
+          <span class="row-main"><span class="row-title">乘积 σ-代数：由所有「可测矩形」生成</span><span class="row-en" lang="en">Product measure: the product σ-algebra</span></span>
+          <span class="row-meta">幻灯片 6/22 · 定义</span>
+        </a></li><li class="page-row" data-page="7">
+        <a href="p07.html">
+          <span class="row-num">07</span>
+          <span class="row-main"><span class="row-title">乘积测度定理与截口：矩形上取乘积，其余由唯一性决定</span><span class="row-en" lang="en">Sets and slices</span></span>
+          <span class="row-meta">幻灯片 7/22 · 定理</span>
+        </a></li><li class="page-row" data-page="8">
+        <a href="p08.html">
+          <span class="row-num">08</span>
+          <span class="row-main"><span class="row-title">截口的测度：二维测度 = 一维截口测度的积分（Fubini 的雏形）</span><span class="row-en" lang="en">Introduction to Fubini's theorem</span></span>
+          <span class="row-meta">幻灯片 8/22 · 定理</span>
+        </a></li></ol></section>
+<section class="index-section"><h2>第 2 部分　Fubini–Tonelli 定理<small lang="en">Fubini–Tonelli's theorem</small></h2><ol class="page-rows"><li class="page-row" data-page="9">
+        <a href="p09.html">
+          <span class="row-num">09</span>
+          <span class="row-main"><span class="row-title">可测与可积：用 Fubini 之前要检查什么</span><span class="row-en" lang="en">Fubini–Tonelli's theorem: measurable and integrable</span></span>
+          <span class="row-meta">幻灯片 9/22 · 讨论</span>
+        </a></li><li class="page-row" data-page="10">
+        <a href="p10.html">
+          <span class="row-num">10</span>
+          <span class="row-main"><span class="row-title">Fubini 定理：绝对可积时，二重积分等于两种顺序的累次积分</span><span class="row-en" lang="en">Fubini's theorem</span></span>
+          <span class="row-meta">幻灯片 10/22 · 定理</span>
+        </a></li><li class="page-row" data-page="11">
+        <a href="p11.html">
+          <span class="row-num">11</span>
+          <span class="row-main"><span class="row-title">Fubini 定理的证明思路：示性函数 → 简单函数 → 非负函数 → 可积函数</span><span class="row-en" lang="en">Main idea behind the proof</span></span>
+          <span class="row-meta">幻灯片 11/22 · 证明</span>
+        </a></li><li class="page-row" data-page="12">
+        <a href="p12.html">
+          <span class="row-num">12</span>
+          <span class="row-main"><span class="row-title">Tonelli 定理：非负可测函数随便交换积分顺序</span><span class="row-en" lang="en">Tonelli's theorem and the iterated integrals</span></span>
+          <span class="row-meta">幻灯片 12/22 · 定理</span>
+        </a></li><li class="page-row" data-page="13">
+        <a href="p13.html">
+          <span class="row-num">13</span>
+          <span class="row-main"><span class="row-title">反例一：计数测度不是 σ-有限的，两种积分顺序给出 1 和 0</span><span class="row-en" lang="en">Counter examples for Fubini's theorem: counting measure</span></span>
+          <span class="row-meta">幻灯片 13/22 · 例子</span>
+        </a></li><li class="page-row" data-page="14">
+        <a href="p14.html">
+          <span class="row-num">14</span>
+          <span class="row-main"><span class="row-title">反例二：不绝对收敛的二重级数，先按行加得 1，先按列加得 0</span><span class="row-en" lang="en">Counter examples for Fubini's theorem: a non-integrable double series</span></span>
+          <span class="row-meta">幻灯片 14/22 · 例子</span>
+        </a></li><li class="page-row" data-page="15">
+        <a href="p15.html">
+          <span class="row-num">15</span>
+          <span class="row-main"><span class="row-title">Fubini 的应用：两个累次积分不相等的函数，以及矩公式的一行证明</span><span class="row-en" lang="en">An application of Fubini's theorem</span></span>
+          <span class="row-meta">幻灯片 15/22 · 例子</span>
+        </a></li></ol></section>
+<section class="index-section"><h2>第 3 部分　独立性<small lang="en">Independence</small></h2><ol class="page-rows"><li class="page-row" data-page="16">
+        <a href="p16.html">
+          <span class="row-num">16</span>
+          <span class="row-main"><span class="row-title">两个事件、两个随机变量、两个 σ-代数的独立；柱集</span><span class="row-en" lang="en">Independence of two events</span></span>
+          <span class="row-meta">幻灯片 16/22 · 定义</span>
+        </a></li><li class="page-row" data-page="17">
+        <a href="p17.html">
+          <span class="row-num">17</span>
+          <span class="row-main"><span class="row-title">多个随机变量的独立：联合分布 = 乘积测度；无穷序列空间</span><span class="row-en" lang="en">Independence of multiple events</span></span>
+          <span class="row-meta">幻灯片 17/22 · 定理</span>
+        </a></li><li class="page-row" data-page="18">
+        <a href="p18.html">
+          <span class="row-num">18</span>
+          <span class="row-main"><span class="row-title">一族随机变量的独立；两两独立不等于相互独立</span><span class="row-en" lang="en">Independence</span></span>
+          <span class="row-meta">幻灯片 18/22 · 定义</span>
+        </a></li><li class="page-row" data-page="19">
+        <a href="p19.html">
+          <span class="row-num">19</span>
+          <span class="row-main"><span class="row-title">多元正态分布：由均值向量和协方差矩阵决定的「高维钟形曲线」</span><span class="row-en" lang="en">Example: multivariate normal distribution</span></span>
+          <span class="row-meta">幻灯片 19/22 · 定义</span>
+        </a></li><li class="page-row" data-page="20">
+        <a href="p20.html">
+          <span class="row-num">20</span>
+          <span class="row-main"><span class="row-title">二元情形：联合正态时，协方差为 0 等价于独立</span><span class="row-en" lang="en">Example: Bivariate case</span></span>
+          <span class="row-meta">幻灯片 20/22 · 证明</span>
+        </a></li><li class="page-row" data-page="21">
+        <a href="p21.html">
+          <span class="row-num">21</span>
+          <span class="row-main"><span class="row-title">多元情形：联合正态时，协方差全为 0 等价于相互独立</span><span class="row-en" lang="en">Example: Multivariate case</span></span>
+          <span class="row-meta">幻灯片 21/22 · 证明</span>
+        </a></li></ol></section>
+</main>
+<div class="lightbox" id="lightbox" hidden><button class="lightbox-close" type="button" aria-label="关闭">关闭 ✕</button><div class="lightbox-stage"><img alt=""></div><p class="lightbox-hint">点击图片放大 / 缩小 · Esc 关闭</p></div>
+<div class="term-pop" id="term-pop" role="tooltip" hidden></div>
+<div class="search-panel" id="search-panel" hidden>
+  <div class="search-box" role="dialog" aria-label="搜索讲义">
+    <input id="search-input" type="search" placeholder="搜索：σ-代数、外测度、Fatou、单调收敛……" autocomplete="off">
+    <ol id="search-results" class="search-results"></ol>
+    <p class="search-hint">↑↓ 选择 · Enter 打开 · Esc 关闭</p>
+  </div>
+</div>
+
+<script src="../assets/js/site.js?v=f4c0be581a" defer></script>
+<script src="../assets/js/demos.js?v=f4c0be581a" defer></script>
+</body>
+</html>

@@ -282,7 +282,7 @@ node site-src/build.mjs --check --pages 6-14     # 多页
 3. 课件上**印刷出来的设定文字**（例如「Let $(\Omega,\F,\P)$ be a probability space and $(S,\mathcal M)$ a measurable space」、具体例题里的函数和数值）必须原样出现在 `::: original` 里，补写内容必须与之吻合。
 4. 大量使用第 1 讲的结论（MCT、Fatou、DCT、简单函数逼近、从上/下连续……），用跨讲链接标出出处：`[[t1:p:36|单调收敛定理]]`。第 1 讲重要页：σ-代数 p9、生成的 σ-代数 p11、测度空间 p12、从下连续 p13、从上连续 p14、勒贝格测度 p23、可测函数 p29、简单函数 p30、非负函数的积分 p33、二进逼近 p34、MCT p36、liminf/limsup p40（集合版本见 p7）、Fatou p41、a.e. 与 $L^1$ p43、DCT p44、BCT p46。第 3 讲引用第 2 讲用 `[[t2:p:N]]`。
 5. 第 1 讲没有讲过、但证明要用的工具（例如 Fubini–Tonelli 定理、π-λ 定理、均值不等式、泰勒展开），要么换一种只用已学知识的证明，要么在 `::: basics` 里把工具的陈述和含义讲清楚，并明确说「这里把它当作已知结论使用」。
-6. 页眉 `topic` 写 `topic2` / `topic3`；校验命令加 `--topic`：`node site-src/build.mjs --check --topic topic2 --pages 4`。
+6. 页眉 `topic` 写 `topic2` / `topic3` / `topic4`；校验命令加 `--topic`：`node site-src/build.mjs --check --topic topic2 --pages 4`。
 7. 页图：`.work/pages/topic2/pNN.png`；文字层：`.work/text/topic2/pNN.txt`（这两讲的文字层是干净的，可以直接用来核对英文）；放大：`python3 tools/zoom.py topic2 NN top`。
 
 ---

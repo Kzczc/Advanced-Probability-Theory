@@ -16,7 +16,7 @@
   <div class="topbar-inner">
     
     <a class="brand" href="index.html">高等概率论<span>逐页精讲</span></a>
-    <nav class="topnav" aria-label="讲次"><a href="topic1/index.html">第 1 讲</a><a href="topic2/index.html">第 2 讲</a><a href="topic3/index.html">第 3 讲</a><a href="basics.html">基础补课</a><a href="glossary.html">术语表</a></nav>
+    <nav class="topnav" aria-label="讲次"><a href="topic1/index.html">第 1 讲</a><a href="topic2/index.html">第 2 讲</a><a href="topic3/index.html">第 3 讲</a><a href="topic4/index.html">第 4 讲</a><a href="basics.html">基础补课</a><a href="glossary.html">术语表</a></nav>
     <div class="tools">
       <button class="tool-btn" id="search-open" type="button" aria-label="搜索"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><span>搜索</span></button>
       
@@ -428,6 +428,94 @@
       <div class="g-term"><strong>重要性抽样</strong><span lang="en">importance sampling</span></div>
       <p class="g-plain">从另一个更合适的分布抽样，再乘以权重纠正，从而减小估计的方差。</p>
       <p class="g-page"><a href="topic3/p38.html">第 3 讲 p38</a></p>
+    </li><li class="glossary-row" id="term-joint-law" data-search="联合分布 joint law (joint distribution) 随机向量 (x, y) 在平面上的分布：对每个平面博雷尔集 b 给出 p((x, y) ∈ b)。只知道边缘分布不能确定它。">
+      <div class="g-term"><strong>联合分布</strong><span lang="en">joint law (joint distribution)</span></div>
+      <p class="g-plain">随机向量 (X, Y) 在平面上的分布：对每个平面博雷尔集 B 给出 P((X, Y) ∈ B)。只知道边缘分布不能确定它。</p>
+      <p class="g-page"><a href="topic4/p04.html">第 4 讲 p04</a></p>
+    </li><li class="glossary-row" id="term-marginal-law" data-search="边缘分布 marginal law 随机向量中单个坐标的分布，例如 p(x ∈ a) = p((x, y) ∈ a × ℝ)。">
+      <div class="g-term"><strong>边缘分布</strong><span lang="en">marginal law</span></div>
+      <p class="g-plain">随机向量中单个坐标的分布，例如 P(X ∈ A) = P((X, Y) ∈ A × ℝ)。</p>
+      <p class="g-page"><a href="topic4/p04.html">第 4 讲 p04</a></p>
+    </li><li class="glossary-row" id="term-covariance" data-search="协方差 covariance cov(x, y) = e[(x − ex)(y − ey)]，衡量两个变量一起变大或变小的倾向。独立 ⇒ 协方差为 0，反之一般不成立。">
+      <div class="g-term"><strong>协方差</strong><span lang="en">covariance</span></div>
+      <p class="g-plain">Cov(X, Y) = E[(X − EX)(Y − EY)]，衡量两个变量一起变大或变小的倾向。独立 ⇒ 协方差为 0，反之一般不成立。</p>
+      <p class="g-page"><a href="topic4/p04.html">第 4 讲 p04</a></p>
+    </li><li class="glossary-row" id="term-iid" data-search="独立同分布 independent and identically distributed (i.i.d.) 一列随机变量相互独立，并且分布都相同，例如反复独立地掷同一颗骰子。">
+      <div class="g-term"><strong>独立同分布</strong><span lang="en">independent and identically distributed (i.i.d.)</span></div>
+      <p class="g-plain">一列随机变量相互独立，并且分布都相同，例如反复独立地掷同一颗骰子。</p>
+      <p class="g-page"><a href="topic4/p05.html">第 4 讲 p05</a></p>
+    </li><li class="glossary-row" id="term-product-space" data-search="乘积空间 product space 笛卡尔积 ω₁ × ω₂，配上乘积 σ-代数（以及乘积测度）。">
+      <div class="g-term"><strong>乘积空间</strong><span lang="en">product space</span></div>
+      <p class="g-plain">笛卡尔积 Ω₁ × Ω₂，配上乘积 σ-代数（以及乘积测度）。</p>
+      <p class="g-page"><a href="topic4/p05.html">第 4 讲 p05</a></p>
+    </li><li class="glossary-row" id="term-sigma-finite" data-search="σ-有限 σ-finite 整个空间能切成可数多块测度有限的部分。概率测度、长度都满足；不可数集上的计数测度不满足。">
+      <div class="g-term"><strong>σ-有限</strong><span lang="en">σ-finite</span></div>
+      <p class="g-plain">整个空间能切成可数多块测度有限的部分。概率测度、长度都满足；不可数集上的计数测度不满足。</p>
+      <p class="g-page"><a href="topic4/p02.html">第 4 讲 p02</a></p>
+    </li><li class="glossary-row" id="term-measurable-rectangle" data-search="可测矩形 measurable rectangle 形如 a₁ × a₂ 的集合，a₁、a₂ 分别是两个空间里的可测集。">
+      <div class="g-term"><strong>可测矩形</strong><span lang="en">measurable rectangle</span></div>
+      <p class="g-plain">形如 A₁ × A₂ 的集合，A₁、A₂ 分别是两个空间里的可测集。</p>
+      <p class="g-page"><a href="topic4/p06.html">第 4 讲 p06</a></p>
+    </li><li class="glossary-row" id="term-product-sigma-algebra" data-search="乘积 σ-代数 product σ-algebra 由所有可测矩形生成的 σ-代数，记作 f₁ ⊗ f₂；它也是让两个坐标映射都可测的最小 σ-代数。">
+      <div class="g-term"><strong>乘积 σ-代数</strong><span lang="en">product σ-algebra</span></div>
+      <p class="g-plain">由所有可测矩形生成的 σ-代数，记作 F₁ ⊗ F₂；它也是让两个坐标映射都可测的最小 σ-代数。</p>
+      <p class="g-page"><a href="topic4/p06.html">第 4 讲 p06</a></p>
+    </li><li class="glossary-row" id="term-product-measure" data-search="乘积测度 乘积概率测度 product measure 在每个可测矩形上取 μ₁(a₁)μ₂(a₂) 的唯一测度（σ-有限时）。平面面积就是长度 × 长度的乘积测度。">
+      <div class="g-term"><strong>乘积测度</strong><span lang="en">product measure</span></div>
+      <p class="g-plain">在每个可测矩形上取 μ₁(A₁)μ₂(A₂) 的唯一测度（σ-有限时）。平面面积就是长度 × 长度的乘积测度。</p>
+      <p class="g-page"><a href="topic4/p07.html">第 4 讲 p07</a></p>
+    </li><li class="glossary-row" id="term-pi-lambda" data-search="π-λ 定理 dynkin's π-λ theorem π-系（对有限交封闭）包含于 λ-系时，它生成的 σ-代数也包含于该 λ-系。常用来证明「两个测度在生成元上相等就处处相等」。">
+      <div class="g-term"><strong>π-λ 定理</strong><span lang="en">Dynkin's π-λ theorem</span></div>
+      <p class="g-plain">π-系（对有限交封闭）包含于 λ-系时，它生成的 σ-代数也包含于该 λ-系。常用来证明「两个测度在生成元上相等就处处相等」。</p>
+      <p class="g-page"><a href="topic4/p07.html">第 4 讲 p07</a></p>
+    </li><li class="glossary-row" id="term-slice" data-search="截口 slice (section) 固定一个坐标、把二维集合或函数「切一刀」：a_ω₁ = {ω₂ : (ω₁, ω₂) ∈ a}，f_ω₁(ω₂) = f(ω₁, ω₂)。">
+      <div class="g-term"><strong>截口</strong><span lang="en">slice (section)</span></div>
+      <p class="g-plain">固定一个坐标、把二维集合或函数「切一刀」：A_ω₁ = {ω₂ : (ω₁, ω₂) ∈ A}，f_ω₁(ω₂) = f(ω₁, ω₂)。</p>
+      <p class="g-page"><a href="topic4/p07.html">第 4 讲 p07</a></p>
+    </li><li class="glossary-row" id="term-iterated-integral" data-search="累次积分 iterated integral 一层一层地积分：先固定一个变量、对另一个变量积分，再对剩下的变量积分。">
+      <div class="g-term"><strong>累次积分</strong><span lang="en">iterated integral</span></div>
+      <p class="g-plain">一层一层地积分：先固定一个变量、对另一个变量积分，再对剩下的变量积分。</p>
+      <p class="g-page"><a href="topic4/p10.html">第 4 讲 p10</a></p>
+    </li><li class="glossary-row" id="term-fubini" data-search="fubini 定理 fubini's theorem f 关于乘积测度绝对可积（∬|f| &lt; ∞）时，二重积分等于两种顺序的累次积分。">
+      <div class="g-term"><strong>Fubini 定理</strong><span lang="en">Fubini's theorem</span></div>
+      <p class="g-plain">f 关于乘积测度绝对可积（∬|f| &lt; ∞）时，二重积分等于两种顺序的累次积分。</p>
+      <p class="g-page"><a href="topic4/p10.html">第 4 讲 p10</a></p>
+    </li><li class="glossary-row" id="term-tonelli" data-search="tonelli 定理 tonelli's theorem f 非负可测、两个测度 σ-有限时，二重积分等于两种顺序的累次积分，三者可以同时为 ∞。">
+      <div class="g-term"><strong>Tonelli 定理</strong><span lang="en">Tonelli's theorem</span></div>
+      <p class="g-plain">f 非负可测、两个测度 σ-有限时，二重积分等于两种顺序的累次积分，三者可以同时为 ∞。</p>
+      <p class="g-page"><a href="topic4/p12.html">第 4 讲 p12</a></p>
+    </li><li class="glossary-row" id="term-counting-measure" data-search="计数测度 counting measure μ(a) = a 中元素的个数（无限集记为 ∞）。在 ℕ 上对它积分就是求和。">
+      <div class="g-term"><strong>计数测度</strong><span lang="en">counting measure</span></div>
+      <p class="g-plain">μ(A) = A 中元素的个数（无限集记为 ∞）。在 ℕ 上对它积分就是求和。</p>
+      <p class="g-page"><a href="topic4/p13.html">第 4 讲 p13</a></p>
+    </li><li class="glossary-row" id="term-cylinder-set" data-search="柱集 乘积柱集 cylinder set 只对有限个坐标提条件的集合，如 {ω₁ ∈ b₁, …, ωₙ ∈ bₙ}，其余坐标任取。">
+      <div class="g-term"><strong>柱集</strong><span lang="en">cylinder set</span></div>
+      <p class="g-plain">只对有限个坐标提条件的集合，如 {ω₁ ∈ B₁, …, ωₙ ∈ Bₙ}，其余坐标任取。</p>
+      <p class="g-page"><a href="topic4/p16.html">第 4 讲 p16</a></p>
+    </li><li class="glossary-row" id="term-tail-event" data-search="尾事件 tail event 改动任意有限个坐标都不影响是否发生的事件，例如「序列 ω₁, ω₂, … 收敛」。">
+      <div class="g-term"><strong>尾事件</strong><span lang="en">tail event</span></div>
+      <p class="g-plain">改动任意有限个坐标都不影响是否发生的事件，例如「序列 ω₁, ω₂, … 收敛」。</p>
+      <p class="g-page"><a href="topic4/p17.html">第 4 讲 p17</a></p>
+    </li><li class="glossary-row" id="term-pairwise-independence" data-search="两两独立 pairwise independence 任意两个都独立。比相互独立弱：三个事件可以两两独立却不相互独立。">
+      <div class="g-term"><strong>两两独立</strong><span lang="en">pairwise independence</span></div>
+      <p class="g-plain">任意两个都独立。比相互独立弱：三个事件可以两两独立却不相互独立。</p>
+      <p class="g-page"><a href="topic4/p18.html">第 4 讲 p18</a></p>
+    </li><li class="glossary-row" id="term-multivariate-normal" data-search="多元正态分布 多元正态 二元正态 multivariate normal distribution 由均值向量 μ 和正定协方差矩阵 σ 决定的高维钟形分布。对它而言，不相关等价于独立。">
+      <div class="g-term"><strong>多元正态分布</strong><span lang="en">multivariate normal distribution</span></div>
+      <p class="g-plain">由均值向量 μ 和正定协方差矩阵 Σ 决定的高维钟形分布。对它而言，不相关等价于独立。</p>
+      <p class="g-page"><a href="topic4/p19.html">第 4 讲 p19</a></p>
+    </li><li class="glossary-row" id="term-covariance-matrix" data-search="协方差矩阵 covariance matrix 第 (i, j) 个元素是 cov(xᵢ, xⱼ) 的矩阵，对角线上是各分量的方差。">
+      <div class="g-term"><strong>协方差矩阵</strong><span lang="en">covariance matrix</span></div>
+      <p class="g-plain">第 (i, j) 个元素是 Cov(Xᵢ, Xⱼ) 的矩阵，对角线上是各分量的方差。</p>
+      <p class="g-page"><a href="topic4/p19.html">第 4 讲 p19</a></p>
+    </li><li class="glossary-row" id="term-correlation" data-search="相关系数 correlation coefficient ρ = cov(x, y) / √(var x · var y)，在 −1 到 1 之间，衡量线性相关的强弱。">
+      <div class="g-term"><strong>相关系数</strong><span lang="en">correlation coefficient</span></div>
+      <p class="g-plain">ρ = Cov(X, Y) / √(Var X · Var Y)，在 −1 到 1 之间，衡量线性相关的强弱。</p>
+      <p class="g-page"><a href="topic4/p19.html">第 4 讲 p19</a></p>
+    </li><li class="glossary-row" id="term-positive-definite" data-search="正定 positive definite 对称矩阵 σ 满足：对所有非零向量 x，xᵀσx &gt; 0。多元正态要求协方差矩阵正定。">
+      <div class="g-term"><strong>正定</strong><span lang="en">positive definite</span></div>
+      <p class="g-plain">对称矩阵 Σ 满足：对所有非零向量 x，xᵀΣx &gt; 0。多元正态要求协方差矩阵正定。</p>
+      <p class="g-page"><a href="topic4/p19.html">第 4 讲 p19</a></p>
     </li></ol>
 </main>
 <div class="lightbox" id="lightbox" hidden><button class="lightbox-close" type="button" aria-label="关闭">关闭 ✕</button><div class="lightbox-stage"><img alt=""></div><p class="lightbox-hint">点击图片放大 / 缩小 · Esc 关闭</p></div>

@@ -21,6 +21,7 @@ TOPIC_PDFS = {
     "topic1": "Topic1_measure_and_integration_full_noted.pdf",
     "topic2": "Topic2_random_variables_expectation_inequalities.pdf",
     "topic3": "Topic3_borel_cantelli_convergence_radon_nikodym_class_flow.pdf",
+    "topic4": "Topic4_product_measure_and_independence.pdf",
 }
 
 NAMED_REGIONS = {

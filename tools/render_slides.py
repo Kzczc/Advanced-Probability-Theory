@@ -26,6 +26,7 @@ TOPIC_PDFS = {
     "topic1": "Topic1_measure_and_integration_full_noted.pdf",
     "topic2": "Topic2_random_variables_expectation_inequalities.pdf",
     "topic3": "Topic3_borel_cantelli_convergence_radon_nikodym_class_flow.pdf",
+    "topic4": "Topic4_product_measure_and_independence.pdf",
 }
 
 SITE_IMAGE_WIDTH = 1600      # 网站页图宽度（兼顾高清屏与体积）
