@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>作业2 收敛方式、大数定律、中心极限定理与鞅 · 高等概率论逐页精讲</title>
+<meta name="description" content="高等概率论课件逐页中文精讲：课件原页对照、零基础补课、公式推导、老师板书解读、例子与自测。">
+<link rel="stylesheet" href="../assets/katex/katex.min.css">
+<link rel="stylesheet" href="../assets/css/site.css?v=b1ac21d5d4">
+
+<script>try{var s=localStorage.getItem("apt-font-scale");if(s)document.documentElement.style.setProperty("--font-scale",s);if(localStorage.getItem("apt-layout")==="focus")document.documentElement.classList.add("focus-mode");}catch(e){}</script>
+</head>
+<body class="page-index">
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    
+    <a class="brand" href="../index.html">高等概率论<span>逐页精讲</span></a>
+    <nav class="topnav" aria-label="讲次"><a href="../topic1/index.html">第 1 讲</a><a href="../topic2/index.html">第 2 讲</a><a href="../topic3/index.html">第 3 讲</a><a href="../topic4/index.html">第 4 讲</a><a href="../index.html#exercises" aria-current="page">作业与小测</a><a href="../basics.html">基础补课</a><a href="../glossary.html">术语表</a></nav>
+    <div class="tools">
+      <button class="tool-btn" id="search-open" type="button" aria-label="搜索"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><span>搜索</span></button>
+      
+      <div class="font-tools" role="group" aria-label="字号"><button class="tool-btn" id="font-down" type="button" aria-label="缩小字号">A−</button><button class="tool-btn" id="font-up" type="button" aria-label="放大字号">A+</button></div>
+    </div>
+  </div>
+  <div class="read-progress" aria-hidden="true"><span></span></div>
+</header>
+<main id="main" class="index-main">
+  <header class="index-head">
+    <p class="eyebrow">作业 2 · 12 道题（附解答精讲）</p>
+    <h1>收敛方式、大数定律、中心极限定理与鞅</h1>
+    <p class="title-en" lang="en">Homework 2 (with solutions)</p>
+    <p class="lede">12 道题：Lᵖ 收敛的判别与乘积的收敛，由中心极限定理推出大数定律，Glivenko–Cantelli 定理，高维球面上的正态近似，相依序列的大数定律，随机项数的中心极限定理，以及分支过程、赌徒破产中的鞅与可选停止定理。</p>
+    <div class="index-actions">
+      <a class="button primary" href="p01.html">从第 1 题开始</a>
+      <a class="button" id="resume-link" href="p01.html" data-topic="hw2" hidden>继续上次的进度</a>
+    </div>
+    <p class="index-stats">精讲已完成 <b>12</b> / 12 题 · <span class="toc-progress" data-topic="hw2" data-total="12">已看懂 <b>0</b> / 12 题</span></p>
+  </header>
+  <section class="index-section"><h2>收敛方式<small lang="en">Modes of convergence</small></h2><ol class="page-rows"><li class="page-row" data-page="1">
+        <a href="p01.html">
+          <span class="row-num">01</span>
+          <span class="row-main"><span class="row-title">几乎必然收敛 + 范数收敛 ⇒ Lᵖ 收敛（Fatou 引理的「减法技巧」）</span><span class="row-en" lang="en">a.s. convergence plus convergence of norms gives Lp convergence</span></span>
+          <span class="row-meta">解答原页 第 1 页 · 证明题</span>
+        </a></li><li class="page-row" data-page="2">
+        <a href="p02.html">
+          <span class="row-num">02</span>
+          <span class="row-main"><span class="row-title">i.i.d. 指数分布：Xₙ/log n 的上极限是 1，最大值 / log n 收敛到 1</span><span class="row-en" lang="en">Maxima of i.i.d. Exp(1) grow like log n</span></span>
+          <span class="row-meta">解答原页 第 1–3 页 · 证明题</span>
+        </a></li><li class="page-row" data-page="3">
+        <a href="p03.html">
+          <span class="row-num">03</span>
+          <span class="row-main"><span class="row-title">乘积的收敛：依概率收敛总能相乘，L¹ 收敛要靠 Hölder 配对指数</span><span class="row-en" lang="en">Convergence of products</span></span>
+          <span class="row-meta">解答原页 第 3–4 页 · 证明题</span>
+        </a></li></ol></section>
+<section class="index-section"><h2>大数定律与中心极限定理<small lang="en">Laws of large numbers and the central limit theorem</small></h2><ol class="page-rows"><li class="page-row" data-page="4">
+        <a href="p04.html">
+          <span class="row-num">04</span>
+          <span class="row-main"><span class="row-title">直接由中心极限定理推出弱大数定律：小因子 σ/√n 乘一个「很少很大」的量</span><span class="row-en" lang="en">The CLT implies the WLLN</span></span>
+          <span class="row-meta">解答原页 第 4–5 页 · 证明题</span>
+        </a></li><li class="page-row" data-page="5">
+        <a href="p05.html">
+          <span class="row-num">05</span>
+          <span class="row-main"><span class="row-title">均值无穷时 lim sup |Sₙ|/aₙ 只能是 0 或 ∞，由 ∑P(|X₁| ≥ aₙ) 是否有限决定</span><span class="row-en" lang="en">Infinite mean: lim sup |Sₙ|/aₙ is 0 or ∞</span></span>
+          <span class="row-meta">解答原页 第 5–6 页 · 证明题</span>
+        </a></li><li class="page-row" data-page="6">
+        <a href="p06.html">
+          <span class="row-num">06</span>
+          <span class="row-main"><span class="row-title">Glivenko–Cantelli 定理：经验分布函数一致收敛到真实分布</span><span class="row-en" lang="en">The Glivenko–Cantelli theorem</span></span>
+          <span class="row-meta">解答原页 第 6–7 页 · 证明题</span>
+        </a></li><li class="page-row" data-page="7">
+        <a href="p07.html">
+          <span class="row-num">07</span>
+          <span class="row-main"><span class="row-title">高维球面上的均匀分布：每个坐标近似标准正态（Poincaré–Borel）</span><span class="row-en" lang="en">Coordinates of a uniform point on the sphere of radius √d</span></span>
+          <span class="row-meta">解答原页 第 7–8 页 · 证明题</span>
+        </a></li><li class="page-row" data-page="8">
+        <a href="p08.html">
+          <span class="row-num">08</span>
+          <span class="row-main"><span class="row-title">去掉 i.i.d.：相关性衰减得够快，弱大数定律照样成立</span><span class="row-en" lang="en">A weak law of large numbers under weak dependence</span></span>
+          <span class="row-meta">解答原页 第 8–10 页 · 证明题</span>
+        </a></li><li class="page-row" data-page="9">
+        <a href="p09.html">
+          <span class="row-num">09</span>
+          <span class="row-main"><span class="row-title">随机项数的中心极限定理（Anscombe 定理）</span><span class="row-en" lang="en">A central limit theorem with a random number of terms</span></span>
+          <span class="row-meta">解答原页 第 10–11 页 · 证明题</span>
+        </a></li></ol></section>
+<section class="index-section"><h2>离散鞅<small lang="en">Discrete martingales</small></h2><ol class="page-rows"><li class="page-row" data-page="10">
+        <a href="p10.html">
+          <span class="row-num">10</span>
+          <span class="row-main"><span class="row-title">平方和减去 nσ² 是鞅：方差随时间线性增长</span><span class="row-en" lang="en">A quadratic martingale</span></span>
+          <span class="row-meta">解答原页 第 11–12 页 · 证明题</span>
+        </a></li><li class="page-row" data-page="11">
+        <a href="p11.html">
+          <span class="row-num">11</span>
+          <span class="row-main"><span class="row-title">Galton–Watson 分支过程：种群规模里藏着的鞅</span><span class="row-en" lang="en">Martingales in the Galton–Watson branching process</span></span>
+          <span class="row-meta">解答原页 第 12–14 页 · 证明题</span>
+        </a></li><li class="page-row" data-page="12">
+        <a href="p12.html">
+          <span class="row-num">12</span>
+          <span class="row-main"><span class="row-title">赌徒破产：用两个鞅算出破产概率与平均局数</span><span class="row-en" lang="en">Gambler's ruin</span></span>
+          <span class="row-meta">解答原页 第 14–16 页 · 计算题</span>
+        </a></li></ol></section>
+</main>
+<div class="lightbox" id="lightbox" hidden><button class="lightbox-close" type="button" aria-label="关闭">关闭 ✕</button><div class="lightbox-stage"><img alt=""></div><p class="lightbox-hint">点击图片放大 / 缩小 · Esc 关闭</p></div>
+<div class="term-pop" id="term-pop" role="tooltip" hidden></div>
+<div class="search-panel" id="search-panel" hidden>
+  <div class="search-box" role="dialog" aria-label="搜索讲义">
+    <input id="search-input" type="search" placeholder="搜索：σ-代数、外测度、Fatou、单调收敛……" autocomplete="off">
+    <ol id="search-results" class="search-results"></ol>
+    <p class="search-hint">↑↓ 选择 · Enter 打开 · Esc 关闭</p>
+  </div>
+</div>
+
+<script src="../assets/js/site.js?v=b1ac21d5d4" defer></script>
+<script src="../assets/js/demos.js?v=b1ac21d5d4" defer></script>
+</body>
+</html>

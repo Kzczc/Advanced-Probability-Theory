@@ -5,7 +5,7 @@
  *   1. 公式：$...$（行内）与 $$...$$（独立成行）。构建时直接用 KaTeX 排版成 HTML，
  *      浏览器不需要再现场计算公式，打开和滚动都更流畅。
  *   2. 卡片容器：::: def 定义 1（……） ... :::，种类见 CONTAINER_KINDS。
- *   3. 页间链接：[[p:12]]、[[p:12|从上连续]]、[[t2:p:5]]（跨讲）。
+ *   3. 页间链接：[[p:12]]、[[p:12|从上连续]]、[[t2:p:5]]（跨讲）、[[hw1:p:3]]、[[quiz2:p:1]]（作业、小测的第几题）。
  *   4. 术语自动提示：每页第一次出现词汇表里的术语时，加上悬浮解释。
  *   5. 中文断行不产生多余空格；表格外包横向滚动容器；小标题自动加锚点。
  */
@@ -198,17 +198,22 @@ function mathBlockRule(state, startLine, endLine, silent) {
 /* 页间链接 [[p:12|文字]]                                              */
 /* ------------------------------------------------------------------ */
 
+/** 链接前缀 → 目录名：t3 → topic3；hw1、quiz2 原样使用 */
+function linkTargetId(prefix) {
+  return /^t\d$/.test(prefix) ? `topic${prefix.slice(1)}` : prefix;
+}
+
 function pageLinkRule(state, silent) {
   const src = state.src;
   const start = state.pos;
   if (src.charCodeAt(start) !== 0x5b || src.charCodeAt(start + 1) !== 0x5b) return false;
   const end = src.indexOf("]]", start + 2);
   if (end < 0 || end > state.posMax) return false;
-  const match = src.slice(start + 2, end).match(/^(?:t(\d):)?p:(\d{1,2})(?:\|([\s\S]+))?$/);
+  const match = src.slice(start + 2, end).match(/^(?:(t\d|hw\d|quiz\d):)?p:(\d{1,2})(?:\|([\s\S]+))?$/);
   if (!match) return false;
   if (!silent) {
     const token = state.push("page_link", "a", 0);
-    token.meta = { topicNumber: match[1] ? Number(match[1]) : null, page: Number(match[2]), label: match[3] };
+    token.meta = { target: match[1] ? linkTargetId(match[1]) : null, page: Number(match[2]), label: match[3] };
   }
   state.pos = end + 2;
   return true;
@@ -432,12 +437,22 @@ export function createMarkdownRenderer() {
   };
 
   md.renderer.rules.page_link = (tokens, idx, options, env) => {
-    const { topicNumber, page, label } = tokens[idx].meta;
+    const { target, page, label } = tokens[idx].meta;
     const pageTag = `p${String(page).padStart(2, "0")}`;
-    const sameTopic = !topicNumber || topicNumber === env.topicNumber;
-    const href = sameTopic ? `${pageTag}.html` : `../topic${topicNumber}/${pageTag}.html`;
-    const title = sameTopic && env.pageTitles ? env.pageTitles.get(page) : "";
-    const labelHtml = label ? md.renderInline(label, { ...env, glossaryMatchers: null }) : `第 ${page} 页`;
+    const targetId = target || env.topicId;
+    const sameTopic = targetId === env.topicId;
+    const href = sameTopic ? `${pageTag}.html` : `../${targetId}/${pageTag}.html`;
+    const targetInfo = env.linkTargets ? env.linkTargets.get(targetId) : null;
+    if (env.linkTargets && !targetInfo) {
+      env.report?.("error", `[[`, `页面链接指向不存在的讲次或练习：${targetId}`);
+    } else if (targetInfo && (page < 1 || page > targetInfo.pageCount)) {
+      env.report?.("error", `p:${page}`, `页面链接超出范围：${targetId} 只有 ${targetInfo.pageCount} ${targetInfo.unit}，却链接到第 ${page} ${targetInfo.unit}`);
+    }
+    const titles = targetInfo ? targetInfo.titles : sameTopic ? env.pageTitles : null;
+    const title = titles ? titles.get(page) : "";
+    const isProblem = targetInfo && targetInfo.unit === "题";
+    const defaultLabel = isProblem ? `${sameTopic ? "" : `${targetInfo.label} `}第 ${page} 题` : `第 ${page} 页`;
+    const labelHtml = label ? md.renderInline(label, { ...env, glossaryMatchers: null }) : defaultLabel;
     return `<a class="page-link" href="${href}"${title ? ` title="${escapeHtml(title)}"` : ""}>${labelHtml}</a>`;
   };
 

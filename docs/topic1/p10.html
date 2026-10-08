@@ -6,7 +6,7 @@
 <title>10 为什么不总是取全部子集 2^Ω？ · 第1讲 · 高等概率论逐页精讲</title>
 <meta name="description" content="高等概率论课件逐页中文精讲：课件原页对照、零基础补课、公式推导、老师板书解读、例子与自测。">
 <link rel="stylesheet" href="../assets/katex/katex.min.css">
-<link rel="stylesheet" href="../assets/css/site.css?v=f4c0be581a">
+<link rel="stylesheet" href="../assets/css/site.css?v=b1ac21d5d4">
 <link rel="prefetch" href="p11.html">
 <link rel="prefetch" href="../assets/slides/topic1/p11.webp" as="image">
 <script>try{var s=localStorage.getItem("apt-font-scale");if(s)document.documentElement.style.setProperty("--font-scale",s);if(localStorage.getItem("apt-layout")==="focus")document.documentElement.classList.add("focus-mode");}catch(e){}</script>
@@ -15,9 +15,9 @@
 <a class="skip-link" href="#main">跳到正文</a>
 <header class="topbar">
   <div class="topbar-inner">
-    <button class="tool-btn" id="toc-toggle" type="button" aria-label="打开本讲目录"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg><span>目录</span></button>
+    <button class="tool-btn" id="toc-toggle" type="button" aria-label="打开目录"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg><span>目录</span></button>
     <a class="brand" href="../index.html">高等概率论<span>逐页精讲</span></a>
-    <nav class="topnav" aria-label="讲次"><a href="../topic1/index.html" aria-current="page">第 1 讲</a><a href="../topic2/index.html">第 2 讲</a><a href="../topic3/index.html">第 3 讲</a><a href="../topic4/index.html">第 4 讲</a><a href="../basics.html">基础补课</a><a href="../glossary.html">术语表</a></nav>
+    <nav class="topnav" aria-label="讲次"><a href="../topic1/index.html" aria-current="page">第 1 讲</a><a href="../topic2/index.html">第 2 讲</a><a href="../topic3/index.html">第 3 讲</a><a href="../topic4/index.html">第 4 讲</a><a href="../index.html#exercises">作业与小测</a><a href="../basics.html">基础补课</a><a href="../glossary.html">术语表</a></nav>
     <div class="tools">
       <button class="tool-btn" id="search-open" type="button" aria-label="搜索"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><span>搜索</span></button>
       <button class="tool-btn" id="layout-toggle" type="button" aria-pressed="false" title="隐藏 / 显示左侧课件原页"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4z"/><path d="M12 5v14"/></svg><span class="layout-label">专注阅读</span></button>
@@ -27,7 +27,7 @@
   <div class="read-progress" aria-hidden="true"><span></span></div>
 </header>
 <div class="reader">
-<aside class="toc" id="toc" aria-label="本讲目录">
+<aside class="toc" id="toc" aria-label="目录">
   <div class="toc-head"><a href="index.html">第 1 讲 · 测度与积分</a><p class="toc-progress" data-topic="topic1" data-total="47">已看懂 <b>0</b> / 47 页</p></div>
   <section class="toc-section"><h2>开篇</h2><ol><li data-page="1"><a href="p01.html"><span class="toc-num">01</span><span class="toc-title">封面：为概率打地基的测度与积分</span></a></li><li data-page="2"><a href="p02.html"><span class="toc-num">02</span><span class="toc-title">本讲目标：学完要会什么</span></a></li><li data-page="3"><a href="p03.html"><span class="toc-num">03</span><span class="toc-title">目录：本讲五个部分与「概率空间三件套」</span></a></li></ol></section>
 <section class="toc-section"><h2>第 1 部分　概率空间与可测事件</h2><ol><li data-page="4"><a href="p04.html"><span class="toc-num">04</span><span class="toc-title">路线图：进入第 1 部分</span></a></li><li data-page="5"><a href="p05.html"><span class="toc-num">05</span><span class="toc-title">概率模型从「所有可能的世界」开始</span></a></li><li data-page="6"><a href="p06.html"><span class="toc-num">06</span><span class="toc-title">事件：把满足某个性质的结果收集起来</span></a></li><li data-page="7"><a href="p07.html"><span class="toc-num">07</span><span class="toc-title">板书续页：无穷次抛硬币、上极限与下极限</span></a></li><li data-page="8"><a href="p08.html"><span class="toc-num">08</span><span class="toc-title">概率的分配必须尊重可数拆分（可数可加性）</span></a></li><li data-page="9"><a href="p09.html"><span class="toc-num">09</span><span class="toc-title">σ-代数：对可数次「或、且、非」封闭的事件族</span></a></li><li class="current" data-page="10"><a href="p10.html" aria-current="page"><span class="toc-num">10</span><span class="toc-title">为什么不总是取全部子集 2^Ω？</span></a></li><li data-page="11"><a href="p11.html"><span class="toc-num">11</span><span class="toc-title">生成的 σ-代数：只添加「被迫加入」的集合</span></a></li><li data-page="12"><a href="p12.html"><span class="toc-num">12</span><span class="toc-title">测度空间：把「事件范围」和「重量」分开</span></a></li><li data-page="13"><a href="p13.html"><span class="toc-num">13</span><span class="toc-title">测度的从下连续性</span></a></li><li data-page="14"><a href="p14.html"><span class="toc-num">14</span><span class="toc-title">从上连续性，以及它必需的有限条件</span></a></li></ol></section>
@@ -391,7 +391,7 @@
   </div>
 </div>
 <script type="application/json" id="page-data">{"terms":{"subset":{"term":"子集","en":"subset","plain":"A 的每个元素都在 B 里，就说 A 是 B 的子集，记作 A ⊆ B。"},"sigma-algebra":{"term":"σ-代数","en":"sigma-algebra","plain":"允许谈概率的「事件清单」：含 Ω，对补集和可数并封闭。"},"event":{"term":"事件","en":"event","plain":"样本空间的（允许谈概率的）子集；实现的 ω 落在里面，就说事件发生。"},"sample-space":{"term":"样本空间","en":"sample space","plain":"一次试验所有可能的完整结局组成的集合，记作 Ω。"},"point-mass":{"term":"点质量","en":"point mass (Dirac measure)","plain":"把全部质量 1 放在一个点上：δ₀(E) = 1 当且仅当 0 ∈ E。"},"probability-space":{"term":"概率空间","en":"probability space","plain":"三元组 (Ω, 𝓕, P)：样本空间、事件的 σ-代数、概率测度。"},"interval":{"term":"区间","en":"interval","plain":"数轴上的一段，[a,b] 包含端点，(a,b) 不包含端点。"},"indicator":{"term":"示性函数","en":"indicator function","plain":"𝟏_A(x) 在 x ∈ A 时取 1，否则取 0；它的积分就是 A 的测度。"},"set":{"term":"集合","en":"set","plain":"把一些对象放在一起当成一个整体，例如 {1,2,3}。"},"translation-invariance":{"term":"平移不变性","en":"translation invariance","plain":"把集合整体平移，测度不变：μ(E + t) = μ(E)。长度就有这个性质。"},"law":{"term":"分布","en":"law / distribution","plain":"X 把概率「推」到取值空间上得到的测度：L(X)(B) = P(X ∈ B)。"},"countable-additivity":{"term":"可数可加性","en":"countable additivity","plain":"两两不交的可数个集合，并集的测度等于各自测度之和。"},"probability-measure":{"term":"概率测度","en":"probability measure","plain":"总质量 P(Ω) = 1 的测度。"},"measure":{"term":"测度","en":"measure","plain":"给 σ-代数里的每个集合一个 [0, ∞] 中的「大小」，空集为 0，并且可数可加。"},"countable":{"term":"可数","en":"countable","plain":"元素能排成第 1 个、第 2 个、第 3 个……的一列（有限也算），例如自然数、有理数。"},"function":{"term":"函数","en":"function / map","plain":"f: A → B 给 A 中每个元素指定 B 中唯一一个元素。"},"borel":{"term":"博雷尔 σ-代数","en":"Borel sigma-algebra","plain":"由实数轴上所有开区间生成的 σ-代数 𝓑(ℝ)，包含所有常见的集合。"},"lebesgue-measurable":{"term":"勒贝格可测","en":"Lebesgue measurable","plain":"能被勒贝格测度称重量的集合（通过卡拉泰奥多里判别）。"},"vitali":{"term":"维塔利集","en":"Vitali set","plain":"用选择公理造出的「坏」集合，证明了不可能给 ℝ 的所有子集定义长度。"},"element":{"term":"元素","en":"element","plain":"集合里的对象。ω ∈ Ω 读作「ω 属于 Ω」。"},"rational":{"term":"有理数","en":"rational number","plain":"能写成分数 p/q 的数，全体有理数记作 ℚ；它们可数，却在数轴上处处稠密。"},"pairwise-disjoint":{"term":"两两不交","en":"pairwise disjoint","plain":"一列集合中任意两个都没有公共元素，对应「任意两件事不会同时发生」。"},"independence":{"term":"独立","en":"independence","plain":"任意有限个事件同时发生的概率等于各自概率的乘积。"},"complement":{"term":"补集","en":"complement","plain":"样本空间里不属于 A 的元素全体，记作 Aᶜ，对应「A 不发生」。"},"axiom-of-choice":{"term":"选择公理","en":"axiom of choice","plain":"允许从无穷多个非空集合里各挑一个元素，组成一个新集合；维塔利集就是这样造的。"}},"topic":"topic1","page":10}</script>
-<script src="../assets/js/site.js?v=f4c0be581a" defer></script>
-<script src="../assets/js/demos.js?v=f4c0be581a" defer></script>
+<script src="../assets/js/site.js?v=b1ac21d5d4" defer></script>
+<script src="../assets/js/demos.js?v=b1ac21d5d4" defer></script>
 </body>
 </html>

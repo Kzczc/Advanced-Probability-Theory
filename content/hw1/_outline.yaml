@@ -1,0 +1,28 @@
+# 作业 1 逐题大纲。source 标明每道题在解答 PDF 中的位置：page 是 PDF 页码，from/to 是占页高的比例。
+sections:
+  - id: s1
+    title: Borel–Cantelli 引理的应用
+    title_en: Applications of the Borel–Cantelli lemmas
+    pages: [1, 5]
+  - id: s2
+    title: 依测度收敛与积分不等式
+    title_en: Convergence in measure and an integral inequality
+    pages: [6, 7]
+  - id: s3
+    title: 积分的收敛定理与不等式
+    title_en: Convergence theorems and inequalities for integrals
+    pages: [8, 12]
+
+pages:
+  - { page: 1, slide: "第 1 页", kind: proof-exercise, title: 任何随机变量序列都能被某个 cₙ → ∞ 压到 0, title_en: "Some cₙ → ∞ makes Xₙ/cₙ → 0 a.s.", source: [{ page: 1, from: 0.085, to: 0.442 }] }
+  - { page: 2, slide: "第 1 页", kind: proof-exercise, title: 独立序列：sup Xₙ 有限 ⇔ 某个 A 使 ∑ P(Xₙ > A) 有限, title_en: "Independent Xₙ: sup Xₙ < ∞ a.s. iff ∑ P(Xₙ > A) < ∞ for some A", source: [{ page: 1, from: 0.440, to: 0.626 }] }
+  - { page: 3, slide: "第 1–2 页", kind: proof-exercise, title: 均值无穷时 |Xₙ| ≥ n 无穷多次，Sₙ/n 没有有限极限, title_en: "E|X| = ∞: |Xₙ| ≥ n i.o., and Sₙ/n has no finite limit", source: [{ page: 1, from: 0.624, to: 0.868 }, { page: 2, from: 0.100, to: 0.333 }] }
+  - { page: 4, slide: "第 2 页", kind: proof-exercise, title: 伯努利序列：依概率收敛与几乎必然收敛的判别, title_en: "Bernoulli sequences: in probability iff pₙ → 0, a.s. iff ∑ pₙ < ∞", source: [{ page: 2, from: 0.331, to: 0.499 }] }
+  - { page: 5, slide: "第 2–3 页", kind: proof-exercise, title: 指数分布序列：lim sup Xₙ / ln n = 1, title_en: "i.i.d. exponentials: lim sup Xₙ / ln n = 1 a.s.", source: [{ page: 2, from: 0.497, to: 0.865 }, { page: 3, from: 0.100, to: 0.241 }] }
+  - { page: 6, slide: "第 3 页", kind: proof-exercise, title: 依测度收敛：和总能保持，积需要有限测度, title_en: "Convergence in measure of sums and products", source: [{ page: 3, from: 0.239, to: 0.761 }] }
+  - { page: 7, slide: "第 3–4 页", kind: computation, title: Cauchy–Schwarz 不等式的应用与等号条件, title_en: "An integral inequality and its equality case", source: [{ page: 3, from: 0.759, to: 0.875 }, { page: 4, from: 0.100, to: 0.310 }] }
+  - { page: 8, slide: "第 4 页", kind: proof-exercise, title: 积分的绝对连续性（ε–δ 刻画）, title_en: "Absolute continuity of the integral", source: [{ page: 4, from: 0.308, to: 0.650 }] }
+  - { page: 9, slide: "第 5 页", kind: computation, title: 用控制收敛定理求一个积分的极限, title_en: "A limit of integrals by dominated convergence", source: [{ page: 5, from: 0.085, to: 0.333 }] }
+  - { page: 10, slide: "第 5 页", kind: proof-exercise, title: 推广的控制收敛定理：控制函数也可以变, title_en: "Generalized dominated convergence", source: [{ page: 5, from: 0.331, to: 0.595 }] }
+  - { page: 11, slide: "第 5–6 页", kind: judgement, title: 逐点收敛的非负函数：三种附加条件下积分是否收敛, title_en: "Pointwise convergence on [0,1] under three extra conditions", source: [{ page: 5, from: 0.593, to: 0.868 }, { page: 6, from: 0.100, to: 0.214 }] }
+  - { page: 12, slide: "第 6 页", kind: proof-exercise, title: 一个积分不等式及其等号成立的条件, title_en: "An integral inequality for |f| ≤ 1 and its equality case", source: [{ page: 6, from: 0.212, to: 0.590 }] }

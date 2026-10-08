@@ -1,0 +1,12 @@
+# 小测 2 逐题大纲。source 标明每道题在解答 PDF 中的位置：page 是 PDF 页码，from/to 是占页高的比例。
+sections:
+  - id: s1
+    title: 收敛方式与一致可积
+    title_en: Modes of convergence and uniform integrability
+    pages: [1, 4]
+
+pages:
+  - { page: 1, slide: "第 1 页", kind: judgement, title: Lᵖ 收敛推不出几乎必然收敛, title_en: "Convergence in Lp does not imply almost-sure convergence", source: [{ page: 1, from: 0.085, to: 0.283 }] }
+  - { page: 2, slide: "第 1 页", kind: statement, title: 一致可积的定义, title_en: "Definition of uniform integrability", source: [{ page: 1, from: 0.278, to: 0.312 }] }
+  - { page: 3, slide: "第 1–2 页", kind: proof-exercise, title: 一致可积 ⇔ L¹ 有界且一致绝对连续, title_en: "UI iff bounded in L¹ and uniformly absolutely continuous", source: [{ page: 1, from: 0.307, to: 0.870 }, { page: 2, from: 0.085, to: 0.370 }] }
+  - { page: 4, slide: "第 2 页", kind: proof-exercise, title: 独立序列的极限只能是常数, title_en: "The limit of an independent sequence is a constant", source: [{ page: 2, from: 0.366, to: 0.858 }] }

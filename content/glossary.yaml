@@ -773,3 +773,145 @@
   plain: "对称矩阵 Σ 满足：对所有非零向量 x，xᵀΣx > 0。多元正态要求协方差矩阵正定。"
   topic: 4
   page: 19
+
+# ---------- 作业与小测 ----------
+- id: "convergence-in-measure"
+  term: "依测度收敛"
+  en: "convergence in measure"
+  plain: "对每个 ε > 0，μ(|fₙ − f| > ε) → 0：偏差超过 ε 的区域，测度越来越小。在概率空间上就是依概率收敛。"
+  topic: "hw1"
+  page: 6
+- id: "strong-law"
+  term: "强大数定律"
+  en: "strong law of large numbers"
+  plain: "独立同分布且 E|X₁| < ∞ 时，样本均值 Sₙ/n 几乎必然收敛到 E X₁。"
+  topic: "hw1"
+  page: 3
+- id: "weak-law"
+  term: "弱大数定律"
+  en: "weak law of large numbers"
+  plain: "样本均值依概率收敛到真实均值：对每个 ε > 0，P(|Sₙ/n − μ| > ε) → 0。方差有限时可由 Chebyshev 不等式直接推出。"
+  topic: 2
+  page: 29
+- id: "generalized-dct"
+  term: "推广的控制收敛定理"
+  en: "generalized dominated convergence theorem"
+  plain: "|fₙ| ≤ gₙ，fₙ → f，gₙ → g，且 ∫gₙ → ∫g < ∞，则 ∫fₙ → ∫f：控制函数也可以随 n 变化。"
+  topic: "hw1"
+  page: 10
+- id: "scheffe-lemma"
+  term: "Scheffé 引理"
+  en: "Scheffé's lemma"
+  plain: "非负可积的 fₙ → f 几乎处处，且 ∫fₙ → ∫f < ∞，则 ∫|fₙ − f| → 0。概率密度逐点收敛，分布就在全变差意义下收敛。"
+  topic: 3
+  page: 22
+- id: "exponential-distribution"
+  term: "指数分布"
+  en: "exponential distribution"
+  plain: "P(X > x) = e^(−λx)（x ≥ 0）的分布，均值 1/λ，常用来描述等待时间。"
+  topic: 2
+  page: 8
+- id: "standard-normal"
+  term: "标准正态分布"
+  en: "standard normal distribution"
+  plain: "均值 0、方差 1 的正态分布 N(0, 1)，密度 exp(−x²/2)/√(2π)，分布函数记作 Φ。"
+  topic: "hw2"
+  page: 4
+- id: "convergence-in-distribution"
+  term: "依分布收敛"
+  aliases: ["弱收敛"]
+  en: "convergence in distribution"
+  plain: "在极限分布函数 F 的每个连续点 x 上，P(Xₙ ≤ x) → F(x)。它只比较分布，不要求 Xₙ 本身靠近 X。"
+  topic: "hw2"
+  page: 4
+- id: "clt"
+  term: "中心极限定理"
+  en: "central limit theorem"
+  plain: "独立同分布、方差 σ² 有限时，(Sₙ − nμ)/(σ√n) 依分布收敛到标准正态分布：大量独立小误差之和近似正态。"
+  topic: "hw2"
+  page: 4
+- id: "kolmogorov-maximal"
+  term: "Kolmogorov 极大不等式"
+  en: "Kolmogorov's maximal inequality"
+  plain: "独立、均值 0、方差有限时，P(max(|S₁|, …, |Sₙ|) ≥ λ) ≤ Var(Sₙ)/λ²：控制的是整条路径的最大值，而不只是终点。"
+  topic: "hw2"
+  page: 5
+- id: "kronecker-lemma"
+  term: "Kronecker 引理"
+  en: "Kronecker's lemma"
+  plain: "若 0 < aₙ ↑ ∞ 且级数 ∑ xₙ/aₙ 收敛，则 (x₁ + ⋯ + xₙ)/aₙ → 0：把「级数收敛」翻译成「平均趋于 0」。"
+  topic: "hw2"
+  page: 5
+- id: "empirical-cdf"
+  term: "经验分布函数"
+  en: "empirical distribution function"
+  plain: "Fₙ(x) = 样本 X₁, …, Xₙ 中不超过 x 的个数 ÷ n，即样本里 ≤ x 的比例；它是真实分布函数 F 的估计。"
+  topic: "hw2"
+  page: 6
+- id: "glivenko-cantelli"
+  term: "Glivenko–Cantelli 定理"
+  en: "Glivenko–Cantelli theorem"
+  plain: "独立同分布样本的经验分布函数几乎必然一致收敛到真实分布函数：supₓ |Fₙ(x) − F(x)| → 0。"
+  topic: "hw2"
+  page: 6
+- id: "slutsky"
+  term: "Slutsky 定理"
+  en: "Slutsky's theorem"
+  plain: "Xₙ 依分布收敛到 X，Yₙ 依概率收敛到常数 c，则 Xₙ + Yₙ 依分布收敛到 X + c，XₙYₙ 依分布收敛到 cX。"
+  topic: "hw2"
+  page: 7
+- id: "conditional-expectation"
+  term: "条件期望"
+  en: "conditional expectation"
+  plain: "E[X | 𝓕] 是已知 σ-代数 𝓕 中的信息时对 X 的最佳猜测；它本身是一个 𝓕-可测的随机变量。"
+  topic: "hw2"
+  page: 12
+- id: "martingale"
+  term: "鞅"
+  en: "martingale"
+  plain: "适应、可积且 E[Xₙ₊₁ | 𝓕ₙ] = Xₙ 的随机过程：公平游戏，已知过去时对下一步的最佳猜测就是现在的值。"
+  topic: "hw2"
+  page: 12
+- id: "stopping-time"
+  term: "停时"
+  en: "stopping time"
+  plain: "取值为 0, 1, 2, …（或 ∞）的随机时刻 T，「是否在第 n 步停下」只依赖前 n 步的信息：{T = n} ∈ 𝓕ₙ。"
+  topic: "hw2"
+  page: 12
+- id: "optional-stopping"
+  term: "可选停止定理"
+  en: "optional stopping theorem"
+  plain: "在适当条件下（如 T 有界，或 E T < ∞ 且每步增量有界），鞅在停时处的期望等于初值：E M_T = E M₀。"
+  topic: "hw2"
+  page: 12
+- id: "gamblers-ruin"
+  term: "赌徒破产"
+  en: "gambler's ruin"
+  plain: "资本从 b 出发，每局公平地赢 1 或输 1，直到输光（0）或达到目标 a 为止；破产概率是 1 − b/a，平均局数是 b(a − b)。"
+  topic: "hw2"
+  page: 12
+- id: "branching-process"
+  term: "分支过程"
+  aliases: ["Galton–Watson 过程"]
+  en: "branching process (Galton–Watson process)"
+  plain: "每个个体独立地产生随机个后代，Zₙ 是第 n 代的个体数；若平均后代数是 μ，则 Zₙ/μⁿ 是鞅。"
+  topic: "hw2"
+  page: 11
+- id: "riesz-subsequence"
+  term: "Riesz 子列定理"
+  en: "Riesz's subsequence theorem"
+  plain: "依测度（依概率）收敛的序列，一定有一个子列几乎处处收敛到同一个极限。"
+  topic: "quiz1"
+  page: 4
+- id: "uniform-integrability"
+  term: "一致可积"
+  en: "uniformly integrable"
+  plain: "一族随机变量的尾部期望一致地变小：supₜ E[|Xₜ|; |Xₜ| > λ] → 0（λ → ∞）。它是「依概率收敛 ⇒ 期望收敛」的关键条件。"
+  topic: "quiz2"
+  page: 2
+- id: "kolmogorov-01"
+  term: "Kolmogorov 0-1 律"
+  en: "Kolmogorov's zero–one law"
+  plain: "独立随机变量序列的尾事件（改动前面有限项不受影响的事件）概率只能是 0 或 1。"
+  topic: "quiz2"
+  page: 4

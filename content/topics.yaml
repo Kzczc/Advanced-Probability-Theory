@@ -32,3 +32,39 @@ topics:
     pdf: Topic4_product_measure_and_independence.pdf
     pages: 21
     summary: 两个概率空间怎样拼成一个联合空间（乘积 σ-代数与乘积测度），二重积分什么时候能拆成两次单重积分（Fubini–Tonelli），以及独立性的精确定义：联合分布等于边缘分布的乘积；最后看多元正态分布里「协方差为 0」为什么等价于独立。
+  - id: hw1
+    group: exercise
+    label: 作业 1
+    number: 1
+    title: Borel–Cantelli 引理、概率不等式与收敛定理
+    english: Homework 1 (with solutions)
+    pdf: HW1_solution.pdf
+    pages: 12
+    summary: 12 道题：用 Borel–Cantelli 引理判断事件会不会发生无穷多次，依测度收敛的运算，积分不等式及其等号条件，以及 Fatou 引理、控制收敛定理的典型用法与反例。
+  - id: hw2
+    group: exercise
+    label: 作业 2
+    number: 2
+    title: 收敛方式、大数定律、中心极限定理与鞅
+    english: Homework 2 (with solutions)
+    pdf: HW2_solution.pdf
+    pages: 12
+    summary: 12 道题：Lᵖ 收敛的判别与乘积的收敛，由中心极限定理推出大数定律，Glivenko–Cantelli 定理，高维球面上的正态近似，相依序列的大数定律，随机项数的中心极限定理，以及分支过程、赌徒破产中的鞅与可选停止定理。
+  - id: quiz1
+    group: exercise
+    label: 小测 1
+    number: 1
+    title: 收敛定理与两种收敛方式
+    english: Quiz 1 (with solutions)
+    pdf: Quiz1_solution.pdf
+    pages: 4
+    summary: 4 道题：叙述 Fatou 引理与控制收敛定理，并用前者证明后者；几乎处处收敛时，「L¹ 收敛」等价于「绝对值的积分收敛」；Lᵖ 收敛下积分上界的保持。
+  - id: quiz2
+    group: exercise
+    label: 小测 2
+    number: 2
+    title: 收敛方式与一致可积
+    english: Quiz 2 (with solutions)
+    pdf: Quiz2_solution.pdf
+    pages: 4
+    summary: 4 道题：Lᵖ 收敛推不出几乎必然收敛；一致可积的定义与等价刻画；独立随机变量序列的极限只能是常数。

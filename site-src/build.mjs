@@ -17,6 +17,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { createRequire } from "node:module";
 import { createMarkdownRenderer, CONTAINER_KINDS } from "./lib/markdown.mjs";
+import { isExerciseCollection, topicLabel } from "./lib/collections.mjs";
 
 const require = createRequire(import.meta.url);
 const yaml = require("./vendor/js-yaml.min.cjs");
@@ -40,6 +41,10 @@ export const PAGE_KINDS = Object.freeze({
   figure: "图解",
   notes: "板书续页",
   summary: "总结",
+  "proof-exercise": "证明题",
+  computation: "计算题",
+  judgement: "判断题",
+  statement: "叙述题",
 });
 const NAVIGATION_KINDS = new Set(["cover", "goals", "contents", "roadmap"]);
 const REQUIRED_FIELDS = ["topic", "page", "slide", "title", "title_en", "kind"];
@@ -142,6 +147,24 @@ function checkFrontMatter(topic, page) {
     report("error", page.file, 1, `未知的 kind: ${meta.kind}（可选：${Object.keys(PAGE_KINDS).join(" / ")}）`);
   }
   if (meta.title && /\$/.test(meta.title)) report("warn", page.file, 1, "title 里不要写 $公式$，请直接用 σ、Ω、μ 等 Unicode 字符");
+  if (isExerciseCollection(topic)) checkSourceSegments(topic, page);
+}
+
+/** 练习页的 source：这道题出现在解答 PDF 的哪几页、每页的哪一段（from/to 是占页高的比例） */
+function checkSourceSegments(topic, page) {
+  const outlineEntry = topic.outline.get(page.pageNumber) || {};
+  const segments = page.meta.source || outlineEntry.source;
+  if (!Array.isArray(segments) || segments.length === 0) {
+    report("error", page.file, 1, "练习页的页眉需要 source：例如 [{ page: 2, from: 0.10, to: 0.55 }]，标明这道题在解答 PDF 中的位置");
+    return;
+  }
+  for (const segment of segments) {
+    const pageTag = `p${pad2(Number(segment.page))}`;
+    if (!topic.manifest[pageTag]) report("error", page.file, 1, `source 里的 page: ${segment.page} 没有对应的页图（先运行 tools/render_slides.py ${topic.id}）`);
+    const from = Number(segment.from ?? 0);
+    const to = Number(segment.to ?? 1);
+    if (!(from >= 0 && to <= 1 && from < to)) report("error", page.file, 1, `source 的 from/to 应满足 0 ≤ from < to ≤ 1：${JSON.stringify(segment)}`);
+  }
 }
 
 function checkContainers(page) {
@@ -200,6 +223,11 @@ function checkQuality(page, renderedHtml) {
   if (unresolvedLink) {
     report("error", page.file, lineOf(page, unresolvedLink[0]), `页面链接 ${unresolvedLink[0]} 没有生效：链接不能写在公式（含 \\text{}）里，请移到公式外`);
   }
+  // 链接本身会显示「第 N 页」「第 N 题」「作业 N 第 k 题」，链接前后再写一遍就会重复
+  const duplicatedLabel = renderedText.match(/第\s*第\s*\d+\s*页\s*页|第\s*(\d+)\s*题\s*（?第\s*\1\s*题|(作业|小测)\s*(\d)\s*(?:第\s*\d+\s*题\s*)?（?\2\s*\3\s*第|第\s*\d+(?:\s*[、–-]\s*\d+)+\s*题\s*（?(?:(?:作业|小测)\s*\d\s*)?第\s*\d+\s*题/);
+  if (duplicatedLabel) {
+    report("error", page.file, 0, `页面链接的文字重复了：「${duplicatedLabel[0]}」。链接会自动显示「第 N 页」「第 N 题」「作业 N 第 k 题」，链接旁边不要再写一遍`);
+  }
   if (NAVIGATION_KINDS.has(meta.kind)) return;
 
   const chineseCount = countChinese(body);
@@ -235,9 +263,35 @@ function slideImageFor(topic, root) {
   };
 }
 
+/** 每个讲次 / 练习合集的链接信息：页数、单位（页或题）、标签、各页标题；用于链接的校验与悬浮标题 */
+let linkTargets = new Map();
+
+function buildLinkTargets(topics) {
+  linkTargets = new Map(topics.map((topic) => [topic.id, {
+    pageCount: topic.pageCount,
+    unit: isExerciseCollection(topic) ? "题" : "页",
+    label: topicLabel(topic),
+    titles: pageTitleMap(topic),
+  }]));
+  return linkTargets;
+}
+
+/** 术语表里每个词条标注的「首次出现页面」必须存在 */
+function checkGlossaryPages(glossary, topics) {
+  const glossaryFile = path.join(CONTENT_DIR, "glossary.yaml");
+  for (const entry of glossary.entries) {
+    if (!entry.page) continue;
+    const topicId = typeof entry.topic === "string" ? entry.topic : `topic${entry.topic || 1}`;
+    const topic = topics.find((item) => item.id === topicId);
+    if (!topic) report("error", glossaryFile, 0, `术语「${entry.term}」的 topic: ${entry.topic} 不存在`);
+    else if (!topic.pages.has(Number(entry.page))) report("error", glossaryFile, 0, `术语「${entry.term}」标注的首次出现页面 ${topicId} p${pad2(entry.page)} 还没有写`);
+  }
+}
+
 function renderPage(topic, page, glossary, titles) {
   const env = {
-    topicNumber: topic.number,
+    topicId: topic.id,
+    linkTargets,
     pageNumber: page.pageNumber,
     headings: [],
     usedTerms: new Set(),
@@ -292,6 +346,8 @@ async function main() {
   const catalog = readYaml(path.join(CONTENT_DIR, "topics.yaml"));
   const glossary = loadGlossary();
   const topics = catalog.topics.map(loadTopic);
+  buildLinkTargets(topics);
+  checkGlossaryPages(glossary, topics);
 
   if (options.check) {
     let checkedCount = 0;
@@ -323,6 +379,7 @@ async function main() {
     kinds: PAGE_KINDS,
     markdown,
     report,
+    linkTargets,
   });
   const errorCount = printIssues();
   process.exit(errorCount > 0 ? 1 : 0);

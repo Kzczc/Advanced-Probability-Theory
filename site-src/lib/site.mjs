@@ -6,6 +6,7 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { escapeHtml } from "./markdown.mjs";
+import { isExerciseCollection, topicLabel, unitName } from "./collections.mjs";
 
 /** 样式与脚本的版本号（按文件内容计算）：内容变了链接就变，浏览器不会继续用缓存里的旧文件 */
 let assetVersion = "dev";
@@ -110,11 +111,17 @@ ${pageData ? `<script type="application/json" id="page-data">${JSON.stringify(pa
 }
 
 function topbar({ root, topics, currentTopicId, showReaderTools }) {
-  const topicLinks = topics
-    .map((topic) => `<a href="${root}${topic.id}/index.html"${topic.id === currentTopicId ? ' aria-current="page"' : ""}>第 ${topic.number} 讲</a>`)
+  const currentTopic = topics.find((topic) => topic.id === currentTopicId);
+  const lectureLinks = topics
+    .filter((topic) => !isExerciseCollection(topic))
+    .map((topic) => `<a href="${root}${topic.id}/index.html"${topic.id === currentTopicId ? ' aria-current="page"' : ""}>${topicLabel(topic)}</a>`)
     .join("");
+  const exerciseLink = topics.some(isExerciseCollection)
+    ? `<a href="${root}index.html#exercises"${currentTopic && isExerciseCollection(currentTopic) ? ' aria-current="page"' : ""}>作业与小测</a>`
+    : "";
+  const topicLinks = lectureLinks + exerciseLink;
   const readerTools = showReaderTools
-    ? `<button class="tool-btn" id="toc-toggle" type="button" aria-label="打开本讲目录">${ICONS.menu}<span>目录</span></button>`
+    ? `<button class="tool-btn" id="toc-toggle" type="button" aria-label="打开目录">${ICONS.menu}<span>目录</span></button>`
     : "";
   return `<header class="topbar">
   <div class="topbar-inner">
@@ -131,10 +138,22 @@ function topbar({ root, topics, currentTopicId, showReaderTools }) {
 </header>`;
 }
 
+/** 术语表条目的 topic 字段：数字表示第几讲，字符串表示练习合集（如 hw2） */
+function glossaryTopicId(entry) {
+  return typeof entry.topic === "string" ? entry.topic : `topic${entry.topic || 1}`;
+}
+
 /** 术语第一次出现的页面链接（相对站点根目录） */
 function glossaryEntryHref(entry) {
   if (!entry.page) return "";
-  return `topic${entry.topic || 1}/p${pad2(entry.page)}.html`;
+  return `${glossaryTopicId(entry)}/p${pad2(entry.page)}.html`;
+}
+
+/** 术语第一次出现的位置，写成「第 3 讲 p07」或「作业 2 第 5 题」 */
+function glossaryEntryLabel(entry, topics) {
+  const topic = topics.find((item) => item.id === glossaryTopicId(entry));
+  if (!topic) return `p${pad2(entry.page)}`;
+  return isExerciseCollection(topic) ? `${topicLabel(topic)} 第 ${entry.page} 题` : `${topicLabel(topic)} p${pad2(entry.page)}`;
 }
 
 /** 每页末尾的「本页术语」中英对照卡片（按正文中出现的先后排列） */
@@ -156,11 +175,43 @@ function pageInfo(topic, pageNumber) {
   return {
     number: pageNumber,
     written: Boolean(written),
-    title: meta.title || outline.title || outline.title_en || `第 ${pageNumber} 页`,
+    title: meta.title || outline.title || outline.title_en || `第 ${pageNumber} ${unitName(topic)}`,
     titleEn: meta.title_en || outline.title_en || "",
     slide: meta.slide || outline.slide || "",
     kind: meta.kind || outline.kind || "",
+    source: meta.source || outline.source || null,
   };
+}
+
+/**
+ * 练习页左侧：这道题在解答 PDF 里的那几段（同一道题可能跨页），按顺序上下拼起来。
+ * 每段用 CSS 裁剪整页图（与正文里的 ::: fig crop 相同的做法），点击可放大看整页。
+ */
+function sourcePaneHtml(topic, info) {
+  const segments = Array.isArray(info.source) && info.source.length ? info.source : [{ page: info.number, from: 0, to: 1 }];
+  const crops = segments.map((segment, index) => {
+    const pageTag = `p${pad2(Number(segment.page))}`;
+    const size = topic.manifest[pageTag] || { width: 1600, height: 2070 };
+    const src = `../assets/slides/${topic.id}/${pageTag}.webp`;
+    const x0 = Number(segment.x0 ?? 0.07);
+    const x1 = Number(segment.x1 ?? 0.93);
+    const y0 = Number(segment.from ?? 0);
+    const y1 = Number(segment.to ?? 1);
+    const imageStyle = [
+      `width:${(100 / (x1 - x0)).toFixed(3)}%`,
+      `left:${(-100 * x0 / (x1 - x0)).toFixed(3)}%`,
+      `top:${(-100 * y0 / (y1 - y0)).toFixed(3)}%`,
+    ].join(";");
+    const ratio = `${((x1 - x0) * size.width).toFixed(0)} / ${((y1 - y0) * size.height).toFixed(0)}`;
+    const loading = index === 0 ? ' fetchpriority="high"' : ' loading="lazy"';
+    return `<div class="crop source-crop" style="aspect-ratio:${ratio}"><img src="${src}" alt="解答原页第 ${Number(segment.page)} 页（本题所在部分）" decoding="async"${loading} style="${imageStyle}"></div>`;
+  }).join("\n      ");
+  const pages = [...new Set(segments.map((segment) => Number(segment.page)))];
+  const pagesLabel = pages.length > 1 ? `${pages[0]}–${pages[pages.length - 1]}` : `${pages[0]}`;
+  return `<figure class="slide-pane source-pane">
+      ${crops}
+      <figcaption>解答原页第 ${pagesLabel} 页（本题部分）· 点击图片看整页</figcaption>
+    </figure>`;
 }
 
 function tocHtml(topic, currentPage) {
@@ -174,8 +225,8 @@ function tocHtml(topic, currentPage) {
     }
     return `<section class="toc-section"><h2>${escapeHtml(section.title)}</h2><ol>${items.join("")}</ol></section>`;
   });
-  return `<aside class="toc" id="toc" aria-label="本讲目录">
-  <div class="toc-head"><a href="index.html">第 ${topic.number} 讲 · ${escapeHtml(topic.title)}</a><p class="toc-progress" data-topic="${topic.id}" data-total="${topic.pageCount}">已看懂 <b>0</b> / ${topic.pageCount} 页</p></div>
+  return `<aside class="toc" id="toc" aria-label="目录">
+  <div class="toc-head"><a href="index.html">${topicLabel(topic)} · ${escapeHtml(topic.title)}</a><p class="toc-progress" data-topic="${topic.id}" data-total="${topic.pageCount}">已看懂 <b>0</b> / ${topic.pageCount} ${unitName(topic)}</p></div>
   ${blocks.join("\n")}
 </aside>`;
 }
@@ -187,10 +238,14 @@ function tocHtml(topic, currentPage) {
 function readerPageHtml({ topic, topics, pageNumber, rendered, kinds, glossary }) {
   const info = pageInfo(topic, pageNumber);
   const section = sectionOf(topic, pageNumber);
+  const exercise = isExerciseCollection(topic);
+  const unit = unitName(topic);
+  const label = topicLabel(topic);
   const size = topic.manifest[`p${pad2(pageNumber)}`] || { width: 1600, height: 1280 };
   const imageSrc = `../assets/slides/${topic.id}/p${pad2(pageNumber)}.webp`;
   const previous = pageNumber > 1 ? pageInfo(topic, pageNumber - 1) : null;
   const next = pageNumber < topic.pageCount ? pageInfo(topic, pageNumber + 1) : null;
+  const nextImagePage = next ? (exercise && Array.isArray(next.source) && next.source.length ? Number(next.source[0].page) : next.number) : null;
 
   const chips = rendered && rendered.headings.length
     ? `<nav class="chips" aria-label="本页小标题"><span class="chips-label">本页小标题</span>${rendered.headings.map((h) => `<a href="#${h.id}">${escapeHtml(h.text)}</a>`).join("")}</nav>`
@@ -205,37 +260,45 @@ function readerPageHtml({ topic, topics, pageNumber, rendered, kinds, glossary }
 
   const notes = rendered
     ? rendered.html + vocabularyBoxHtml(usedTerms, glossary, "../")
-    : `<div class="pending-note"><p class="pending-title">这一页的精讲正在写作中</p><p>先对照左边的课件原页。课件标题：<em>${escapeHtml(info.titleEn)}</em></p></div>`;
+    : `<div class="pending-note"><p class="pending-title">这一${unit}的精讲正在写作中</p><p>先对照左边的${exercise ? "解答原页" : "课件原页"}。标题：<em>${escapeHtml(info.titleEn)}</em></p></div>`;
 
+  const endLabel = exercise ? `${label} 结束 →` : "本讲结束 →";
   const pager = `<nav class="pager" aria-label="翻页">
-    ${previous ? `<a class="pager-prev" rel="prev" href="p${pad2(previous.number)}.html"><small>← 上一页 · ${pad2(previous.number)}</small><span>${escapeHtml(previous.title)}</span></a>` : "<span></span>"}
-    ${next ? `<a class="pager-next" rel="next" href="p${pad2(next.number)}.html"><small>下一页 · ${pad2(next.number)} →</small><span>${escapeHtml(next.title)}</span></a>` : `<a class="pager-next" href="index.html"><small>本讲结束 →</small><span>回到第 ${topic.number} 讲目录</span></a>`}
+    ${previous ? `<a class="pager-prev" rel="prev" href="p${pad2(previous.number)}.html"><small>← 上一${unit} · ${pad2(previous.number)}</small><span>${escapeHtml(previous.title)}</span></a>` : "<span></span>"}
+    ${next ? `<a class="pager-next" rel="next" href="p${pad2(next.number)}.html"><small>下一${unit} · ${pad2(next.number)} →</small><span>${escapeHtml(next.title)}</span></a>` : `<a class="pager-next" href="index.html"><small>${endLabel}</small><span>回到${label}${exercise ? " " : ""}目录</span></a>`}
   </nav>`;
+
+  const badges = exercise
+    ? `<span class="badge">第 ${pageNumber} 题 / 共 ${topic.pageCount} 题</span>${info.slide ? `<span class="badge">解答原页 ${escapeHtml(info.slide)}</span>` : ""}`
+    : `<span class="badge">PDF 第 ${pageNumber} / ${topic.pageCount} 页</span>${info.slide ? `<span class="badge">幻灯片 ${escapeHtml(info.slide)}</span>` : ""}`;
+  const leftPane = exercise
+    ? sourcePaneHtml(topic, info)
+    : `<figure class="slide-pane">
+      <button class="slide-zoom" type="button" data-full="${imageSrc}" aria-label="放大查看课件原页">
+        <img src="${imageSrc}" width="${size.width}" height="${size.height}" alt="课件第 ${pageNumber} 页：${escapeHtml(info.titleEn || info.title)}" decoding="async" fetchpriority="high">
+      </button>
+      <figcaption>课件原页 · 点击放大 · ← → 键翻页</figcaption>
+    </figure>`;
 
   const main = `<div class="reader">
 ${tocHtml(topic, pageNumber)}
 <div class="toc-scrim" id="toc-scrim" hidden></div>
 <main id="main" class="reader-main" data-topic="${topic.id}" data-page="${pageNumber}" data-prev="${previous ? `p${pad2(previous.number)}.html` : ""}" data-next="${next ? `p${pad2(next.number)}.html` : ""}">
   <header class="page-head">
-    <p class="crumbs"><a href="index.html">第 ${topic.number} 讲 ${escapeHtml(topic.title)}</a>${section ? `<span>›</span>${escapeHtml(section.title)}` : ""}</p>
-    <div class="badges"><span class="badge">PDF 第 ${pageNumber} / ${topic.pageCount} 页</span>${info.slide ? `<span class="badge">幻灯片 ${escapeHtml(info.slide)}</span>` : ""}${info.kind && kinds[info.kind] ? `<span class="badge badge-kind">${kinds[info.kind]}</span>` : ""}</div>
+    <p class="crumbs"><a href="index.html">${label} ${escapeHtml(topic.title)}</a>${section ? `<span>›</span>${escapeHtml(section.title)}` : ""}</p>
+    <div class="badges">${badges}${info.kind && kinds[info.kind] ? `<span class="badge badge-kind">${kinds[info.kind]}</span>` : ""}</div>
     <h1>${escapeHtml(info.title)}</h1>
     ${info.titleEn ? `<p class="title-en" lang="en">${escapeHtml(info.titleEn)}</p>` : ""}
     ${chips}
   </header>
   <div class="split">
-    <figure class="slide-pane">
-      <button class="slide-zoom" type="button" data-full="${imageSrc}" aria-label="放大查看课件原页">
-        <img src="${imageSrc}" width="${size.width}" height="${size.height}" alt="课件第 ${pageNumber} 页：${escapeHtml(info.titleEn || info.title)}" decoding="async" fetchpriority="high">
-      </button>
-      <figcaption>课件原页 · 点击放大 · ← → 键翻页</figcaption>
-    </figure>
+    ${leftPane}
     <article class="notes prose" id="notes">
 ${notes}
     </article>
   </div>
   <footer class="page-foot">
-    <label class="done-toggle"><input type="checkbox" id="done-box" data-topic="${topic.id}" data-page="${pageNumber}"><span>这一页我看懂了</span></label>
+    <label class="done-toggle"><input type="checkbox" id="done-box" data-topic="${topic.id}" data-page="${pageNumber}"><span>这一${unit}我看懂了</span></label>
     ${pager}
   </footer>
 </main>
@@ -243,12 +306,12 @@ ${notes}
 
   const extraHead = [
     next ? `<link rel="prefetch" href="p${pad2(next.number)}.html">` : "",
-    next ? `<link rel="prefetch" href="../assets/slides/${topic.id}/p${pad2(next.number)}.webp" as="image">` : "",
+    next ? `<link rel="prefetch" href="../assets/slides/${topic.id}/p${pad2(nextImagePage)}.webp" as="image">` : "",
   ].join("\n");
 
   return layout({
     root: "../",
-    title: `${pad2(pageNumber)} ${info.title} · 第${topic.number}讲 · 高等概率论逐页精讲`,
+    title: `${pad2(pageNumber)} ${info.title} · ${label.replace(/\s+/g, "")} · 高等概率论逐页精讲`,
     bodyClass: "page-reader",
     topbar: topbar({ root: "../", topics, currentTopicId: topic.id, showReaderTools: true }),
     main,
@@ -263,15 +326,19 @@ ${notes}
 
 function topicIndexHtml({ topic, topics, kinds }) {
   const writtenCount = topic.pages.size;
-  const sections = (topic.sections && topic.sections.length ? topic.sections : [{ title: "全部页面", pages: [1, topic.pageCount] }]).map((section) => {
+  const exercise = isExerciseCollection(topic);
+  const unit = unitName(topic);
+  const label = topicLabel(topic);
+  const sections = (topic.sections && topic.sections.length ? topic.sections : [{ title: exercise ? "全部题目" : "全部页面", pages: [1, topic.pageCount] }]).map((section) => {
     const rows = [];
     for (let number = section.pages[0]; number <= section.pages[1]; number += 1) {
       const info = pageInfo(topic, number);
+      const where = info.slide ? (exercise ? `解答原页 ${escapeHtml(info.slide)}` : `幻灯片 ${escapeHtml(info.slide)}`) : "";
       rows.push(`<li class="page-row${info.written ? "" : " pending"}" data-page="${number}">
         <a href="p${pad2(number)}.html">
           <span class="row-num">${pad2(number)}</span>
           <span class="row-main"><span class="row-title">${escapeHtml(info.title)}</span><span class="row-en" lang="en">${escapeHtml(info.titleEn)}</span></span>
-          <span class="row-meta">${info.slide ? `幻灯片 ${escapeHtml(info.slide)}` : ""}${info.kind && kinds[info.kind] ? ` · ${kinds[info.kind]}` : ""}${info.written ? "" : " · 写作中"}</span>
+          <span class="row-meta">${where}${info.kind && kinds[info.kind] ? ` · ${kinds[info.kind]}` : ""}${info.written ? "" : " · 写作中"}</span>
         </a></li>`);
     }
     return `<section class="index-section"><h2>${escapeHtml(section.title)}${section.title_en ? `<small lang="en">${escapeHtml(section.title_en)}</small>` : ""}</h2><ol class="page-rows">${rows.join("")}</ol></section>`;
@@ -279,39 +346,52 @@ function topicIndexHtml({ topic, topics, kinds }) {
 
   const main = `<main id="main" class="index-main">
   <header class="index-head">
-    <p class="eyebrow">第 ${topic.number} 讲 · ${topic.pageCount} 页课件</p>
+    <p class="eyebrow">${label} · ${topic.pageCount} ${exercise ? "道题（附解答精讲）" : "页课件"}</p>
     <h1>${escapeHtml(topic.title)}</h1>
     <p class="title-en" lang="en">${escapeHtml(topic.english)}</p>
     <p class="lede">${escapeHtml(topic.summary)}</p>
     <div class="index-actions">
-      <a class="button primary" href="p01.html">从第 1 页开始</a>
+      <a class="button primary" href="p01.html">从第 1 ${unit}开始</a>
       <a class="button" id="resume-link" href="p01.html" data-topic="${topic.id}" hidden>继续上次的进度</a>
     </div>
-    <p class="index-stats">精讲已完成 <b>${writtenCount}</b> / ${topic.pageCount} 页 · <span class="toc-progress" data-topic="${topic.id}" data-total="${topic.pageCount}">已看懂 <b>0</b> / ${topic.pageCount} 页</span></p>
+    <p class="index-stats">精讲已完成 <b>${writtenCount}</b> / ${topic.pageCount} ${unit} · <span class="toc-progress" data-topic="${topic.id}" data-total="${topic.pageCount}">已看懂 <b>0</b> / ${topic.pageCount} ${unit}</span></p>
   </header>
   ${sections.join("\n")}
 </main>`;
   return layout({
     root: "../",
-    title: `第${topic.number}讲 ${topic.title} · 高等概率论逐页精讲`,
+    title: `${label.replace(/\s+/g, "")} ${topic.title} · 高等概率论逐页精讲`,
     bodyClass: "page-index",
     topbar: topbar({ root: "../", topics, currentTopicId: topic.id, showReaderTools: false }),
     main,
   });
 }
 
-function homeHtml({ catalog, topics }) {
-  const cards = topics.map((topic) => `<li class="topic-card">
+function topicCardHtml(topic) {
+  const unit = unitName(topic);
+  return `<li class="topic-card">
     <a href="${topic.id}/index.html">
-      <span class="card-num">第 ${topic.number} 讲</span>
+      <span class="card-num">${topicLabel(topic)}</span>
       <strong>${escapeHtml(topic.title)}</strong>
       <em lang="en">${escapeHtml(topic.english)}</em>
       <p>${escapeHtml(topic.summary)}</p>
-      <span class="card-meta">精讲 ${topic.pages.size} / ${topic.pageCount} 页${topic.pages.size === 0 ? " · 即将开始" : ""}</span>
+      <span class="card-meta">精讲 ${topic.pages.size} / ${topic.pageCount} ${unit}${topic.pages.size === 0 ? " · 即将开始" : ""}</span>
       <span class="meter" aria-hidden="true"><span style="width:${((100 * topic.pages.size) / topic.pageCount).toFixed(1)}%"></span></span>
-      <span class="toc-progress card-progress" data-topic="${topic.id}" data-total="${topic.pageCount}">已看懂 <b>0</b> / ${topic.pageCount} 页</span>
+      <span class="toc-progress card-progress" data-topic="${topic.id}" data-total="${topic.pageCount}">已看懂 <b>0</b> / ${topic.pageCount} ${unit}</span>
     </a>
-  </li>`).join("");
+  </li>`;
+}
+
+function homeHtml({ catalog, topics }) {
+  const cards = topics.filter((topic) => !isExerciseCollection(topic)).map(topicCardHtml).join("");
+  const exerciseTopics = topics.filter(isExerciseCollection);
+  const exerciseSection = exerciseTopics.length
+    ? `<section class="exercise-home" id="exercises">
+    <h2>作业与小测</h2>
+    <p class="section-lede">每道题单独一页：左边是解答原页里这道题所在的部分，右边是中文精讲。讲题目在考什么、需要的基础、完整的证明思路，逐行对照并订正原解答，最后有拓展延伸和自测。</p>
+    <ol class="topic-cards">${exerciseTopics.map(topicCardHtml).join("")}</ol>
+  </section>`
+    : "";
 
   const main = `<main id="main" class="home-main">
   <section class="hero">
@@ -330,6 +410,7 @@ function homeHtml({ catalog, topics }) {
     </ol>
   </section>
   <ol class="topic-cards">${cards}</ol>
+  ${exerciseSection}
   <section class="extra-cards">
     <a class="extra-card" href="basics.html"><strong>基础补课</strong><span>集合、函数、上确界、极限、级数、可数性……测度论需要的最少背景，一次讲清。</span></a>
     <a class="extra-card" href="glossary.html"><strong>术语表</strong><span>中英对照 + 白话解释，并标出每个术语第一次出现在哪一页。</span></a>
@@ -346,7 +427,7 @@ function homeHtml({ catalog, topics }) {
 
 function glossaryHtml({ topics, glossary }) {
   const rows = glossary.entries.map((entry) => {
-    const pageLink = entry.page ? `<a href="${glossaryEntryHref(entry)}">第 ${entry.topic || 1} 讲 p${pad2(entry.page)}</a>` : "";
+    const pageLink = entry.page ? `<a href="${glossaryEntryHref(entry)}">${glossaryEntryLabel(entry, topics)}</a>` : "";
     return `<li class="glossary-row" id="term-${escapeHtml(entry.id)}" data-search="${escapeHtml([entry.term, ...(entry.aliases || []), entry.en, entry.plain].join(" ").toLowerCase())}">
       <div class="g-term"><strong>${escapeHtml(entry.term)}</strong><span lang="en">${escapeHtml(entry.en || "")}</span></div>
       <p class="g-plain">${escapeHtml(entry.plain || "")}</p>
@@ -400,7 +481,7 @@ ${rendered ? rendered.html : "<p>基础补课正在写作中。</p>"}
 /* 总装                                                                */
 /* ------------------------------------------------------------------ */
 
-export function buildSite({ catalog, topics, glossary, renderPage, pageTitleMap, checks, paths, kinds, markdown, report }) {
+export function buildSite({ catalog, topics, glossary, renderPage, pageTitleMap, checks, paths, kinds, markdown, report, linkTargets }) {
   const { SITE_SRC, CONTENT_DIR, OUTPUT_DIR } = paths;
   assetVersion = computeAssetVersion(SITE_SRC);
   cleanOutput(OUTPUT_DIR);
@@ -431,7 +512,7 @@ export function buildSite({ catalog, topics, glossary, renderPage, pageTitleMap,
           u: `${topic.id}/p${pad2(pageNumber)}.html`,
           t: info.title,
           e: info.titleEn,
-          k: `第${topic.number}讲 · p${pad2(pageNumber)}`,
+          k: isExerciseCollection(topic) ? `${topicLabel(topic)} · 第 ${pageNumber} 题` : `${topicLabel(topic).replace(/\s+/g, "")} · p${pad2(pageNumber)}`,
           h: rendered.headings.map((h) => h.text).join(" / "),
           x: htmlToText(rendered.html).slice(0, 6000),
         });
@@ -455,7 +536,8 @@ export function buildSite({ catalog, topics, glossary, renderPage, pageTitleMap,
       usedTerms: new Set(),
       glossaryMatchers: glossary.matchers,
       report: (level, needle, message) => report(level, basicsFile, 0, message),
-      topicNumber: 1,
+      topicId: "topic1",
+      linkTargets,
       pageTitles: pageTitleMap(topics[0]),
     };
     const html = markdown.render(source, env);
@@ -464,7 +546,9 @@ export function buildSite({ catalog, topics, glossary, renderPage, pageTitleMap,
       const entry = glossary.byId.get(id);
       if (entry) termData[id] = { term: entry.term, en: entry.en || "", plain: entry.plain || "" };
     }
-    basicsRendered = { html: html.replace(/href="p(\d\d)\.html"/g, 'href="topic1/p$1.html"'), headings: env.headings, termData };
+    // 基础补课页在站点根目录：同讲链接补上 topic1/，跨讲链接去掉开头的 ../
+    const rootRelativeHtml = html.replace(/href="p(\d\d)\.html"/g, 'href="topic1/p$1.html"').replace(/href="\.\.\//g, 'href="');
+    basicsRendered = { html: rootRelativeHtml, headings: env.headings, termData };
     searchIndex.push({ u: "basics.html", t: "基础补课", e: "Prerequisites", k: "基础补课", h: env.headings.map((h) => h.text).join(" / "), x: htmlToText(html).slice(0, 12000) });
   }
   writeFile(path.join(OUTPUT_DIR, "basics.html"), basicsHtml({ topics, rendered: basicsRendered }));

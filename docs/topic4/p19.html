@@ -6,7 +6,7 @@
 <title>19 多元正态分布：由均值向量和协方差矩阵决定的「高维钟形曲线」 · 第4讲 · 高等概率论逐页精讲</title>
 <meta name="description" content="高等概率论课件逐页中文精讲：课件原页对照、零基础补课、公式推导、老师板书解读、例子与自测。">
 <link rel="stylesheet" href="../assets/katex/katex.min.css">
-<link rel="stylesheet" href="../assets/css/site.css?v=f4c0be581a">
+<link rel="stylesheet" href="../assets/css/site.css?v=b1ac21d5d4">
 <link rel="prefetch" href="p20.html">
 <link rel="prefetch" href="../assets/slides/topic4/p20.webp" as="image">
 <script>try{var s=localStorage.getItem("apt-font-scale");if(s)document.documentElement.style.setProperty("--font-scale",s);if(localStorage.getItem("apt-layout")==="focus")document.documentElement.classList.add("focus-mode");}catch(e){}</script>
@@ -15,9 +15,9 @@
 <a class="skip-link" href="#main">跳到正文</a>
 <header class="topbar">
   <div class="topbar-inner">
-    <button class="tool-btn" id="toc-toggle" type="button" aria-label="打开本讲目录"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg><span>目录</span></button>
+    <button class="tool-btn" id="toc-toggle" type="button" aria-label="打开目录"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg><span>目录</span></button>
     <a class="brand" href="../index.html">高等概率论<span>逐页精讲</span></a>
-    <nav class="topnav" aria-label="讲次"><a href="../topic1/index.html">第 1 讲</a><a href="../topic2/index.html">第 2 讲</a><a href="../topic3/index.html">第 3 讲</a><a href="../topic4/index.html" aria-current="page">第 4 讲</a><a href="../basics.html">基础补课</a><a href="../glossary.html">术语表</a></nav>
+    <nav class="topnav" aria-label="讲次"><a href="../topic1/index.html">第 1 讲</a><a href="../topic2/index.html">第 2 讲</a><a href="../topic3/index.html">第 3 讲</a><a href="../topic4/index.html" aria-current="page">第 4 讲</a><a href="../index.html#exercises">作业与小测</a><a href="../basics.html">基础补课</a><a href="../glossary.html">术语表</a></nav>
     <div class="tools">
       <button class="tool-btn" id="search-open" type="button" aria-label="搜索"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><span>搜索</span></button>
       <button class="tool-btn" id="layout-toggle" type="button" aria-pressed="false" title="隐藏 / 显示左侧课件原页"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4z"/><path d="M12 5v14"/></svg><span class="layout-label">专注阅读</span></button>
@@ -27,7 +27,7 @@
   <div class="read-progress" aria-hidden="true"><span></span></div>
 </header>
 <div class="reader">
-<aside class="toc" id="toc" aria-label="本讲目录">
+<aside class="toc" id="toc" aria-label="目录">
   <div class="toc-head"><a href="index.html">第 4 讲 · 乘积测度与独立性</a><p class="toc-progress" data-topic="topic4" data-total="21">已看懂 <b>0</b> / 21 页</p></div>
   <section class="toc-section"><h2>开篇</h2><ol><li data-page="1"><a href="p01.html"><span class="toc-num">01</span><span class="toc-title">封面：乘积测度与独立性</span></a></li><li data-page="2"><a href="p02.html"><span class="toc-num">02</span><span class="toc-title">目录：三个部分各回答什么问题</span></a></li><li data-page="3"><a href="p03.html"><span class="toc-num">03</span><span class="toc-title">本讲目标：学完要会什么</span></a></li></ol></section>
 <section class="toc-section"><h2>第 1 部分　乘积测度</h2><ol><li data-page="4"><a href="p04.html"><span class="toc-num">04</span><span class="toc-title">边缘分布相同，联合分布可以完全不同：(U,U) 与 (U,1−U)</span></a></li><li data-page="5"><a href="p05.html"><span class="toc-num">05</span><span class="toc-title">为什么要构造乘积空间：独立同分布从哪里来</span></a></li><li data-page="6"><a href="p06.html"><span class="toc-num">06</span><span class="toc-title">乘积 σ-代数：由所有「可测矩形」生成</span></a></li><li data-page="7"><a href="p07.html"><span class="toc-num">07</span><span class="toc-title">乘积测度定理与截口：矩形上取乘积，其余由唯一性决定</span></a></li><li data-page="8"><a href="p08.html"><span class="toc-num">08</span><span class="toc-title">截口的测度：二维测度 = 一维截口测度的积分（Fubini 的雏形）</span></a></li></ol></section>
@@ -418,7 +418,7 @@ M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">�
   </div>
 </div>
 <script type="application/json" id="page-data">{"terms":{"variance":{"term":"方差","en":"variance","plain":"Var X = E[(X − E X)²]，衡量随机变量围绕均值的波动大小。"},"multivariate-normal":{"term":"多元正态分布","en":"multivariate normal distribution","plain":"由均值向量 μ 和正定协方差矩阵 Σ 决定的高维钟形分布。对它而言，不相关等价于独立。"},"covariance-matrix":{"term":"协方差矩阵","en":"covariance matrix","plain":"第 (i, j) 个元素是 Cov(Xᵢ, Xⱼ) 的矩阵，对角线上是各分量的方差。"},"covariance":{"term":"协方差","en":"covariance","plain":"Cov(X, Y) = E[(X − EX)(Y − EY)]，衡量两个变量一起变大或变小的倾向。独立 ⇒ 协方差为 0，反之一般不成立。"},"independence":{"term":"独立","en":"independence","plain":"任意有限个事件同时发生的概率等于各自概率的乘积。"},"joint-law":{"term":"联合分布","en":"joint law (joint distribution)","plain":"随机向量 (X, Y) 在平面上的分布：对每个平面博雷尔集 B 给出 P((X, Y) ∈ B)。只知道边缘分布不能确定它。"},"product-measure":{"term":"乘积测度","en":"product measure","plain":"在每个可测矩形上取 μ₁(A₁)μ₂(A₂) 的唯一测度（σ-有限时）。平面面积就是长度 × 长度的乘积测度。"},"element":{"term":"元素","en":"element","plain":"集合里的对象。ω ∈ Ω 读作「ω 属于 Ω」。"},"positive-definite":{"term":"正定","en":"positive definite","plain":"对称矩阵 Σ 满足：对所有非零向量 x，xᵀΣx > 0。多元正态要求协方差矩阵正定。"},"correlation":{"term":"相关系数","en":"correlation coefficient","plain":"ρ = Cov(X, Y) / √(Var X · Var Y)，在 −1 到 1 之间，衡量线性相关的强弱。"},"law":{"term":"分布","en":"law / distribution","plain":"X 把概率「推」到取值空间上得到的测度：L(X)(B) = P(X ∈ B)。"},"borel":{"term":"博雷尔 σ-代数","en":"Borel sigma-algebra","plain":"由实数轴上所有开区间生成的 σ-代数 𝓑(ℝ)，包含所有常见的集合。"},"measure":{"term":"测度","en":"measure","plain":"给 σ-代数里的每个集合一个 [0, ∞] 中的「大小」，空集为 0，并且可数可加。"}},"topic":"topic4","page":19}</script>
-<script src="../assets/js/site.js?v=f4c0be581a" defer></script>
-<script src="../assets/js/demos.js?v=f4c0be581a" defer></script>
+<script src="../assets/js/site.js?v=b1ac21d5d4" defer></script>
+<script src="../assets/js/demos.js?v=b1ac21d5d4" defer></script>
 </body>
 </html>

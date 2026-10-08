@@ -6,7 +6,7 @@
 <title>术语表 · 高等概率论逐页精讲</title>
 <meta name="description" content="高等概率论课件逐页中文精讲：课件原页对照、零基础补课、公式推导、老师板书解读、例子与自测。">
 <link rel="stylesheet" href="assets/katex/katex.min.css">
-<link rel="stylesheet" href="assets/css/site.css?v=f4c0be581a">
+<link rel="stylesheet" href="assets/css/site.css?v=b1ac21d5d4">
 
 <script>try{var s=localStorage.getItem("apt-font-scale");if(s)document.documentElement.style.setProperty("--font-scale",s);if(localStorage.getItem("apt-layout")==="focus")document.documentElement.classList.add("focus-mode");}catch(e){}</script>
 </head>
@@ -16,7 +16,7 @@
   <div class="topbar-inner">
     
     <a class="brand" href="index.html">高等概率论<span>逐页精讲</span></a>
-    <nav class="topnav" aria-label="讲次"><a href="topic1/index.html">第 1 讲</a><a href="topic2/index.html">第 2 讲</a><a href="topic3/index.html">第 3 讲</a><a href="topic4/index.html">第 4 讲</a><a href="basics.html">基础补课</a><a href="glossary.html">术语表</a></nav>
+    <nav class="topnav" aria-label="讲次"><a href="topic1/index.html">第 1 讲</a><a href="topic2/index.html">第 2 讲</a><a href="topic3/index.html">第 3 讲</a><a href="topic4/index.html">第 4 讲</a><a href="index.html#exercises">作业与小测</a><a href="basics.html">基础补课</a><a href="glossary.html">术语表</a></nav>
     <div class="tools">
       <button class="tool-btn" id="search-open" type="button" aria-label="搜索"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><span>搜索</span></button>
       
@@ -516,6 +516,98 @@
       <div class="g-term"><strong>正定</strong><span lang="en">positive definite</span></div>
       <p class="g-plain">对称矩阵 Σ 满足：对所有非零向量 x，xᵀΣx &gt; 0。多元正态要求协方差矩阵正定。</p>
       <p class="g-page"><a href="topic4/p19.html">第 4 讲 p19</a></p>
+    </li><li class="glossary-row" id="term-convergence-in-measure" data-search="依测度收敛 convergence in measure 对每个 ε &gt; 0，μ(|fₙ − f| &gt; ε) → 0：偏差超过 ε 的区域，测度越来越小。在概率空间上就是依概率收敛。">
+      <div class="g-term"><strong>依测度收敛</strong><span lang="en">convergence in measure</span></div>
+      <p class="g-plain">对每个 ε &gt; 0，μ(|fₙ − f| &gt; ε) → 0：偏差超过 ε 的区域，测度越来越小。在概率空间上就是依概率收敛。</p>
+      <p class="g-page"><a href="hw1/p06.html">作业 1 第 6 题</a></p>
+    </li><li class="glossary-row" id="term-strong-law" data-search="强大数定律 strong law of large numbers 独立同分布且 e|x₁| &lt; ∞ 时，样本均值 sₙ/n 几乎必然收敛到 e x₁。">
+      <div class="g-term"><strong>强大数定律</strong><span lang="en">strong law of large numbers</span></div>
+      <p class="g-plain">独立同分布且 E|X₁| &lt; ∞ 时，样本均值 Sₙ/n 几乎必然收敛到 E X₁。</p>
+      <p class="g-page"><a href="hw1/p03.html">作业 1 第 3 题</a></p>
+    </li><li class="glossary-row" id="term-weak-law" data-search="弱大数定律 weak law of large numbers 样本均值依概率收敛到真实均值：对每个 ε &gt; 0，p(|sₙ/n − μ| &gt; ε) → 0。方差有限时可由 chebyshev 不等式直接推出。">
+      <div class="g-term"><strong>弱大数定律</strong><span lang="en">weak law of large numbers</span></div>
+      <p class="g-plain">样本均值依概率收敛到真实均值：对每个 ε &gt; 0，P(|Sₙ/n − μ| &gt; ε) → 0。方差有限时可由 Chebyshev 不等式直接推出。</p>
+      <p class="g-page"><a href="topic2/p29.html">第 2 讲 p29</a></p>
+    </li><li class="glossary-row" id="term-generalized-dct" data-search="推广的控制收敛定理 generalized dominated convergence theorem |fₙ| ≤ gₙ，fₙ → f，gₙ → g，且 ∫gₙ → ∫g &lt; ∞，则 ∫fₙ → ∫f：控制函数也可以随 n 变化。">
+      <div class="g-term"><strong>推广的控制收敛定理</strong><span lang="en">generalized dominated convergence theorem</span></div>
+      <p class="g-plain">|fₙ| ≤ gₙ，fₙ → f，gₙ → g，且 ∫gₙ → ∫g &lt; ∞，则 ∫fₙ → ∫f：控制函数也可以随 n 变化。</p>
+      <p class="g-page"><a href="hw1/p10.html">作业 1 第 10 题</a></p>
+    </li><li class="glossary-row" id="term-scheffe-lemma" data-search="scheffé 引理 scheffé's lemma 非负可积的 fₙ → f 几乎处处，且 ∫fₙ → ∫f &lt; ∞，则 ∫|fₙ − f| → 0。概率密度逐点收敛，分布就在全变差意义下收敛。">
+      <div class="g-term"><strong>Scheffé 引理</strong><span lang="en">Scheffé's lemma</span></div>
+      <p class="g-plain">非负可积的 fₙ → f 几乎处处，且 ∫fₙ → ∫f &lt; ∞，则 ∫|fₙ − f| → 0。概率密度逐点收敛，分布就在全变差意义下收敛。</p>
+      <p class="g-page"><a href="topic3/p22.html">第 3 讲 p22</a></p>
+    </li><li class="glossary-row" id="term-exponential-distribution" data-search="指数分布 exponential distribution p(x &gt; x) = e^(−λx)（x ≥ 0）的分布，均值 1/λ，常用来描述等待时间。">
+      <div class="g-term"><strong>指数分布</strong><span lang="en">exponential distribution</span></div>
+      <p class="g-plain">P(X &gt; x) = e^(−λx)（x ≥ 0）的分布，均值 1/λ，常用来描述等待时间。</p>
+      <p class="g-page"><a href="topic2/p08.html">第 2 讲 p08</a></p>
+    </li><li class="glossary-row" id="term-standard-normal" data-search="标准正态分布 standard normal distribution 均值 0、方差 1 的正态分布 n(0, 1)，密度 exp(−x²/2)/√(2π)，分布函数记作 φ。">
+      <div class="g-term"><strong>标准正态分布</strong><span lang="en">standard normal distribution</span></div>
+      <p class="g-plain">均值 0、方差 1 的正态分布 N(0, 1)，密度 exp(−x²/2)/√(2π)，分布函数记作 Φ。</p>
+      <p class="g-page"><a href="hw2/p04.html">作业 2 第 4 题</a></p>
+    </li><li class="glossary-row" id="term-convergence-in-distribution" data-search="依分布收敛 弱收敛 convergence in distribution 在极限分布函数 f 的每个连续点 x 上，p(xₙ ≤ x) → f(x)。它只比较分布，不要求 xₙ 本身靠近 x。">
+      <div class="g-term"><strong>依分布收敛</strong><span lang="en">convergence in distribution</span></div>
+      <p class="g-plain">在极限分布函数 F 的每个连续点 x 上，P(Xₙ ≤ x) → F(x)。它只比较分布，不要求 Xₙ 本身靠近 X。</p>
+      <p class="g-page"><a href="hw2/p04.html">作业 2 第 4 题</a></p>
+    </li><li class="glossary-row" id="term-clt" data-search="中心极限定理 central limit theorem 独立同分布、方差 σ² 有限时，(sₙ − nμ)/(σ√n) 依分布收敛到标准正态分布：大量独立小误差之和近似正态。">
+      <div class="g-term"><strong>中心极限定理</strong><span lang="en">central limit theorem</span></div>
+      <p class="g-plain">独立同分布、方差 σ² 有限时，(Sₙ − nμ)/(σ√n) 依分布收敛到标准正态分布：大量独立小误差之和近似正态。</p>
+      <p class="g-page"><a href="hw2/p04.html">作业 2 第 4 题</a></p>
+    </li><li class="glossary-row" id="term-kolmogorov-maximal" data-search="kolmogorov 极大不等式 kolmogorov's maximal inequality 独立、均值 0、方差有限时，p(max(|s₁|, …, |sₙ|) ≥ λ) ≤ var(sₙ)/λ²：控制的是整条路径的最大值，而不只是终点。">
+      <div class="g-term"><strong>Kolmogorov 极大不等式</strong><span lang="en">Kolmogorov's maximal inequality</span></div>
+      <p class="g-plain">独立、均值 0、方差有限时，P(max(|S₁|, …, |Sₙ|) ≥ λ) ≤ Var(Sₙ)/λ²：控制的是整条路径的最大值，而不只是终点。</p>
+      <p class="g-page"><a href="hw2/p05.html">作业 2 第 5 题</a></p>
+    </li><li class="glossary-row" id="term-kronecker-lemma" data-search="kronecker 引理 kronecker's lemma 若 0 &lt; aₙ ↑ ∞ 且级数 ∑ xₙ/aₙ 收敛，则 (x₁ + ⋯ + xₙ)/aₙ → 0：把「级数收敛」翻译成「平均趋于 0」。">
+      <div class="g-term"><strong>Kronecker 引理</strong><span lang="en">Kronecker's lemma</span></div>
+      <p class="g-plain">若 0 &lt; aₙ ↑ ∞ 且级数 ∑ xₙ/aₙ 收敛，则 (x₁ + ⋯ + xₙ)/aₙ → 0：把「级数收敛」翻译成「平均趋于 0」。</p>
+      <p class="g-page"><a href="hw2/p05.html">作业 2 第 5 题</a></p>
+    </li><li class="glossary-row" id="term-empirical-cdf" data-search="经验分布函数 empirical distribution function fₙ(x) = 样本 x₁, …, xₙ 中不超过 x 的个数 ÷ n，即样本里 ≤ x 的比例；它是真实分布函数 f 的估计。">
+      <div class="g-term"><strong>经验分布函数</strong><span lang="en">empirical distribution function</span></div>
+      <p class="g-plain">Fₙ(x) = 样本 X₁, …, Xₙ 中不超过 x 的个数 ÷ n，即样本里 ≤ x 的比例；它是真实分布函数 F 的估计。</p>
+      <p class="g-page"><a href="hw2/p06.html">作业 2 第 6 题</a></p>
+    </li><li class="glossary-row" id="term-glivenko-cantelli" data-search="glivenko–cantelli 定理 glivenko–cantelli theorem 独立同分布样本的经验分布函数几乎必然一致收敛到真实分布函数：supₓ |fₙ(x) − f(x)| → 0。">
+      <div class="g-term"><strong>Glivenko–Cantelli 定理</strong><span lang="en">Glivenko–Cantelli theorem</span></div>
+      <p class="g-plain">独立同分布样本的经验分布函数几乎必然一致收敛到真实分布函数：supₓ |Fₙ(x) − F(x)| → 0。</p>
+      <p class="g-page"><a href="hw2/p06.html">作业 2 第 6 题</a></p>
+    </li><li class="glossary-row" id="term-slutsky" data-search="slutsky 定理 slutsky's theorem xₙ 依分布收敛到 x，yₙ 依概率收敛到常数 c，则 xₙ + yₙ 依分布收敛到 x + c，xₙyₙ 依分布收敛到 cx。">
+      <div class="g-term"><strong>Slutsky 定理</strong><span lang="en">Slutsky's theorem</span></div>
+      <p class="g-plain">Xₙ 依分布收敛到 X，Yₙ 依概率收敛到常数 c，则 Xₙ + Yₙ 依分布收敛到 X + c，XₙYₙ 依分布收敛到 cX。</p>
+      <p class="g-page"><a href="hw2/p07.html">作业 2 第 7 题</a></p>
+    </li><li class="glossary-row" id="term-conditional-expectation" data-search="条件期望 conditional expectation e[x | 𝓕] 是已知 σ-代数 𝓕 中的信息时对 x 的最佳猜测；它本身是一个 𝓕-可测的随机变量。">
+      <div class="g-term"><strong>条件期望</strong><span lang="en">conditional expectation</span></div>
+      <p class="g-plain">E[X | 𝓕] 是已知 σ-代数 𝓕 中的信息时对 X 的最佳猜测；它本身是一个 𝓕-可测的随机变量。</p>
+      <p class="g-page"><a href="hw2/p12.html">作业 2 第 12 题</a></p>
+    </li><li class="glossary-row" id="term-martingale" data-search="鞅 martingale 适应、可积且 e[xₙ₊₁ | 𝓕ₙ] = xₙ 的随机过程：公平游戏，已知过去时对下一步的最佳猜测就是现在的值。">
+      <div class="g-term"><strong>鞅</strong><span lang="en">martingale</span></div>
+      <p class="g-plain">适应、可积且 E[Xₙ₊₁ | 𝓕ₙ] = Xₙ 的随机过程：公平游戏，已知过去时对下一步的最佳猜测就是现在的值。</p>
+      <p class="g-page"><a href="hw2/p12.html">作业 2 第 12 题</a></p>
+    </li><li class="glossary-row" id="term-stopping-time" data-search="停时 stopping time 取值为 0, 1, 2, …（或 ∞）的随机时刻 t，「是否在第 n 步停下」只依赖前 n 步的信息：{t = n} ∈ 𝓕ₙ。">
+      <div class="g-term"><strong>停时</strong><span lang="en">stopping time</span></div>
+      <p class="g-plain">取值为 0, 1, 2, …（或 ∞）的随机时刻 T，「是否在第 n 步停下」只依赖前 n 步的信息：{T = n} ∈ 𝓕ₙ。</p>
+      <p class="g-page"><a href="hw2/p12.html">作业 2 第 12 题</a></p>
+    </li><li class="glossary-row" id="term-optional-stopping" data-search="可选停止定理 optional stopping theorem 在适当条件下（如 t 有界，或 e t &lt; ∞ 且每步增量有界），鞅在停时处的期望等于初值：e m_t = e m₀。">
+      <div class="g-term"><strong>可选停止定理</strong><span lang="en">optional stopping theorem</span></div>
+      <p class="g-plain">在适当条件下（如 T 有界，或 E T &lt; ∞ 且每步增量有界），鞅在停时处的期望等于初值：E M_T = E M₀。</p>
+      <p class="g-page"><a href="hw2/p12.html">作业 2 第 12 题</a></p>
+    </li><li class="glossary-row" id="term-gamblers-ruin" data-search="赌徒破产 gambler's ruin 资本从 b 出发，每局公平地赢 1 或输 1，直到输光（0）或达到目标 a 为止；破产概率是 1 − b/a，平均局数是 b(a − b)。">
+      <div class="g-term"><strong>赌徒破产</strong><span lang="en">gambler's ruin</span></div>
+      <p class="g-plain">资本从 b 出发，每局公平地赢 1 或输 1，直到输光（0）或达到目标 a 为止；破产概率是 1 − b/a，平均局数是 b(a − b)。</p>
+      <p class="g-page"><a href="hw2/p12.html">作业 2 第 12 题</a></p>
+    </li><li class="glossary-row" id="term-branching-process" data-search="分支过程 galton–watson 过程 branching process (galton–watson process) 每个个体独立地产生随机个后代，zₙ 是第 n 代的个体数；若平均后代数是 μ，则 zₙ/μⁿ 是鞅。">
+      <div class="g-term"><strong>分支过程</strong><span lang="en">branching process (Galton–Watson process)</span></div>
+      <p class="g-plain">每个个体独立地产生随机个后代，Zₙ 是第 n 代的个体数；若平均后代数是 μ，则 Zₙ/μⁿ 是鞅。</p>
+      <p class="g-page"><a href="hw2/p11.html">作业 2 第 11 题</a></p>
+    </li><li class="glossary-row" id="term-riesz-subsequence" data-search="riesz 子列定理 riesz's subsequence theorem 依测度（依概率）收敛的序列，一定有一个子列几乎处处收敛到同一个极限。">
+      <div class="g-term"><strong>Riesz 子列定理</strong><span lang="en">Riesz's subsequence theorem</span></div>
+      <p class="g-plain">依测度（依概率）收敛的序列，一定有一个子列几乎处处收敛到同一个极限。</p>
+      <p class="g-page"><a href="quiz1/p04.html">小测 1 第 4 题</a></p>
+    </li><li class="glossary-row" id="term-uniform-integrability" data-search="一致可积 uniformly integrable 一族随机变量的尾部期望一致地变小：supₜ e[|xₜ|; |xₜ| &gt; λ] → 0（λ → ∞）。它是「依概率收敛 ⇒ 期望收敛」的关键条件。">
+      <div class="g-term"><strong>一致可积</strong><span lang="en">uniformly integrable</span></div>
+      <p class="g-plain">一族随机变量的尾部期望一致地变小：supₜ E[|Xₜ|; |Xₜ| &gt; λ] → 0（λ → ∞）。它是「依概率收敛 ⇒ 期望收敛」的关键条件。</p>
+      <p class="g-page"><a href="quiz2/p02.html">小测 2 第 2 题</a></p>
+    </li><li class="glossary-row" id="term-kolmogorov-01" data-search="kolmogorov 0-1 律 kolmogorov's zero–one law 独立随机变量序列的尾事件（改动前面有限项不受影响的事件）概率只能是 0 或 1。">
+      <div class="g-term"><strong>Kolmogorov 0-1 律</strong><span lang="en">Kolmogorov's zero–one law</span></div>
+      <p class="g-plain">独立随机变量序列的尾事件（改动前面有限项不受影响的事件）概率只能是 0 或 1。</p>
+      <p class="g-page"><a href="quiz2/p04.html">小测 2 第 4 题</a></p>
     </li></ol>
 </main>
 <div class="lightbox" id="lightbox" hidden><button class="lightbox-close" type="button" aria-label="关闭">关闭 ✕</button><div class="lightbox-stage"><img alt=""></div><p class="lightbox-hint">点击图片放大 / 缩小 · Esc 关闭</p></div>
@@ -528,7 +620,7 @@
   </div>
 </div>
 
-<script src="assets/js/site.js?v=f4c0be581a" defer></script>
-<script src="assets/js/demos.js?v=f4c0be581a" defer></script>
+<script src="assets/js/site.js?v=b1ac21d5d4" defer></script>
+<script src="assets/js/demos.js?v=b1ac21d5d4" defer></script>
 </body>
 </html>

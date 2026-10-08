@@ -22,6 +22,10 @@ TOPIC_PDFS = {
     "topic2": "Topic2_random_variables_expectation_inequalities.pdf",
     "topic3": "Topic3_borel_cantelli_convergence_radon_nikodym_class_flow.pdf",
     "topic4": "Topic4_product_measure_and_independence.pdf",
+    "hw1": "HW1_solution.pdf",
+    "hw2": "HW2_solution.pdf",
+    "quiz1": "Quiz1_solution.pdf",
+    "quiz2": "Quiz2_solution.pdf",
 }
 
 NAMED_REGIONS = {

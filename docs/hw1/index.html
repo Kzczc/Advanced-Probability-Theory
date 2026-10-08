@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>作业1 Borel–Cantelli 引理、概率不等式与收敛定理 · 高等概率论逐页精讲</title>
+<meta name="description" content="高等概率论课件逐页中文精讲：课件原页对照、零基础补课、公式推导、老师板书解读、例子与自测。">
+<link rel="stylesheet" href="../assets/katex/katex.min.css">
+<link rel="stylesheet" href="../assets/css/site.css?v=b1ac21d5d4">
+
+<script>try{var s=localStorage.getItem("apt-font-scale");if(s)document.documentElement.style.setProperty("--font-scale",s);if(localStorage.getItem("apt-layout")==="focus")document.documentElement.classList.add("focus-mode");}catch(e){}</script>
+</head>
+<body class="page-index">
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    
+    <a class="brand" href="../index.html">高等概率论<span>逐页精讲</span></a>
+    <nav class="topnav" aria-label="讲次"><a href="../topic1/index.html">第 1 讲</a><a href="../topic2/index.html">第 2 讲</a><a href="../topic3/index.html">第 3 讲</a><a href="../topic4/index.html">第 4 讲</a><a href="../index.html#exercises" aria-current="page">作业与小测</a><a href="../basics.html">基础补课</a><a href="../glossary.html">术语表</a></nav>
+    <div class="tools">
+      <button class="tool-btn" id="search-open" type="button" aria-label="搜索"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><span>搜索</span></button>
+      
+      <div class="font-tools" role="group" aria-label="字号"><button class="tool-btn" id="font-down" type="button" aria-label="缩小字号">A−</button><button class="tool-btn" id="font-up" type="button" aria-label="放大字号">A+</button></div>
+    </div>
+  </div>
+  <div class="read-progress" aria-hidden="true"><span></span></div>
+</header>
+<main id="main" class="index-main">
+  <header class="index-head">
+    <p class="eyebrow">作业 1 · 12 道题（附解答精讲）</p>
+    <h1>Borel–Cantelli 引理、概率不等式与收敛定理</h1>
+    <p class="title-en" lang="en">Homework 1 (with solutions)</p>
+    <p class="lede">12 道题：用 Borel–Cantelli 引理判断事件会不会发生无穷多次，依测度收敛的运算，积分不等式及其等号条件，以及 Fatou 引理、控制收敛定理的典型用法与反例。</p>
+    <div class="index-actions">
+      <a class="button primary" href="p01.html">从第 1 题开始</a>
+      <a class="button" id="resume-link" href="p01.html" data-topic="hw1" hidden>继续上次的进度</a>
+    </div>
+    <p class="index-stats">精讲已完成 <b>12</b> / 12 题 · <span class="toc-progress" data-topic="hw1" data-total="12">已看懂 <b>0</b> / 12 题</span></p>
+  </header>
+  <section class="index-section"><h2>Borel–Cantelli 引理的应用<small lang="en">Applications of the Borel–Cantelli lemmas</small></h2><ol class="page-rows"><li class="page-row" data-page="1">
+        <a href="p01.html">
+          <span class="row-num">01</span>
+          <span class="row-main"><span class="row-title">任何随机变量序列都能被某个 cₙ → ∞ 压到 0</span><span class="row-en" lang="en">Some cₙ → ∞ makes Xₙ/cₙ → 0 a.s.</span></span>
+          <span class="row-meta">解答原页 第 1 页 · 证明题</span>
+        </a></li><li class="page-row" data-page="2">
+        <a href="p02.html">
+          <span class="row-num">02</span>
+          <span class="row-main"><span class="row-title">独立序列：sup Xₙ 有限 ⇔ 某个 A 使 ∑ P(Xₙ &gt; A) 有限</span><span class="row-en" lang="en">Independent Xₙ: sup Xₙ &lt; ∞ a.s. iff ∑ P(Xₙ &gt; A) &lt; ∞ for some A</span></span>
+          <span class="row-meta">解答原页 第 1 页 · 证明题</span>
+        </a></li><li class="page-row" data-page="3">
+        <a href="p03.html">
+          <span class="row-num">03</span>
+          <span class="row-main"><span class="row-title">均值无穷时 |Xₙ| ≥ n 无穷多次，Sₙ/n 没有有限极限</span><span class="row-en" lang="en">E|X| = ∞: |Xₙ| ≥ n i.o., and Sₙ/n has no finite limit</span></span>
+          <span class="row-meta">解答原页 第 1–2 页 · 证明题</span>
+        </a></li><li class="page-row" data-page="4">
+        <a href="p04.html">
+          <span class="row-num">04</span>
+          <span class="row-main"><span class="row-title">独立伯努利序列：依概率收敛 ⇔ pₙ → 0，几乎必然收敛 ⇔ ∑ pₙ &lt; ∞</span><span class="row-en" lang="en">Bernoulli sequences: in probability iff pₙ → 0, a.s. iff ∑ pₙ &lt; ∞</span></span>
+          <span class="row-meta">解答原页 第 2 页 · 证明题</span>
+        </a></li><li class="page-row" data-page="5">
+        <a href="p05.html">
+          <span class="row-num">05</span>
+          <span class="row-main"><span class="row-title">独立 Exp(1) 序列：lim sup Xₙ / ln n = 1 几乎必然</span><span class="row-en" lang="en">i.i.d. exponentials: lim sup Xₙ / ln n = 1 a.s.</span></span>
+          <span class="row-meta">解答原页 第 2–3 页 · 证明题</span>
+        </a></li></ol></section>
+<section class="index-section"><h2>依测度收敛与积分不等式<small lang="en">Convergence in measure and an integral inequality</small></h2><ol class="page-rows"><li class="page-row" data-page="6">
+        <a href="p06.html">
+          <span class="row-num">06</span>
+          <span class="row-main"><span class="row-title">依测度收敛：和总能保持，积需要有限测度</span><span class="row-en" lang="en">Convergence in measure of sums and products</span></span>
+          <span class="row-meta">解答原页 第 3 页 · 证明题</span>
+        </a></li><li class="page-row" data-page="7">
+        <a href="p07.html">
+          <span class="row-num">07</span>
+          <span class="row-main"><span class="row-title">Hölder 不等式（指数 3/2 与 3）的应用：常数 4/25 与等号条件</span><span class="row-en" lang="en">An integral inequality and its equality case</span></span>
+          <span class="row-meta">解答原页 第 3–4 页 · 计算题</span>
+        </a></li></ol></section>
+<section class="index-section"><h2>积分的收敛定理与不等式<small lang="en">Convergence theorems and inequalities for integrals</small></h2><ol class="page-rows"><li class="page-row" data-page="8">
+        <a href="p08.html">
+          <span class="row-num">08</span>
+          <span class="row-main"><span class="row-title">积分的绝对连续性：小集合上的积分一定小（ε–δ 刻画）</span><span class="row-en" lang="en">Absolute continuity of the integral</span></span>
+          <span class="row-meta">解答原页 第 4 页 · 证明题</span>
+        </a></li><li class="page-row" data-page="9">
+        <a href="p09.html">
+          <span class="row-num">09</span>
+          <span class="row-main"><span class="row-title">用控制收敛定理求 lim ∫ k ln(1 + f²/k²) dμ（答案是 0）</span><span class="row-en" lang="en">A limit of integrals by dominated convergence</span></span>
+          <span class="row-meta">解答原页 第 5 页 · 计算题</span>
+        </a></li><li class="page-row" data-page="10">
+        <a href="p10.html">
+          <span class="row-num">10</span>
+          <span class="row-main"><span class="row-title">推广的控制收敛定理：控制函数也可以随 n 变</span><span class="row-en" lang="en">Generalized dominated convergence</span></span>
+          <span class="row-meta">解答原页 第 5 页 · 证明题</span>
+        </a></li><li class="page-row" data-page="11">
+        <a href="p11.html">
+          <span class="row-num">11</span>
+          <span class="row-main"><span class="row-title">逐点收敛的非负函数：三种附加条件下，积分是否跟着收敛</span><span class="row-en" lang="en">Pointwise convergence on [0,1] under three extra conditions</span></span>
+          <span class="row-meta">解答原页 第 5–6 页 · 判断题</span>
+        </a></li><li class="page-row" data-page="12">
+        <a href="p12.html">
+          <span class="row-num">12</span>
+          <span class="row-main"><span class="row-title">|f| ≤ 1 时 ∫√(1−f²) ≤ √(1−(∫f)²)：单位圆上的点，平均起来落在圆盘里</span><span class="row-en" lang="en">An integral inequality for |f| ≤ 1 and its equality case</span></span>
+          <span class="row-meta">解答原页 第 6 页 · 证明题</span>
+        </a></li></ol></section>
+</main>
+<div class="lightbox" id="lightbox" hidden><button class="lightbox-close" type="button" aria-label="关闭">关闭 ✕</button><div class="lightbox-stage"><img alt=""></div><p class="lightbox-hint">点击图片放大 / 缩小 · Esc 关闭</p></div>
+<div class="term-pop" id="term-pop" role="tooltip" hidden></div>
+<div class="search-panel" id="search-panel" hidden>
+  <div class="search-box" role="dialog" aria-label="搜索讲义">
+    <input id="search-input" type="search" placeholder="搜索：σ-代数、外测度、Fatou、单调收敛……" autocomplete="off">
+    <ol id="search-results" class="search-results"></ol>
+    <p class="search-hint">↑↓ 选择 · Enter 打开 · Esc 关闭</p>
+  </div>
+</div>
+
+<script src="../assets/js/site.js?v=b1ac21d5d4" defer></script>
+<script src="../assets/js/demos.js?v=b1ac21d5d4" defer></script>
+</body>
+</html>
