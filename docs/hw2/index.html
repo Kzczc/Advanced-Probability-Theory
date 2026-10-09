@@ -4,11 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>作业2 收敛方式、大数定律、中心极限定理与鞅 · 高等概率论逐页精讲</title>
-<meta name="description" content="高等概率论课件逐页中文精讲：课件原页对照、零基础补课、公式推导、老师板书解读、例子与自测。">
+<meta name="description" content="作业 2 收敛方式、大数定律、中心极限定理与鞅：12 道题：Lᵖ 收敛的判别与乘积的收敛，由中心极限定理推出大数定律，Glivenko–Cantelli 定理，高维球面上的正态近似，相依序列的大数定律，随机项数的中心极限定理，以及分支过程、赌徒破产中的鞅与可选停止定理。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="高等概率论 · 逐页精讲">
+<meta property="og:title" content="作业2 收敛方式、大数定律、中心极限定理与鞅 · 高等概率论逐页精讲">
+<meta property="og:description" content="作业 2 收敛方式、大数定律、中心极限定理与鞅：12 道题：Lᵖ 收敛的判别与乘积的收敛，由中心极限定理推出大数定律，Glivenko–Cantelli 定理，高维球面上的正态近似，相依序列的大数定律，随机项数的中心极限定理，以及分支过程、赌徒破产中的鞅与可选停止定理。">
+<meta property="og:url" content="https://kzczc.github.io/Advanced-Probability-Theory/hw2/index.html">
+<meta property="og:image" content="https://kzczc.github.io/Advanced-Probability-Theory/assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2f3b9c">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/katex/katex.min.css">
-<link rel="stylesheet" href="../assets/css/site.css?v=b1ac21d5d4">
+<link rel="stylesheet" href="../assets/css/site.css?v=16b9c66b2d">
 
-<script>try{var s=localStorage.getItem("apt-font-scale");if(s)document.documentElement.style.setProperty("--font-scale",s);if(localStorage.getItem("apt-layout")==="focus")document.documentElement.classList.add("focus-mode");}catch(e){}</script>
+<script>try{var d=document.documentElement,s=localStorage.getItem("apt-font-scale"),t=localStorage.getItem("apt-theme");if(s)d.style.setProperty("--font-scale",s);if(localStorage.getItem("apt-layout")==="focus")d.classList.add("focus-mode");if(t==="dark"||(!t&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches))d.classList.add("theme-dark");}catch(e){}</script>
 </head>
 <body class="page-index">
 <a class="skip-link" href="#main">跳到正文</a>
@@ -20,6 +29,7 @@
     <div class="tools">
       <button class="tool-btn" id="search-open" type="button" aria-label="搜索"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><span>搜索</span></button>
       
+      <button class="tool-btn" id="theme-toggle" type="button" aria-pressed="false" title="夜间模式（再点一次回到日间）"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><span class="theme-label">夜间</span></button>
       <div class="font-tools" role="group" aria-label="字号"><button class="tool-btn" id="font-down" type="button" aria-label="缩小字号">A−</button><button class="tool-btn" id="font-up" type="button" aria-label="放大字号">A+</button></div>
     </div>
   </div>
@@ -33,7 +43,8 @@
     <p class="lede">12 道题：Lᵖ 收敛的判别与乘积的收敛，由中心极限定理推出大数定律，Glivenko–Cantelli 定理，高维球面上的正态近似，相依序列的大数定律，随机项数的中心极限定理，以及分支过程、赌徒破产中的鞅与可选停止定理。</p>
     <div class="index-actions">
       <a class="button primary" href="p01.html">从第 1 题开始</a>
-      <a class="button" id="resume-link" href="p01.html" data-topic="hw2" hidden>继续上次的进度</a>
+      <a class="button" id="resume-link" href="p01.html" data-topic="hw2" data-unit="题" hidden>继续上次的进度</a>
+      <a class="button" href="#issues">原解答问题速览</a>
     </div>
     <p class="index-stats">精讲已完成 <b>12</b> / 12 题 · <span class="toc-progress" data-topic="hw2" data-total="12">已看懂 <b>0</b> / 12 题</span></p>
   </header>
@@ -100,7 +111,20 @@
           <span class="row-main"><span class="row-title">赌徒破产：用两个鞅算出破产概率与平均局数</span><span class="row-en" lang="en">Gambler's ruin</span></span>
           <span class="row-meta">解答原页 第 14–16 页 · 计算题</span>
         </a></li></ol></section>
+  <section class="index-section issues-overview" id="issues">
+    <h2>原解答问题速览<small>12 道题 · 38 处</small></h2>
+    <p class="section-lede">解答原页不是标准答案：下面是各题精讲里指出的笔误、跳步和错误（「题目」表示题面本身的问题）。点题目标题直接跳到那道题的「原解答逐行对照」，那里有正确写法。考前复习时，这些地方最容易丢分。</p>
+    <ol class="issue-list"><li class="issue-item"><a href="p01.html#s6"><span class="row-num">01</span><span class="issue-title">几乎必然收敛 + 范数收敛 ⇒ Lᵖ 收敛（Fatou 引理的「减法技巧」）</span></a><ul><li><span class="issue-tag">问题</span>常数 2^{p/2} 应为 2^{p−1}</li><li><span class="issue-tag">问题</span>「X̂ₙ = Xₙ a.s.」不对</li><li><span class="issue-tag">问题</span>这个「化归」不成立</li><li><span class="issue-tag">问题</span>左边应为 ∫|Xₙ − X̂ₙ|ᵖ</li><li><span class="issue-tag">问题</span>MCT 用不上，结论要靠 Fatou + 范数条件</li><li><span class="issue-tag">问题</span>主体部分 E|X̂ₙ − X|ᵖ → 0 从未证明</li></ul></li><li class="issue-item"><a href="p02.html#s8"><span class="row-num">02</span><span class="issue-title">i.i.d. 指数分布：Xₙ/log n 的上极限是 1，最大值 / log n 收敛到 1</span></a><ul><li><span class="issue-tag">问题</span>(i) 中的笔误</li><li><span class="issue-tag">问题</span>(i) 的两处跳步</li><li><span class="issue-tag">问题</span>前 N_ω 项的上界没有根据</li><li><span class="issue-tag">问题</span>√(2 log n) 与上一行不一致</li><li><span class="issue-tag">问题</span>「∑ e^{−n^ε} &lt; ∞」没有给理由</li></ul></li><li class="issue-item"><a href="p03.html#s11"><span class="row-num">03</span><span class="issue-title">乘积的收敛：依概率收敛总能相乘，L¹ 收敛要靠 Hölder 配对指数</span></a><ul><li><span class="issue-tag">问题</span>(i) 的几处跳步</li><li><span class="issue-tag">问题</span>两颗星的第二句没有回答</li><li><span class="issue-tag">问题</span>最后的 Fatou 一行有三处错误</li><li><span class="issue-tag">问题</span>「find such p, q」只隐含在推导里</li><li><span class="issue-tag">问题</span>(v) 的反例验证不完整，附加条件没有给</li></ul></li><li class="issue-item"><a href="p04.html#s6"><span class="row-num">04</span><span class="issue-title">直接由中心极限定理推出弱大数定律：小因子 σ/√n 乘一个「很少很大」的量</span></a><ul><li><span class="issue-tag">问题</span>记号和假设没有交代</li><li><span class="issue-tag">问题</span>lim 应为 lim sup，严格不等号的极限要说明</li></ul></li><li class="issue-item"><a href="p05.html#s8"><span class="row-num">05</span><span class="issue-title">均值无穷时 lim sup |Sₙ|/aₙ 只能是 0 或 ∞，由 ∑P(|X₁| ≥ aₙ) 是否有限决定</span></a><ul><li><span class="issue-tag">问题</span>第一部分的跳步</li><li><span class="issue-tag">问题</span>为什么「只需检查这两件事」完全没有说明</li><li><span class="issue-tag">问题</span>方差估计中的记号、常数与不等号</li><li><span class="issue-tag">问题</span>均值估计中 N 的处理与下标</li></ul></li><li class="issue-item"><a href="p06.html#s6"><span class="row-num">06</span><span class="issue-title">Glivenko–Cantelli 定理：经验分布函数一致收敛到真实分布</span></a><ul><li><span class="issue-tag">问题</span>「同时成立」需要一个公共的概率 1 事件</li><li><span class="issue-tag">问题</span>关键不等式 (∗) 没有证明</li></ul></li><li class="issue-item"><a href="p07.html#s6"><span class="row-num">07</span><span class="issue-title">高维球面上的均匀分布：每个坐标近似标准正态（Poincaré–Borel）</span></a><ul><li><span class="issue-tag issue-tag-problem">题目</span>对固定的 d，Xⁱ 不是正态</li><li><span class="issue-tag">问题</span>「旋转不变 ⇒ 均匀」的论证不完整</li></ul></li><li class="issue-item"><a href="p08.html#s8"><span class="row-num">08</span><span class="issue-title">去掉 i.i.d.：相关性衰减得够快，弱大数定律照样成立</span></a><ul><li><span class="issue-tag">问题</span>对角线那一项被算了两次</li><li><span class="issue-tag issue-tag-minor">小问题</span>max 应为 sup</li></ul></li><li class="issue-item"><a href="p09.html#s6"><span class="row-num">09</span><span class="issue-title">随机项数的中心极限定理（Anscombe 定理）</span></a><ul><li><span class="issue-tag">问题</span>分解式中间一项的符号写反了</li><li><span class="issue-tag">问题</span>「≤ 8ε/δ²」对每个 n 不一定成立</li><li><span class="issue-tag">遗漏</span>N 可以依赖于 X</li></ul></li><li class="issue-item"><a href="p10.html#s6"><span class="row-num">10</span><span class="issue-title">平方和减去 nσ² 是鞅：方差随时间线性增长</span></a><ul><li><span class="issue-tag issue-tag-minor">小问题</span>没有验证适应性和可积性</li></ul></li><li class="issue-item"><a href="p11.html#s10"><span class="row-num">11</span><span class="issue-title">Galton–Watson 分支过程：种群规模里藏着的鞅</span></a><ul><li><span class="issue-tag">问题</span>μ &lt; 1 时用的不等式方向不对</li><li><span class="issue-tag">问题</span>μ ≤ 1 时还需要 σ² &gt; 0</li></ul></li><li class="issue-item"><a href="p12.html#s10"><span class="row-num">12</span><span class="issue-title">赌徒破产：用两个鞅算出破产概率与平均局数</span></a><ul><li><span class="issue-tag issue-tag-problem">题目笔误</span>财富应写成 Sₙ = b + X₁ + ⋯ + Xₙ</li><li><span class="issue-tag">问题</span>E(S₀) = b，不是 0</li><li><span class="issue-tag">问题</span>E T 的公式漏了 −b²</li><li><span class="issue-tag">问题</span>没有验证可选停止定理的条件</li></ul></li></ol>
+  </section>
 </main>
+<footer class="site-foot">
+  <div class="site-foot-inner">
+    <a class="foot-brand" href="../index.html">高等概率论 · 逐页精讲</a>
+    <nav class="foot-links" aria-label="站点信息"><a href="../about.html">关于本站</a><a href="../basics.html">基础补课</a><a href="../glossary.html">术语表</a><a href="https://github.com/Kzczc/Advanced-Probability-Theory" target="_blank" rel="noopener">GitHub 仓库</a><a href="https://github.com/Kzczc/Advanced-Probability-Theory/issues" target="_blank" rel="noopener">反馈问题</a></nav>
+    <p class="foot-note">讲解如与老师课堂不同，以老师为准 · 阅读进度只保存在你自己的浏览器里</p>
+  </div>
+</footer>
+<button class="to-top" id="to-top" type="button" aria-label="回到顶部" hidden>↑ 顶部</button>
 <div class="lightbox" id="lightbox" hidden><button class="lightbox-close" type="button" aria-label="关闭">关闭 ✕</button><div class="lightbox-stage"><img alt=""></div><p class="lightbox-hint">点击图片放大 / 缩小 · Esc 关闭</p></div>
 <div class="term-pop" id="term-pop" role="tooltip" hidden></div>
 <div class="search-panel" id="search-panel" hidden>
@@ -111,7 +135,7 @@
   </div>
 </div>
 
-<script src="../assets/js/site.js?v=b1ac21d5d4" defer></script>
-<script src="../assets/js/demos.js?v=b1ac21d5d4" defer></script>
+<script src="../assets/js/site.js?v=16b9c66b2d" defer></script>
+<script src="../assets/js/demos.js?v=16b9c66b2d" defer></script>
 </body>
 </html>

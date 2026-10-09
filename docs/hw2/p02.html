@@ -4,12 +4,21 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>02 i.i.d. 指数分布：Xₙ/log n 的上极限是 1，最大值 / log n 收敛到 1 · 作业2 · 高等概率论逐页精讲</title>
-<meta name="description" content="高等概率论课件逐页中文精讲：课件原页对照、零基础补课、公式推导、老师板书解读、例子与自测。">
+<meta name="description" content="作业 2 第 2 题：i.i.d. 指数分布：Xₙ/log n 的上极限是 1，最大值 / log n 收敛到 1。解答原页对照 + 中文逐题精讲（含原解答订正、例子与自测）。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="高等概率论 · 逐页精讲">
+<meta property="og:title" content="02 i.i.d. 指数分布：Xₙ/log n 的上极限是 1，最大值 / log n 收敛到 1 · 作业2 · 高等概率论逐页精讲">
+<meta property="og:description" content="作业 2 第 2 题：i.i.d. 指数分布：Xₙ/log n 的上极限是 1，最大值 / log n 收敛到 1。解答原页对照 + 中文逐题精讲（含原解答订正、例子与自测）。">
+<meta property="og:url" content="https://kzczc.github.io/Advanced-Probability-Theory/hw2/p02.html">
+<meta property="og:image" content="https://kzczc.github.io/Advanced-Probability-Theory/assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2f3b9c">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/katex/katex.min.css">
-<link rel="stylesheet" href="../assets/css/site.css?v=b1ac21d5d4">
+<link rel="stylesheet" href="../assets/css/site.css?v=16b9c66b2d">
 <link rel="prefetch" href="p03.html">
 <link rel="prefetch" href="../assets/slides/hw2/p03.webp" as="image">
-<script>try{var s=localStorage.getItem("apt-font-scale");if(s)document.documentElement.style.setProperty("--font-scale",s);if(localStorage.getItem("apt-layout")==="focus")document.documentElement.classList.add("focus-mode");}catch(e){}</script>
+<script>try{var d=document.documentElement,s=localStorage.getItem("apt-font-scale"),t=localStorage.getItem("apt-theme");if(s)d.style.setProperty("--font-scale",s);if(localStorage.getItem("apt-layout")==="focus")d.classList.add("focus-mode");if(t==="dark"||(!t&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches))d.classList.add("theme-dark");}catch(e){}</script>
 </head>
 <body class="page-reader">
 <a class="skip-link" href="#main">跳到正文</a>
@@ -21,6 +30,7 @@
     <div class="tools">
       <button class="tool-btn" id="search-open" type="button" aria-label="搜索"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><span>搜索</span></button>
       <button class="tool-btn" id="layout-toggle" type="button" aria-pressed="false" title="隐藏 / 显示左侧课件原页"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4z"/><path d="M12 5v14"/></svg><span class="layout-label">专注阅读</span></button>
+      <button class="tool-btn" id="theme-toggle" type="button" aria-pressed="false" title="夜间模式（再点一次回到日间）"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><span class="theme-label">夜间</span></button>
       <div class="font-tools" role="group" aria-label="字号"><button class="tool-btn" id="font-down" type="button" aria-label="缩小字号">A−</button><button class="tool-btn" id="font-up" type="button" aria-label="放大字号">A+</button></div>
     </div>
   </div>
@@ -34,7 +44,7 @@
 <section class="toc-section"><h2>离散鞅</h2><ol><li data-page="10"><a href="p10.html"><span class="toc-num">10</span><span class="toc-title">平方和减去 nσ² 是鞅：方差随时间线性增长</span></a></li><li data-page="11"><a href="p11.html"><span class="toc-num">11</span><span class="toc-title">Galton–Watson 分支过程：种群规模里藏着的鞅</span></a></li><li data-page="12"><a href="p12.html"><span class="toc-num">12</span><span class="toc-title">赌徒破产：用两个鞅算出破产概率与平均局数</span></a></li></ol></section>
 </aside>
 <div class="toc-scrim" id="toc-scrim" hidden></div>
-<main id="main" class="reader-main" data-topic="hw2" data-page="2" data-prev="p01.html" data-next="p03.html">
+<main id="main" class="reader-main" data-topic="hw2" data-page="2" data-label="作业 2 第 2 题" data-title="i.i.d. 指数分布：Xₙ/log n 的上极限是 1，最大值 / log n 收敛到 1" data-prev="p01.html" data-next="p03.html">
   <header class="page-head">
     <p class="crumbs"><a href="index.html">作业 2 收敛方式、大数定律、中心极限定理与鞅</a><span>›</span>收敛方式</p>
     <div class="badges"><span class="badge">第 2 题 / 共 12 题</span><span class="badge">解答原页 第 1–3 页</span><span class="badge badge-kind">证明题</span></div>
@@ -418,6 +428,14 @@ M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">�
   </footer>
 </main>
 </div>
+<footer class="site-foot">
+  <div class="site-foot-inner">
+    <a class="foot-brand" href="../index.html">高等概率论 · 逐页精讲</a>
+    <nav class="foot-links" aria-label="站点信息"><a href="../about.html">关于本站</a><a href="../basics.html">基础补课</a><a href="../glossary.html">术语表</a><a href="https://github.com/Kzczc/Advanced-Probability-Theory" target="_blank" rel="noopener">GitHub 仓库</a><a href="https://github.com/Kzczc/Advanced-Probability-Theory/issues" target="_blank" rel="noopener">反馈问题</a></nav>
+    <p class="foot-note">讲解如与老师课堂不同，以老师为准 · 阅读进度只保存在你自己的浏览器里</p>
+  </div>
+</footer>
+<button class="to-top" id="to-top" type="button" aria-label="回到顶部" hidden>↑ 顶部</button>
 <div class="lightbox" id="lightbox" hidden><button class="lightbox-close" type="button" aria-label="关闭">关闭 ✕</button><div class="lightbox-stage"><img alt=""></div><p class="lightbox-hint">点击图片放大 / 缩小 · Esc 关闭</p></div>
 <div class="term-pop" id="term-pop" role="tooltip" hidden></div>
 <div class="search-panel" id="search-panel" hidden>
@@ -428,7 +446,7 @@ M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">�
   </div>
 </div>
 <script type="application/json" id="page-data">{"terms":{"exponential-distribution":{"term":"指数分布","en":"exponential distribution","plain":"P(X > x) = e^(−λx)（x ≥ 0）的分布，均值 1/λ，常用来描述等待时间。"},"independence":{"term":"独立","en":"independence","plain":"任意有限个事件同时发生的概率等于各自概率的乘积。"},"infinitely-often":{"term":"无穷多次","en":"infinitely often (i.o.)","plain":"「Aₙ 发生无穷多次」就是集合 lim sup Aₙ。"},"almost-sure":{"term":"几乎必然收敛","en":"almost sure convergence","plain":"除了概率为 0 的结局以外，Xₙ(ω) 都收敛到 X(ω)。"},"borel-cantelli":{"term":"Borel–Cantelli 引理","en":"Borel–Cantelli lemma","plain":"概率之和有限 ⇒ 只发生有限次；独立且概率之和无穷 ⇒ 发生无穷多次。"},"limsup":{"term":"上极限","en":"limit superior (lim sup)","plain":"数列「尾部的最大可能值」的极限；对集合则表示「发生无穷多次」。"},"series":{"term":"级数","en":"series","plain":"无穷多项相加 a₁ + a₂ + …，它的值是前 n 项和在 n → ∞ 时的极限。"},"event":{"term":"事件","en":"event","plain":"样本空间的（允许谈概率的）子集；实现的 ω 落在里面，就说事件发生。"},"complement":{"term":"补集","en":"complement","plain":"样本空间里不属于 A 的元素全体，记作 Aᶜ，对应「A 不发生」。"},"uncountable":{"term":"不可数","en":"uncountable","plain":"无论怎么排都排不成一列，例如区间 [0,1] 里的全体实数。"},"countable":{"term":"可数","en":"countable","plain":"元素能排成第 1 个、第 2 个、第 3 个……的一列（有限也算），例如自然数、有理数。"},"intersection":{"term":"交集","en":"intersection","plain":"同时属于两个集合的元素全体，A ∩ B 对应「A 且 B」。"},"convex":{"term":"凸函数","en":"convex function","plain":"图像上任意两点连线都在图像上方的函数，例如 x²、eˣ。"},"law":{"term":"分布","en":"law / distribution","plain":"X 把概率「推」到取值空间上得到的测度：L(X)(B) = P(X ∈ B)。"},"iid":{"term":"独立同分布","en":"independent and identically distributed (i.i.d.)","plain":"一列随机变量相互独立，并且分布都相同，例如反复独立地掷同一颗骰子。"},"liminf":{"term":"下极限","en":"limit inferior (lim inf)","plain":"数列「尾部的最小可能值」的极限；对集合则表示「从某一项起一直发生」。"},"expectation":{"term":"期望","en":"expectation","plain":"随机变量对概率测度的积分 E[X] = ∫ X dP，也就是「加权平均」。"},"in-probability":{"term":"依概率收敛","en":"convergence in probability","plain":"对每个 ε > 0，P(|Xₙ − X| > ε) → 0；比几乎必然收敛弱。"},"interval":{"term":"区间","en":"interval","plain":"数轴上的一段，[a,b] 包含端点，(a,b) 不包含端点。"},"cdf":{"term":"累积分布函数","en":"cumulative distribution function (CDF)","plain":"F(x) = P(X ≤ x)，单调不减、右连续，完全决定分布。"},"convergence-in-distribution":{"term":"依分布收敛","en":"convergence in distribution","plain":"在极限分布函数 F 的每个连续点 x 上，P(Xₙ ≤ x) → F(x)。它只比较分布，不要求 Xₙ 本身靠近 X。"},"union":{"term":"并集","en":"union","plain":"至少属于其中一个集合的元素全体，A ∪ B 对应「A 或 B」。"},"monotone-sequence":{"term":"单调递增","en":"nondecreasing","plain":"后一项不小于前一项；单调有界的数列一定有极限。"},"subsequence":{"term":"子列","en":"subsequence","plain":"从一个数列里按顺序挑出无穷多项组成的新数列。"}},"topic":"hw2","page":2}</script>
-<script src="../assets/js/site.js?v=b1ac21d5d4" defer></script>
-<script src="../assets/js/demos.js?v=b1ac21d5d4" defer></script>
+<script src="../assets/js/site.js?v=16b9c66b2d" defer></script>
+<script src="../assets/js/demos.js?v=16b9c66b2d" defer></script>
 </body>
 </html>

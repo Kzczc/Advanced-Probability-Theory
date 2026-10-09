@@ -4,11 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>第1讲 测度与积分 · 高等概率论逐页精讲</title>
-<meta name="description" content="高等概率论课件逐页中文精讲：课件原页对照、零基础补课、公式推导、老师板书解读、例子与自测。">
+<meta name="description" content="第 1 讲 测度与积分：先弄清「哪些集合可以谈概率」（σ-代数），再把「长度」推广成测度，最后建立勒贝格积分，并学会用 MCT、Fatou 引理、DCT 判断极限和积分能不能交换。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="高等概率论 · 逐页精讲">
+<meta property="og:title" content="第1讲 测度与积分 · 高等概率论逐页精讲">
+<meta property="og:description" content="第 1 讲 测度与积分：先弄清「哪些集合可以谈概率」（σ-代数），再把「长度」推广成测度，最后建立勒贝格积分，并学会用 MCT、Fatou 引理、DCT 判断极限和积分能不能交换。">
+<meta property="og:url" content="https://kzczc.github.io/Advanced-Probability-Theory/topic1/index.html">
+<meta property="og:image" content="https://kzczc.github.io/Advanced-Probability-Theory/assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2f3b9c">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/katex/katex.min.css">
-<link rel="stylesheet" href="../assets/css/site.css?v=b1ac21d5d4">
+<link rel="stylesheet" href="../assets/css/site.css?v=16b9c66b2d">
 
-<script>try{var s=localStorage.getItem("apt-font-scale");if(s)document.documentElement.style.setProperty("--font-scale",s);if(localStorage.getItem("apt-layout")==="focus")document.documentElement.classList.add("focus-mode");}catch(e){}</script>
+<script>try{var d=document.documentElement,s=localStorage.getItem("apt-font-scale"),t=localStorage.getItem("apt-theme");if(s)d.style.setProperty("--font-scale",s);if(localStorage.getItem("apt-layout")==="focus")d.classList.add("focus-mode");if(t==="dark"||(!t&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches))d.classList.add("theme-dark");}catch(e){}</script>
 </head>
 <body class="page-index">
 <a class="skip-link" href="#main">跳到正文</a>
@@ -20,6 +29,7 @@
     <div class="tools">
       <button class="tool-btn" id="search-open" type="button" aria-label="搜索"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><span>搜索</span></button>
       
+      <button class="tool-btn" id="theme-toggle" type="button" aria-pressed="false" title="夜间模式（再点一次回到日间）"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><span class="theme-label">夜间</span></button>
       <div class="font-tools" role="group" aria-label="字号"><button class="tool-btn" id="font-down" type="button" aria-label="缩小字号">A−</button><button class="tool-btn" id="font-up" type="button" aria-label="放大字号">A+</button></div>
     </div>
   </div>
@@ -33,7 +43,8 @@
     <p class="lede">先弄清「哪些集合可以谈概率」（σ-代数），再把「长度」推广成测度，最后建立勒贝格积分，并学会用 MCT、Fatou 引理、DCT 判断极限和积分能不能交换。</p>
     <div class="index-actions">
       <a class="button primary" href="p01.html">从第 1 页开始</a>
-      <a class="button" id="resume-link" href="p01.html" data-topic="topic1" hidden>继续上次的进度</a>
+      <a class="button" id="resume-link" href="p01.html" data-topic="topic1" data-unit="页" hidden>继续上次的进度</a>
+      
     </div>
     <p class="index-stats">精讲已完成 <b>47</b> / 47 页 · <span class="toc-progress" data-topic="topic1" data-total="47">已看懂 <b>0</b> / 47 页</span></p>
   </header>
@@ -278,7 +289,16 @@
           <span class="row-main"><span class="row-title">板书总结：一页看懂整讲</span><span class="row-en" lang="en">Handwritten page: the whole topic on one page</span></span>
           <span class="row-meta">幻灯片 — · 总结</span>
         </a></li></ol></section>
+  
 </main>
+<footer class="site-foot">
+  <div class="site-foot-inner">
+    <a class="foot-brand" href="../index.html">高等概率论 · 逐页精讲</a>
+    <nav class="foot-links" aria-label="站点信息"><a href="../about.html">关于本站</a><a href="../basics.html">基础补课</a><a href="../glossary.html">术语表</a><a href="https://github.com/Kzczc/Advanced-Probability-Theory" target="_blank" rel="noopener">GitHub 仓库</a><a href="https://github.com/Kzczc/Advanced-Probability-Theory/issues" target="_blank" rel="noopener">反馈问题</a></nav>
+    <p class="foot-note">讲解如与老师课堂不同，以老师为准 · 阅读进度只保存在你自己的浏览器里</p>
+  </div>
+</footer>
+<button class="to-top" id="to-top" type="button" aria-label="回到顶部" hidden>↑ 顶部</button>
 <div class="lightbox" id="lightbox" hidden><button class="lightbox-close" type="button" aria-label="关闭">关闭 ✕</button><div class="lightbox-stage"><img alt=""></div><p class="lightbox-hint">点击图片放大 / 缩小 · Esc 关闭</p></div>
 <div class="term-pop" id="term-pop" role="tooltip" hidden></div>
 <div class="search-panel" id="search-panel" hidden>
@@ -289,7 +309,7 @@
   </div>
 </div>
 
-<script src="../assets/js/site.js?v=b1ac21d5d4" defer></script>
-<script src="../assets/js/demos.js?v=b1ac21d5d4" defer></script>
+<script src="../assets/js/site.js?v=16b9c66b2d" defer></script>
+<script src="../assets/js/demos.js?v=16b9c66b2d" defer></script>
 </body>
 </html>

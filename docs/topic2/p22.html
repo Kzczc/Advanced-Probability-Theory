@@ -4,12 +4,21 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>22 Lᵖ 空间：p 阶矩有限的随机变量放在一起 · 第2讲 · 高等概率论逐页精讲</title>
-<meta name="description" content="高等概率论课件逐页中文精讲：课件原页对照、零基础补课、公式推导、老师板书解读、例子与自测。">
+<meta name="description" content="第 2 讲 第 22 页：Lᵖ 空间：p 阶矩有限的随机变量放在一起。课件原页对照 + 中文逐页精讲（基础补课、推导、例子与自测）。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="高等概率论 · 逐页精讲">
+<meta property="og:title" content="22 Lᵖ 空间：p 阶矩有限的随机变量放在一起 · 第2讲 · 高等概率论逐页精讲">
+<meta property="og:description" content="第 2 讲 第 22 页：Lᵖ 空间：p 阶矩有限的随机变量放在一起。课件原页对照 + 中文逐页精讲（基础补课、推导、例子与自测）。">
+<meta property="og:url" content="https://kzczc.github.io/Advanced-Probability-Theory/topic2/p22.html">
+<meta property="og:image" content="https://kzczc.github.io/Advanced-Probability-Theory/assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2f3b9c">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/katex/katex.min.css">
-<link rel="stylesheet" href="../assets/css/site.css?v=b1ac21d5d4">
+<link rel="stylesheet" href="../assets/css/site.css?v=16b9c66b2d">
 <link rel="prefetch" href="p23.html">
 <link rel="prefetch" href="../assets/slides/topic2/p23.webp" as="image">
-<script>try{var s=localStorage.getItem("apt-font-scale");if(s)document.documentElement.style.setProperty("--font-scale",s);if(localStorage.getItem("apt-layout")==="focus")document.documentElement.classList.add("focus-mode");}catch(e){}</script>
+<script>try{var d=document.documentElement,s=localStorage.getItem("apt-font-scale"),t=localStorage.getItem("apt-theme");if(s)d.style.setProperty("--font-scale",s);if(localStorage.getItem("apt-layout")==="focus")d.classList.add("focus-mode");if(t==="dark"||(!t&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches))d.classList.add("theme-dark");}catch(e){}</script>
 </head>
 <body class="page-reader">
 <a class="skip-link" href="#main">跳到正文</a>
@@ -21,6 +30,7 @@
     <div class="tools">
       <button class="tool-btn" id="search-open" type="button" aria-label="搜索"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><span>搜索</span></button>
       <button class="tool-btn" id="layout-toggle" type="button" aria-pressed="false" title="隐藏 / 显示左侧课件原页"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4z"/><path d="M12 5v14"/></svg><span class="layout-label">专注阅读</span></button>
+      <button class="tool-btn" id="theme-toggle" type="button" aria-pressed="false" title="夜间模式（再点一次回到日间）"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><span class="theme-label">夜间</span></button>
       <div class="font-tools" role="group" aria-label="字号"><button class="tool-btn" id="font-down" type="button" aria-label="缩小字号">A−</button><button class="tool-btn" id="font-up" type="button" aria-label="放大字号">A+</button></div>
     </div>
   </div>
@@ -37,7 +47,7 @@
 <section class="toc-section"><h2>第 5 部分　用矩控制概率</h2><ol><li data-page="28"><a href="p28.html"><span class="toc-num">28</span><span class="toc-title">从「估计期望」到「估计概率」：用一个矩压住一个事件</span></a></li><li data-page="29"><a href="p29.html"><span class="toc-num">29</span><span class="toc-title">广义 Markov 不等式：用一个期望控制一个尾概率</span></a></li><li data-page="30"><a href="p30.html"><span class="toc-num">30</span><span class="toc-title">有一个有限矩，尾巴就衰减得更快</span></a></li><li data-page="31"><a href="p31.html"><span class="toc-num">31</span><span class="toc-title">尾巴衰减得更快，也不一定有有限矩（对数边界）</span></a></li><li data-page="32"><a href="p32.html"><span class="toc-num">32</span><span class="toc-title">Cantelli 单侧不等式：只看一侧时比 Chebyshev 更紧</span></a></li></ol></section>
 </aside>
 <div class="toc-scrim" id="toc-scrim" hidden></div>
-<main id="main" class="reader-main" data-topic="topic2" data-page="22" data-prev="p21.html" data-next="p23.html">
+<main id="main" class="reader-main" data-topic="topic2" data-page="22" data-label="第 2 讲 第 22 页" data-title="Lᵖ 空间：p 阶矩有限的随机变量放在一起" data-prev="p21.html" data-next="p23.html">
   <header class="page-head">
     <p class="crumbs"><a href="index.html">第 2 讲 随机变量、期望与不等式</a><span>›</span>第 3 部分　尾部、有限矩与 Lp 空间</p>
     <div class="badges"><span class="badge">PDF 第 22 / 32 页</span><span class="badge">幻灯片 22/33</span><span class="badge badge-kind">定义</span></div>
@@ -415,6 +425,8 @@ M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">�
 </div></details>
 </div></section>
 
+<section class="box box-related"><header class="box-head"><span class="box-kind">相关练习</span><span class="box-title">作业与小测中用到这一页的题</span></header><div class="box-body"><ul class="related-list"><li><a href="../hw2/p01.html"><span class="rel-label">作业 2 第 1 题</span><span class="rel-title">几乎必然收敛 + 范数收敛 ⇒ Lᵖ 收敛（Fatou 引理的「减法技巧」）</span></a></li><li><a href="../hw2/p03.html"><span class="rel-label">作业 2 第 3 题</span><span class="rel-title">乘积的收敛：依概率收敛总能相乘，L¹ 收敛要靠 Hölder 配对指数</span></a></li></ul></div></section>
+
 <section class="box box-vocab"><header class="box-head"><span class="box-kind">本页术语</span><span class="box-title">中英对照（按出现顺序）</span></header><div class="box-body"><div class="table-wrap"><table><thead><tr><th>中文</th><th>English</th><th>白话解释</th></tr></thead><tbody><tr><td><a href="../glossary.html#term-random-variable">随机变量</a></td><td lang="en"><em>random variable</em></td><td>从样本空间到实数的（可测）函数，把结局翻译成数字；随机性来自「实现了哪个 ω」。</td></tr><tr><td><a href="../glossary.html#term-almost-sure">几乎必然收敛</a></td><td lang="en"><em>almost sure convergence</em></td><td>除了概率为 0 的结局以外，Xₙ(ω) 都收敛到 X(ω)。</td></tr><tr><td><a href="../glossary.html#term-element">元素</a></td><td lang="en"><em>element</em></td><td>集合里的对象。ω ∈ Ω 读作「ω 属于 Ω」。</td></tr><tr><td><a href="../glossary.html#term-integrable">可积</a></td><td lang="en"><em>integrable (L¹)</em></td><td>∫|f| dμ &lt; ∞。全体可积函数记作 L¹(μ)。</td></tr><tr><td><a href="../glossary.html#term-set">集合</a></td><td lang="en"><em>set</em></td><td>把一些对象放在一起当成一个整体，例如 {1,2,3}。</td></tr><tr><td><a href="../glossary.html#term-infimum">下确界</a></td><td lang="en"><em>infimum (inf)</em></td><td>最大的下界。例如 (0,1] 没有最小值，但下确界是 0。</td></tr><tr><td><a href="../glossary.html#term-empty-set">空集</a></td><td lang="en"><em>empty set</em></td><td>一个元素也没有的集合，记作 ∅。作为事件，它永远不会发生。</td></tr><tr><td><a href="../glossary.html#term-equivalence-relation">等价关系</a></td><td lang="en"><em>equivalence relation</em></td><td>满足自反、对称、传递的「相似」关系，能把集合分成互不重叠的等价类。</td></tr><tr><td><a href="../glossary.html#term-vitali">维塔利集</a></td><td lang="en"><em>Vitali set</em></td><td>用选择公理造出的「坏」集合，证明了不可能给 ℝ 的所有子集定义长度。</td></tr><tr><td><a href="../glossary.html#term-event">事件</a></td><td lang="en"><em>event</em></td><td>样本空间的（允许谈概率的）子集；实现的 ω 落在里面，就说事件发生。</td></tr><tr><td><a href="../glossary.html#term-equivalence-class">等价类</a></td><td lang="en"><em>equivalence class</em></td><td>在等价关系下彼此「相似」的元素组成的一组。</td></tr><tr><td><a href="../glossary.html#term-positive-definite">正定</a></td><td lang="en"><em>positive definite</em></td><td>对称矩阵 Σ 满足：对所有非零向量 x，xᵀΣx &gt; 0。多元正态要求协方差矩阵正定。</td></tr><tr><td><a href="../glossary.html#term-lebesgue-integral">勒贝格积分</a></td><td lang="en"><em>Lebesgue integral</em></td><td>按函数值分块的积分：先定义简单函数的积分，再用下方的简单函数逼近取上确界。</td></tr><tr><td><a href="../glossary.html#term-expectation">期望</a></td><td lang="en"><em>expectation</em></td><td>随机变量对概率测度的积分 E[X] = ∫ X dP，也就是「加权平均」。</td></tr><tr><td><a href="../glossary.html#term-probability-space">概率空间</a></td><td lang="en"><em>probability space</em></td><td>三元组 (Ω, 𝓕, P)：样本空间、事件的 σ-代数、概率测度。</td></tr><tr><td><a href="../glossary.html#term-simple-function">简单函数</a></td><td lang="en"><em>simple function</em></td><td>只取有限个值的可测函数，是若干示性函数的线性组合，图像像台阶。</td></tr><tr><td><a href="../glossary.html#term-moment">阶矩</a></td><td lang="en"><em>moment</em></td><td>E[|X|ᵖ] 叫 p 阶（绝对）矩；它有限与否反映尾部有多「重」。</td></tr><tr><td><a href="../glossary.html#term-law">分布</a></td><td lang="en"><em>law / distribution</em></td><td>X 把概率「推」到取值空间上得到的测度：L(X)(B) = P(X ∈ B)。</td></tr><tr><td><a href="../glossary.html#term-supremum">上确界</a></td><td lang="en"><em>supremum (sup)</em></td><td>最小的上界。最大值不一定存在，但有上界的实数集一定有上确界。</td></tr><tr><td><a href="../glossary.html#term-countable">可数</a></td><td lang="en"><em>countable</em></td><td>元素能排成第 1 个、第 2 个、第 3 个……的一列（有限也算），例如自然数、有理数。</td></tr><tr><td><a href="../glossary.html#term-liminf">下极限</a></td><td lang="en"><em>limit inferior (lim inf)</em></td><td>数列「尾部的最小可能值」的极限；对集合则表示「从某一项起一直发生」。</td></tr><tr><td><a href="../glossary.html#term-lebesgue-measure">勒贝格测度</a></td><td lang="en"><em>Lebesgue measure</em></td><td>实数轴上「长度」的严格版本，定义在勒贝格可测集上，m([a,b]) = b − a。</td></tr><tr><td><a href="../glossary.html#term-function">函数</a></td><td lang="en"><em>function / map</em></td><td>f: A → B 给 A 中每个元素指定 B 中唯一一个元素。</td></tr><tr><td><a href="../glossary.html#term-series">级数</a></td><td lang="en"><em>series</em></td><td>无穷多项相加 a₁ + a₂ + …，它的值是前 n 项和在 n → ∞ 时的极限。</td></tr><tr><td><a href="../glossary.html#term-exponential-distribution">指数分布</a></td><td lang="en"><em>exponential distribution</em></td><td>P(X &gt; x) = e^(−λx)（x ≥ 0）的分布，均值 1/λ，常用来描述等待时间。</td></tr><tr><td><a href="../glossary.html#term-measure">测度</a></td><td lang="en"><em>measure</em></td><td>给 σ-代数里的每个集合一个 [0, ∞] 中的「大小」，空集为 0，并且可数可加。</td></tr></tbody></table></div></div></section>
 
     </article>
@@ -428,6 +440,14 @@ M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">�
   </footer>
 </main>
 </div>
+<footer class="site-foot">
+  <div class="site-foot-inner">
+    <a class="foot-brand" href="../index.html">高等概率论 · 逐页精讲</a>
+    <nav class="foot-links" aria-label="站点信息"><a href="../about.html">关于本站</a><a href="../basics.html">基础补课</a><a href="../glossary.html">术语表</a><a href="https://github.com/Kzczc/Advanced-Probability-Theory" target="_blank" rel="noopener">GitHub 仓库</a><a href="https://github.com/Kzczc/Advanced-Probability-Theory/issues" target="_blank" rel="noopener">反馈问题</a></nav>
+    <p class="foot-note">讲解如与老师课堂不同，以老师为准 · 阅读进度只保存在你自己的浏览器里</p>
+  </div>
+</footer>
+<button class="to-top" id="to-top" type="button" aria-label="回到顶部" hidden>↑ 顶部</button>
 <div class="lightbox" id="lightbox" hidden><button class="lightbox-close" type="button" aria-label="关闭">关闭 ✕</button><div class="lightbox-stage"><img alt=""></div><p class="lightbox-hint">点击图片放大 / 缩小 · Esc 关闭</p></div>
 <div class="term-pop" id="term-pop" role="tooltip" hidden></div>
 <div class="search-panel" id="search-panel" hidden>
@@ -438,7 +458,7 @@ M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">�
   </div>
 </div>
 <script type="application/json" id="page-data">{"terms":{"random-variable":{"term":"随机变量","en":"random variable","plain":"从样本空间到实数的（可测）函数，把结局翻译成数字；随机性来自「实现了哪个 ω」。"},"almost-sure":{"term":"几乎必然收敛","en":"almost sure convergence","plain":"除了概率为 0 的结局以外，Xₙ(ω) 都收敛到 X(ω)。"},"element":{"term":"元素","en":"element","plain":"集合里的对象。ω ∈ Ω 读作「ω 属于 Ω」。"},"integrable":{"term":"可积","en":"integrable (L¹)","plain":"∫|f| dμ \u003c ∞。全体可积函数记作 L¹(μ)。"},"set":{"term":"集合","en":"set","plain":"把一些对象放在一起当成一个整体，例如 {1,2,3}。"},"infimum":{"term":"下确界","en":"infimum (inf)","plain":"最大的下界。例如 (0,1] 没有最小值，但下确界是 0。"},"empty-set":{"term":"空集","en":"empty set","plain":"一个元素也没有的集合，记作 ∅。作为事件，它永远不会发生。"},"equivalence-relation":{"term":"等价关系","en":"equivalence relation","plain":"满足自反、对称、传递的「相似」关系，能把集合分成互不重叠的等价类。"},"vitali":{"term":"维塔利集","en":"Vitali set","plain":"用选择公理造出的「坏」集合，证明了不可能给 ℝ 的所有子集定义长度。"},"event":{"term":"事件","en":"event","plain":"样本空间的（允许谈概率的）子集；实现的 ω 落在里面，就说事件发生。"},"equivalence-class":{"term":"等价类","en":"equivalence class","plain":"在等价关系下彼此「相似」的元素组成的一组。"},"positive-definite":{"term":"正定","en":"positive definite","plain":"对称矩阵 Σ 满足：对所有非零向量 x，xᵀΣx > 0。多元正态要求协方差矩阵正定。"},"lebesgue-integral":{"term":"勒贝格积分","en":"Lebesgue integral","plain":"按函数值分块的积分：先定义简单函数的积分，再用下方的简单函数逼近取上确界。"},"expectation":{"term":"期望","en":"expectation","plain":"随机变量对概率测度的积分 E[X] = ∫ X dP，也就是「加权平均」。"},"probability-space":{"term":"概率空间","en":"probability space","plain":"三元组 (Ω, 𝓕, P)：样本空间、事件的 σ-代数、概率测度。"},"simple-function":{"term":"简单函数","en":"simple function","plain":"只取有限个值的可测函数，是若干示性函数的线性组合，图像像台阶。"},"moment":{"term":"阶矩","en":"moment","plain":"E[|X|ᵖ] 叫 p 阶（绝对）矩；它有限与否反映尾部有多「重」。"},"law":{"term":"分布","en":"law / distribution","plain":"X 把概率「推」到取值空间上得到的测度：L(X)(B) = P(X ∈ B)。"},"supremum":{"term":"上确界","en":"supremum (sup)","plain":"最小的上界。最大值不一定存在，但有上界的实数集一定有上确界。"},"countable":{"term":"可数","en":"countable","plain":"元素能排成第 1 个、第 2 个、第 3 个……的一列（有限也算），例如自然数、有理数。"},"liminf":{"term":"下极限","en":"limit inferior (lim inf)","plain":"数列「尾部的最小可能值」的极限；对集合则表示「从某一项起一直发生」。"},"lebesgue-measure":{"term":"勒贝格测度","en":"Lebesgue measure","plain":"实数轴上「长度」的严格版本，定义在勒贝格可测集上，m([a,b]) = b − a。"},"function":{"term":"函数","en":"function / map","plain":"f: A → B 给 A 中每个元素指定 B 中唯一一个元素。"},"series":{"term":"级数","en":"series","plain":"无穷多项相加 a₁ + a₂ + …，它的值是前 n 项和在 n → ∞ 时的极限。"},"exponential-distribution":{"term":"指数分布","en":"exponential distribution","plain":"P(X > x) = e^(−λx)（x ≥ 0）的分布，均值 1/λ，常用来描述等待时间。"},"measure":{"term":"测度","en":"measure","plain":"给 σ-代数里的每个集合一个 [0, ∞] 中的「大小」，空集为 0，并且可数可加。"}},"topic":"topic2","page":22}</script>
-<script src="../assets/js/site.js?v=b1ac21d5d4" defer></script>
-<script src="../assets/js/demos.js?v=b1ac21d5d4" defer></script>
+<script src="../assets/js/site.js?v=16b9c66b2d" defer></script>
+<script src="../assets/js/demos.js?v=16b9c66b2d" defer></script>
 </body>
 </html>

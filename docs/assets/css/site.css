@@ -364,7 +364,25 @@ details.box > .box-body { padding: 0 1.15em 0.95em; }
 .source-pane { max-height: calc(100vh - var(--topbar-height) - 32px); overflow-y: auto; padding-right: 4px; scrollbar-width: thin; }
 .source-pane .crop { margin: 0 0 10px; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 10px 26px rgba(30, 30, 60, 0.07); }
 .focus-mode .source-pane { max-height: none; overflow: visible; }
-@media (max-width: 1180px) { .source-pane { max-height: none; overflow: visible; } }
+@media (max-width: 1180px) {
+  .source-pane { max-height: none; overflow: visible; }
+  /* 窄屏：原页在讲解上方，太长时先收起，免得要滑好几屏才看到讲解 */
+  .source-pane.is-collapsible:not(.is-expanded) { max-height: 58vh; overflow: hidden; position: relative; top: auto; }
+  .source-pane.is-collapsible:not(.is-expanded)::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 90px; pointer-events: none;
+    background: linear-gradient(to bottom, transparent, var(--paper));
+  }
+}
+.source-toggle {
+  position: relative; z-index: 1; display: block; margin: 8px auto 0; font-family: var(--font-ui); font-size: 0.86rem; cursor: pointer;
+  color: var(--accent); background: var(--surface); border: 1px solid var(--line-strong); border-radius: 999px; padding: 7px 16px;
+}
+.source-toggle:hover { border-color: var(--accent); }
+@media (max-width: 640px) {
+  .chips { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; padding-bottom: 2px; }
+  .chips::-webkit-scrollbar { display: none; }
+  .chips a, .chips-label { flex: none; }
+}
 
 /* 首页：作业与小测 */
 .exercise-home { margin: 34px 0 0; }
@@ -511,11 +529,113 @@ details.box > .box-body { padding: 0 1.15em 0.95em; }
 
 .basics-prose { margin-top: 10px; max-width: none; }
 
+/* ------------------------------------------------------------------ */
+/* 相关练习、原解答问题速览、搜索高亮                                    */
+/* ------------------------------------------------------------------ */
+
+.box-related { --box-accent: #4338ca; --box-bg: #f5f6ff; --box-line: #dcdffa; }
+.related-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.related-list a { display: flex; flex-wrap: wrap; gap: 0.2em 0.8em; align-items: baseline; text-decoration: none; color: var(--ink); padding: 6px 10px; border-radius: 8px; background: var(--surface); border: 1px solid var(--box-line); }
+.related-list a:hover { border-color: var(--box-accent); }
+.rel-label { font-family: var(--font-ui); font-size: 0.78rem; font-weight: 700; color: var(--box-accent); white-space: nowrap; }
+.rel-title { font-size: 0.95rem; }
+
+.issues-overview .section-lede { color: var(--muted); margin: 0 0 12px; max-width: 60em; }
+.issue-list { list-style: none; margin: 0; padding: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.issue-item { padding: 12px 18px 14px; }
+.issue-item + .issue-item { border-top: 1px solid var(--line); }
+.issue-item > a { display: flex; gap: 14px; align-items: baseline; text-decoration: none; color: var(--ink); font-weight: 700; }
+.issue-item > a:hover .issue-title { color: var(--accent); }
+.issue-item ul { list-style: none; margin: 6px 0 0 calc(2.2em + 14px); padding: 0; }
+.issue-item li { margin: 0.25em 0; font-size: 0.94rem; color: var(--ink-soft); }
+.issue-tag {
+  display: inline-block; margin-right: 0.6em; padding: 0 0.6em; border-radius: 999px; line-height: 1.7;
+  font-family: var(--font-ui); font-size: 0.7rem; font-weight: 700; color: #fff; background: #d9344f; vertical-align: 0.1em;
+}
+.issue-tag-minor { background: #e08a2c; }
+.issue-tag-problem { background: #6d3fd1; }
+@media (max-width: 640px) { .issue-item ul { margin-left: 0; } }
+
+mark.search-hit { background: #ffe58a; color: inherit; border-radius: 3px; padding: 0 1px; box-shadow: 0 0 0 2px #ffe58a; }
+
+/* ------------------------------------------------------------------ */
+/* 页脚与「回到顶部」                                                   */
+/* ------------------------------------------------------------------ */
+
+.site-foot { border-top: 1px solid var(--line); background: var(--surface); margin-top: 40px; }
+.site-foot-inner { max-width: 1080px; margin: 0 auto; padding: 18px 22px 26px; font-family: var(--font-ui); font-size: 0.82rem; color: var(--muted); display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; }
+.foot-brand { font-family: var(--font-serif); font-weight: 700; color: var(--ink); text-decoration: none; }
+.foot-links { display: flex; flex-wrap: wrap; gap: 4px 16px; }
+.foot-links a { color: var(--ink-soft); text-decoration: none; }
+.foot-links a:hover { color: var(--accent); }
+.foot-note { margin: 0; flex-basis: 100%; }
+
+.to-top {
+  position: fixed; right: 18px; bottom: 22px; z-index: 40;
+  font-family: var(--font-ui); font-size: 0.82rem; color: var(--ink-soft); cursor: pointer;
+  background: var(--surface); border: 1px solid var(--line-strong); border-radius: 999px; padding: 8px 14px;
+  box-shadow: 0 6px 18px rgba(20, 24, 40, 0.12);
+}
+.to-top:hover { border-color: var(--accent); color: var(--accent); }
+.to-top[hidden] { display: none; }
+
+/* ------------------------------------------------------------------ */
+/* 夜间模式：深色背景 + 柔和的卡片底色；课件原页保持白底、稍微调暗           */
+/* ------------------------------------------------------------------ */
+
+@media screen {
+html.theme-dark {
+  color-scheme: dark;
+  --paper: #14161b;
+  --surface: #1c1f26;
+  --ink: #e4e5e8;
+  --ink-soft: #c3c7ce;
+  --muted: #959ba5;
+  --line: #2d313a;
+  --line-strong: #3d424d;
+  --accent: #9daeff;
+  --accent-deep: #c4cdff;
+  --accent-soft: #262c48;
+}
+.theme-dark .topbar, .theme-dark .toc, .theme-dark .tool-btn, .theme-dark .badge, .theme-dark .chips a,
+.theme-dark .done-toggle, .theme-dark .pager a, .theme-dark .button, .theme-dark .extra-card,
+.theme-dark .search-box, .theme-dark .term-pop, .theme-dark kbd, .theme-dark .glossary-filter,
+.theme-dark .search-box input, .theme-dark .demo-controls button, .theme-dark .demo-controls select,
+.theme-dark .sigma-chip, .theme-dark .sigma-member, .theme-dark .lightbox-close, .theme-dark .skip-link:focus {
+  background: var(--surface); color: var(--ink-soft); border-color: var(--line-strong);
+}
+.theme-dark .button.primary { background: #3d4bb8; border-color: #3d4bb8; color: #fff; }
+.theme-dark .badge-kind, .theme-dark .tool-btn[aria-pressed="true"] { background: #3d4bb8; border-color: #3d4bb8; color: #fff; }
+.theme-dark .prose strong { color: #f4f5f7; }
+.theme-dark .prose table, .theme-dark .prose th { background: transparent; }
+.theme-dark .prose th { background: #232733; }
+.theme-dark .prose code { background: #262a33; }
+.theme-dark .prose blockquote { background: #1a1d23; }
+.theme-dark .toc li a:hover, .theme-dark .page-row a:hover { background: #232733; }
+.theme-dark .glossary-row:target { background: #2e2a1a; }
+.theme-dark .pending-note { background: #1a1d23; }
+.theme-dark .meter { background: #2b2f39; }
+.theme-dark .done-toggle:has(input:checked) { background: #16291f; border-color: #2f6b47; color: #8fdcae; }
+.theme-dark .box {
+  --box-bg: color-mix(in srgb, var(--box-accent) 11%, #1c1f26);
+  --box-line: color-mix(in srgb, var(--box-accent) 32%, #1c1f26);
+}
+.theme-dark .box-kind { background: color-mix(in srgb, var(--box-accent) 78%, #000); }
+.theme-dark details.box > summary { color: color-mix(in srgb, var(--box-accent) 55%, #fff); }
+.theme-dark .box-board .box-body, .theme-dark .box-board .box-body strong { color: #c6d4ff; }
+.theme-dark .rel-label { color: color-mix(in srgb, var(--box-accent) 55%, #fff); }
+.theme-dark .slide-zoom img, .theme-dark .crop, .theme-dark .lightbox-stage img { filter: brightness(0.86) contrast(1.04); }
+.theme-dark .demo-ui canvas, .theme-dark .demo-ui svg { filter: brightness(0.9); }
+.theme-dark mark, .theme-dark mark.search-hit { background: #6b5a12; box-shadow: 0 0 0 2px #6b5a12; color: #fff6cf; }
+.theme-dark .to-top { box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45); }
+}
+
 @media print {
-  .topbar, .toc, .toc-scrim, .page-foot, .chips, .slide-pane { display: none !important; }
+  .topbar, .toc, .toc-scrim, .page-foot, .chips, .slide-pane, .site-foot, .to-top, .lightbox, .search-panel { display: none !important; }
   .split { display: block; }
   .notes { border: 0; padding: 0; max-width: none; }
   body { background: #fff; }
+  .box { break-inside: avoid; }
 }
 
 @media (prefers-reduced-motion: reduce) {

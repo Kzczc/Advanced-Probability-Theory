@@ -4,12 +4,21 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>10 Fubini 定理：绝对可积时，二重积分等于两种顺序的累次积分 · 第4讲 · 高等概率论逐页精讲</title>
-<meta name="description" content="高等概率论课件逐页中文精讲：课件原页对照、零基础补课、公式推导、老师板书解读、例子与自测。">
+<meta name="description" content="第 4 讲 第 10 页：Fubini 定理：绝对可积时，二重积分等于两种顺序的累次积分。课件原页对照 + 中文逐页精讲（基础补课、推导、例子与自测）。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="高等概率论 · 逐页精讲">
+<meta property="og:title" content="10 Fubini 定理：绝对可积时，二重积分等于两种顺序的累次积分 · 第4讲 · 高等概率论逐页精讲">
+<meta property="og:description" content="第 4 讲 第 10 页：Fubini 定理：绝对可积时，二重积分等于两种顺序的累次积分。课件原页对照 + 中文逐页精讲（基础补课、推导、例子与自测）。">
+<meta property="og:url" content="https://kzczc.github.io/Advanced-Probability-Theory/topic4/p10.html">
+<meta property="og:image" content="https://kzczc.github.io/Advanced-Probability-Theory/assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2f3b9c">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/katex/katex.min.css">
-<link rel="stylesheet" href="../assets/css/site.css?v=b1ac21d5d4">
+<link rel="stylesheet" href="../assets/css/site.css?v=16b9c66b2d">
 <link rel="prefetch" href="p11.html">
 <link rel="prefetch" href="../assets/slides/topic4/p11.webp" as="image">
-<script>try{var s=localStorage.getItem("apt-font-scale");if(s)document.documentElement.style.setProperty("--font-scale",s);if(localStorage.getItem("apt-layout")==="focus")document.documentElement.classList.add("focus-mode");}catch(e){}</script>
+<script>try{var d=document.documentElement,s=localStorage.getItem("apt-font-scale"),t=localStorage.getItem("apt-theme");if(s)d.style.setProperty("--font-scale",s);if(localStorage.getItem("apt-layout")==="focus")d.classList.add("focus-mode");if(t==="dark"||(!t&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches))d.classList.add("theme-dark");}catch(e){}</script>
 </head>
 <body class="page-reader">
 <a class="skip-link" href="#main">跳到正文</a>
@@ -21,6 +30,7 @@
     <div class="tools">
       <button class="tool-btn" id="search-open" type="button" aria-label="搜索"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><span>搜索</span></button>
       <button class="tool-btn" id="layout-toggle" type="button" aria-pressed="false" title="隐藏 / 显示左侧课件原页"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4z"/><path d="M12 5v14"/></svg><span class="layout-label">专注阅读</span></button>
+      <button class="tool-btn" id="theme-toggle" type="button" aria-pressed="false" title="夜间模式（再点一次回到日间）"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><span class="theme-label">夜间</span></button>
       <div class="font-tools" role="group" aria-label="字号"><button class="tool-btn" id="font-down" type="button" aria-label="缩小字号">A−</button><button class="tool-btn" id="font-up" type="button" aria-label="放大字号">A+</button></div>
     </div>
   </div>
@@ -35,7 +45,7 @@
 <section class="toc-section"><h2>第 3 部分　独立性</h2><ol><li data-page="16"><a href="p16.html"><span class="toc-num">16</span><span class="toc-title">两个事件、两个随机变量、两个 σ-代数的独立；柱集</span></a></li><li data-page="17"><a href="p17.html"><span class="toc-num">17</span><span class="toc-title">多个随机变量的独立：联合分布 = 乘积测度；无穷序列空间</span></a></li><li data-page="18"><a href="p18.html"><span class="toc-num">18</span><span class="toc-title">一族随机变量的独立；两两独立不等于相互独立</span></a></li><li data-page="19"><a href="p19.html"><span class="toc-num">19</span><span class="toc-title">多元正态分布：由均值向量和协方差矩阵决定的「高维钟形曲线」</span></a></li><li data-page="20"><a href="p20.html"><span class="toc-num">20</span><span class="toc-title">二元情形：联合正态时，协方差为 0 等价于独立</span></a></li><li data-page="21"><a href="p21.html"><span class="toc-num">21</span><span class="toc-title">多元情形：联合正态时，协方差全为 0 等价于相互独立</span></a></li></ol></section>
 </aside>
 <div class="toc-scrim" id="toc-scrim" hidden></div>
-<main id="main" class="reader-main" data-topic="topic4" data-page="10" data-prev="p09.html" data-next="p11.html">
+<main id="main" class="reader-main" data-topic="topic4" data-page="10" data-label="第 4 讲 第 10 页" data-title="Fubini 定理：绝对可积时，二重积分等于两种顺序的累次积分" data-prev="p09.html" data-next="p11.html">
   <header class="page-head">
     <p class="crumbs"><a href="index.html">第 4 讲 乘积测度与独立性</a><span>›</span>第 2 部分　Fubini–Tonelli 定理</p>
     <div class="badges"><span class="badge">PDF 第 10 / 21 页</span><span class="badge">幻灯片 10/22</span><span class="badge badge-kind">定理</span></div>
@@ -242,6 +252,8 @@ M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">�
 </div></details>
 </div></section>
 
+<section class="box box-related"><header class="box-head"><span class="box-kind">相关练习</span><span class="box-title">作业与小测中用到这一页的题</span></header><div class="box-body"><ul class="related-list"><li><a href="../hw2/p10.html"><span class="rel-label">作业 2 第 10 题</span><span class="rel-title">平方和减去 nσ² 是鞅：方差随时间线性增长</span></a></li><li><a href="../quiz2/p04.html"><span class="rel-label">小测 2 第 4 题</span><span class="rel-title">独立序列依概率收敛时，极限只能是常数</span></a></li></ul></div></section>
+
 <section class="box box-vocab"><header class="box-head"><span class="box-kind">本页术语</span><span class="box-title">中英对照（按出现顺序）</span></header><div class="box-body"><div class="table-wrap"><table><thead><tr><th>中文</th><th>English</th><th>白话解释</th></tr></thead><tbody><tr><td><a href="../glossary.html#term-product-space">乘积空间</a></td><td lang="en"><em>product space</em></td><td>笛卡尔积 Ω₁ × Ω₂，配上乘积 σ-代数（以及乘积测度）。</td></tr><tr><td><a href="../glossary.html#term-integrable">可积</a></td><td lang="en"><em>integrable (L¹)</em></td><td>∫|f| dμ &lt; ∞。全体可积函数记作 L¹(μ)。</td></tr><tr><td><a href="../glossary.html#term-fubini">Fubini 定理</a></td><td lang="en"><em>Fubini's theorem</em></td><td>f 关于乘积测度绝对可积（∬|f| &lt; ∞）时，二重积分等于两种顺序的累次积分。</td></tr><tr><td><a href="../glossary.html#term-indicator">示性函数</a></td><td lang="en"><em>indicator function</em></td><td>𝟏_A(x) 在 x ∈ A 时取 1，否则取 0；它的积分就是 A 的测度。</td></tr><tr><td><a href="../glossary.html#term-slice">截口</a></td><td lang="en"><em>slice (section)</em></td><td>固定一个坐标、把二维集合或函数「切一刀」：A_ω₁ = {ω₂ : (ω₁, ω₂) ∈ A}，f_ω₁(ω₂) = f(ω₁, ω₂)。</td></tr><tr><td><a href="../glossary.html#term-random-variable">随机变量</a></td><td lang="en"><em>random variable</em></td><td>从样本空间到实数的（可测）函数，把结局翻译成数字；随机性来自「实现了哪个 ω」。</td></tr><tr><td><a href="../glossary.html#term-function">函数</a></td><td lang="en"><em>function / map</em></td><td>f: A → B 给 A 中每个元素指定 B 中唯一一个元素。</td></tr><tr><td><a href="../glossary.html#term-independence">独立</a></td><td lang="en"><em>independence</em></td><td>任意有限个事件同时发生的概率等于各自概率的乘积。</td></tr><tr><td><a href="../glossary.html#term-tonelli">Tonelli 定理</a></td><td lang="en"><em>Tonelli's theorem</em></td><td>f 非负可测、两个测度 σ-有限时，二重积分等于两种顺序的累次积分，三者可以同时为 ∞。</td></tr><tr><td><a href="../glossary.html#term-iterated-integral">累次积分</a></td><td lang="en"><em>iterated integral</em></td><td>一层一层地积分：先固定一个变量、对另一个变量积分，再对剩下的变量积分。</td></tr><tr><td><a href="../glossary.html#term-set">集合</a></td><td lang="en"><em>set</em></td><td>把一些对象放在一起当成一个整体，例如 {1,2,3}。</td></tr><tr><td><a href="../glossary.html#term-measure">测度</a></td><td lang="en"><em>measure</em></td><td>给 σ-代数里的每个集合一个 [0, ∞] 中的「大小」，空集为 0，并且可数可加。</td></tr><tr><td><a href="../glossary.html#term-null-set">零测集</a></td><td lang="en"><em>null set</em></td><td>测度为 0 的集合，例如单点、有理数全体、康托尔集。</td></tr><tr><td><a href="../glossary.html#term-measure-space">测度空间</a></td><td lang="en"><em>measure space</em></td><td>三元组 (S, 𝓜, μ)：空间、σ-代数、测度。</td></tr><tr><td><a href="../glossary.html#term-sigma-finite">σ-有限</a></td><td lang="en"><em>σ-finite</em></td><td>整个空间能切成可数多块测度有限的部分。概率测度、长度都满足；不可数集上的计数测度不满足。</td></tr><tr><td><a href="../glossary.html#term-probability-measure">概率测度</a></td><td lang="en"><em>probability measure</em></td><td>总质量 P(Ω) = 1 的测度。</td></tr><tr><td><a href="../glossary.html#term-product-measure">乘积测度</a></td><td lang="en"><em>product measure</em></td><td>在每个可测矩形上取 μ₁(A₁)μ₂(A₂) 的唯一测度（σ-有限时）。平面面积就是长度 × 长度的乘积测度。</td></tr><tr><td><a href="../glossary.html#term-product-sigma-algebra">乘积 σ-代数</a></td><td lang="en"><em>product σ-algebra</em></td><td>由所有可测矩形生成的 σ-代数，记作 F₁ ⊗ F₂；它也是让两个坐标映射都可测的最小 σ-代数。</td></tr><tr><td><a href="../glossary.html#term-probability-space">概率空间</a></td><td lang="en"><em>probability space</em></td><td>三元组 (Ω, 𝓕, P)：样本空间、事件的 σ-代数、概率测度。</td></tr><tr><td><a href="../glossary.html#term-joint-law">联合分布</a></td><td lang="en"><em>joint law (joint distribution)</em></td><td>随机向量 (X, Y) 在平面上的分布：对每个平面博雷尔集 B 给出 P((X, Y) ∈ B)。只知道边缘分布不能确定它。</td></tr><tr><td><a href="../glossary.html#term-variance">方差</a></td><td lang="en"><em>variance</em></td><td>Var X = E[(X − E X)²]，衡量随机变量围绕均值的波动大小。</td></tr><tr><td><a href="../glossary.html#term-expectation">期望</a></td><td lang="en"><em>expectation</em></td><td>随机变量对概率测度的积分 E[X] = ∫ X dP，也就是「加权平均」。</td></tr><tr><td><a href="../glossary.html#term-lebesgue-measure">勒贝格测度</a></td><td lang="en"><em>Lebesgue measure</em></td><td>实数轴上「长度」的严格版本，定义在勒贝格可测集上，m([a,b]) = b − a。</td></tr><tr><td><a href="../glossary.html#term-counting-measure">计数测度</a></td><td lang="en"><em>counting measure</em></td><td>μ(A) = A 中元素的个数（无限集记为 ∞）。在 ℕ 上对它积分就是求和。</td></tr></tbody></table></div></div></section>
 
     </article>
@@ -255,6 +267,14 @@ M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">�
   </footer>
 </main>
 </div>
+<footer class="site-foot">
+  <div class="site-foot-inner">
+    <a class="foot-brand" href="../index.html">高等概率论 · 逐页精讲</a>
+    <nav class="foot-links" aria-label="站点信息"><a href="../about.html">关于本站</a><a href="../basics.html">基础补课</a><a href="../glossary.html">术语表</a><a href="https://github.com/Kzczc/Advanced-Probability-Theory" target="_blank" rel="noopener">GitHub 仓库</a><a href="https://github.com/Kzczc/Advanced-Probability-Theory/issues" target="_blank" rel="noopener">反馈问题</a></nav>
+    <p class="foot-note">讲解如与老师课堂不同，以老师为准 · 阅读进度只保存在你自己的浏览器里</p>
+  </div>
+</footer>
+<button class="to-top" id="to-top" type="button" aria-label="回到顶部" hidden>↑ 顶部</button>
 <div class="lightbox" id="lightbox" hidden><button class="lightbox-close" type="button" aria-label="关闭">关闭 ✕</button><div class="lightbox-stage"><img alt=""></div><p class="lightbox-hint">点击图片放大 / 缩小 · Esc 关闭</p></div>
 <div class="term-pop" id="term-pop" role="tooltip" hidden></div>
 <div class="search-panel" id="search-panel" hidden>
@@ -265,7 +285,7 @@ M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">�
   </div>
 </div>
 <script type="application/json" id="page-data">{"terms":{"product-space":{"term":"乘积空间","en":"product space","plain":"笛卡尔积 Ω₁ × Ω₂，配上乘积 σ-代数（以及乘积测度）。"},"integrable":{"term":"可积","en":"integrable (L¹)","plain":"∫|f| dμ \u003c ∞。全体可积函数记作 L¹(μ)。"},"fubini":{"term":"Fubini 定理","en":"Fubini's theorem","plain":"f 关于乘积测度绝对可积（∬|f| \u003c ∞）时，二重积分等于两种顺序的累次积分。"},"indicator":{"term":"示性函数","en":"indicator function","plain":"𝟏_A(x) 在 x ∈ A 时取 1，否则取 0；它的积分就是 A 的测度。"},"slice":{"term":"截口","en":"slice (section)","plain":"固定一个坐标、把二维集合或函数「切一刀」：A_ω₁ = {ω₂ : (ω₁, ω₂) ∈ A}，f_ω₁(ω₂) = f(ω₁, ω₂)。"},"random-variable":{"term":"随机变量","en":"random variable","plain":"从样本空间到实数的（可测）函数，把结局翻译成数字；随机性来自「实现了哪个 ω」。"},"function":{"term":"函数","en":"function / map","plain":"f: A → B 给 A 中每个元素指定 B 中唯一一个元素。"},"independence":{"term":"独立","en":"independence","plain":"任意有限个事件同时发生的概率等于各自概率的乘积。"},"tonelli":{"term":"Tonelli 定理","en":"Tonelli's theorem","plain":"f 非负可测、两个测度 σ-有限时，二重积分等于两种顺序的累次积分，三者可以同时为 ∞。"},"iterated-integral":{"term":"累次积分","en":"iterated integral","plain":"一层一层地积分：先固定一个变量、对另一个变量积分，再对剩下的变量积分。"},"set":{"term":"集合","en":"set","plain":"把一些对象放在一起当成一个整体，例如 {1,2,3}。"},"measure":{"term":"测度","en":"measure","plain":"给 σ-代数里的每个集合一个 [0, ∞] 中的「大小」，空集为 0，并且可数可加。"},"null-set":{"term":"零测集","en":"null set","plain":"测度为 0 的集合，例如单点、有理数全体、康托尔集。"},"measure-space":{"term":"测度空间","en":"measure space","plain":"三元组 (S, 𝓜, μ)：空间、σ-代数、测度。"},"sigma-finite":{"term":"σ-有限","en":"σ-finite","plain":"整个空间能切成可数多块测度有限的部分。概率测度、长度都满足；不可数集上的计数测度不满足。"},"probability-measure":{"term":"概率测度","en":"probability measure","plain":"总质量 P(Ω) = 1 的测度。"},"product-measure":{"term":"乘积测度","en":"product measure","plain":"在每个可测矩形上取 μ₁(A₁)μ₂(A₂) 的唯一测度（σ-有限时）。平面面积就是长度 × 长度的乘积测度。"},"product-sigma-algebra":{"term":"乘积 σ-代数","en":"product σ-algebra","plain":"由所有可测矩形生成的 σ-代数，记作 F₁ ⊗ F₂；它也是让两个坐标映射都可测的最小 σ-代数。"},"probability-space":{"term":"概率空间","en":"probability space","plain":"三元组 (Ω, 𝓕, P)：样本空间、事件的 σ-代数、概率测度。"},"joint-law":{"term":"联合分布","en":"joint law (joint distribution)","plain":"随机向量 (X, Y) 在平面上的分布：对每个平面博雷尔集 B 给出 P((X, Y) ∈ B)。只知道边缘分布不能确定它。"},"variance":{"term":"方差","en":"variance","plain":"Var X = E[(X − E X)²]，衡量随机变量围绕均值的波动大小。"},"expectation":{"term":"期望","en":"expectation","plain":"随机变量对概率测度的积分 E[X] = ∫ X dP，也就是「加权平均」。"},"lebesgue-measure":{"term":"勒贝格测度","en":"Lebesgue measure","plain":"实数轴上「长度」的严格版本，定义在勒贝格可测集上，m([a,b]) = b − a。"},"counting-measure":{"term":"计数测度","en":"counting measure","plain":"μ(A) = A 中元素的个数（无限集记为 ∞）。在 ℕ 上对它积分就是求和。"}},"topic":"topic4","page":10}</script>
-<script src="../assets/js/site.js?v=b1ac21d5d4" defer></script>
-<script src="../assets/js/demos.js?v=b1ac21d5d4" defer></script>
+<script src="../assets/js/site.js?v=16b9c66b2d" defer></script>
+<script src="../assets/js/demos.js?v=16b9c66b2d" defer></script>
 </body>
 </html>

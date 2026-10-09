@@ -4,12 +4,21 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>04 独立序列依概率收敛时，极限只能是常数 · 小测2 · 高等概率论逐页精讲</title>
-<meta name="description" content="高等概率论课件逐页中文精讲：课件原页对照、零基础补课、公式推导、老师板书解读、例子与自测。">
+<meta name="description" content="小测 2 第 4 题：独立序列依概率收敛时，极限只能是常数。解答原页对照 + 中文逐题精讲（含原解答订正、例子与自测）。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="高等概率论 · 逐页精讲">
+<meta property="og:title" content="04 独立序列依概率收敛时，极限只能是常数 · 小测2 · 高等概率论逐页精讲">
+<meta property="og:description" content="小测 2 第 4 题：独立序列依概率收敛时，极限只能是常数。解答原页对照 + 中文逐题精讲（含原解答订正、例子与自测）。">
+<meta property="og:url" content="https://kzczc.github.io/Advanced-Probability-Theory/quiz2/p04.html">
+<meta property="og:image" content="https://kzczc.github.io/Advanced-Probability-Theory/assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2f3b9c">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/katex/katex.min.css">
-<link rel="stylesheet" href="../assets/css/site.css?v=b1ac21d5d4">
+<link rel="stylesheet" href="../assets/css/site.css?v=16b9c66b2d">
 
 
-<script>try{var s=localStorage.getItem("apt-font-scale");if(s)document.documentElement.style.setProperty("--font-scale",s);if(localStorage.getItem("apt-layout")==="focus")document.documentElement.classList.add("focus-mode");}catch(e){}</script>
+<script>try{var d=document.documentElement,s=localStorage.getItem("apt-font-scale"),t=localStorage.getItem("apt-theme");if(s)d.style.setProperty("--font-scale",s);if(localStorage.getItem("apt-layout")==="focus")d.classList.add("focus-mode");if(t==="dark"||(!t&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches))d.classList.add("theme-dark");}catch(e){}</script>
 </head>
 <body class="page-reader">
 <a class="skip-link" href="#main">跳到正文</a>
@@ -21,6 +30,7 @@
     <div class="tools">
       <button class="tool-btn" id="search-open" type="button" aria-label="搜索"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><span>搜索</span></button>
       <button class="tool-btn" id="layout-toggle" type="button" aria-pressed="false" title="隐藏 / 显示左侧课件原页"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4z"/><path d="M12 5v14"/></svg><span class="layout-label">专注阅读</span></button>
+      <button class="tool-btn" id="theme-toggle" type="button" aria-pressed="false" title="夜间模式（再点一次回到日间）"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><span class="theme-label">夜间</span></button>
       <div class="font-tools" role="group" aria-label="字号"><button class="tool-btn" id="font-down" type="button" aria-label="缩小字号">A−</button><button class="tool-btn" id="font-up" type="button" aria-label="放大字号">A+</button></div>
     </div>
   </div>
@@ -32,7 +42,7 @@
   <section class="toc-section"><h2>收敛方式与一致可积</h2><ol><li data-page="1"><a href="p01.html"><span class="toc-num">01</span><span class="toc-title">Lᵖ 收敛推不出几乎必然收敛：打字机序列与独立伯努利序列</span></a></li><li data-page="2"><a href="p02.html"><span class="toc-num">02</span><span class="toc-title">一致可积的定义：所有成员的「尾巴」一起变小</span></a></li><li data-page="3"><a href="p03.html"><span class="toc-num">03</span><span class="toc-title">一致可积 ⇔ L¹ 有界且一致绝对连续</span></a></li><li class="current" data-page="4"><a href="p04.html" aria-current="page"><span class="toc-num">04</span><span class="toc-title">独立序列依概率收敛时，极限只能是常数</span></a></li></ol></section>
 </aside>
 <div class="toc-scrim" id="toc-scrim" hidden></div>
-<main id="main" class="reader-main" data-topic="quiz2" data-page="4" data-prev="p03.html" data-next="">
+<main id="main" class="reader-main" data-topic="quiz2" data-page="4" data-label="小测 2 第 4 题" data-title="独立序列依概率收敛时，极限只能是常数" data-prev="p03.html" data-next="">
   <header class="page-head">
     <p class="crumbs"><a href="index.html">小测 2 收敛方式与一致可积</a><span>›</span>收敛方式与一致可积</p>
     <div class="badges"><span class="badge">第 4 题 / 共 4 题</span><span class="badge">解答原页 第 2 页</span><span class="badge badge-kind">证明题</span></div>
@@ -237,6 +247,14 @@ c-10,0,-16.667,5,-20,15z M188 15 H145 v585 v0 v585 h43z"/></svg></span></span></
   </footer>
 </main>
 </div>
+<footer class="site-foot">
+  <div class="site-foot-inner">
+    <a class="foot-brand" href="../index.html">高等概率论 · 逐页精讲</a>
+    <nav class="foot-links" aria-label="站点信息"><a href="../about.html">关于本站</a><a href="../basics.html">基础补课</a><a href="../glossary.html">术语表</a><a href="https://github.com/Kzczc/Advanced-Probability-Theory" target="_blank" rel="noopener">GitHub 仓库</a><a href="https://github.com/Kzczc/Advanced-Probability-Theory/issues" target="_blank" rel="noopener">反馈问题</a></nav>
+    <p class="foot-note">讲解如与老师课堂不同，以老师为准 · 阅读进度只保存在你自己的浏览器里</p>
+  </div>
+</footer>
+<button class="to-top" id="to-top" type="button" aria-label="回到顶部" hidden>↑ 顶部</button>
 <div class="lightbox" id="lightbox" hidden><button class="lightbox-close" type="button" aria-label="关闭">关闭 ✕</button><div class="lightbox-stage"><img alt=""></div><p class="lightbox-hint">点击图片放大 / 缩小 · Esc 关闭</p></div>
 <div class="term-pop" id="term-pop" role="tooltip" hidden></div>
 <div class="search-panel" id="search-panel" hidden>
@@ -247,7 +265,7 @@ c-10,0,-16.667,5,-20,15z M188 15 H145 v585 v0 v585 h43z"/></svg></span></span></
   </div>
 </div>
 <script type="application/json" id="page-data">{"terms":{"independence":{"term":"独立","en":"independence","plain":"任意有限个事件同时发生的概率等于各自概率的乘积。"},"in-probability":{"term":"依概率收敛","en":"convergence in probability","plain":"对每个 ε > 0，P(|Xₙ − X| > ε) → 0；比几乎必然收敛弱。"},"almost-sure":{"term":"几乎必然收敛","en":"almost sure convergence","plain":"除了概率为 0 的结局以外，Xₙ(ω) 都收敛到 X(ω)。"},"random-variable":{"term":"随机变量","en":"random variable","plain":"从样本空间到实数的（可测）函数，把结局翻译成数字；随机性来自「实现了哪个 ω」。"},"expectation":{"term":"期望","en":"expectation","plain":"随机变量对概率测度的积分 E[X] = ∫ X dP，也就是「加权平均」。"},"kolmogorov-01":{"term":"Kolmogorov 0-1 律","en":"Kolmogorov's zero–one law","plain":"独立随机变量序列的尾事件（改动前面有限项不受影响的事件）概率只能是 0 或 1。"},"law":{"term":"分布","en":"law / distribution","plain":"X 把概率「推」到取值空间上得到的测度：L(X)(B) = P(X ∈ B)。"},"function":{"term":"函数","en":"function / map","plain":"f: A → B 给 A 中每个元素指定 B 中唯一一个元素。"},"dct":{"term":"控制收敛定理","en":"dominated convergence theorem (DCT)","plain":"fₙ → f 几乎处处且 |fₙ| ≤ g、g 可积时，∫fₙ → ∫f。"},"sigma-algebra":{"term":"σ-代数","en":"sigma-algebra","plain":"允许谈概率的「事件清单」：含 Ω，对补集和可数并封闭。"},"event":{"term":"事件","en":"event","plain":"样本空间的（允许谈概率的）子集；实现的 ω 落在里面，就说事件发生。"},"tail-event":{"term":"尾事件","en":"tail event","plain":"改动任意有限个坐标都不影响是否发生的事件，例如「序列 ω₁, ω₂, … 收敛」。"},"subsequence":{"term":"子列","en":"subsequence","plain":"从一个数列里按顺序挑出无穷多项组成的新数列。"},"integrable":{"term":"可积","en":"integrable (L¹)","plain":"∫|f| dμ \u003c ∞。全体可积函数记作 L¹(μ)。"},"variance":{"term":"方差","en":"variance","plain":"Var X = E[(X − E X)²]，衡量随机变量围绕均值的波动大小。"},"interval":{"term":"区间","en":"interval","plain":"数轴上的一段，[a,b] 包含端点，(a,b) 不包含端点。"},"cdf":{"term":"累积分布函数","en":"cumulative distribution function (CDF)","plain":"F(x) = P(X ≤ x)，单调不减、右连续，完全决定分布。"},"continuity-below":{"term":"从下连续","en":"continuity from below","plain":"集合一层层变大（Eₙ ↑ E）时，测度也跟着收敛：μ(Eₙ) → μ(E)。"},"convergence-in-distribution":{"term":"依分布收敛","en":"convergence in distribution","plain":"在极限分布函数 F 的每个连续点 x 上，P(Xₙ ≤ x) → F(x)。它只比较分布，不要求 Xₙ 本身靠近 X。"},"borel-cantelli":{"term":"Borel–Cantelli 引理","en":"Borel–Cantelli lemma","plain":"概率之和有限 ⇒ 只发生有限次；独立且概率之和无穷 ⇒ 发生无穷多次。"},"infinitely-often":{"term":"无穷多次","en":"infinitely often (i.o.)","plain":"「Aₙ 发生无穷多次」就是集合 lim sup Aₙ。"},"dense":{"term":"稠密","en":"dense","plain":"任何一小段区间里都能找到它的点，例如有理数在实数轴上稠密。"},"pi-lambda":{"term":"π-λ 定理","en":"Dynkin's π-λ theorem","plain":"π-系（对有限交封闭）包含于 λ-系时，它生成的 σ-代数也包含于该 λ-系。常用来证明「两个测度在生成元上相等就处处相等」。"},"generated-sigma-algebra":{"term":"生成的 σ-代数","en":"generated sigma-algebra","plain":"包含给定集合族的最小 σ-代数 σ(𝒞)：只加入「被逼着加入」的集合。"},"series":{"term":"级数","en":"series","plain":"无穷多项相加 a₁ + a₂ + …，它的值是前 n 项和在 n → ∞ 时的极限。"},"strong-law":{"term":"强大数定律","en":"strong law of large numbers","plain":"独立同分布且 E|X₁| \u003c ∞ 时，样本均值 Sₙ/n 几乎必然收敛到 E X₁。"}},"topic":"quiz2","page":4}</script>
-<script src="../assets/js/site.js?v=b1ac21d5d4" defer></script>
-<script src="../assets/js/demos.js?v=b1ac21d5d4" defer></script>
+<script src="../assets/js/site.js?v=16b9c66b2d" defer></script>
+<script src="../assets/js/demos.js?v=16b9c66b2d" defer></script>
 </body>
 </html>

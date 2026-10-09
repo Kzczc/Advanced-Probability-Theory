@@ -4,11 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>作业1 Borel–Cantelli 引理、概率不等式与收敛定理 · 高等概率论逐页精讲</title>
-<meta name="description" content="高等概率论课件逐页中文精讲：课件原页对照、零基础补课、公式推导、老师板书解读、例子与自测。">
+<meta name="description" content="作业 1 Borel–Cantelli 引理、概率不等式与收敛定理：12 道题：用 Borel–Cantelli 引理判断事件会不会发生无穷多次，依测度收敛的运算，积分不等式及其等号条件，以及 Fatou 引理、控制收敛定理的典型用法与反例。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="高等概率论 · 逐页精讲">
+<meta property="og:title" content="作业1 Borel–Cantelli 引理、概率不等式与收敛定理 · 高等概率论逐页精讲">
+<meta property="og:description" content="作业 1 Borel–Cantelli 引理、概率不等式与收敛定理：12 道题：用 Borel–Cantelli 引理判断事件会不会发生无穷多次，依测度收敛的运算，积分不等式及其等号条件，以及 Fatou 引理、控制收敛定理的典型用法与反例。">
+<meta property="og:url" content="https://kzczc.github.io/Advanced-Probability-Theory/hw1/index.html">
+<meta property="og:image" content="https://kzczc.github.io/Advanced-Probability-Theory/assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2f3b9c">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/katex/katex.min.css">
-<link rel="stylesheet" href="../assets/css/site.css?v=b1ac21d5d4">
+<link rel="stylesheet" href="../assets/css/site.css?v=16b9c66b2d">
 
-<script>try{var s=localStorage.getItem("apt-font-scale");if(s)document.documentElement.style.setProperty("--font-scale",s);if(localStorage.getItem("apt-layout")==="focus")document.documentElement.classList.add("focus-mode");}catch(e){}</script>
+<script>try{var d=document.documentElement,s=localStorage.getItem("apt-font-scale"),t=localStorage.getItem("apt-theme");if(s)d.style.setProperty("--font-scale",s);if(localStorage.getItem("apt-layout")==="focus")d.classList.add("focus-mode");if(t==="dark"||(!t&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches))d.classList.add("theme-dark");}catch(e){}</script>
 </head>
 <body class="page-index">
 <a class="skip-link" href="#main">跳到正文</a>
@@ -20,6 +29,7 @@
     <div class="tools">
       <button class="tool-btn" id="search-open" type="button" aria-label="搜索"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><span>搜索</span></button>
       
+      <button class="tool-btn" id="theme-toggle" type="button" aria-pressed="false" title="夜间模式（再点一次回到日间）"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><span class="theme-label">夜间</span></button>
       <div class="font-tools" role="group" aria-label="字号"><button class="tool-btn" id="font-down" type="button" aria-label="缩小字号">A−</button><button class="tool-btn" id="font-up" type="button" aria-label="放大字号">A+</button></div>
     </div>
   </div>
@@ -33,7 +43,8 @@
     <p class="lede">12 道题：用 Borel–Cantelli 引理判断事件会不会发生无穷多次，依测度收敛的运算，积分不等式及其等号条件，以及 Fatou 引理、控制收敛定理的典型用法与反例。</p>
     <div class="index-actions">
       <a class="button primary" href="p01.html">从第 1 题开始</a>
-      <a class="button" id="resume-link" href="p01.html" data-topic="hw1" hidden>继续上次的进度</a>
+      <a class="button" id="resume-link" href="p01.html" data-topic="hw1" data-unit="题" hidden>继续上次的进度</a>
+      <a class="button" href="#issues">原解答问题速览</a>
     </div>
     <p class="index-stats">精讲已完成 <b>12</b> / 12 题 · <span class="toc-progress" data-topic="hw1" data-total="12">已看懂 <b>0</b> / 12 题</span></p>
   </header>
@@ -100,7 +111,20 @@
           <span class="row-main"><span class="row-title">|f| ≤ 1 时 ∫√(1−f²) ≤ √(1−(∫f)²)：单位圆上的点，平均起来落在圆盘里</span><span class="row-en" lang="en">An integral inequality for |f| ≤ 1 and its equality case</span></span>
           <span class="row-meta">解答原页 第 6 页 · 证明题</span>
         </a></li></ol></section>
+  <section class="index-section issues-overview" id="issues">
+    <h2>原解答问题速览<small>12 道题 · 36 处</small></h2>
+    <p class="section-lede">解答原页不是标准答案：下面是各题精讲里指出的笔误、跳步和错误（「题目」表示题面本身的问题）。点题目标题直接跳到那道题的「原解答逐行对照」，那里有正确写法。考前复习时，这些地方最容易丢分。</p>
+    <ol class="issue-list"><li class="issue-item"><a href="p01.html#s6"><span class="row-num">01</span><span class="issue-title">任何随机变量序列都能被某个 cₙ → ∞ 压到 0</span></a><ul><li><span class="issue-tag">问题</span>要选的是 cₙ，而且没说明它为什么存在</li><li><span class="issue-tag">问题</span>2² 应为 2ⁿ</li><li><span class="issue-tag">问题</span>没有保证 cₙ → ∞</li><li><span class="issue-tag">问题</span>「ε &lt; 1/N」方向写反，最后一个等号也缺理由</li></ul></li><li class="issue-item"><a href="p02.html#s8"><span class="row-num">02</span><span class="issue-title">独立序列：sup Xₙ 有限 ⇔ 某个 A 使 ∑ P(Xₙ &gt; A) 有限</span></a><ul><li><span class="issue-tag">问题</span>反证的假设必须写成「对每个 A」</li><li><span class="issue-tag">问题</span>引理名拼写、引理编号、事件独立性</li><li><span class="issue-tag">问题</span>从「每个 A 概率为 1」到「sup = ∞ a.s.」要用可数交</li><li><span class="issue-tag">问题</span>「similarly」不恰当，最后一步有跳步</li></ul></li><li class="issue-item"><a href="p03.html#s8"><span class="row-num">03</span><span class="issue-title">均值无穷时 |Xₙ| ≥ n 无穷多次，Sₙ/n 没有有限极限</span></a><ul><li><span class="issue-tag">问题</span>求和从 n = 0 开始，还要从「&gt;」过渡到「≥」</li><li><span class="issue-tag">问题</span>第二引理的两个条件各从哪里来，应当写明</li><li><span class="issue-tag">问题</span>「&gt; 2/3」的来历没有交代</li><li><span class="issue-tag">问题</span>笔误 E[|X|₁]，以及「必要」的确切含义</li></ul></li><li class="issue-item"><a href="p04.html#s8"><span class="row-num">04</span><span class="issue-title">独立伯努利序列：依概率收敛 ⇔ pₙ → 0，几乎必然收敛 ⇔ ∑ pₙ &lt; ∞</span></a><ul><li><span class="issue-tag">问题</span>(i) 漏了 ε ≥ 1，而且写法像循环论证</li><li><span class="issue-tag">问题</span>ε 没有限定，也没说明 a.s. 收敛为什么等价于 P(Aₙ i.o.) = 0</li></ul></li><li class="issue-item"><a href="p05.html#s6"><span class="row-num">05</span><span class="issue-title">独立 Exp(1) 序列：lim sup Xₙ / ln n = 1 几乎必然</span></a><ul><li><span class="issue-tag">问题</span>n = 1 和 α 的范围</li><li><span class="issue-tag">问题</span>m 要取正整数，「and so」中间缺两步</li><li><span class="issue-tag">问题</span>P(L ≥ 1 + 1/n) = 0 不能直接从第 4 行得到，需要留余量</li></ul></li><li class="issue-item"><a href="p06.html#s9"><span class="row-num">06</span><span class="issue-title">依测度收敛：和总能保持，积需要有限测度</span></a><ul><li><span class="issue-tag">问题</span>(i) 中的 ε 应为 ε/2，原不等式不成立</li><li><span class="issue-tag">问题</span>M 应为 M₁，「&gt;」应为「≥」</li><li><span class="issue-tag">问题</span>(ii) 第 3–5 行的笔误</li><li><span class="issue-tag">问题</span>极限的顺序、有限测度用在哪里、记号</li><li><span class="issue-tag">问题</span>缺少 μ(Ω) = ∞ 时的反例</li></ul></li><li class="issue-item"><a href="p07.html#s6"><span class="row-num">07</span><span class="issue-title">Hölder 不等式（指数 3/2 与 3）的应用：常数 4/25 与等号条件</span></a><ul><li><span class="issue-tag">问题</span>只证明了「充分」，c 的符号也不对</li><li><span class="issue-tag">问题</span>用的是 Hölder，不是 Cauchy–Schwarz</li></ul></li><li class="issue-item"><a href="p08.html#s9"><span class="row-num">08</span><span class="issue-title">积分的绝对连续性：小集合上的积分一定小（ε–δ 刻画）</span></a><ul><li><span class="issue-tag">问题</span>f 应为 |X|，还要求 0 ≤ φ ≤ |X|</li><li><span class="issue-tag">问题</span>δ 可能除以 0，界也取得太粗</li><li><span class="issue-tag">问题</span>第一个「&lt;」没有根据</li><li><span class="issue-tag">问题</span>证法二的小毛病</li></ul></li><li class="issue-item"><a href="p09.html#s6"><span class="row-num">09</span><span class="issue-title">用控制收敛定理求 lim ∫ k ln(1 + f²/k²) dμ（答案是 0）</span></a><ul><li><span class="issue-tag">问题</span>换元造成记号混乱，且没有必要</li><li><span class="issue-tag">问题</span>最关键的不等式没有证明</li><li><span class="issue-tag">问题</span>逐点极限没有说明，连续参数也要交代</li></ul></li><li class="issue-item"><a href="p10.html#s6"><span class="row-num">10</span><span class="issue-title">推广的控制收敛定理：控制函数也可以随 n 变</span></a><ul><li><span class="issue-tag">问题</span>g 应为 gₙ，而且「f_n + g ≥ 0」一般不成立</li><li><span class="issue-tag">问题</span>漏掉了 ∫gₙ → ∫g 这一步</li><li><span class="issue-tag">问题</span>Fatou 给的是「≤」，不是「=」；还有笔误</li></ul></li><li class="issue-item"><a href="p11.html#s6"><span class="row-num">11</span><span class="issue-title">逐点收敛的非负函数：三种附加条件下，积分是否跟着收敛</span></a><ul><li><span class="issue-tag">问题</span>原解答的小问题</li></ul></li><li class="issue-item"><a href="p12.html#s6"><span class="row-num">12</span><span class="issue-title">|f| ≤ 1 时 ∫√(1−f²) ≤ √(1−(∫f)²)：单位圆上的点，平均起来落在圆盘里</span></a><ul><li><span class="issue-tag">问题</span>等号条件找错了地方</li></ul></li></ol>
+  </section>
 </main>
+<footer class="site-foot">
+  <div class="site-foot-inner">
+    <a class="foot-brand" href="../index.html">高等概率论 · 逐页精讲</a>
+    <nav class="foot-links" aria-label="站点信息"><a href="../about.html">关于本站</a><a href="../basics.html">基础补课</a><a href="../glossary.html">术语表</a><a href="https://github.com/Kzczc/Advanced-Probability-Theory" target="_blank" rel="noopener">GitHub 仓库</a><a href="https://github.com/Kzczc/Advanced-Probability-Theory/issues" target="_blank" rel="noopener">反馈问题</a></nav>
+    <p class="foot-note">讲解如与老师课堂不同，以老师为准 · 阅读进度只保存在你自己的浏览器里</p>
+  </div>
+</footer>
+<button class="to-top" id="to-top" type="button" aria-label="回到顶部" hidden>↑ 顶部</button>
 <div class="lightbox" id="lightbox" hidden><button class="lightbox-close" type="button" aria-label="关闭">关闭 ✕</button><div class="lightbox-stage"><img alt=""></div><p class="lightbox-hint">点击图片放大 / 缩小 · Esc 关闭</p></div>
 <div class="term-pop" id="term-pop" role="tooltip" hidden></div>
 <div class="search-panel" id="search-panel" hidden>
@@ -111,7 +135,7 @@
   </div>
 </div>
 
-<script src="../assets/js/site.js?v=b1ac21d5d4" defer></script>
-<script src="../assets/js/demos.js?v=b1ac21d5d4" defer></script>
+<script src="../assets/js/site.js?v=16b9c66b2d" defer></script>
+<script src="../assets/js/demos.js?v=16b9c66b2d" defer></script>
 </body>
 </html>

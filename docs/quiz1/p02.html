@@ -4,12 +4,21 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>02 用 Fatou 引理证明控制收敛定理：从上下两边夹住 · 小测1 · 高等概率论逐页精讲</title>
-<meta name="description" content="高等概率论课件逐页中文精讲：课件原页对照、零基础补课、公式推导、老师板书解读、例子与自测。">
+<meta name="description" content="小测 1 第 2 题：用 Fatou 引理证明控制收敛定理：从上下两边夹住。解答原页对照 + 中文逐题精讲（含原解答订正、例子与自测）。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="高等概率论 · 逐页精讲">
+<meta property="og:title" content="02 用 Fatou 引理证明控制收敛定理：从上下两边夹住 · 小测1 · 高等概率论逐页精讲">
+<meta property="og:description" content="小测 1 第 2 题：用 Fatou 引理证明控制收敛定理：从上下两边夹住。解答原页对照 + 中文逐题精讲（含原解答订正、例子与自测）。">
+<meta property="og:url" content="https://kzczc.github.io/Advanced-Probability-Theory/quiz1/p02.html">
+<meta property="og:image" content="https://kzczc.github.io/Advanced-Probability-Theory/assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2f3b9c">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/katex/katex.min.css">
-<link rel="stylesheet" href="../assets/css/site.css?v=b1ac21d5d4">
+<link rel="stylesheet" href="../assets/css/site.css?v=16b9c66b2d">
 <link rel="prefetch" href="p03.html">
 <link rel="prefetch" href="../assets/slides/quiz1/p01.webp" as="image">
-<script>try{var s=localStorage.getItem("apt-font-scale");if(s)document.documentElement.style.setProperty("--font-scale",s);if(localStorage.getItem("apt-layout")==="focus")document.documentElement.classList.add("focus-mode");}catch(e){}</script>
+<script>try{var d=document.documentElement,s=localStorage.getItem("apt-font-scale"),t=localStorage.getItem("apt-theme");if(s)d.style.setProperty("--font-scale",s);if(localStorage.getItem("apt-layout")==="focus")d.classList.add("focus-mode");if(t==="dark"||(!t&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches))d.classList.add("theme-dark");}catch(e){}</script>
 </head>
 <body class="page-reader">
 <a class="skip-link" href="#main">跳到正文</a>
@@ -21,6 +30,7 @@
     <div class="tools">
       <button class="tool-btn" id="search-open" type="button" aria-label="搜索"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><span>搜索</span></button>
       <button class="tool-btn" id="layout-toggle" type="button" aria-pressed="false" title="隐藏 / 显示左侧课件原页"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4z"/><path d="M12 5v14"/></svg><span class="layout-label">专注阅读</span></button>
+      <button class="tool-btn" id="theme-toggle" type="button" aria-pressed="false" title="夜间模式（再点一次回到日间）"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><span class="theme-label">夜间</span></button>
       <div class="font-tools" role="group" aria-label="字号"><button class="tool-btn" id="font-down" type="button" aria-label="缩小字号">A−</button><button class="tool-btn" id="font-up" type="button" aria-label="放大字号">A+</button></div>
     </div>
   </div>
@@ -33,7 +43,7 @@
 <section class="toc-section"><h2>Lᵖ 收敛</h2><ol><li data-page="4"><a href="p04.html"><span class="toc-num">04</span><span class="toc-title">Lᵖ 收敛时，积分上界保持下来（其实积分本身也收敛）</span></a></li></ol></section>
 </aside>
 <div class="toc-scrim" id="toc-scrim" hidden></div>
-<main id="main" class="reader-main" data-topic="quiz1" data-page="2" data-prev="p01.html" data-next="p03.html">
+<main id="main" class="reader-main" data-topic="quiz1" data-page="2" data-label="小测 1 第 2 题" data-title="用 Fatou 引理证明控制收敛定理：从上下两边夹住" data-prev="p01.html" data-next="p03.html">
   <header class="page-head">
     <p class="crumbs"><a href="index.html">小测 1 收敛定理与两种收敛方式</a><span>›</span>收敛定理</p>
     <div class="badges"><span class="badge">第 2 题 / 共 4 题</span><span class="badge">解答原页 第 1 页</span><span class="badge badge-kind">证明题</span></div>
@@ -206,6 +216,14 @@ c-10,0,-16.667,5,-20,15z M188 15 H145 v585 v0 v585 h43z"/></svg></span></span></
   </footer>
 </main>
 </div>
+<footer class="site-foot">
+  <div class="site-foot-inner">
+    <a class="foot-brand" href="../index.html">高等概率论 · 逐页精讲</a>
+    <nav class="foot-links" aria-label="站点信息"><a href="../about.html">关于本站</a><a href="../basics.html">基础补课</a><a href="../glossary.html">术语表</a><a href="https://github.com/Kzczc/Advanced-Probability-Theory" target="_blank" rel="noopener">GitHub 仓库</a><a href="https://github.com/Kzczc/Advanced-Probability-Theory/issues" target="_blank" rel="noopener">反馈问题</a></nav>
+    <p class="foot-note">讲解如与老师课堂不同，以老师为准 · 阅读进度只保存在你自己的浏览器里</p>
+  </div>
+</footer>
+<button class="to-top" id="to-top" type="button" aria-label="回到顶部" hidden>↑ 顶部</button>
 <div class="lightbox" id="lightbox" hidden><button class="lightbox-close" type="button" aria-label="关闭">关闭 ✕</button><div class="lightbox-stage"><img alt=""></div><p class="lightbox-hint">点击图片放大 / 缩小 · Esc 关闭</p></div>
 <div class="term-pop" id="term-pop" role="tooltip" hidden></div>
 <div class="search-panel" id="search-panel" hidden>
@@ -216,7 +234,7 @@ c-10,0,-16.667,5,-20,15z M188 15 H145 v585 v0 v585 h43z"/></svg></span></span></
   </div>
 </div>
 <script type="application/json" id="page-data">{"terms":{"fatou":{"term":"Fatou 引理","en":"Fatou's lemma","plain":"非负可测函数列满足 ∫ liminf fₙ ≤ liminf ∫ fₙ（只保证这个方向）。"},"function":{"term":"函数","en":"function / map","plain":"f: A → B 给 A 中每个元素指定 B 中唯一一个元素。"},"liminf":{"term":"下极限","en":"limit inferior (lim inf)","plain":"数列「尾部的最小可能值」的极限；对集合则表示「从某一项起一直发生」。"},"integrable":{"term":"可积","en":"integrable (L¹)","plain":"∫|f| dμ \u003c ∞。全体可积函数记作 L¹(μ)。"},"measurable-function":{"term":"可测函数","en":"measurable function","plain":"对每个 a，集合 {f > a} 都可测；这样的函数才能积分。"},"null-set":{"term":"零测集","en":"null set","plain":"测度为 0 的集合，例如单点、有理数全体、康托尔集。"},"dct":{"term":"控制收敛定理","en":"dominated convergence theorem (DCT)","plain":"fₙ → f 几乎处处且 |fₙ| ≤ g、g 可积时，∫fₙ → ∫f。"},"random-variable":{"term":"随机变量","en":"random variable","plain":"从样本空间到实数的（可测）函数，把结局翻译成数字；随机性来自「实现了哪个 ω」。"},"convergence-in-measure":{"term":"依测度收敛","en":"convergence in measure","plain":"对每个 ε > 0，μ(|fₙ − f| > ε) → 0：偏差超过 ε 的区域，测度越来越小。在概率空间上就是依概率收敛。"},"subsequence":{"term":"子列","en":"subsequence","plain":"从一个数列里按顺序挑出无穷多项组成的新数列。"},"almost-everywhere":{"term":"几乎处处","en":"almost everywhere (a.e.)","plain":"除了一个测度为 0 的集合之外都成立；零测集上的值不影响积分。"},"measure":{"term":"测度","en":"measure","plain":"给 σ-代数里的每个集合一个 [0, ∞] 中的「大小」，空集为 0，并且可数可加。"},"uniform-integrability":{"term":"一致可积","en":"uniformly integrable","plain":"一族随机变量的尾部期望一致地变小：supₜ E[|Xₜ|; |Xₜ| > λ] → 0（λ → ∞）。它是「依概率收敛 ⇒ 期望收敛」的关键条件。"},"expectation":{"term":"期望","en":"expectation","plain":"随机变量对概率测度的积分 E[X] = ∫ X dP，也就是「加权平均」。"}},"topic":"quiz1","page":2}</script>
-<script src="../assets/js/site.js?v=b1ac21d5d4" defer></script>
-<script src="../assets/js/demos.js?v=b1ac21d5d4" defer></script>
+<script src="../assets/js/site.js?v=16b9c66b2d" defer></script>
+<script src="../assets/js/demos.js?v=16b9c66b2d" defer></script>
 </body>
 </html>

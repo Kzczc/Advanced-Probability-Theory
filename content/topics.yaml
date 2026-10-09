@@ -3,6 +3,8 @@ site:
   title: 高等概率论 · 逐页精讲
   subtitle: 写给数学基础薄弱的同学：课件原页对照、零基础补课、公式推导、老师板书逐条解读、例子与自测
   english: Advanced Probability Theory
+  url: https://kzczc.github.io/Advanced-Probability-Theory/
+  repo: https://github.com/Kzczc/Advanced-Probability-Theory
 topics:
   - id: topic1
     number: 1

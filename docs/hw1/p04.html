@@ -4,12 +4,21 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>04 独立伯努利序列：依概率收敛 ⇔ pₙ → 0，几乎必然收敛 ⇔ ∑ pₙ &lt; ∞ · 作业1 · 高等概率论逐页精讲</title>
-<meta name="description" content="高等概率论课件逐页中文精讲：课件原页对照、零基础补课、公式推导、老师板书解读、例子与自测。">
+<meta name="description" content="作业 1 第 4 题：独立伯努利序列：依概率收敛 ⇔ pₙ → 0，几乎必然收敛 ⇔ ∑ pₙ &lt; ∞。解答原页对照 + 中文逐题精讲（含原解答订正、例子与自测）。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="高等概率论 · 逐页精讲">
+<meta property="og:title" content="04 独立伯努利序列：依概率收敛 ⇔ pₙ → 0，几乎必然收敛 ⇔ ∑ pₙ &lt; ∞ · 作业1 · 高等概率论逐页精讲">
+<meta property="og:description" content="作业 1 第 4 题：独立伯努利序列：依概率收敛 ⇔ pₙ → 0，几乎必然收敛 ⇔ ∑ pₙ &lt; ∞。解答原页对照 + 中文逐题精讲（含原解答订正、例子与自测）。">
+<meta property="og:url" content="https://kzczc.github.io/Advanced-Probability-Theory/hw1/p04.html">
+<meta property="og:image" content="https://kzczc.github.io/Advanced-Probability-Theory/assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2f3b9c">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/katex/katex.min.css">
-<link rel="stylesheet" href="../assets/css/site.css?v=b1ac21d5d4">
+<link rel="stylesheet" href="../assets/css/site.css?v=16b9c66b2d">
 <link rel="prefetch" href="p05.html">
 <link rel="prefetch" href="../assets/slides/hw1/p02.webp" as="image">
-<script>try{var s=localStorage.getItem("apt-font-scale");if(s)document.documentElement.style.setProperty("--font-scale",s);if(localStorage.getItem("apt-layout")==="focus")document.documentElement.classList.add("focus-mode");}catch(e){}</script>
+<script>try{var d=document.documentElement,s=localStorage.getItem("apt-font-scale"),t=localStorage.getItem("apt-theme");if(s)d.style.setProperty("--font-scale",s);if(localStorage.getItem("apt-layout")==="focus")d.classList.add("focus-mode");if(t==="dark"||(!t&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches))d.classList.add("theme-dark");}catch(e){}</script>
 </head>
 <body class="page-reader">
 <a class="skip-link" href="#main">跳到正文</a>
@@ -21,6 +30,7 @@
     <div class="tools">
       <button class="tool-btn" id="search-open" type="button" aria-label="搜索"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><span>搜索</span></button>
       <button class="tool-btn" id="layout-toggle" type="button" aria-pressed="false" title="隐藏 / 显示左侧课件原页"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4z"/><path d="M12 5v14"/></svg><span class="layout-label">专注阅读</span></button>
+      <button class="tool-btn" id="theme-toggle" type="button" aria-pressed="false" title="夜间模式（再点一次回到日间）"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><span class="theme-label">夜间</span></button>
       <div class="font-tools" role="group" aria-label="字号"><button class="tool-btn" id="font-down" type="button" aria-label="缩小字号">A−</button><button class="tool-btn" id="font-up" type="button" aria-label="放大字号">A+</button></div>
     </div>
   </div>
@@ -34,7 +44,7 @@
 <section class="toc-section"><h2>积分的收敛定理与不等式</h2><ol><li data-page="8"><a href="p08.html"><span class="toc-num">08</span><span class="toc-title">积分的绝对连续性：小集合上的积分一定小（ε–δ 刻画）</span></a></li><li data-page="9"><a href="p09.html"><span class="toc-num">09</span><span class="toc-title">用控制收敛定理求 lim ∫ k ln(1 + f²/k²) dμ（答案是 0）</span></a></li><li data-page="10"><a href="p10.html"><span class="toc-num">10</span><span class="toc-title">推广的控制收敛定理：控制函数也可以随 n 变</span></a></li><li data-page="11"><a href="p11.html"><span class="toc-num">11</span><span class="toc-title">逐点收敛的非负函数：三种附加条件下，积分是否跟着收敛</span></a></li><li data-page="12"><a href="p12.html"><span class="toc-num">12</span><span class="toc-title">|f| ≤ 1 时 ∫√(1−f²) ≤ √(1−(∫f)²)：单位圆上的点，平均起来落在圆盘里</span></a></li></ol></section>
 </aside>
 <div class="toc-scrim" id="toc-scrim" hidden></div>
-<main id="main" class="reader-main" data-topic="hw1" data-page="4" data-prev="p03.html" data-next="p05.html">
+<main id="main" class="reader-main" data-topic="hw1" data-page="4" data-label="作业 1 第 4 题" data-title="独立伯努利序列：依概率收敛 ⇔ pₙ → 0，几乎必然收敛 ⇔ ∑ pₙ &lt; ∞" data-prev="p03.html" data-next="p05.html">
   <header class="page-head">
     <p class="crumbs"><a href="index.html">作业 1 Borel–Cantelli 引理、概率不等式与收敛定理</a><span>›</span>Borel–Cantelli 引理的应用</p>
     <div class="badges"><span class="badge">第 4 题 / 共 12 题</span><span class="badge">解答原页 第 2 页</span><span class="badge badge-kind">证明题</span></div>
@@ -374,6 +384,14 @@ M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">�
   </footer>
 </main>
 </div>
+<footer class="site-foot">
+  <div class="site-foot-inner">
+    <a class="foot-brand" href="../index.html">高等概率论 · 逐页精讲</a>
+    <nav class="foot-links" aria-label="站点信息"><a href="../about.html">关于本站</a><a href="../basics.html">基础补课</a><a href="../glossary.html">术语表</a><a href="https://github.com/Kzczc/Advanced-Probability-Theory" target="_blank" rel="noopener">GitHub 仓库</a><a href="https://github.com/Kzczc/Advanced-Probability-Theory/issues" target="_blank" rel="noopener">反馈问题</a></nav>
+    <p class="foot-note">讲解如与老师课堂不同，以老师为准 · 阅读进度只保存在你自己的浏览器里</p>
+  </div>
+</footer>
+<button class="to-top" id="to-top" type="button" aria-label="回到顶部" hidden>↑ 顶部</button>
 <div class="lightbox" id="lightbox" hidden><button class="lightbox-close" type="button" aria-label="关闭">关闭 ✕</button><div class="lightbox-stage"><img alt=""></div><p class="lightbox-hint">点击图片放大 / 缩小 · Esc 关闭</p></div>
 <div class="term-pop" id="term-pop" role="tooltip" hidden></div>
 <div class="search-panel" id="search-panel" hidden>
@@ -384,7 +402,7 @@ M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">�
   </div>
 </div>
 <script type="application/json" id="page-data">{"terms":{"in-probability":{"term":"依概率收敛","en":"convergence in probability","plain":"对每个 ε > 0，P(|Xₙ − X| > ε) → 0；比几乎必然收敛弱。"},"almost-sure":{"term":"几乎必然收敛","en":"almost sure convergence","plain":"除了概率为 0 的结局以外，Xₙ(ω) 都收敛到 X(ω)。"},"borel-cantelli":{"term":"Borel–Cantelli 引理","en":"Borel–Cantelli lemma","plain":"概率之和有限 ⇒ 只发生有限次；独立且概率之和无穷 ⇒ 发生无穷多次。"},"independence":{"term":"独立","en":"independence","plain":"任意有限个事件同时发生的概率等于各自概率的乘积。"},"event":{"term":"事件","en":"event","plain":"样本空间的（允许谈概率的）子集；实现的 ω 落在里面，就说事件发生。"},"infinitely-often":{"term":"无穷多次","en":"infinitely often (i.o.)","plain":"「Aₙ 发生无穷多次」就是集合 lim sup Aₙ。"},"random-variable":{"term":"随机变量","en":"random variable","plain":"从样本空间到实数的（可测）函数，把结局翻译成数字；随机性来自「实现了哪个 ω」。"},"law":{"term":"分布","en":"law / distribution","plain":"X 把概率「推」到取值空间上得到的测度：L(X)(B) = P(X ∈ B)。"},"borel":{"term":"博雷尔 σ-代数","en":"Borel sigma-algebra","plain":"由实数轴上所有开区间生成的 σ-代数 𝓑(ℝ)，包含所有常见的集合。"},"series":{"term":"级数","en":"series","plain":"无穷多项相加 a₁ + a₂ + …，它的值是前 n 项和在 n → ∞ 时的极限。"},"empty-set":{"term":"空集","en":"empty set","plain":"一个元素也没有的集合，记作 ∅。作为事件，它永远不会发生。"},"marginal-law":{"term":"边缘分布","en":"marginal law","plain":"随机向量中单个坐标的分布，例如 P(X ∈ A) = P((X, Y) ∈ A × ℝ)。"},"subsequence":{"term":"子列","en":"subsequence","plain":"从一个数列里按顺序挑出无穷多项组成的新数列。"},"kolmogorov-01":{"term":"Kolmogorov 0-1 律","en":"Kolmogorov's zero–one law","plain":"独立随机变量序列的尾事件（改动前面有限项不受影响的事件）概率只能是 0 或 1。"},"tail-event":{"term":"尾事件","en":"tail event","plain":"改动任意有限个坐标都不影响是否发生的事件，例如「序列 ω₁, ω₂, … 收敛」。"},"continuity-below":{"term":"从下连续","en":"continuity from below","plain":"集合一层层变大（Eₙ ↑ E）时，测度也跟着收敛：μ(Eₙ) → μ(E)。"}},"topic":"hw1","page":4}</script>
-<script src="../assets/js/site.js?v=b1ac21d5d4" defer></script>
-<script src="../assets/js/demos.js?v=b1ac21d5d4" defer></script>
+<script src="../assets/js/site.js?v=16b9c66b2d" defer></script>
+<script src="../assets/js/demos.js?v=16b9c66b2d" defer></script>
 </body>
 </html>

@@ -1,7 +1,8 @@
 /**
  * 高等概率论逐页精讲 · 页面交互
- *   目录抽屉、键盘翻页、阅读进度、「看懂了」记录、专注阅读、字号、
- *   课件放大、术语悬浮解释、全站搜索、术语表筛选。
+ *   目录抽屉、键盘翻页、阅读进度、「看懂了」记录、继续上次阅读、专注阅读、字号、夜间模式、
+ *   回到顶部、窄屏收起解答原页、打印时展开答案、课件放大、术语悬浮解释、
+ *   全站搜索（进入结果页后高亮并定位匹配文字）、术语表筛选。
  * 所有进度只保存在本机浏览器（localStorage），不上传任何数据。
  */
 (function () {
@@ -78,18 +79,104 @@
   });
   refreshProgress();
 
-  // 记住上次读到哪一页，目录页显示「继续上次的进度」
+  // 记住上次读到哪一页：目录页显示「继续上次的进度」，首页显示「继续上次阅读」
   const readerMain = document.querySelector(".reader-main");
-  if (readerMain) storage.set(`apt-last:${readerMain.dataset.topic}`, readerMain.dataset.page);
+  if (readerMain) {
+    const { topic, page, label, title } = readerMain.dataset;
+    storage.set(`apt-last:${topic}`, page);
+    storage.set("apt-last-any", JSON.stringify({ u: `${topic}/p${String(page).padStart(2, "0")}.html`, label: label || "", title: title || "" }));
+  }
   const resumeLink = document.getElementById("resume-link");
   if (resumeLink) {
     const last = storage.get(`apt-last:${resumeLink.dataset.topic}`);
     if (last && Number(last) > 1) {
       resumeLink.href = `p${String(last).padStart(2, "0")}.html`;
-      resumeLink.textContent = `继续上次的进度（第 ${last} 页）`;
+      resumeLink.textContent = `继续上次的进度（第 ${last} ${resumeLink.dataset.unit || "页"}）`;
       resumeLink.hidden = false;
     }
   }
+  const resumeAny = document.getElementById("resume-any");
+  if (resumeAny) {
+    try {
+      const last = JSON.parse(storage.get("apt-last-any") || "null");
+      if (last && /^[a-z0-9]+\/p\d\d\.html$/.test(last.u)) {
+        resumeAny.href = `${siteRoot}${last.u}`;
+        resumeAny.textContent = `继续上次阅读：${last.label}`;
+        resumeAny.title = last.title;
+        resumeAny.hidden = false;
+      }
+    } catch (error) { /* 记录损坏时忽略 */ }
+  }
+
+  /* ---------------- 窄屏：练习页的解答原页太长时先收起 ---------------- */
+  const sourcePane = document.querySelector(".source-pane");
+  if (sourcePane && window.matchMedia("(max-width: 1180px)").matches) {
+    const segments = sourcePane.querySelectorAll(".crop").length;
+    const measure = () => sourcePane.scrollHeight > window.innerHeight * 0.58 + 60;
+    const setup = () => {
+      if (sourcePane.classList.contains("is-collapsible") || !measure()) return;
+      sourcePane.classList.add("is-collapsible");
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "source-toggle";
+      const collapsedText = `展开本题的解答原页${segments > 1 ? `（共 ${segments} 段）` : ""} ▾`;
+      button.textContent = collapsedText;
+      button.setAttribute("aria-expanded", "false");
+      button.addEventListener("click", () => {
+        const expanded = sourcePane.classList.toggle("is-expanded");
+        button.textContent = expanded ? "收起解答原页 ▴" : collapsedText;
+        button.setAttribute("aria-expanded", String(expanded));
+        if (!expanded) sourcePane.scrollIntoView({ block: "start" });
+      });
+      sourcePane.after(button);
+    };
+    setup();
+    sourcePane.querySelectorAll("img").forEach((image) => image.addEventListener("load", setup, { once: true }));
+  }
+
+  /* ---------------- 夜间模式 ---------------- */
+  const themeToggle = document.getElementById("theme-toggle");
+  function applyTheme() {
+    const dark = document.documentElement.classList.contains("theme-dark");
+    if (!themeToggle) return;
+    themeToggle.setAttribute("aria-pressed", String(dark));
+    const label = themeToggle.querySelector(".theme-label");
+    if (label) label.textContent = dark ? "日间" : "夜间";
+    themeToggle.title = dark ? "回到日间模式" : "夜间模式（再点一次回到日间）";
+  }
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      const dark = !document.documentElement.classList.contains("theme-dark");
+      document.documentElement.classList.toggle("theme-dark", dark);
+      storage.set("apt-theme", dark ? "dark" : "light");
+      applyTheme();
+    });
+    applyTheme();
+  }
+
+  /* ---------------- 回到顶部 ---------------- */
+  const toTop = document.getElementById("to-top");
+  if (toTop) {
+    let ticking = false;
+    const toggle = () => { ticking = false; toTop.hidden = window.scrollY < 1400; };
+    window.addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(toggle); } }, { passive: true });
+    toTop.addEventListener("click", () => window.scrollTo({ top: 0 }));
+    toggle();
+  }
+
+  /* ---------------- 打印：展开所有折叠的答案与细节 ---------------- */
+  window.addEventListener("beforeprint", () => {
+    document.querySelectorAll("details").forEach((details) => {
+      details.dataset.printWasOpen = details.open ? "1" : "";
+      details.open = true;
+    });
+  });
+  window.addEventListener("afterprint", () => {
+    document.querySelectorAll("details").forEach((details) => {
+      if (details.dataset.printWasOpen !== undefined) details.open = details.dataset.printWasOpen === "1";
+      delete details.dataset.printWasOpen;
+    });
+  });
 
   /* ---------------- 专注阅读 ---------------- */
   const layoutToggle = document.getElementById("layout-toggle");
@@ -270,7 +357,9 @@
     scored.sort((a, b) => b.score - a.score);
     for (const { item } of scored.slice(0, 30)) {
       const li = document.createElement("li");
-      li.innerHTML = `<a href="${siteRoot}${item.u}"><span class="r-kicker">${escapeText(item.k)}</span>` +
+      const [base, hash] = item.u.split("#");
+      const href = `${siteRoot}${base}?q=${encodeURIComponent(query)}${hash ? `#${hash}` : ""}`;
+      li.innerHTML = `<a href="${escapeText(href)}"><span class="r-kicker">${escapeText(item.k)}</span>` +
         `<span class="r-title">${highlight(item.t, terms)}</span>` +
         `<span class="r-snippet">${highlight(snippetOf(item.x || item.e || "", terms), terms)}</span></a>`;
       searchResults.appendChild(li);
@@ -309,6 +398,55 @@
     });
   }
 
+  /* ---------------- 从搜索结果进入：高亮匹配的文字并滚动到第一处 ---------------- */
+  function clearSearchHits() {
+    document.querySelectorAll("mark.search-hit").forEach((mark) => {
+      mark.replaceWith(document.createTextNode(mark.textContent));
+    });
+    document.querySelectorAll(".notes, main").forEach((node) => node.normalize());
+  }
+  (function highlightFromQuery() {
+    let query = "";
+    try { query = new URLSearchParams(window.location.search).get("q") || ""; } catch (error) { return; }
+    if (!query) return;
+    history.replaceState(null, "", window.location.pathname + window.location.hash);
+    const terms = query.split(/\s+/).filter(Boolean).sort((a, b) => b.length - a.length);
+    const container = document.querySelector(".notes") || document.getElementById("main");
+    if (!terms.length || !container) return;
+    const source = terms.map((term) => term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|");
+    const pattern = new RegExp(source, "gi");
+    const containsTerm = new RegExp(source, "i");
+    const walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT, {
+      acceptNode: (node) => (node.parentElement.closest(".katex, script, style, mark") ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT),
+    });
+    const nodes = [];
+    while (walker.nextNode()) if (containsTerm.test(walker.currentNode.nodeValue)) nodes.push(walker.currentNode);
+    let first = null;
+    let count = 0;
+    for (const node of nodes) {
+      if (count >= 60) break;
+      const text = node.nodeValue;
+      const fragment = document.createDocumentFragment();
+      let last = 0;
+      pattern.lastIndex = 0;
+      for (const match of text.matchAll(pattern)) {
+        fragment.append(text.slice(last, match.index));
+        const mark = document.createElement("mark");
+        mark.className = "search-hit";
+        mark.textContent = match[0];
+        fragment.append(mark);
+        if (!first) first = mark;
+        last = match.index + match[0].length;
+        count += 1;
+      }
+      fragment.append(text.slice(last));
+      node.replaceWith(fragment);
+    }
+    if (!first) return;
+    for (let details = first.closest("details"); details; details = details.parentElement.closest("details")) details.open = true;
+    requestAnimationFrame(() => first.scrollIntoView({ block: "center" }));
+  })();
+
   /* ---------------- 术语表筛选 ---------------- */
   const glossaryFilter = document.getElementById("glossary-filter");
   if (glossaryFilter) {
@@ -323,10 +461,12 @@
   /* ---------------- 键盘 ---------------- */
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
+      const overlayOpen = (lightbox && !lightbox.hidden) || (searchPanel && !searchPanel.hidden) || document.body.classList.contains("toc-open");
       closeLightbox();
       closeSearch();
       setTocOpen(false);
       if (termPop) termPop.hidden = true;
+      if (!overlayOpen) clearSearchHits();
       return;
     }
     if (isTyping(event.target) || event.metaKey || event.ctrlKey || event.altKey) return;

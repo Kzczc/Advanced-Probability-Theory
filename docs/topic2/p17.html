@@ -4,12 +4,21 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>17 绝对连续正是「有密度」的条件 · 第2讲 · 高等概率论逐页精讲</title>
-<meta name="description" content="高等概率论课件逐页中文精讲：课件原页对照、零基础补课、公式推导、老师板书解读、例子与自测。">
+<meta name="description" content="第 2 讲 第 17 页：绝对连续正是「有密度」的条件。课件原页对照 + 中文逐页精讲（基础补课、推导、例子与自测）。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="高等概率论 · 逐页精讲">
+<meta property="og:title" content="17 绝对连续正是「有密度」的条件 · 第2讲 · 高等概率论逐页精讲">
+<meta property="og:description" content="第 2 讲 第 17 页：绝对连续正是「有密度」的条件。课件原页对照 + 中文逐页精讲（基础补课、推导、例子与自测）。">
+<meta property="og:url" content="https://kzczc.github.io/Advanced-Probability-Theory/topic2/p17.html">
+<meta property="og:image" content="https://kzczc.github.io/Advanced-Probability-Theory/assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2f3b9c">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/katex/katex.min.css">
-<link rel="stylesheet" href="../assets/css/site.css?v=b1ac21d5d4">
+<link rel="stylesheet" href="../assets/css/site.css?v=16b9c66b2d">
 <link rel="prefetch" href="p18.html">
 <link rel="prefetch" href="../assets/slides/topic2/p18.webp" as="image">
-<script>try{var s=localStorage.getItem("apt-font-scale");if(s)document.documentElement.style.setProperty("--font-scale",s);if(localStorage.getItem("apt-layout")==="focus")document.documentElement.classList.add("focus-mode");}catch(e){}</script>
+<script>try{var d=document.documentElement,s=localStorage.getItem("apt-font-scale"),t=localStorage.getItem("apt-theme");if(s)d.style.setProperty("--font-scale",s);if(localStorage.getItem("apt-layout")==="focus")d.classList.add("focus-mode");if(t==="dark"||(!t&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches))d.classList.add("theme-dark");}catch(e){}</script>
 </head>
 <body class="page-reader">
 <a class="skip-link" href="#main">跳到正文</a>
@@ -21,6 +30,7 @@
     <div class="tools">
       <button class="tool-btn" id="search-open" type="button" aria-label="搜索"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><span>搜索</span></button>
       <button class="tool-btn" id="layout-toggle" type="button" aria-pressed="false" title="隐藏 / 显示左侧课件原页"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4z"/><path d="M12 5v14"/></svg><span class="layout-label">专注阅读</span></button>
+      <button class="tool-btn" id="theme-toggle" type="button" aria-pressed="false" title="夜间模式（再点一次回到日间）"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><span class="theme-label">夜间</span></button>
       <div class="font-tools" role="group" aria-label="字号"><button class="tool-btn" id="font-down" type="button" aria-label="缩小字号">A−</button><button class="tool-btn" id="font-up" type="button" aria-label="放大字号">A+</button></div>
     </div>
   </div>
@@ -37,7 +47,7 @@
 <section class="toc-section"><h2>第 5 部分　用矩控制概率</h2><ol><li data-page="28"><a href="p28.html"><span class="toc-num">28</span><span class="toc-title">从「估计期望」到「估计概率」：用一个矩压住一个事件</span></a></li><li data-page="29"><a href="p29.html"><span class="toc-num">29</span><span class="toc-title">广义 Markov 不等式：用一个期望控制一个尾概率</span></a></li><li data-page="30"><a href="p30.html"><span class="toc-num">30</span><span class="toc-title">有一个有限矩，尾巴就衰减得更快</span></a></li><li data-page="31"><a href="p31.html"><span class="toc-num">31</span><span class="toc-title">尾巴衰减得更快，也不一定有有限矩（对数边界）</span></a></li><li data-page="32"><a href="p32.html"><span class="toc-num">32</span><span class="toc-title">Cantelli 单侧不等式：只看一侧时比 Chebyshev 更紧</span></a></li></ol></section>
 </aside>
 <div class="toc-scrim" id="toc-scrim" hidden></div>
-<main id="main" class="reader-main" data-topic="topic2" data-page="17" data-prev="p16.html" data-next="p18.html">
+<main id="main" class="reader-main" data-topic="topic2" data-page="17" data-label="第 2 讲 第 17 页" data-title="绝对连续正是「有密度」的条件" data-prev="p16.html" data-next="p18.html">
   <header class="page-head">
     <p class="crumbs"><a href="index.html">第 2 讲 随机变量、期望与不等式</a><span>›</span>第 2 部分　用 CDF 计算期望</p>
     <div class="badges"><span class="badge">PDF 第 17 / 32 页</span><span class="badge">幻灯片 17/33</span><span class="badge badge-kind">定理</span></div>
@@ -222,6 +232,14 @@
   </footer>
 </main>
 </div>
+<footer class="site-foot">
+  <div class="site-foot-inner">
+    <a class="foot-brand" href="../index.html">高等概率论 · 逐页精讲</a>
+    <nav class="foot-links" aria-label="站点信息"><a href="../about.html">关于本站</a><a href="../basics.html">基础补课</a><a href="../glossary.html">术语表</a><a href="https://github.com/Kzczc/Advanced-Probability-Theory" target="_blank" rel="noopener">GitHub 仓库</a><a href="https://github.com/Kzczc/Advanced-Probability-Theory/issues" target="_blank" rel="noopener">反馈问题</a></nav>
+    <p class="foot-note">讲解如与老师课堂不同，以老师为准 · 阅读进度只保存在你自己的浏览器里</p>
+  </div>
+</footer>
+<button class="to-top" id="to-top" type="button" aria-label="回到顶部" hidden>↑ 顶部</button>
 <div class="lightbox" id="lightbox" hidden><button class="lightbox-close" type="button" aria-label="关闭">关闭 ✕</button><div class="lightbox-stage"><img alt=""></div><p class="lightbox-hint">点击图片放大 / 缩小 · Esc 关闭</p></div>
 <div class="term-pop" id="term-pop" role="tooltip" hidden></div>
 <div class="search-panel" id="search-panel" hidden>
@@ -232,7 +250,7 @@
   </div>
 </div>
 <script type="application/json" id="page-data">{"terms":{"random-variable":{"term":"随机变量","en":"random variable","plain":"从样本空间到实数的（可测）函数，把结局翻译成数字；随机性来自「实现了哪个 ω」。"},"absolute-continuity":{"term":"绝对连续","en":"absolute continuity","plain":"函数版：小区间总长很小时增量总和也很小；测度版：Q ≪ P，P 为零的事件 Q 也为零。"},"interval":{"term":"区间","en":"interval","plain":"数轴上的一段，[a,b] 包含端点，(a,b) 不包含端点。"},"expectation":{"term":"期望","en":"expectation","plain":"随机变量对概率测度的积分 E[X] = ∫ X dP，也就是「加权平均」。"},"law":{"term":"分布","en":"law / distribution","plain":"X 把概率「推」到取值空间上得到的测度：L(X)(B) = P(X ∈ B)。"},"radon-nikodym":{"term":"Radon–Nikodym 导数","en":"Radon–Nikodym derivative","plain":"Q ≪ P 时存在 L = dQ/dP ≥ 0，使 Q(A) = ∫_A L dP；它是「换测度的密度」。"},"function":{"term":"函数","en":"function / map","plain":"f: A → B 给 A 中每个元素指定 B 中唯一一个元素。"},"integrable":{"term":"可积","en":"integrable (L¹)","plain":"∫|f| dμ \u003c ∞。全体可积函数记作 L¹(μ)。"},"borel":{"term":"博雷尔 σ-代数","en":"Borel sigma-algebra","plain":"由实数轴上所有开区间生成的 σ-代数 𝓑(ℝ)，包含所有常见的集合。"},"pairwise-disjoint":{"term":"两两不交","en":"pairwise disjoint","plain":"一列集合中任意两个都没有公共元素，对应「任意两件事不会同时发生」。"},"almost-everywhere":{"term":"几乎处处","en":"almost everywhere (a.e.)","plain":"除了一个测度为 0 的集合之外都成立；零测集上的值不影响积分。"},"null-set":{"term":"零测集","en":"null set","plain":"测度为 0 的集合，例如单点、有理数全体、康托尔集。"},"monotone-sequence":{"term":"单调递增","en":"nondecreasing","plain":"后一项不小于前一项；单调有界的数列一定有极限。"},"mct":{"term":"单调收敛定理","en":"monotone convergence theorem (MCT)","plain":"非负可测函数单调递增地收敛时，积分也收敛：∫fₙ ↑ ∫f。"},"measure":{"term":"测度","en":"measure","plain":"给 σ-代数里的每个集合一个 [0, ∞] 中的「大小」，空集为 0，并且可数可加。"},"probability-measure":{"term":"概率测度","en":"probability measure","plain":"总质量 P(Ω) = 1 的测度。"},"countable-additivity":{"term":"可数可加性","en":"countable additivity","plain":"两两不交的可数个集合，并集的测度等于各自测度之和。"},"set":{"term":"集合","en":"set","plain":"把一些对象放在一起当成一个整体，例如 {1,2,3}。"},"cantor-set":{"term":"康托尔集","en":"Cantor set","plain":"反复挖掉中间三分之一得到的集合：不可数，但长度为 0。"},"countable":{"term":"可数","en":"countable","plain":"元素能排成第 1 个、第 2 个、第 3 个……的一列（有限也算），例如自然数、有理数。"},"lebesgue-measure":{"term":"勒贝格测度","en":"Lebesgue measure","plain":"实数轴上「长度」的严格版本，定义在勒贝格可测集上，m([a,b]) = b − a。"}},"topic":"topic2","page":17}</script>
-<script src="../assets/js/site.js?v=b1ac21d5d4" defer></script>
-<script src="../assets/js/demos.js?v=b1ac21d5d4" defer></script>
+<script src="../assets/js/site.js?v=16b9c66b2d" defer></script>
+<script src="../assets/js/demos.js?v=16b9c66b2d" defer></script>
 </body>
 </html>
