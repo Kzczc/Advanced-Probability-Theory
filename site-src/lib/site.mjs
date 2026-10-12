@@ -75,6 +75,7 @@ const ICONS = {
   search: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>',
   focus: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4z"/><path d="M12 5v14"/></svg>',
   moon: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>',
+  symbol: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 5H7l6 7-6 7h10"/></svg>',
 };
 
 /** 站点信息（content/topics.yaml 的 site 段），buildSite 开始时设置 */
@@ -136,6 +137,17 @@ ${siteFooter(root)}
     <p class="search-hint">↑↓ 选择 · Enter 打开 · Esc 关闭</p>
   </div>
 </div>
+<div class="search-panel symbol-panel" id="symbol-panel" hidden>
+  <div class="search-box symbol-box" role="dialog" aria-label="符号与缩写速查">
+    <div class="symbol-head">
+      <strong>符号与缩写速查</strong>
+      <button class="tool-btn" id="symbol-close" type="button">关闭 ✕</button>
+    </div>
+    <input id="symbol-filter" type="search" placeholder="筛选：输入读法或意思，例如 期望、取整、a.s.、DCT" autocomplete="off">
+    <div class="symbol-body prose" id="symbol-body"><p class="symbol-status">正在载入……</p></div>
+    <p class="search-hint">完整版：<a href="${root}basics.html#symbols">基础补课 · 符号与缩写速查表</a> · Esc 关闭</p>
+  </div>
+</div>
 ${pageData ? `<script type="application/json" id="page-data">${JSON.stringify(pageData).replace(/</g, "\\u003c")}</script>` : ""}
 <script src="${root}assets/js/site.js?v=${assetVersion}" defer></script>
 <script src="${root}assets/js/demos.js?v=${assetVersion}" defer></script>
@@ -164,6 +176,7 @@ function topbar({ root, topics, currentTopicId, showReaderTools }) {
     <nav class="topnav" aria-label="讲次">${topicLinks}<a href="${root}basics.html">基础补课</a><a href="${root}glossary.html">术语表</a></nav>
     <div class="tools">
       <button class="tool-btn" id="search-open" type="button" aria-label="搜索">${ICONS.search}<span>搜索</span></button>
+      <button class="tool-btn" id="symbol-open" type="button" aria-label="符号与缩写速查" title="符号与缩写速查（不离开本页）">${ICONS.symbol}<span>符号</span></button>
       ${showReaderTools ? `<button class="tool-btn" id="layout-toggle" type="button" aria-pressed="false" title="隐藏 / 显示左侧课件原页">${ICONS.focus}<span class="layout-label">专注阅读</span></button>` : ""}
       <button class="tool-btn" id="theme-toggle" type="button" aria-pressed="false" title="夜间模式（再点一次回到日间）">${ICONS.moon}<span class="theme-label">夜间</span></button>
       <div class="font-tools" role="group" aria-label="字号"><button class="tool-btn" id="font-down" type="button" aria-label="缩小字号">A−</button><button class="tool-btn" id="font-up" type="button" aria-label="放大字号">A+</button></div>

@@ -115,7 +115,10 @@ function loadGlossary() {
   const matchers = [];
   for (const entry of entries) {
     for (const text of [entry.term, ...(entry.aliases || [])]) {
-      if (text && /[\u4e00-\u9fff]/.test(text)) matchers.push({ id: entry.id, text, notAfter: entry.not_after || "" });
+      if (!text) continue;
+      if (/[\u4e00-\u9fff]/.test(text)) matchers.push({ id: entry.id, text, notAfter: entry.not_after || "" });
+      // 纯英文缩写（DCT、a.s.、i.i.d.）只按整词匹配，避免误配到更长的单词里
+      else if (/^[A-Za-z][A-Za-z.]*$/.test(text)) matchers.push({ id: entry.id, text, notAfter: "", wholeWord: true });
     }
   }
   matchers.sort((a, b) => b.text.length - a.text.length);

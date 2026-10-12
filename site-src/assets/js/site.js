@@ -2,7 +2,7 @@
  * 高等概率论逐页精讲 · 页面交互
  *   目录抽屉、键盘翻页、阅读进度、「看懂了」记录、继续上次阅读、专注阅读、字号、夜间模式、
  *   回到顶部、窄屏收起解答原页、打印时展开答案、课件放大、术语悬浮解释、
- *   全站搜索（进入结果页后高亮并定位匹配文字）、术语表筛选。
+ *   全站搜索（进入结果页后高亮并定位匹配文字）、符号与缩写速查、术语表筛选。
  * 所有进度只保存在本机浏览器（localStorage），不上传任何数据。
  */
 (function () {
@@ -368,6 +368,7 @@
   }
   function openSearch() {
     if (!searchPanel) return;
+    closeSymbols();
     searchPanel.hidden = false;
     searchInput.focus();
     searchInput.select();
@@ -447,6 +448,90 @@
     requestAnimationFrame(() => first.scrollIntoView({ block: "center" }));
   })();
 
+  /* ---------------- 符号速查：顶栏「符号」按钮，就地显示基础补课页第 11 节的表格 ---------------- */
+  /** 窄屏时表格每行排成一张小卡片：把列名写进单元格的 data-label，CSS 用 ::before 显示 */
+  function stackTable(table) {
+    const labels = [...table.querySelectorAll("thead th")].map((th) => th.textContent.trim());
+    table.querySelectorAll("tbody tr").forEach((row) => {
+      [...row.children].forEach((cell, index) => { if (index > 0 && labels[index]) cell.dataset.label = labels[index]; });
+    });
+    table.classList.add("stack-table");
+  }
+  document.querySelectorAll("#symbols ~ .box table").forEach(stackTable);
+
+  const symbolPanel = document.getElementById("symbol-panel");
+  const symbolBody = document.getElementById("symbol-body");
+  const symbolFilter = document.getElementById("symbol-filter");
+  let symbolsState = "idle"; // idle → loading → ready / failed
+  async function loadSymbols() {
+    if (!symbolBody || symbolsState === "loading" || symbolsState === "ready") return;
+    symbolsState = "loading";
+    try {
+      const response = await fetch(`${siteRoot}basics.html`);
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const doc = new DOMParser().parseFromString(await response.text(), "text/html");
+      const heading = doc.getElementById("symbols");
+      if (!heading) throw new Error("basics.html 里没有 #symbols 一节");
+      const fragment = document.createDocumentFragment();
+      for (let node = heading.nextElementSibling; node && node.tagName !== "H2"; node = node.nextElementSibling) {
+        if (node.matches(".box")) fragment.append(document.importNode(node, true));
+      }
+      // 基础补课页在站点根目录：相对链接改成相对当前页，页内锚点指回基础补课页
+      fragment.querySelectorAll("a[href]").forEach((link) => {
+        const href = link.getAttribute("href");
+        if (href.startsWith("#")) link.setAttribute("href", `${siteRoot}basics.html${href}`);
+        else if (!/^([a-z]+:|\/)/i.test(href)) link.setAttribute("href", siteRoot + href);
+      });
+      // 术语悬浮解释的数据属于基础补课页，这里只保留文字
+      fragment.querySelectorAll(".term").forEach((term) => term.replaceWith(document.createTextNode(term.textContent)));
+      fragment.querySelectorAll("table").forEach(stackTable);
+      symbolBody.replaceChildren(fragment);
+      symbolsState = "ready";
+      filterSymbols();
+    } catch (error) {
+      symbolsState = "failed";
+      symbolBody.innerHTML = `<p class="symbol-status">载入失败，请直接打开<a href="${siteRoot}basics.html#symbols">基础补课 · 符号与缩写速查表</a>。</p>`;
+    }
+  }
+  function filterSymbols() {
+    if (!symbolBody || !symbolFilter || symbolsState !== "ready") return;
+    const needle = symbolFilter.value.trim().toLowerCase();
+    let shown = 0;
+    symbolBody.querySelectorAll(".box").forEach((box) => {
+      let visibleRows = 0;
+      box.querySelectorAll("tbody tr").forEach((row) => {
+        const match = !needle || row.textContent.toLowerCase().includes(needle);
+        row.hidden = !match;
+        if (match) visibleRows += 1;
+      });
+      box.hidden = visibleRows === 0;
+      shown += visibleRows;
+    });
+    let empty = symbolBody.querySelector(".symbol-empty");
+    if (!empty) {
+      empty = document.createElement("p");
+      empty.className = "symbol-status symbol-empty";
+      empty.textContent = "没有找到。换个说法试试，例如「期望」「收敛」「取整」，或者用顶栏的「搜索」查全站。";
+      symbolBody.append(empty);
+    }
+    empty.hidden = shown > 0;
+  }
+  function openSymbols() {
+    if (!symbolPanel) return;
+    closeSearch();
+    symbolPanel.hidden = false;
+    loadSymbols();
+    // 手机上不自动弹出键盘，免得挡住表格
+    if (symbolFilter && !window.matchMedia("(pointer: coarse)").matches) symbolFilter.focus();
+  }
+  function closeSymbols() { if (symbolPanel) symbolPanel.hidden = true; }
+  const symbolOpen = document.getElementById("symbol-open");
+  if (symbolOpen) symbolOpen.addEventListener("click", openSymbols);
+  const symbolClose = document.getElementById("symbol-close");
+  if (symbolClose) symbolClose.addEventListener("click", closeSymbols);
+  if (symbolPanel) symbolPanel.addEventListener("click", (event) => { if (event.target === symbolPanel) closeSymbols(); });
+  if (symbolFilter) symbolFilter.addEventListener("input", filterSymbols);
+
   /* ---------------- 术语表筛选 ---------------- */
   const glossaryFilter = document.getElementById("glossary-filter");
   if (glossaryFilter) {
@@ -461,9 +546,10 @@
   /* ---------------- 键盘 ---------------- */
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
-      const overlayOpen = (lightbox && !lightbox.hidden) || (searchPanel && !searchPanel.hidden) || document.body.classList.contains("toc-open");
+      const overlayOpen = (lightbox && !lightbox.hidden) || (searchPanel && !searchPanel.hidden) || (symbolPanel && !symbolPanel.hidden) || document.body.classList.contains("toc-open");
       closeLightbox();
       closeSearch();
+      closeSymbols();
       setTocOpen(false);
       if (termPop) termPop.hidden = true;
       if (!overlayOpen) clearSearchHits();
@@ -471,7 +557,7 @@
     }
     if (isTyping(event.target) || event.metaKey || event.ctrlKey || event.altKey) return;
     if (event.key === "/") { event.preventDefault(); openSearch(); return; }
-    if (!readerMain || (lightbox && !lightbox.hidden) || (searchPanel && !searchPanel.hidden)) return;
+    if (!readerMain || (lightbox && !lightbox.hidden) || (searchPanel && !searchPanel.hidden) || (symbolPanel && !symbolPanel.hidden)) return;
     if (event.key === "ArrowLeft" && readerMain.dataset.prev) window.location.href = readerMain.dataset.prev;
     if (event.key === "ArrowRight" && readerMain.dataset.next) window.location.href = readerMain.dataset.next;
   });

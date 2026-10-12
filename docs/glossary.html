@@ -15,7 +15,7 @@
 <meta name="theme-color" content="#2f3b9c">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/katex/katex.min.css">
-<link rel="stylesheet" href="assets/css/site.css?v=16b9c66b2d">
+<link rel="stylesheet" href="assets/css/site.css?v=02934f5b0d">
 
 <script>try{var d=document.documentElement,s=localStorage.getItem("apt-font-scale"),t=localStorage.getItem("apt-theme");if(s)d.style.setProperty("--font-scale",s);if(localStorage.getItem("apt-layout")==="focus")d.classList.add("focus-mode");if(t==="dark"||(!t&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches))d.classList.add("theme-dark");}catch(e){}</script>
 </head>
@@ -28,6 +28,7 @@
     <nav class="topnav" aria-label="讲次"><a href="topic1/index.html">第 1 讲</a><a href="topic2/index.html">第 2 讲</a><a href="topic3/index.html">第 3 讲</a><a href="topic4/index.html">第 4 讲</a><a href="index.html#exercises">作业与小测</a><a href="basics.html">基础补课</a><a href="glossary.html">术语表</a></nav>
     <div class="tools">
       <button class="tool-btn" id="search-open" type="button" aria-label="搜索"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><span>搜索</span></button>
+      <button class="tool-btn" id="symbol-open" type="button" aria-label="符号与缩写速查" title="符号与缩写速查（不离开本页）"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 5H7l6 7-6 7h10"/></svg><span>符号</span></button>
       
       <button class="tool-btn" id="theme-toggle" type="button" aria-pressed="false" title="夜间模式（再点一次回到日间）"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><span class="theme-label">夜间</span></button>
       <div class="font-tools" role="group" aria-label="字号"><button class="tool-btn" id="font-down" type="button" aria-label="缩小字号">A−</button><button class="tool-btn" id="font-up" type="button" aria-label="放大字号">A+</button></div>
@@ -126,6 +127,10 @@
       <div class="g-term"><strong>选择公理</strong><span lang="en">axiom of choice</span></div>
       <p class="g-plain">允许从无穷多个非空集合里各挑一个元素，组成一个新集合；维塔利集就是这样造的。</p>
       <p class="g-page"><a href="topic1/p21.html">第 1 讲 p21</a></p>
+    </li><li class="glossary-row" id="term-iff" data-search="当且仅当 iff if and only if (iff) 「a 当且仅当 b」：a 成立就一定有 b，b 成立也一定有 a，两者同真同假，记作 a ⟺ b。">
+      <div class="g-term"><strong>当且仅当</strong><span lang="en">if and only if (iff)</span></div>
+      <p class="g-plain">「A 当且仅当 B」：A 成立就一定有 B，B 成立也一定有 A，两者同真同假，记作 A ⟺ B。</p>
+      <p class="g-page"><a href="topic1/p06.html">第 1 讲 p06</a></p>
     </li><li class="glossary-row" id="term-function" data-search="函数 映射 function / map f: a → b 给 a 中每个元素指定 b 中唯一一个元素。">
       <div class="g-term"><strong>函数</strong><span lang="en">function / map</span></div>
       <p class="g-plain">f: A → B 给 A 中每个元素指定 B 中唯一一个元素。</p>
@@ -162,10 +167,50 @@
       <div class="g-term"><strong>单调递增</strong><span lang="en">nondecreasing</span></div>
       <p class="g-plain">后一项不小于前一项；单调有界的数列一定有极限。</p>
       <p class="g-page"><a href="topic1/p13.html">第 1 讲 p13</a></p>
-    </li><li class="glossary-row" id="term-pointwise" data-search="逐点收敛 pointwise convergence 对定义域里的每一个点 x，数列 fₙ(x) 都收敛到 f(x)。">
+    </li><li class="glossary-row" id="term-pointwise" data-search="逐点收敛 逐点极限 pointwise convergence 对定义域里的每一个点 x，数列 fₙ(x) 都收敛到 f(x)；这样得到的函数 f 叫逐点极限。">
       <div class="g-term"><strong>逐点收敛</strong><span lang="en">pointwise convergence</span></div>
-      <p class="g-plain">对定义域里的每一个点 x，数列 fₙ(x) 都收敛到 f(x)。</p>
+      <p class="g-plain">对定义域里的每一个点 x，数列 fₙ(x) 都收敛到 f(x)；这样得到的函数 f 叫逐点极限。</p>
       <p class="g-page"><a href="topic1/p36.html">第 1 讲 p36</a></p>
+    </li><li class="glossary-row" id="term-upper-bound" data-search="上界 upper bound 数集 a 的上界是一个数 m，a 里每个数都 ≤ m。例如 2 和 5 都是 [0,1] 的上界；所有上界中最小的那个叫上确界。">
+      <div class="g-term"><strong>上界</strong><span lang="en">upper bound</span></div>
+      <p class="g-plain">数集 A 的上界是一个数 M，A 里每个数都 ≤ M。例如 2 和 5 都是 [0,1] 的上界；所有上界中最小的那个叫上确界。</p>
+      <p class="g-page"><a href="topic1/p16.html">第 1 讲 p16</a></p>
+    </li><li class="glossary-row" id="term-lower-bound" data-search="下界 lower bound 数集 a 的下界是一个数 m，a 里每个数都 ≥ m。例如 0 和 −3 都是 (0,1] 的下界；所有下界中最大的那个叫下确界。">
+      <div class="g-term"><strong>下界</strong><span lang="en">lower bound</span></div>
+      <p class="g-plain">数集 A 的下界是一个数 m，A 里每个数都 ≥ m。例如 0 和 −3 都是 (0,1] 的下界；所有下界中最大的那个叫下确界。</p>
+      <p class="g-page"><a href="topic1/p16.html">第 1 讲 p16</a></p>
+    </li><li class="glossary-row" id="term-partial-sum" data-search="部分和 partial sum 级数 a₁ + a₂ + … 的前 n 项之和 sₙ = a₁ + … + aₙ；级数的值就是 sₙ 在 n → ∞ 时的极限。">
+      <div class="g-term"><strong>部分和</strong><span lang="en">partial sum</span></div>
+      <p class="g-plain">级数 a₁ + a₂ + … 的前 n 项之和 Sₙ = a₁ + … + aₙ；级数的值就是 Sₙ 在 n → ∞ 时的极限。</p>
+      <p class="g-page"><a href="topic1/p08.html">第 1 讲 p08</a></p>
+    </li><li class="glossary-row" id="term-left-limit" data-search="左极限 left limit 自变量从左边（比 x 小的一侧）靠近 x 时，函数值趋向的数，记作 f(x−)。分布函数在 x 处的跳跃 f(x) − f(x−) 就是 p(x = x)。">
+      <div class="g-term"><strong>左极限</strong><span lang="en">left limit</span></div>
+      <p class="g-plain">自变量从左边（比 x 小的一侧）靠近 x 时，函数值趋向的数，记作 f(x−)。分布函数在 x 处的跳跃 F(x) − F(x−) 就是 P(X = x)。</p>
+      <p class="g-page"><a href="topic1/p13.html">第 1 讲 p13</a></p>
+    </li><li class="glossary-row" id="term-right-limit" data-search="右极限 right limit 自变量从右边（比 x 大的一侧）靠近 x 时，函数值趋向的数，记作 f(x+)。分布函数总是右连续的：f(x+) = f(x)。">
+      <div class="g-term"><strong>右极限</strong><span lang="en">right limit</span></div>
+      <p class="g-plain">自变量从右边（比 x 大的一侧）靠近 x 时，函数值趋向的数，记作 f(x+)。分布函数总是右连续的：F(x+) = F(x)。</p>
+      <p class="g-page"><a href="topic2/p08.html">第 2 讲 p08</a></p>
+    </li><li class="glossary-row" id="term-uniform-convergence" data-search="一致收敛 uniform convergence 所有点上的最大差距 supₓ |fₙ(x) − f(x)| → 0。比逐点收敛强：不允许某些点收敛得特别慢。">
+      <div class="g-term"><strong>一致收敛</strong><span lang="en">uniform convergence</span></div>
+      <p class="g-plain">所有点上的最大差距 supₓ |fₙ(x) − f(x)| → 0。比逐点收敛强：不允许某些点收敛得特别慢。</p>
+      <p class="g-page"><a href="topic1/p34.html">第 1 讲 p34</a></p>
+    </li><li class="glossary-row" id="term-uniformly-bounded" data-search="一致有界 uniformly bounded 存在同一个常数 m，使所有 n、所有点 x 都有 |fₙ(x)| ≤ m。「一致」是指一个 m 管住整列函数。">
+      <div class="g-term"><strong>一致有界</strong><span lang="en">uniformly bounded</span></div>
+      <p class="g-plain">存在同一个常数 M，使所有 n、所有点 x 都有 |fₙ(x)| ≤ M。「一致」是指一个 M 管住整列函数。</p>
+      <p class="g-page"><a href="topic1/p46.html">第 1 讲 p46</a></p>
+    </li><li class="glossary-row" id="term-triangle-inequality" data-search="三角不等式 triangle inequality |a + b| ≤ |a| + |b|：分两段走的总路程不会比直接走更短。推广有 |∫f| ≤ ∫|f|、e|x + y| ≤ e|x| + e|y|，以及 lᵖ 范数的 minkowski 不等式。">
+      <div class="g-term"><strong>三角不等式</strong><span lang="en">triangle inequality</span></div>
+      <p class="g-plain">|a + b| ≤ |a| + |b|：分两段走的总路程不会比直接走更短。推广有 |∫f| ≤ ∫|f|、E|X + Y| ≤ E|X| + E|Y|，以及 Lᵖ 范数的 Minkowski 不等式。</p>
+      <p class="g-page"><a href="topic1/p43.html">第 1 讲 p43</a></p>
+    </li><li class="glossary-row" id="term-reverse-triangle-inequality" data-search="反向三角不等式 reverse triangle inequality | |a| − |b| | ≤ |a − b|：两个数的绝对值之差不超过它们的距离。常用来从「fₙ 接近 f」推出「|fₙ| 接近 |f|」。">
+      <div class="g-term"><strong>反向三角不等式</strong><span lang="en">reverse triangle inequality</span></div>
+      <p class="g-plain">| |a| − |b| | ≤ |a − b|：两个数的绝对值之差不超过它们的距离。常用来从「fₙ 接近 f」推出「|fₙ| 接近 |f|」。</p>
+      <p class="g-page"><a href="topic2/p27.html">第 2 讲 p27</a></p>
+    </li><li class="glossary-row" id="term-summable" data-search="可求和 summable 非负数列的级数和有限：σ aₙ &lt; ∞。例如 σ 1/n² 可求和，σ 1/n 不可求和（和是 +∞）。">
+      <div class="g-term"><strong>可求和</strong><span lang="en">summable</span></div>
+      <p class="g-plain">非负数列的级数和有限：Σ aₙ &lt; ∞。例如 Σ 1/n² 可求和，Σ 1/n 不可求和（和是 +∞）。</p>
+      <p class="g-page"><a href="topic3/p10.html">第 3 讲 p10</a></p>
     </li><li class="glossary-row" id="term-sample-space" data-search="样本空间 sample space 一次试验所有可能的完整结局组成的集合，记作 ω。">
       <div class="g-term"><strong>样本空间</strong><span lang="en">sample space</span></div>
       <p class="g-plain">一次试验所有可能的完整结局组成的集合，记作 Ω。</p>
@@ -202,6 +247,10 @@
       <div class="g-term"><strong>可测空间</strong><span lang="en">measurable space</span></div>
       <p class="g-plain">一个集合加上它上面的一个 σ-代数，例如 (Ω, 𝓕)；还没有给出测度。</p>
       <p class="g-page"><a href="topic1/p12.html">第 1 讲 p12</a></p>
+    </li><li class="glossary-row" id="term-measurable-set" data-search="可测集 measurable set σ-代数里的集合，也就是可以谈「测度多大」的集合；在概率空间里，可测集就叫事件。">
+      <div class="g-term"><strong>可测集</strong><span lang="en">measurable set</span></div>
+      <p class="g-plain">σ-代数里的集合，也就是可以谈「测度多大」的集合；在概率空间里，可测集就叫事件。</p>
+      <p class="g-page"><a href="topic1/p12.html">第 1 讲 p12</a></p>
     </li><li class="glossary-row" id="term-measure" data-search="测度 measure 给 σ-代数里的每个集合一个 [0, ∞] 中的「大小」，空集为 0，并且可数可加。">
       <div class="g-term"><strong>测度</strong><span lang="en">measure</span></div>
       <p class="g-plain">给 σ-代数里的每个集合一个 [0, ∞] 中的「大小」，空集为 0，并且可数可加。</p>
@@ -221,6 +270,10 @@
     </li><li class="glossary-row" id="term-countable-additivity" data-search="可数可加性 可数可加 countable additivity 两两不交的可数个集合，并集的测度等于各自测度之和。">
       <div class="g-term"><strong>可数可加性</strong><span lang="en">countable additivity</span></div>
       <p class="g-plain">两两不交的可数个集合，并集的测度等于各自测度之和。</p>
+      <p class="g-page"><a href="topic1/p08.html">第 1 讲 p08</a></p>
+    </li><li class="glossary-row" id="term-finite-additivity" data-search="有限可加性 有限可加 finite additivity 两两不交的有限个集合，并集的测度等于各自测度之和。可数可加性是它的加强版：可数无穷多个集合也成立。">
+      <div class="g-term"><strong>有限可加性</strong><span lang="en">finite additivity</span></div>
+      <p class="g-plain">两两不交的有限个集合，并集的测度等于各自测度之和。可数可加性是它的加强版：可数无穷多个集合也成立。</p>
       <p class="g-page"><a href="topic1/p08.html">第 1 讲 p08</a></p>
     </li><li class="glossary-row" id="term-subadditivity" data-search="次可加性 subadditivity 并集的测度不超过各部分测度之和：μ(a ∪ b) ≤ μ(a) + μ(b)。">
       <div class="g-term"><strong>次可加性</strong><span lang="en">subadditivity</span></div>
@@ -318,7 +371,7 @@
       <div class="g-term"><strong>正部</strong><span lang="en">positive / negative part</span></div>
       <p class="g-plain">f⁺ = max(f, 0)，f⁻ = max(−f, 0)，f = f⁺ − f⁻，|f| = f⁺ + f⁻。</p>
       <p class="g-page"><a href="topic1/p33.html">第 1 讲 p33</a></p>
-    </li><li class="glossary-row" id="term-almost-everywhere" data-search="几乎处处 almost everywhere (a.e.) 除了一个测度为 0 的集合之外都成立；零测集上的值不影响积分。">
+    </li><li class="glossary-row" id="term-almost-everywhere" data-search="几乎处处 a.e. almost everywhere (a.e.) 除了一个测度为 0 的集合之外都成立；零测集上的值不影响积分。">
       <div class="g-term"><strong>几乎处处</strong><span lang="en">almost everywhere (a.e.)</span></div>
       <p class="g-plain">除了一个测度为 0 的集合之外都成立；零测集上的值不影响积分。</p>
       <p class="g-page"><a href="topic1/p43.html">第 1 讲 p43</a></p>
@@ -326,7 +379,7 @@
       <div class="g-term"><strong>可积</strong><span lang="en">integrable (L¹)</span></div>
       <p class="g-plain">∫|f| dμ &lt; ∞。全体可积函数记作 L¹(μ)。</p>
       <p class="g-page"><a href="topic1/p29.html">第 1 讲 p29</a></p>
-    </li><li class="glossary-row" id="term-mct" data-search="单调收敛定理 monotone convergence theorem (mct) 非负可测函数单调递增地收敛时，积分也收敛：∫fₙ ↑ ∫f。">
+    </li><li class="glossary-row" id="term-mct" data-search="单调收敛定理 mct monotone convergence theorem (mct) 非负可测函数单调递增地收敛时，积分也收敛：∫fₙ ↑ ∫f。">
       <div class="g-term"><strong>单调收敛定理</strong><span lang="en">monotone convergence theorem (MCT)</span></div>
       <p class="g-plain">非负可测函数单调递增地收敛时，积分也收敛：∫fₙ ↑ ∫f。</p>
       <p class="g-page"><a href="topic1/p36.html">第 1 讲 p36</a></p>
@@ -334,11 +387,11 @@
       <div class="g-term"><strong>Fatou 引理</strong><span lang="en">Fatou's lemma</span></div>
       <p class="g-plain">非负可测函数列满足 ∫ liminf fₙ ≤ liminf ∫ fₙ（只保证这个方向）。</p>
       <p class="g-page"><a href="topic1/p41.html">第 1 讲 p41</a></p>
-    </li><li class="glossary-row" id="term-dct" data-search="控制收敛定理 dominated convergence theorem (dct) fₙ → f 几乎处处且 |fₙ| ≤ g、g 可积时，∫fₙ → ∫f。">
+    </li><li class="glossary-row" id="term-dct" data-search="控制收敛定理 dct dominated convergence theorem (dct) fₙ → f 几乎处处且 |fₙ| ≤ g、g 可积时，∫fₙ → ∫f。">
       <div class="g-term"><strong>控制收敛定理</strong><span lang="en">dominated convergence theorem (DCT)</span></div>
       <p class="g-plain">fₙ → f 几乎处处且 |fₙ| ≤ g、g 可积时，∫fₙ → ∫f。</p>
       <p class="g-page"><a href="topic1/p44.html">第 1 讲 p44</a></p>
-    </li><li class="glossary-row" id="term-bct" data-search="有界收敛定理 bounded convergence theorem (bct) 有限测度上一致有界、几乎处处收敛的函数列，积分收敛；是 dct 的特例。">
+    </li><li class="glossary-row" id="term-bct" data-search="有界收敛定理 bct bounded convergence theorem (bct) 有限测度上一致有界、几乎处处收敛的函数列，积分收敛；是 dct 的特例。">
       <div class="g-term"><strong>有界收敛定理</strong><span lang="en">bounded convergence theorem (BCT)</span></div>
       <p class="g-plain">有限测度上一致有界、几乎处处收敛的函数列，积分收敛；是 DCT 的特例。</p>
       <p class="g-page"><a href="topic1/p46.html">第 1 讲 p46</a></p>
@@ -350,7 +403,19 @@
       <div class="g-term"><strong>分布</strong><span lang="en">law / distribution</span></div>
       <p class="g-plain">X 把概率「推」到取值空间上得到的测度：L(X)(B) = P(X ∈ B)。</p>
       <p class="g-page"><a href="topic2/p06.html">第 2 讲 p06</a></p>
-    </li><li class="glossary-row" id="term-cdf" data-search="累积分布函数 分布函数 cumulative distribution function (cdf) f(x) = p(x ≤ x)，单调不减、右连续，完全决定分布。">
+    </li><li class="glossary-row" id="term-lotus" data-search="无意识统计学家定律 lotus law of the unconscious statistician (lotus) 求 g(x) 的期望，不必先求出 g(x) 的分布，直接把 g 对 x 的分布 𝓛(x) 积分；x 有密度 f 时就是 e g(x) = ∫ g(x) f(x) dx。">
+      <div class="g-term"><strong>无意识统计学家定律</strong><span lang="en">law of the unconscious statistician (LOTUS)</span></div>
+      <p class="g-plain">求 g(X) 的期望，不必先求出 g(X) 的分布，直接把 g 对 X 的分布 𝓛(X) 积分；X 有密度 f 时就是 E g(X) = ∫ g(x) f(x) dx。</p>
+      <p class="g-page"><a href="topic2/p07.html">第 2 讲 p07</a></p>
+    </li><li class="glossary-row" id="term-tail-probability" data-search="尾概率 tail probability 随机变量取到「很大的值」的概率，例如 p(x &gt; t) 或 p(|x| ≥ t)。它随 t 增大而下降得越慢，分布的尾巴就越「厚」。">
+      <div class="g-term"><strong>尾概率</strong><span lang="en">tail probability</span></div>
+      <p class="g-plain">随机变量取到「很大的值」的概率，例如 P(X &gt; t) 或 P(|X| ≥ t)。它随 t 增大而下降得越慢，分布的尾巴就越「厚」。</p>
+      <p class="g-page"><a href="topic2/p10.html">第 2 讲 p10</a></p>
+    </li><li class="glossary-row" id="term-double-integral" data-search="二重积分 double integral 对两个变量一起积分：∬ f(x, y) dx dy。fubini–tonelli 定理说明什么时候可以拆成先对一个变量、再对另一个变量的两次积分。">
+      <div class="g-term"><strong>二重积分</strong><span lang="en">double integral</span></div>
+      <p class="g-plain">对两个变量一起积分：∬ f(x, y) dx dy。Fubini–Tonelli 定理说明什么时候可以拆成先对一个变量、再对另一个变量的两次积分。</p>
+      <p class="g-page"><a href="topic2/p21.html">第 2 讲 p21</a></p>
+    </li><li class="glossary-row" id="term-cdf" data-search="累积分布函数 分布函数 cdf cumulative distribution function (cdf) f(x) = p(x ≤ x)，单调不减、右连续，完全决定分布。">
       <div class="g-term"><strong>累积分布函数</strong><span lang="en">cumulative distribution function (CDF)</span></div>
       <p class="g-plain">F(x) = P(X ≤ x)，单调不减、右连续，完全决定分布。</p>
       <p class="g-page"><a href="topic2/p08.html">第 2 讲 p08</a></p>
@@ -402,7 +467,7 @@
       <div class="g-term"><strong>方差</strong><span lang="en">variance</span></div>
       <p class="g-plain">Var X = E[(X − E X)²]，衡量随机变量围绕均值的波动大小。</p>
       <p class="g-page"><a href="topic2/p32.html">第 2 讲 p32</a></p>
-    </li><li class="glossary-row" id="term-infinitely-often" data-search="无穷多次 无穷次发生 infinitely often (i.o.) 「aₙ 发生无穷多次」就是集合 lim sup aₙ。">
+    </li><li class="glossary-row" id="term-infinitely-often" data-search="无穷多次 无穷次发生 i.o. infinitely often (i.o.) 「aₙ 发生无穷多次」就是集合 lim sup aₙ。">
       <div class="g-term"><strong>无穷多次</strong><span lang="en">infinitely often (i.o.)</span></div>
       <p class="g-plain">「Aₙ 发生无穷多次」就是集合 lim sup Aₙ。</p>
       <p class="g-page"><a href="topic3/p03.html">第 3 讲 p03</a></p>
@@ -414,7 +479,7 @@
       <div class="g-term"><strong>独立</strong><span lang="en">independence</span></div>
       <p class="g-plain">任意有限个事件同时发生的概率等于各自概率的乘积。</p>
       <p class="g-page"><a href="topic3/p06.html">第 3 讲 p06</a></p>
-    </li><li class="glossary-row" id="term-almost-sure" data-search="几乎必然收敛 几乎必然 almost sure convergence 除了概率为 0 的结局以外，xₙ(ω) 都收敛到 x(ω)。">
+    </li><li class="glossary-row" id="term-almost-sure" data-search="几乎必然收敛 几乎必然 a.s. almost sure convergence 除了概率为 0 的结局以外，xₙ(ω) 都收敛到 x(ω)。">
       <div class="g-term"><strong>几乎必然收敛</strong><span lang="en">almost sure convergence</span></div>
       <p class="g-plain">除了概率为 0 的结局以外，Xₙ(ω) 都收敛到 X(ω)。</p>
       <p class="g-page"><a href="topic3/p09.html">第 3 讲 p09</a></p>
@@ -422,6 +487,14 @@
       <div class="g-term"><strong>依概率收敛</strong><span lang="en">convergence in probability</span></div>
       <p class="g-plain">对每个 ε &gt; 0，P(|Xₙ − X| &gt; ε) → 0；比几乎必然收敛弱。</p>
       <p class="g-page"><a href="topic3/p14.html">第 3 讲 p14</a></p>
+    </li><li class="glossary-row" id="term-deviation-probability" data-search="偏差概率 deviation probability xₙ 和目标 x 相差超过 ε 的概率 p(|xₙ − x| &gt; ε)。它趋于 0 就是依概率收敛；对每个 ε 它都可求和时，由 borel–cantelli 引理可推出几乎必然收敛。">
+      <div class="g-term"><strong>偏差概率</strong><span lang="en">deviation probability</span></div>
+      <p class="g-plain">Xₙ 和目标 X 相差超过 ε 的概率 P(|Xₙ − X| &gt; ε)。它趋于 0 就是依概率收敛；对每个 ε 它都可求和时，由 Borel–Cantelli 引理可推出几乎必然收敛。</p>
+      <p class="g-page"><a href="topic3/p10.html">第 3 讲 p10</a></p>
+    </li><li class="glossary-row" id="term-typewriter-sequence" data-search="打字机序列 typewriter sequence 在 [0,1) 上从左到右一遍遍扫过、越来越窄的小区间的示性函数列：依概率收敛到 0，却在每一点都不收敛。">
+      <div class="g-term"><strong>打字机序列</strong><span lang="en">typewriter sequence</span></div>
+      <p class="g-plain">在 [0,1) 上从左到右一遍遍扫过、越来越窄的小区间的示性函数列：依概率收敛到 0，却在每一点都不收敛。</p>
+      <p class="g-page"><a href="topic3/p15.html">第 3 讲 p15</a></p>
     </li><li class="glossary-row" id="term-subsequence" data-search="子列 subsequence 从一个数列里按顺序挑出无穷多项组成的新数列。">
       <div class="g-term"><strong>子列</strong><span lang="en">subsequence</span></div>
       <p class="g-plain">从一个数列里按顺序挑出无穷多项组成的新数列。</p>
@@ -450,7 +523,7 @@
       <div class="g-term"><strong>协方差</strong><span lang="en">covariance</span></div>
       <p class="g-plain">Cov(X, Y) = E[(X − EX)(Y − EY)]，衡量两个变量一起变大或变小的倾向。独立 ⇒ 协方差为 0，反之一般不成立。</p>
       <p class="g-page"><a href="topic4/p04.html">第 4 讲 p04</a></p>
-    </li><li class="glossary-row" id="term-iid" data-search="独立同分布 independent and identically distributed (i.i.d.) 一列随机变量相互独立，并且分布都相同，例如反复独立地掷同一颗骰子。">
+    </li><li class="glossary-row" id="term-iid" data-search="独立同分布 i.i.d. independent and identically distributed (i.i.d.) 一列随机变量相互独立，并且分布都相同，例如反复独立地掷同一颗骰子。">
       <div class="g-term"><strong>独立同分布</strong><span lang="en">independent and identically distributed (i.i.d.)</span></div>
       <p class="g-plain">一列随机变量相互独立，并且分布都相同，例如反复独立地掷同一颗骰子。</p>
       <p class="g-page"><a href="topic4/p05.html">第 4 讲 p05</a></p>
@@ -530,12 +603,16 @@
       <div class="g-term"><strong>依测度收敛</strong><span lang="en">convergence in measure</span></div>
       <p class="g-plain">对每个 ε &gt; 0，μ(|fₙ − f| &gt; ε) → 0：偏差超过 ε 的区域，测度越来越小。在概率空间上就是依概率收敛。</p>
       <p class="g-page"><a href="hw1/p06.html">作业 1 第 6 题</a></p>
-    </li><li class="glossary-row" id="term-strong-law" data-search="强大数定律 strong law of large numbers 独立同分布且 e|x₁| &lt; ∞ 时，样本均值 sₙ/n 几乎必然收敛到 e x₁。">
-      <div class="g-term"><strong>强大数定律</strong><span lang="en">strong law of large numbers</span></div>
+    </li><li class="glossary-row" id="term-bounded-in-probability" data-search="依概率有界 bounded in probability (tight) 一列随机变量不会以不可忽略的概率跑到无穷远：sup_n p(|xₙ| &gt; λ) → 0（λ → ∞）。依概率收敛的序列一定依概率有界。">
+      <div class="g-term"><strong>依概率有界</strong><span lang="en">bounded in probability (tight)</span></div>
+      <p class="g-plain">一列随机变量不会以不可忽略的概率跑到无穷远：sup_n P(|Xₙ| &gt; λ) → 0（λ → ∞）。依概率收敛的序列一定依概率有界。</p>
+      <p class="g-page"><a href="hw2/p03.html">作业 2 第 3 题</a></p>
+    </li><li class="glossary-row" id="term-strong-law" data-search="强大数定律 slln strong law of large numbers (slln) 独立同分布且 e|x₁| &lt; ∞ 时，样本均值 sₙ/n 几乎必然收敛到 e x₁。">
+      <div class="g-term"><strong>强大数定律</strong><span lang="en">strong law of large numbers (SLLN)</span></div>
       <p class="g-plain">独立同分布且 E|X₁| &lt; ∞ 时，样本均值 Sₙ/n 几乎必然收敛到 E X₁。</p>
       <p class="g-page"><a href="hw1/p03.html">作业 1 第 3 题</a></p>
-    </li><li class="glossary-row" id="term-weak-law" data-search="弱大数定律 weak law of large numbers 样本均值依概率收敛到真实均值：对每个 ε &gt; 0，p(|sₙ/n − μ| &gt; ε) → 0。方差有限时可由 chebyshev 不等式直接推出。">
-      <div class="g-term"><strong>弱大数定律</strong><span lang="en">weak law of large numbers</span></div>
+    </li><li class="glossary-row" id="term-weak-law" data-search="弱大数定律 wlln weak law of large numbers (wlln) 样本均值依概率收敛到真实均值：对每个 ε &gt; 0，p(|sₙ/n − μ| &gt; ε) → 0。方差有限时可由 chebyshev 不等式直接推出。">
+      <div class="g-term"><strong>弱大数定律</strong><span lang="en">weak law of large numbers (WLLN)</span></div>
       <p class="g-plain">样本均值依概率收敛到真实均值：对每个 ε &gt; 0，P(|Sₙ/n − μ| &gt; ε) → 0。方差有限时可由 Chebyshev 不等式直接推出。</p>
       <p class="g-page"><a href="topic2/p29.html">第 2 讲 p29</a></p>
     </li><li class="glossary-row" id="term-generalized-dct" data-search="推广的控制收敛定理 generalized dominated convergence theorem |fₙ| ≤ gₙ，fₙ → f，gₙ → g，且 ∫gₙ → ∫g &lt; ∞，则 ∫fₙ → ∫f：控制函数也可以随 n 变化。">
@@ -558,8 +635,8 @@
       <div class="g-term"><strong>依分布收敛</strong><span lang="en">convergence in distribution</span></div>
       <p class="g-plain">在极限分布函数 F 的每个连续点 x 上，P(Xₙ ≤ x) → F(x)。它只比较分布，不要求 Xₙ 本身靠近 X。</p>
       <p class="g-page"><a href="hw2/p04.html">作业 2 第 4 题</a></p>
-    </li><li class="glossary-row" id="term-clt" data-search="中心极限定理 central limit theorem 独立同分布、方差 σ² 有限时，(sₙ − nμ)/(σ√n) 依分布收敛到标准正态分布：大量独立小误差之和近似正态。">
-      <div class="g-term"><strong>中心极限定理</strong><span lang="en">central limit theorem</span></div>
+    </li><li class="glossary-row" id="term-clt" data-search="中心极限定理 clt central limit theorem (clt) 独立同分布、方差 σ² 有限时，(sₙ − nμ)/(σ√n) 依分布收敛到标准正态分布：大量独立小误差之和近似正态。">
+      <div class="g-term"><strong>中心极限定理</strong><span lang="en">central limit theorem (CLT)</span></div>
       <p class="g-plain">独立同分布、方差 σ² 有限时，(Sₙ − nμ)/(σ√n) 依分布收敛到标准正态分布：大量独立小误差之和近似正态。</p>
       <p class="g-page"><a href="hw2/p04.html">作业 2 第 4 题</a></p>
     </li><li class="glossary-row" id="term-kolmogorov-maximal" data-search="kolmogorov 极大不等式 kolmogorov's maximal inequality 独立、均值 0、方差有限时，p(max(|s₁|, …, |sₙ|) ≥ λ) ≤ var(sₙ)/λ²：控制的是整条路径的最大值，而不只是终点。">
@@ -610,8 +687,8 @@
       <div class="g-term"><strong>Riesz 子列定理</strong><span lang="en">Riesz's subsequence theorem</span></div>
       <p class="g-plain">依测度（依概率）收敛的序列，一定有一个子列几乎处处收敛到同一个极限。</p>
       <p class="g-page"><a href="quiz1/p04.html">小测 1 第 4 题</a></p>
-    </li><li class="glossary-row" id="term-uniform-integrability" data-search="一致可积 uniformly integrable 一族随机变量的尾部期望一致地变小：supₜ e[|xₜ|; |xₜ| &gt; λ] → 0（λ → ∞）。它是「依概率收敛 ⇒ 期望收敛」的关键条件。">
-      <div class="g-term"><strong>一致可积</strong><span lang="en">uniformly integrable</span></div>
+    </li><li class="glossary-row" id="term-uniform-integrability" data-search="一致可积 ui uniformly integrable (ui) 一族随机变量的尾部期望一致地变小：supₜ e[|xₜ|; |xₜ| &gt; λ] → 0（λ → ∞）。它是「依概率收敛 ⇒ 期望收敛」的关键条件。">
+      <div class="g-term"><strong>一致可积</strong><span lang="en">uniformly integrable (UI)</span></div>
       <p class="g-plain">一族随机变量的尾部期望一致地变小：supₜ E[|Xₜ|; |Xₜ| &gt; λ] → 0（λ → ∞）。它是「依概率收敛 ⇒ 期望收敛」的关键条件。</p>
       <p class="g-page"><a href="quiz2/p02.html">小测 2 第 2 题</a></p>
     </li><li class="glossary-row" id="term-kolmogorov-01" data-search="kolmogorov 0-1 律 kolmogorov's zero–one law 独立随机变量序列的尾事件（改动前面有限项不受影响的事件）概率只能是 0 或 1。">
@@ -637,8 +714,19 @@
     <p class="search-hint">↑↓ 选择 · Enter 打开 · Esc 关闭</p>
   </div>
 </div>
+<div class="search-panel symbol-panel" id="symbol-panel" hidden>
+  <div class="search-box symbol-box" role="dialog" aria-label="符号与缩写速查">
+    <div class="symbol-head">
+      <strong>符号与缩写速查</strong>
+      <button class="tool-btn" id="symbol-close" type="button">关闭 ✕</button>
+    </div>
+    <input id="symbol-filter" type="search" placeholder="筛选：输入读法或意思，例如 期望、取整、a.s.、DCT" autocomplete="off">
+    <div class="symbol-body prose" id="symbol-body"><p class="symbol-status">正在载入……</p></div>
+    <p class="search-hint">完整版：<a href="basics.html#symbols">基础补课 · 符号与缩写速查表</a> · Esc 关闭</p>
+  </div>
+</div>
 
-<script src="assets/js/site.js?v=16b9c66b2d" defer></script>
-<script src="assets/js/demos.js?v=16b9c66b2d" defer></script>
+<script src="assets/js/site.js?v=02934f5b0d" defer></script>
+<script src="assets/js/demos.js?v=02934f5b0d" defer></script>
 </body>
 </html>

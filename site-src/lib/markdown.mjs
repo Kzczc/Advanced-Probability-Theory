@@ -260,14 +260,23 @@ function linkTermsInChildren(children, matchers, used, state) {
   return result;
 }
 
-/** 找术语在文本里的位置；前一个字在 notAfter 里时跳过（例如「不相交集合」里的「交集」） */
+const LATIN_WORD_CHARACTER = /[A-Za-z0-9]/;
+
+/**
+ * 找术语在文本里的位置；前一个字在 notAfter 里时跳过（例如「不相交集合」里的「交集」）。
+ * 英文缩写（wholeWord）要求前后都不是字母或数字。
+ */
 function findTermIndex(text, matcher) {
   let from = 0;
   while (from <= text.length) {
     const index = text.indexOf(matcher.text, from);
     if (index < 0) return -1;
     const previous = index > 0 ? text[index - 1] : "";
-    if (!matcher.notAfter || !matcher.notAfter.includes(previous)) return index;
+    const next = text[index + matcher.text.length] || "";
+    const blocked = matcher.wholeWord
+      ? LATIN_WORD_CHARACTER.test(previous) || LATIN_WORD_CHARACTER.test(next)
+      : previous !== "" && Boolean(matcher.notAfter) && matcher.notAfter.includes(previous);
+    if (!blocked) return index;
     from = index + 1;
   }
   return -1;
@@ -473,7 +482,15 @@ export function createMarkdownRenderer() {
     const token = tokens[idx];
     const inline = tokens[idx + 1];
     env.headingCounter = (env.headingCounter || 0) + 1;
-    const id = `s${env.headingCounter}`;
+    let id = `s${env.headingCounter}`;
+    // 固定锚点：「## 标题 {#symbols}」。自动编号会随前面标题的增减而变，供外部链接的锚点要写死
+    const lastChild = inline.children && inline.children[inline.children.length - 1];
+    const explicitId = lastChild && lastChild.type === "text" ? /\s*\{#([a-z][a-z0-9-]*)\}\s*$/.exec(lastChild.content) : null;
+    if (explicitId) {
+      id = explicitId[1];
+      lastChild.content = lastChild.content.slice(0, explicitId.index);
+      inline.content = inline.content.replace(/\s*\{#[a-z][a-z0-9-]*\}\s*$/, "");
+    }
     token.attrSet("id", id);
     if (token.tag === "h1") {
       env.report?.("warn", inline.content, "讲义正文不要用一级标题 #，已按二级标题处理");

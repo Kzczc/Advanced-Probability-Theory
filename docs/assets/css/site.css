@@ -224,6 +224,16 @@ kbd {
   .notes { padding: 4px 16px 24px; border-radius: 10px; }
   .page-head h1 { font-size: 1.5rem; }
 }
+/* 窄手机：按钮收紧，让「目录、标题、搜索、符号、夜间、A− A+」一行放得下 */
+@media (max-width: 420px) {
+  .topbar-inner { gap: 6px; }
+  .tools { gap: 3px; }
+  .tool-btn { padding: 6px 7px; }
+}
+@media (max-width: 350px) {
+  .topbar-inner { padding: 0 6px; }
+  .brand { font-size: 1rem; }
+}
 
 .page-foot { max-width: 1400px; margin: 34px auto 0; }
 .done-toggle {
@@ -276,6 +286,16 @@ kbd {
 .prose table { border-collapse: collapse; width: 100%; font-size: 0.95em; background: #fff; }
 .prose th, .prose td { border: 1px solid var(--line); padding: 0.5em 0.75em; vertical-align: top; text-align: left; }
 .prose th { background: #f3f3f8; font-weight: 700; }
+/* 速查表在窄屏上每行排成一张小卡片（列名由脚本写进 data-label） */
+@media (max-width: 640px) {
+  .stack-table thead { display: none; }
+  .stack-table, .stack-table tbody, .stack-table tr, .stack-table td { display: block; width: auto; }
+  .stack-table tr { padding: 8px 2px 10px; border-bottom: 1px solid var(--line); }
+  .stack-table tr[hidden] { display: none; }
+  .prose .stack-table td { border: 0; padding: 1px 0; }
+  .stack-table td:first-child { font-size: 1.1em; padding-bottom: 4px; }
+  .stack-table td[data-label]::before { content: attr(data-label) "："; font-family: var(--font-ui); font-size: 0.78em; color: var(--muted); }
+}
 
 .page-link { text-decoration-style: dotted; }
 .term { border-bottom: 1.5px dotted var(--accent); cursor: help; text-decoration: none; }
@@ -454,6 +474,15 @@ details.box > .box-body { padding: 0 1.15em 0.95em; }
 .search-results .r-snippet { font-size: 0.86rem; color: var(--ink-soft); display: block; }
 .search-results mark { background: #fff1a8; color: inherit; border-radius: 2px; }
 .search-hint { font-family: var(--font-ui); font-size: 0.75rem; color: var(--muted); margin: 0; padding: 8px 16px 12px; border-top: 1px solid var(--line); }
+
+/* 符号速查面板：遮罩和对话框沿用搜索面板 */
+.symbol-box { width: min(960px, 96vw); max-height: 86vh; display: flex; flex-direction: column; }
+.symbol-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px 8px; font-family: var(--font-ui); }
+.symbol-head strong { font-size: 1rem; }
+.symbol-body { flex: 1 1 auto; min-height: 0; overflow-y: auto; padding: 12px 14px 2px; }
+.symbol-body .box { margin: 0 0 14px; }
+.symbol-body [hidden] { display: none !important; }
+.symbol-status { font-family: var(--font-ui); font-size: 0.9rem; color: var(--muted); margin: 8px 4px 14px; }
 
 /* ------------------------------------------------------------------ */
 /* 首页 / 目录页 / 术语表 / 基础补课                                    */

@@ -130,6 +130,13 @@
   plain: "允许从无穷多个非空集合里各挑一个元素，组成一个新集合；维塔利集就是这样造的。"
   topic: 1
   page: 21
+- id: "iff"
+  term: "当且仅当"
+  aliases: ["iff"]
+  en: "if and only if (iff)"
+  plain: "「A 当且仅当 B」：A 成立就一定有 B，B 成立也一定有 A，两者同真同假，记作 A ⟺ B。"
+  topic: 1
+  page: 6
 
 # ---------- 函数、极限与确界 ----------
 - id: "function"
@@ -190,10 +197,71 @@
   page: 13
 - id: "pointwise"
   term: "逐点收敛"
+  aliases: ["逐点极限"]
   en: "pointwise convergence"
-  plain: "对定义域里的每一个点 x，数列 fₙ(x) 都收敛到 f(x)。"
+  plain: "对定义域里的每一个点 x，数列 fₙ(x) 都收敛到 f(x)；这样得到的函数 f 叫逐点极限。"
   topic: 1
   page: 36
+- id: "upper-bound"
+  term: "上界"
+  en: "upper bound"
+  plain: "数集 A 的上界是一个数 M，A 里每个数都 ≤ M。例如 2 和 5 都是 [0,1] 的上界；所有上界中最小的那个叫上确界。"
+  topic: 1
+  page: 16
+- id: "lower-bound"
+  term: "下界"
+  en: "lower bound"
+  plain: "数集 A 的下界是一个数 m，A 里每个数都 ≥ m。例如 0 和 −3 都是 (0,1] 的下界；所有下界中最大的那个叫下确界。"
+  topic: 1
+  page: 16
+- id: "partial-sum"
+  term: "部分和"
+  en: "partial sum"
+  plain: "级数 a₁ + a₂ + … 的前 n 项之和 Sₙ = a₁ + … + aₙ；级数的值就是 Sₙ 在 n → ∞ 时的极限。"
+  topic: 1
+  page: 8
+- id: "left-limit"
+  term: "左极限"
+  en: "left limit"
+  plain: "自变量从左边（比 x 小的一侧）靠近 x 时，函数值趋向的数，记作 f(x−)。分布函数在 x 处的跳跃 F(x) − F(x−) 就是 P(X = x)。"
+  topic: 1
+  page: 13
+- id: "right-limit"
+  term: "右极限"
+  en: "right limit"
+  plain: "自变量从右边（比 x 大的一侧）靠近 x 时，函数值趋向的数，记作 f(x+)。分布函数总是右连续的：F(x+) = F(x)。"
+  topic: 2
+  page: 8
+- id: "uniform-convergence"
+  term: "一致收敛"
+  en: "uniform convergence"
+  plain: "所有点上的最大差距 supₓ |fₙ(x) − f(x)| → 0。比逐点收敛强：不允许某些点收敛得特别慢。"
+  topic: 1
+  page: 34
+- id: "uniformly-bounded"
+  term: "一致有界"
+  en: "uniformly bounded"
+  plain: "存在同一个常数 M，使所有 n、所有点 x 都有 |fₙ(x)| ≤ M。「一致」是指一个 M 管住整列函数。"
+  topic: 1
+  page: 46
+- id: "triangle-inequality"
+  term: "三角不等式"
+  en: "triangle inequality"
+  plain: "|a + b| ≤ |a| + |b|：分两段走的总路程不会比直接走更短。推广有 |∫f| ≤ ∫|f|、E|X + Y| ≤ E|X| + E|Y|，以及 Lᵖ 范数的 Minkowski 不等式。"
+  topic: 1
+  page: 43
+- id: "reverse-triangle-inequality"
+  term: "反向三角不等式"
+  en: "reverse triangle inequality"
+  plain: "| |a| − |b| | ≤ |a − b|：两个数的绝对值之差不超过它们的距离。常用来从「fₙ 接近 f」推出「|fₙ| 接近 |f|」。"
+  topic: 2
+  page: 27
+- id: "summable"
+  term: "可求和"
+  en: "summable"
+  plain: "非负数列的级数和有限：Σ aₙ < ∞。例如 Σ 1/n² 可求和，Σ 1/n 不可求和（和是 +∞）。"
+  topic: 3
+  page: 10
 
 # ---------- 概率空间与测度 ----------
 - id: "sample-space"
@@ -253,6 +321,12 @@
   plain: "一个集合加上它上面的一个 σ-代数，例如 (Ω, 𝓕)；还没有给出测度。"
   topic: 1
   page: 12
+- id: "measurable-set"
+  term: "可测集"
+  en: "measurable set"
+  plain: "σ-代数里的集合，也就是可以谈「测度多大」的集合；在概率空间里，可测集就叫事件。"
+  topic: 1
+  page: 12
 - id: "measure"
   term: "测度"
   en: "measure"
@@ -282,6 +356,13 @@
   aliases: ["可数可加"]
   en: "countable additivity"
   plain: "两两不交的可数个集合，并集的测度等于各自测度之和。"
+  topic: 1
+  page: 8
+- id: "finite-additivity"
+  term: "有限可加性"
+  aliases: ["有限可加"]
+  en: "finite additivity"
+  plain: "两两不交的有限个集合，并集的测度等于各自测度之和。可数可加性是它的加强版：可数无穷多个集合也成立。"
   topic: 1
   page: 8
 - id: "subadditivity"
@@ -442,6 +523,7 @@
   page: 33
 - id: "almost-everywhere"
   term: "几乎处处"
+  aliases: ["a.e."]
   en: "almost everywhere (a.e.)"
   plain: "除了一个测度为 0 的集合之外都成立；零测集上的值不影响积分。"
   topic: 1
@@ -454,6 +536,7 @@
   page: 29
 - id: "mct"
   term: "单调收敛定理"
+  aliases: ["MCT"]
   en: "monotone convergence theorem (MCT)"
   plain: "非负可测函数单调递增地收敛时，积分也收敛：∫fₙ ↑ ∫f。"
   topic: 1
@@ -467,12 +550,14 @@
   page: 41
 - id: "dct"
   term: "控制收敛定理"
+  aliases: ["DCT"]
   en: "dominated convergence theorem (DCT)"
   plain: "fₙ → f 几乎处处且 |fₙ| ≤ g、g 可积时，∫fₙ → ∫f。"
   topic: 1
   page: 44
 - id: "bct"
   term: "有界收敛定理"
+  aliases: ["BCT"]
   en: "bounded convergence theorem (BCT)"
   plain: "有限测度上一致有界、几乎处处收敛的函数列，积分收敛；是 DCT 的特例。"
   topic: 1
@@ -492,9 +577,28 @@
   plain: "X 把概率「推」到取值空间上得到的测度：L(X)(B) = P(X ∈ B)。"
   topic: 2
   page: 6
+- id: "lotus"
+  term: "无意识统计学家定律"
+  aliases: ["LOTUS"]
+  en: "law of the unconscious statistician (LOTUS)"
+  plain: "求 g(X) 的期望，不必先求出 g(X) 的分布，直接把 g 对 X 的分布 𝓛(X) 积分；X 有密度 f 时就是 E g(X) = ∫ g(x) f(x) dx。"
+  topic: 2
+  page: 7
+- id: "tail-probability"
+  term: "尾概率"
+  en: "tail probability"
+  plain: "随机变量取到「很大的值」的概率，例如 P(X > t) 或 P(|X| ≥ t)。它随 t 增大而下降得越慢，分布的尾巴就越「厚」。"
+  topic: 2
+  page: 10
+- id: "double-integral"
+  term: "二重积分"
+  en: "double integral"
+  plain: "对两个变量一起积分：∬ f(x, y) dx dy。Fubini–Tonelli 定理说明什么时候可以拆成先对一个变量、再对另一个变量的两次积分。"
+  topic: 2
+  page: 21
 - id: "cdf"
   term: "累积分布函数"
-  aliases: ["分布函数"]
+  aliases: ["分布函数", "CDF"]
   en: "cumulative distribution function (CDF)"
   plain: "F(x) = P(X ≤ x)，单调不减、右连续，完全决定分布。"
   topic: 2
@@ -580,7 +684,7 @@
 # ---------- 第 3 讲 ----------
 - id: "infinitely-often"
   term: "无穷多次"
-  aliases: ["无穷次发生"]
+  aliases: ["无穷次发生", "i.o."]
   en: "infinitely often (i.o.)"
   plain: "「Aₙ 发生无穷多次」就是集合 lim sup Aₙ。"
   topic: 3
@@ -600,7 +704,7 @@
   page: 6
 - id: "almost-sure"
   term: "几乎必然收敛"
-  aliases: ["几乎必然"]
+  aliases: ["几乎必然", "a.s."]
   en: "almost sure convergence"
   plain: "除了概率为 0 的结局以外，Xₙ(ω) 都收敛到 X(ω)。"
   topic: 3
@@ -611,6 +715,18 @@
   plain: "对每个 ε > 0，P(|Xₙ − X| > ε) → 0；比几乎必然收敛弱。"
   topic: 3
   page: 14
+- id: "deviation-probability"
+  term: "偏差概率"
+  en: "deviation probability"
+  plain: "Xₙ 和目标 X 相差超过 ε 的概率 P(|Xₙ − X| > ε)。它趋于 0 就是依概率收敛；对每个 ε 它都可求和时，由 Borel–Cantelli 引理可推出几乎必然收敛。"
+  topic: 3
+  page: 10
+- id: "typewriter-sequence"
+  term: "打字机序列"
+  en: "typewriter sequence"
+  plain: "在 [0,1) 上从左到右一遍遍扫过、越来越窄的小区间的示性函数列：依概率收敛到 0，却在每一点都不收敛。"
+  topic: 3
+  page: 15
 - id: "subsequence"
   term: "子列"
   en: "subsequence"
@@ -658,6 +774,7 @@
   page: 4
 - id: "iid"
   term: "独立同分布"
+  aliases: ["i.i.d."]
   en: "independent and identically distributed (i.i.d.)"
   plain: "一列随机变量相互独立，并且分布都相同，例如反复独立地掷同一颗骰子。"
   topic: 4
@@ -781,15 +898,23 @@
   plain: "对每个 ε > 0，μ(|fₙ − f| > ε) → 0：偏差超过 ε 的区域，测度越来越小。在概率空间上就是依概率收敛。"
   topic: "hw1"
   page: 6
+- id: "bounded-in-probability"
+  term: "依概率有界"
+  en: "bounded in probability (tight)"
+  plain: "一列随机变量不会以不可忽略的概率跑到无穷远：sup_n P(|Xₙ| > λ) → 0（λ → ∞）。依概率收敛的序列一定依概率有界。"
+  topic: "hw2"
+  page: 3
 - id: "strong-law"
   term: "强大数定律"
-  en: "strong law of large numbers"
+  aliases: ["SLLN"]
+  en: "strong law of large numbers (SLLN)"
   plain: "独立同分布且 E|X₁| < ∞ 时，样本均值 Sₙ/n 几乎必然收敛到 E X₁。"
   topic: "hw1"
   page: 3
 - id: "weak-law"
   term: "弱大数定律"
-  en: "weak law of large numbers"
+  aliases: ["WLLN"]
+  en: "weak law of large numbers (WLLN)"
   plain: "样本均值依概率收敛到真实均值：对每个 ε > 0，P(|Sₙ/n − μ| > ε) → 0。方差有限时可由 Chebyshev 不等式直接推出。"
   topic: 2
   page: 29
@@ -826,7 +951,8 @@
   page: 4
 - id: "clt"
   term: "中心极限定理"
-  en: "central limit theorem"
+  aliases: ["CLT"]
+  en: "central limit theorem (CLT)"
   plain: "独立同分布、方差 σ² 有限时，(Sₙ − nμ)/(σ√n) 依分布收敛到标准正态分布：大量独立小误差之和近似正态。"
   topic: "hw2"
   page: 4
@@ -905,7 +1031,8 @@
   page: 4
 - id: "uniform-integrability"
   term: "一致可积"
-  en: "uniformly integrable"
+  aliases: ["UI"]
+  en: "uniformly integrable (UI)"
   plain: "一族随机变量的尾部期望一致地变小：supₜ E[|Xₜ|; |Xₜ| > λ] → 0（λ → ∞）。它是「依概率收敛 ⇒ 期望收敛」的关键条件。"
   topic: "quiz2"
   page: 2
