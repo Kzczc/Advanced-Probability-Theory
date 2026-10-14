@@ -603,9 +603,15 @@
   plain: "F(x) = P(X ≤ x)，单调不减、右连续，完全决定分布。"
   topic: 2
   page: 8
+- id: "inverse-function"
+  term: "反函数"
+  en: "inverse function"
+  plain: "f 把不同的输入送到不同的输出时，反函数 f⁻¹ 把输出送回原来的输入：f⁻¹(f(x)) = x。例：ln 是 eˣ 的反函数。注意：集合的原像 f⁻¹(D) 不需要反函数存在。"
+  topic: 2
+  page: 14
 - id: "quantile"
   term: "分位数"
-  aliases: ["广义分位数"]
+  aliases: ["广义分位数", "广义反函数"]
   en: "quantile"
   plain: "Q(u) = inf{x : F(x) ≥ u}，是 CDF 的「广义反函数」。"
   topic: 2
@@ -715,7 +721,7 @@
   page: 24
 - id: "cauchy-schwarz"
   term: "柯西–施瓦茨不等式"
-  aliases: ["Cauchy–Schwarz 不等式"]
+  aliases: ["Cauchy–Schwarz 不等式", "Cauchy–Schwarz"]
   en: "Cauchy–Schwarz inequality"
   plain: "E|XY| ≤ √(E X²) · √(E Y²)：Hölder 不等式取 p = q = 2 的特例。"
   topic: 2
@@ -955,6 +961,12 @@
   aliases: ["SLLN"]
   en: "strong law of large numbers (SLLN)"
   plain: "独立同分布且 E|X₁| < ∞ 时，样本均值 Sₙ/n 几乎必然收敛到 E X₁。"
+  topic: "hw1"
+  page: 3
+- id: "characteristic-function"
+  term: "特征函数"
+  en: "characteristic function"
+  plain: "φ_X(t) = E e^{itX}（i 是虚数单位），把一个分布编码成一个函数：两个随机变量同分布 ⟺ 特征函数相同。本课没有讲它，作业里只当作已知工具提到。"
   topic: "hw1"
   page: 3
 - id: "weak-law"

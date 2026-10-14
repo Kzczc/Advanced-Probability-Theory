@@ -419,7 +419,11 @@
       <div class="g-term"><strong>累积分布函数</strong><span lang="en">cumulative distribution function (CDF)</span></div>
       <p class="g-plain">F(x) = P(X ≤ x)，单调不减、右连续，完全决定分布。</p>
       <p class="g-page"><a href="topic2/p08.html">第 2 讲 p08</a></p>
-    </li><li class="glossary-row" id="term-quantile" data-search="分位数 广义分位数 quantile q(u) = inf{x : f(x) ≥ u}，是 cdf 的「广义反函数」。">
+    </li><li class="glossary-row" id="term-inverse-function" data-search="反函数 inverse function f 把不同的输入送到不同的输出时，反函数 f⁻¹ 把输出送回原来的输入：f⁻¹(f(x)) = x。例：ln 是 eˣ 的反函数。注意：集合的原像 f⁻¹(d) 不需要反函数存在。">
+      <div class="g-term"><strong>反函数</strong><span lang="en">inverse function</span></div>
+      <p class="g-plain">f 把不同的输入送到不同的输出时，反函数 f⁻¹ 把输出送回原来的输入：f⁻¹(f(x)) = x。例：ln 是 eˣ 的反函数。注意：集合的原像 f⁻¹(D) 不需要反函数存在。</p>
+      <p class="g-page"><a href="topic2/p14.html">第 2 讲 p14</a></p>
+    </li><li class="glossary-row" id="term-quantile" data-search="分位数 广义分位数 广义反函数 quantile q(u) = inf{x : f(x) ≥ u}，是 cdf 的「广义反函数」。">
       <div class="g-term"><strong>分位数</strong><span lang="en">quantile</span></div>
       <p class="g-plain">Q(u) = inf{x : F(x) ≥ u}，是 CDF 的「广义反函数」。</p>
       <p class="g-page"><a href="topic2/p14.html">第 2 讲 p14</a></p>
@@ -487,7 +491,7 @@
       <div class="g-term"><strong>凹函数</strong><span lang="en">concave function</span></div>
       <p class="g-plain">−φ 是凸函数时，φ 叫凹函数：任意两点间的弦都在图像下方，例如 log x、√x。对凹函数，Jensen 不等式反向：E φ(X) ≤ φ(E X)。</p>
       <p class="g-page"><a href="topic2/p24.html">第 2 讲 p24</a></p>
-    </li><li class="glossary-row" id="term-cauchy-schwarz" data-search="柯西–施瓦茨不等式 cauchy–schwarz 不等式 cauchy–schwarz inequality e|xy| ≤ √(e x²) · √(e y²)：hölder 不等式取 p = q = 2 的特例。">
+    </li><li class="glossary-row" id="term-cauchy-schwarz" data-search="柯西–施瓦茨不等式 cauchy–schwarz 不等式 cauchy–schwarz cauchy–schwarz inequality e|xy| ≤ √(e x²) · √(e y²)：hölder 不等式取 p = q = 2 的特例。">
       <div class="g-term"><strong>柯西–施瓦茨不等式</strong><span lang="en">Cauchy–Schwarz inequality</span></div>
       <p class="g-plain">E|XY| ≤ √(E X²) · √(E Y²)：Hölder 不等式取 p = q = 2 的特例。</p>
       <p class="g-page"><a href="topic2/p26.html">第 2 讲 p26</a></p>
@@ -638,6 +642,10 @@
     </li><li class="glossary-row" id="term-strong-law" data-search="强大数定律 slln strong law of large numbers (slln) 独立同分布且 e|x₁| &lt; ∞ 时，样本均值 sₙ/n 几乎必然收敛到 e x₁。">
       <div class="g-term"><strong>强大数定律</strong><span lang="en">strong law of large numbers (SLLN)</span></div>
       <p class="g-plain">独立同分布且 E|X₁| &lt; ∞ 时，样本均值 Sₙ/n 几乎必然收敛到 E X₁。</p>
+      <p class="g-page"><a href="hw1/p03.html">作业 1 第 3 题</a></p>
+    </li><li class="glossary-row" id="term-characteristic-function" data-search="特征函数 characteristic function φ_x(t) = e e^{itx}（i 是虚数单位），把一个分布编码成一个函数：两个随机变量同分布 ⟺ 特征函数相同。本课没有讲它，作业里只当作已知工具提到。">
+      <div class="g-term"><strong>特征函数</strong><span lang="en">characteristic function</span></div>
+      <p class="g-plain">φ_X(t) = E e^{itX}（i 是虚数单位），把一个分布编码成一个函数：两个随机变量同分布 ⟺ 特征函数相同。本课没有讲它，作业里只当作已知工具提到。</p>
       <p class="g-page"><a href="hw1/p03.html">作业 1 第 3 题</a></p>
     </li><li class="glossary-row" id="term-weak-law" data-search="弱大数定律 wlln weak law of large numbers (wlln) 样本均值依概率收敛到真实均值：对每个 ε &gt; 0，p(|sₙ/n − μ| &gt; ε) → 0。方差有限时可由 chebyshev 不等式直接推出。">
       <div class="g-term"><strong>弱大数定律</strong><span lang="en">weak law of large numbers (WLLN)</span></div>
