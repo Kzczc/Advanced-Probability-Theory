@@ -680,6 +680,46 @@
   plain: "Var X = E[(X − E X)²]，衡量随机变量围绕均值的波动大小。"
   topic: 2
   page: 32
+- id: "pi-lambda"
+  term: "π-λ 定理"
+  aliases: ["π–λ 定理"]
+  en: "Dynkin's π-λ theorem"
+  plain: "两个概率测度如果在一个「对交集封闭」的集合族（π-系）上相等，就在这个族生成的整个 σ-代数上相等。所以验证两个测度相同，只需检查生成元。"
+  topic: 2
+  page: 8
+- id: "mean-value-theorem"
+  term: "中值定理"
+  aliases: ["微分中值定理", "拉格朗日中值定理"]
+  en: "mean value theorem"
+  plain: "f 在 [a,b] 上连续、在 (a,b) 内可导，则存在某个 ξ ∈ (a,b) 使 f(b) − f(a) = f′(ξ)(b − a)：总增量等于某一点的斜率乘以区间长度。"
+  topic: 2
+  page: 9
+- id: "integration-by-parts"
+  term: "分部积分"
+  en: "integration by parts"
+  plain: "∫ₐᵇ u v′ dx = [u v]ₐᵇ − ∫ₐᵇ u′ v dx：把求导从一个函数挪到另一个函数上。由乘积求导法则 (uv)′ = u′v + uv′ 两边积分得到。"
+  topic: 2
+  page: 10
+- id: "singular-continuous"
+  term: "奇异连续分布"
+  aliases: ["奇异连续"]
+  en: "singular continuous distribution"
+  plain: "没有原子（每一点的概率都是 0），却没有密度的分布：全部质量集中在一个长度为 0 的集合上，例如康托尔分布。"
+  topic: 2
+  page: 20
+- id: "concave-function"
+  term: "凹函数"
+  en: "concave function"
+  plain: "−φ 是凸函数时，φ 叫凹函数：任意两点间的弦都在图像下方，例如 log x、√x。对凹函数，Jensen 不等式反向：E φ(X) ≤ φ(E X)。"
+  topic: 2
+  page: 24
+- id: "cauchy-schwarz"
+  term: "柯西–施瓦茨不等式"
+  aliases: ["Cauchy–Schwarz 不等式"]
+  en: "Cauchy–Schwarz inequality"
+  plain: "E|XY| ≤ √(E X²) · √(E Y²)：Hölder 不等式取 p = q = 2 的特例。"
+  topic: 2
+  page: 26
 
 # ---------- 第 3 讲 ----------
 - id: "infinitely-often"
@@ -890,6 +930,12 @@
   plain: "对称矩阵 Σ 满足：对所有非零向量 x，xᵀΣx > 0。多元正态要求协方差矩阵正定。"
   topic: 4
   page: 19
+- id: "polar-coordinates"
+  term: "极坐标"
+  en: "polar coordinates"
+  plain: "用到原点的距离 r 和角度 θ 表示平面上的点：x = r cos θ，y = r sin θ。在极坐标下做二重积分时 dx dy = r dr dθ。"
+  topic: 4
+  page: 15
 
 # ---------- 作业与小测 ----------
 - id: "convergence-in-measure"
