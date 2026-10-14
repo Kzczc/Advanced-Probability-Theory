@@ -374,8 +374,10 @@ details.box > .box-body { padding: 0 1.15em 0.95em; }
 .box-more { --box-accent: #475569; --box-bg: #ffffff; --box-line: #dde1e6; border-left-width: 3px; }
 
 /* 裁出的课件局部 */
+/* 必须是 content-box：aspect-ratio 和图片的 top 百分比都要以内框为准，
+   否则 1px 边框会让窗口按 from/(to−from) 倍放大地向上偏，切掉半行字 */
 .crop {
-  position: relative; overflow: hidden; margin: 0.35em 0 0.85em;
+  position: relative; overflow: hidden; margin: 0.35em 0 0.85em; box-sizing: content-box;
   border: 1px solid var(--line); border-radius: 8px; background: #fff;
 }
 .crop img { position: absolute; max-width: none; height: auto; display: block; }
